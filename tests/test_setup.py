@@ -10,7 +10,7 @@ def test_agents_carries_the_canonical_marker():
 
 def test_readme_states_the_closed_round_count():
     text = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert re.search(r"Closed perfection rounds, 2 of 100", text)
+    assert re.search(r"Closed perfection rounds, 3 of 100", text)
 
 def test_contract_carries_the_setup_obligations():
     text = (ROOT / "CONTRACT.md").read_text(encoding="utf-8")
@@ -52,13 +52,14 @@ def test_readme_reports_the_round_three_status():
     text = (ROOT / "README.md").read_text(encoding="utf-8")
     lines = text.splitlines()
     standing = (
-        "- Contract, GJ-7 and GJ-8 now stand in full form in "
-        "CONTRACT.md under the Round 3 obligations, and their standing "
-        "is not claimed here, as Round 3 has not closed."
+        "- Contract, GJ-7 and GJ-8 met. They stand in full form in "
+        "CONTRACT.md with the Round 3 repair amendments, and Round 3 "
+        "closed on the merged slice 4 after three reviews, a repair "
+        "pass, and an approving re-review."
     )
     assert standing in lines
     slice_line = (
-        "- Slice 4 is built and in review. It carries the full live "
+        "- Slice 4 has landed. It carries the full live "
         "poll over both decision model routes, forty synthetic "
         "questions with five seats per question per model and the raw "
         "envelopes and the run record under examples, and the "
@@ -66,7 +67,7 @@ def test_readme_reports_the_round_three_status():
         "command and its golden."
     )
     assert slice_line in lines
-    assert text.count("built and in review") == 1
+    assert text.count("built and in review") == 0
 
 def test_ci_runs_the_same_gate_as_the_local_gate():
     text = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
