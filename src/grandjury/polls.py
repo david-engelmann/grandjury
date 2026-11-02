@@ -4,7 +4,9 @@ counter for grandjury.
 Every function in this module is a pure function of its inputs, and
 the loaders never raise on malformed content. The obligations this
 module carries are GJ-1 to GJ-4 in CONTRACT.md, in the full form
-section. The counter runs on recorded polls and makes no live call.
+section, and the Round 2 extension of the recorded poll shape with
+its abstained response kind in the Round 2 section. The counter
+runs on recorded polls and makes no live call.
 """
 
 import json
@@ -41,6 +43,20 @@ def _holds_unpaired_surrogate(text):
     return False
 
 
+def _holds_line_break(text):
+    """Return whether a string holds a newline or a carriage return.
+
+    Every rendering prints one field to a line, so a text value
+    holding a line break forges the structure of the printed
+    output, and the loaders name it as a defect instead of
+    letting it reach the printer. A value a defect message
+    names is held to the same rule, because the command line
+    prints the defect list. FIX-GJ-3, FIX-GJ-6, and FIX-GJ-7
+    in CONTRACT.md state the rule.
+    """
+    return "\n" in text or "\r" in text
+
+
 def _check_response_text(entry, index, name, defects, allow_empty):
     """Validate one text field of a response and return its value.
 
@@ -64,6 +80,11 @@ def _check_response_text(entry, index, name, defects, allow_empty):
             f"response {index} field {name} holds an unpaired surrogate"
         )
         return None
+    if _holds_line_break(value):
+        defects.append(
+            f"response {index} field {name} holds a newline"
+        )
+        return None
     return value
 
 
@@ -80,8 +101,14 @@ def _load_response(entry, index, defects):
     model = _check_response_text(entry, index, "model", defects, False)
     answer = _check_response_text(entry, index, "answer", defects, True)
     reason = _check_response_text(entry, index, "reason", defects, False)
-    if reason is not None and ("\n" in reason or "\r" in reason):
-        defects.append(f"response {index} field reason holds a newline")
+    abstained = False
+    if "abstained" in entry:
+        if entry["abstained"] is True:
+            abstained = True
+        else:
+            defects.append(
+                f"response {index} field abstained is not true"
+            )
     if len(defects) != before:
         return None, juror
     clean = {
@@ -90,6 +117,8 @@ def _load_response(entry, index, defects):
         "answer": answer,
         "reason": reason,
     }
+    if abstained:
+        clean["abstained"] = True
     return clean, juror
 
 
@@ -117,6 +146,8 @@ def load_poll_text(text):
         defects.append("field question is empty")
     elif _holds_unpaired_surrogate(data["question"]):
         defects.append("field question holds an unpaired surrogate")
+    elif _holds_line_break(data["question"]):
+        defects.append("field question holds a newline")
     else:
         question = data["question"]
     answers = None
@@ -140,6 +171,9 @@ def load_poll_text(text):
                 defects.append(
                     f"answer {index} holds an unpaired surrogate"
                 )
+                continue
+            if _holds_line_break(entry):
+                defects.append(f"answer {index} holds a newline")
                 continue
             if entry in seen_answers:
                 defects.append(f"duplicate answer {entry}")
@@ -190,16 +224,21 @@ def tally_poll(poll):
     The tally is a pure function of the poll. Each row holds one
     offered answer, in offered order, with the count of valid
     responses choosing it and its share held as an exact fraction
-    of the valid responses. Spoiled responses are counted apart.
+    of the valid responses. Spoiled responses are counted apart,
+    and abstained responses are counted apart from both, as their
+    own kind under the Round 2 extension.
     """
     counts = {answer: 0 for answer in poll["answers"]}
     spoiled = 0
+    abstained = 0
     for response in poll["responses"]:
-        if response["answer"] in counts:
+        if response.get("abstained"):
+            abstained += 1
+        elif response["answer"] in counts:
             counts[response["answer"]] += 1
         else:
             spoiled += 1
-    valid = len(poll["responses"]) - spoiled
+    valid = len(poll["responses"]) - spoiled - abstained
     rows = []
     for answer in poll["answers"]:
         if valid:
@@ -214,6 +253,7 @@ def tally_poll(poll):
         "responses": len(poll["responses"]),
         "valid": valid,
         "spoiled": spoiled,
+        "abstained": abstained,
         "rows": rows,
     }
 
@@ -239,6 +279,8 @@ def render_tally_lines(poll):
         f"valid, {tally['valid']}",
         f"spoiled, {tally['spoiled']}",
     ]
+    if tally["abstained"]:
+        lines.append(f"abstained, {tally['abstained']}")
     for row in tally["rows"]:
         lines.append(
             f"{row['answer']}, {row['count']}, {_percent(row['share'])}%"
@@ -272,8 +314,11 @@ def render_stadium(poll):
         )
     by_answer = {answer: [] for answer in poll["answers"]}
     spoiled = []
+    abstained = []
     for response in poll["responses"]:
-        if response["answer"] in by_answer:
+        if response.get("abstained"):
+            abstained.append(response)
+        elif response["answer"] in by_answer:
             by_answer[response["answer"]].append(response)
         else:
             spoiled.append(response)
@@ -281,6 +326,10 @@ def render_stadium(poll):
     for answer in poll["answers"]:
         lines.append(answer)
         for response in by_answer[answer]:
+            lines.append(f"  {response['juror']}, {response['reason']}")
+    if abstained:
+        lines.append(f"abstained, {len(abstained)}")
+        for response in abstained:
             lines.append(f"  {response['juror']}, {response['reason']}")
     if spoiled:
         lines.append(f"spoiled, {len(spoiled)}")
@@ -315,6 +364,9 @@ def load_prices_text(text):
     for model, value in raw.items():
         if _holds_unpaired_surrogate(model):
             defects.append("a model label holds an unpaired surrogate")
+            continue
+        if _holds_line_break(model):
+            defects.append("a model label holds a newline")
             continue
         if not isinstance(value, str):
             defects.append(f"price for {model} has the wrong type")

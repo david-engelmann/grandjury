@@ -1,0 +1,55 @@
+{
+  "id": "gen-1793618259-9OMNHl2KWcnaj0L9wxXo",
+  "object": "chat.completion",
+  "created": 1793618259,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"the first Saturday of April\",\"confidence\":0.4,\"probabilities\":{\"the first Saturday of April\":0.4,\"the last Saturday of April\":0.35,\"a weekday evening\":0.25}}",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HFU0l8-EmZWxvJxiPe4IxysgoE4BB6D1hPYkKGJLZWLcIwUFXtTJqwbKo5afzieAnvZedCDvnlnJNMYoBbxSX1N4hK18Sn5F8FXQEF5MQ0Ieoa8oAImt1_ryTDWE45yzMM_gjNa07a2VgTOdNsSh6-aNhhCe3YBm2TMePF_a8LSNf4vCtsIosT5UCgUUL7Oemk1FwemuZ1U3a7c878fa_XvOkveCqEi9zFKq6nqJ3NPh-8eAhZODgb3CWWyTpYxPnzhqKQUBZrfvhMYdskb1IqngszhTlNMbSbTjttCgc4YbEYDOETM5eWcGVQ9MQbKaI9w96VnaHIysPRF__ucYEtyeftYSKwmWGOJJqd0ei8_ryYJ8PHOdBV9EM6X2T_Rf-RqsI0WhSXBZO4R5NcboONtD-DQUyxCbvHlfJhNstjCsw1vdGzfHh-LoIP3o_qjzbsfOWRCN7RKj9Vu2d1olEXhu4Aln75pu-y1Di_aQ462KJqGj8zQlEhQBvY2v46ZtuafhsbUK0X6Xh2UTYCZRnQxo9eQws77BojfGvNeryvZUNyVXl0k4Pc4IV7Yi-78MLdYOwO1P2dJ5gkD225KRBl7-qgogjc-IKPaO0YEc15Evu63IOnza86OK7Ge1MCtEP7vb0tAljifA90c3TX1AiY6uylATMjA3ViB2fKiNCxXMngdkoNR3b7Ncw-AvMHAW5LiBT2swvMX15fF8iuZSo0o3qetH6TLB4pkva990X0wNNRM1Ja218UbAA2QdnwIRD6Zp2sEEt_T7zsoUvDHg5yfU01GSCH9zTlcd11t71gToadt4DMeZaiufcCvp5pj0GdQ82ghaXBJn7dKaG7bDxZgnR_kfJvhFKDCT8KIlhNg9D93St54mIM6k_7Z0bdTznCjqFCZw-sgDAIWbPaoNNUg3fPyDiWCnlDcG7hhct6LSdnyPsreBvrzGGrYQ0Q4YvKQOEzgXmltCXgWCXFZpfuNf0bjTMo67DwHJmtBnLUFR6-hrEwNBCZzMqh7g-5xXg3KkACTSMjZyrnyc205PHg6_dgxnOBNf8MeuMDRlI9IsIdBqn5YlSA7bmumQh70bkgTaeX2yahXQFyFUvFoCmHgi7dYcKwz2bl7f_MreeMGeuuaxcqwfM4lyxi1uwCwGZiPFkujosWjCA8OW7nMN70vSuIdVqdOOcYe0uZoNXeF8BY74sAPiESeiyCSIJ2Q_HdW2pemTcp8qMESnFojhmjlx2Uhsu8zsrlEbyBFbfgj44guUZkkalWPzPzUkWBCAED__NV-q3vUjGQsZzoP8-NJu4oPXcJ8ybbP4UyScK-bKoIh-CTsKD6i7cCDY3drUaRGlEQ8Z-cqyA2m0UVzg6xbhrLYJskF-aG5yQnQvg5Qck9B3EQKojOuF-ub5cQCwZFAIC3jrHtNNBPd334nD93IMqW0HunC1rze_zbYv52tJ3tSS4YTnh-6H2JFNxLYMojeUL7mcO21i5XARetamvblge8RzCCvkDjOnFZV4po-I8mInCnGKFRb1xPDx7nTIucfa8GbGf_g8TQl60z8euAoAWbmBBrGUuWLZFmhTXajqH2sr8vaQ7i_Yd0kZa2h2h4YTOYGNPnM7taOer0dc3I4OxdYJzrUlvNLePdEJz7MdPKTM2gfziZPMXX16oBLWqsvflwEjbAyd7KjBzf4gXsy3k84JpnHdf1lY9IB4Qc1wecS5QITz4gC4m_QRK_X0cZPSk4AdXZlKwmws00oodV8D9WZC2t09RTFCFvGahdTyhxExC1B51C5IlkjI48qDZZ1jdxyIRjay_IbLZRVfMT9OQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0eaaf360367ae0e8016ae871543ce887d18bd7db1c8e60b835",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "completion_tokens": 69,
+    "total_tokens": 181,
+    "cost": 4.57e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.57e-05,
+      "upstream_inference_prompt_cost": 1.12e-05,
+      "upstream_inference_completions_cost": 3.45e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 17,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "question": "When should the community hall hold its spring clean?",
+  "answers": [
+    "the first Saturday of April",
+    "the last Saturday of April",
+    "a weekday evening"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "the first Saturday of April",
+      "reason": "jev-1.13.0 chose the first Saturday of April with confidence 0.55"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "the first Saturday of April",
+      "reason": "jev-1.13.0 chose the first Saturday of April with confidence 0.52"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "the first Saturday of April",
+      "reason": "jev-1.13.0 chose the first Saturday of April with confidence 0.55"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "the first Saturday of April",
+      "reason": "jev-1.13.0 chose the first Saturday of April with confidence 0.53"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "the first Saturday of April",
+      "reason": "jev-1.13.0 chose the first Saturday of April with confidence 0.55"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "the last Saturday of April",
+      "reason": "openai/gpt-6-luna chose the last Saturday of April with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "the first Saturday of April",
+      "reason": "openai/gpt-6-luna chose the first Saturday of April with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "the last Saturday of April",
+      "reason": "openai/gpt-6-luna chose the last Saturday of April with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "the first Saturday of April",
+      "reason": "openai/gpt-6-luna chose the first Saturday of April with confidence 0.45 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "the last Saturday of April",
+      "reason": "openai/gpt-6-luna chose the last Saturday of April with confidence 0.45 and abstained",
+      "abstained": true
+    }
+  ]
+}

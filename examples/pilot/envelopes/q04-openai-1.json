@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618611-8eYd8sEyiETSremHARht",
+  "object": "chat.completion",
+  "created": 1793618611,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"Tuesday\",\"confidence\":0.33,\"probabilities\":{\"Tuesday\":0.34,\"Wednesday\":0.33,\"Thursday\":0.33}}",
+        "refusal": null,
+        "reasoning": "**Selecting probabilities for choices**\n\nI need to pick a day, probably randomly, and make sure the probabilities add up to 1. I'm thinking of using JSON for this. Maybe I should select Wednesday since that seems simple, and use a uniform distribution? But I also need to assign confidence, perhaps around 0.34. Without much context, it feels fair to choose Tuesday and give it a 1/3 probability with a confidence of .33 instead.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Selecting probabilities for choices**\n\nI need to pick a day, probably randomly, and make sure the probabilities add up to 1. I'm thinking of using JSON for this. Maybe I should select Wednesday since that seems simple, and use a uniform distribution? But I also need to assign confidence, perhaps around 0.34. Without much context, it feels fair to choose Tuesday and give it a 1/3 probability with a confidence of .33 instead.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HK2teKxLpGKfYHbb8DGVOiu2GpzOLiT-O3xJRtAs5q3UBrgVYUMEnnSlB9WtSm34Sra_snkEppN2VhFz9NIHg_MjOB5egtpCgL8VVoe9v2Uk3ftbWD3nC6mMN0CP2d69TBjtDiCnyddrUVssUv3wvpykMUyzHifVGv8kSFmpAHdfO4PbSRkoT6n8aIdT0qo_0XN-r1arujwYfSv-_MhQg90m_kiVecxpuOd7QbXM0jmQMskFGo0L23dV595aFcAwMz_6AuEGv8Zsy6PhB89Hmni3Tbwe0BXZ5W-msG92OcrbckLKni2kec8EqpucUrblvTnmnhFqd-49QzHFdDtQ8eb9JlLdoDbFOiJh4weeJ3Vxl4mS2suPZXioXOF-z_KruzB5tGUOniZrv7Blh7m5VUMYnVNNbRHXxy99UTcpo5h5aUvYawwJh6CC0exgPxVhnwnNTiGvdKlTL_vF3AMe7CrcXwfzOIVch2-S856zvy-5jpCbnXoN9KXhJL8Fh6LI7G8yMPAsCSBhn5AVV8bWC89XhU6VhwtNz5zn4aYTB9qH8g5k4W6ltkBwJdtuFqIpvm7Ye3NooUSC4bwIYg0eD3elqMxRuZ-Y4VFhqWVzu8o-90RjOgULX3jsGT2eMzQ1-8omAwfH1svSmhauJtAJ_-dSm4Qd2yDG2mDddu8n-LE3mGxUz7DcMZQOtnit_6zBaIVlXMeH4u68nQYFh5H2RNl0BrZhdvwd6GmMn4wJHx4HHXjK97dv3ZO_PHhIKz194JNnOLKCdbvDs-oF-U7MeS4Z4p_5mVRn3wDrqMkMQTz72AQiam7PvNZp6E9-9RpLG9frCCwbUOUr1in9h8BTe-ss9lcOzUvDibSpSQQ3_V94p314SzAHc63S2IlcOqty80M7Rael2CDXqwoQ2WB46O6L58xNV96r0kgNxGTOeJP7luoQJKiaRRlpxglH8F3pyqrP406aq4XedharucSgDt3eRJt4gzuaZmfxK0dlhryjTUNMMc4eQxjKI4NGnjLTNI-KYCg25lE4KbvKBVTenBC3bmxbXT9ESFWZGi13REWnXNQZezv1R-KHPyo5CnlDk3vgesnIhsOLX1mp5EwXn7fmRvIw7oVEtGEF-bp_biD6IUKNKTHyDOIP9t7stdHsmMAUK2hHrqI4tQehfEd7bwblEL0KUvJmgQPPXfxej4H7tevDAnIUFNhPu_85h68m9uBmk_BKOrdEmRpnZu_M4l05fFhnsHXWQc0hrx9iiKC-CqpYHS4JqumHV6fOoz2SxJFM1XPklsH-49jdC188xVB-m-M8sM4SVFqTarIZn4It37awo_nHUqBEwJPr2TjZODpNmKzTeaQ5nDwTBoPMqJSPDqBjnUfP8gn147hAU-MYl7aycRite5JZa7GZ9u6tFSeZGy6Q1nStcS9clMcELZ7FZ7TBylDmgyS0zzT5JLjPnrrIRg_0wInxV0T_wsmbC5X4vy4kg8UTuHt1HsZU0Etnx1sLHm-qgcPwn5b8PYplfye87iFovBni4Z_tRVfHjN4YmWAlcRMgAJLdoS4YU6ckJYjXyLnd9IjCyVBEzhTaz0fIfJTD7RC6vbheIN4OE-Rg_8Se7hj-HW4UWy7V2D-XcTvF3PIrzsq1WKCs0ldaVON3OJgBpkh79PbWf1nfVvLTZLXCpXq7CFqLPyAJnaLZRhpF39op6SYkGk_vezNymnPQta01XvsPPvUV_LkB_whJLbT7rYa6mdj30Yo_0AHlAv_Xcm7IjokfTOKMUrG0KJx7oRgNkKcX-YtVPw3s2O99uLV5KsNHT19Uh2CENlinvJ5LpALTgtcaYKnpeVBdeXOi_iK5ITaFTPb-pdyrlxbEr5BLnQuYodV-jKg4Xfg-BwA-aj2nmmEwvVsv1or_mehD6Y9CALTYudv7CibEoo94wo618oerQUSe0slPvEgAqjZ1c3qFT3wJ6-lWKZFewI4AxbeUjbC0vrKVw4wPu5qbbozEEqSUql447au_5j5it2pElhTb9BH_p1AJJFp3Egm6bJQU89_udDiqzMLBkNoGsZ-wdRo6ixdyA5CZYGmYfhBiSFAknhLa19T7AjMCsBF8PaHmnzzApY1nL0R0R86bm-0KisSddsr72dvf726bkjTFqI1qEp5P5My3mXvTA1dJuv7YEiIdGnd2X8GEECQ0hUJMy3C7U2f2x48FHwAWj0xMTtCK4B64Xx-PGxMtrk4imOI8X8PsIRzUnUDtm8VST0rqYJwWV1Mlpk1HGqo-F7hJH3MSOpxSSMBBjwoXaHtS3FMitjoSe6jHzRIfSlLxDdF0xxSR_FO3WQDJqbRHYufGMWI8mQmDU7SMlCyipWTpeRAOXM6FGn813E4oFb7j8l7wNZ_O37Qvz9eAXok7A==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_09dc23b90d21bfa8016ae872b4973887d196cc075014507852",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 102,
+    "total_tokens": 202,
+    "cost": 6.1e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.1e-05,
+      "upstream_inference_prompt_cost": 1e-05,
+      "upstream_inference_completions_cost": 5.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 64,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

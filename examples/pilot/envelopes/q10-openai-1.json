@@ -1,0 +1,54 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\"choice\":\"a mix of carols and folk songs\",\"confidence\":0.6,\"probabilities\":{\"carols only\":0.2,\"a mix of carols and folk songs\":0.6,\"folk songs only\":0.2}}",
+        "reasoning_details": [
+          {
+            "data": "gAAAAABq6Hr0tgsZyfchDCvzdj9YnMJ0Nm9a6J7u1lPP5ub6C1Z6XImPpOild1nr1jAzzo6TJRe0pZvQdmjiGsXgPbPqVHx91b0N1z4Ire31uz3NAdp-1fB4b53rryjDNoq5a8HVPCevOKwrgmkj3rJ8WfCxo5cE6vfoMJ87dkulRo6na00mt_nuYuwO9_Si_UmaAn9uAwFBnjID_0nTlYKZCoZ9nzyo06W_TdFwqnIPVd0kE5wTnJQZbM2NpNar5rrYsRCFcCXGWwENiZVaFh6b_eguIiyrYnZeFdc7pgrwdl7BVgKhJuvcV-9YuM2lgr4F-xFCkjO_OHT9tni2Wiaet1w5pDNulAxjErguYzDG-kwMYVOOlXAWtYygIGbtYCbWvZn0k1XZ1e3Fne-Ym7GKuyiu2gXxIY7Tn8ry9kBpGNDvdwCT7ykBilyHPahUYoJZawkCxFBY6Soy3dDZLID8VPtt5vSj6aOuEp4kbu2qnGliZEOguIULIcNSMDazSsRiEJlbaX8GZQsAlraeWZPf5N7k4YsHc0HqvD3a1bexrsAe1e_JGQZjiQnIut4Le8qdfk0DauRjYKOnVOeK_ou523iC7LGvFw-RQlGoe8ZZ_vIATSam7DvIx_RPyYvn20OoUsQVeWEGeTWUsfd5N-nNWV-jXPQR8kDAXCUVd7It_qTkYwM_VrbkkMNjX4oT5kShV9UsyjoJ3VU6Wp2-Xh8g1rLG0WfC2nu-1yNFWuWS21xpwWFIY16aMpfuUfY7-ukDMjgDTY9-SQoFQQEEDNFt9LiuJVKAfM3s_h3Rw3DTndThgzd4MMCG1PB60dZEiqsy0q0swFxiw_6TsO041EBHKV8DrkM3AqqBT-D3esC6PYM8r3Shw0j3BrvJ7XpyaVzD3Ka3lgKIR9KmQvclYTVfhoCF0k1Qt5NFHRRr9G5sVqQsr8ekVQDX9NB3yFKFKZv3s1-55NiL6qCfcbHCfyBN5k5vlEJ1XOefYfvf7lpvuXbrUfa6O_N8aWFt8FDFdNWZOBfz56XZNo2l_6-GJt-sUD8LINybu8Lg9eohp5eN2gljp9V0ntOgDKNbxHuO-uZLvMlCDCKjhpghxSIvjZuUU7YSfdykTiMICtAW-Jg4GpYO3g78MBN6cp6oApSn_74AkaYGGerJv4zJ2BNoRgIMngd6B29GoL1z6JqKeniedvZuhl3CI-a4JMjXmED-YaYPJoSMZ9WAYictpqSXdXnA4wJf-Im1C-mEhgoOHE5G_XVp2SLoj_3dMLmGMN6mWIIjU-BTlR3fkq7Aj6JTk0XLzNRcHqz8QI8ztt00hH_L5MqMDSmAp84fAq-FphloNGoZVHI9aUAoCku_lxqZIS43HRs7ZMfiwV-dBX_MIztGZgV7_5UViSZ1_PnaqC29yEyc95F04YrgJqstmwXsh9liXPMT7_teX4D9Nmoy9Cj4iTpJbQM7UFGBNpKepcDY1MBnUcnjWFsxiAdxZAx1anqQdbTzTPd_E6fiQjSEp-AwffJQyh34bg20TafK_EjISQXxb9QRDo3Lf0TwrP5vNy6BmFsKV0FFELOJ28n7DWuJjJyrKzpLXvCMIYXnGe0_8KUVgi5nY2mjC6bQHFEUskRRtYjDEh8AvSFRXXvRc8U53ElnRpsnnl1DF-7J0_hq_DwcQz63JAvEj_MiGxDdsDSBiasJot9ZQ7Ko424bbS7d9cs1QD_sT_Hy7boAw-qqZ77PfjZXqAfENba5z4NrUScGA_KO3d2dM8WXXp_WuAM7IF-ZgsHER0UAFpTp--S4YIcXJ4790Sql2FxorlxyFqAiCs-aJo-CM46NPu2dd1F5qdxZco6y4_OKsz7AD6ICSuT7I4gVOIOKlQWvk6D8bNLimIfLkxJsdb5RpNPoTPGSHgTBmOpYxVR8eKHgnP4Pcy7qRjKiaUFJ1JCXVbpGihXh7w0i0F9iFbLKkiw9hqohreJPocvQt05BLk1OFRAwGj_udqawU0dB.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_039eed3bfa60d6c7016ae87af3c74c87d182e1f8826f87a04a",
+            "index": 0,
+            "type": "reasoning.encrypted"
+          }
+        ],
+        "refusal": null,
+        "role": "assistant"
+      },
+      "native_finish_reason": "completed"
+    }
+  ],
+  "created": 1793620722,
+  "id": "gen-1793620722-k92103qFj8DTtFMTyuMj",
+  "model": "openai/gpt-6-luna",
+  "object": "chat.completion",
+  "provider": "OpenAI",
+  "service_tier": "default",
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 91,
+    "completion_tokens_details": {
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "reasoning_tokens": 35
+    },
+    "cost": 5.68e-05,
+    "cost_details": {
+      "upstream_inference_completions_cost": 4.55e-05,
+      "upstream_inference_cost": 5.68e-05,
+      "upstream_inference_prompt_cost": 1.13e-05
+    },
+    "is_byok": false,
+    "prompt_tokens": 113,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": 0,
+      "cached_tokens": 0,
+      "video_tokens": 0
+    },
+    "total_tokens": 204
+  }
+}

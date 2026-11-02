@@ -1,0 +1,20 @@
+{
+  "answers": {
+    "decision": {
+      "choice": "move into the hall",
+      "confidence": 0.93,
+      "probabilities": {
+        "cancel outright": 0.0,
+        "carry on in the rain": 0.02,
+        "move into the hall": 0.95,
+        "postpone by a week": 0.03
+      },
+      "type": "choice"
+    }
+  },
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 413,
+    "output_tokens": 60
+  }
+}

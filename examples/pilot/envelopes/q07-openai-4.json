@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793619031-IeVkKKyoBoIVj2qStcww",
+  "object": "chat.completion",
+  "created": 1793619031,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"both email and print\",\"confidence\":0.72,\"probabilities\":{\"email only\":0.12,\"print only\":0.16,\"both email and print\":0.72}}",
+        "refusal": null,
+        "reasoning": "**Deciding on output preferences**\n\nI need to decide on the output format, specifically JSON. It seems there are ambiguous preferences, so I'll probably include both email and print options to accommodate the user. I want to ensure my confidence levels or probabilities sum to 1, if I’m presenting various options. This way, I can clarify the best choice. Overall, it's about meeting the user’s needs precisely!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Deciding on output preferences**\n\nI need to decide on the output format, specifically JSON. It seems there are ambiguous preferences, so I'll probably include both email and print options to accommodate the user. I want to ensure my confidence levels or probabilities sum to 1, if I’m presenting various options. This way, I can clarify the best choice. Overall, it's about meeting the user’s needs precisely!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HRZt1axRYr8dEBaIAr5IqtfO9BWLkTgYXeKIQPeHSPhkBlkucepweitFmD4Sb7GyS8vRBqbYbWAOolAL4R5TTBz0d4qk6TU85-wuVZ-qFJWNK-tp5FOXoTpSjWs5BRm8mEXt66Wr9ErjngLMnUncqhumNTNksNlw85gyog8JMshVgBexPEgXsI8Yru_Nz5_7E5-Ft1b6vGj8JZv5eGqDC9EmM4sghxJwDJv0LunDxUt-wz6TksDCmOvVDet-tqqoYA6PlQaA_1UUquI5gdtjr_6SEwsBNqfgyAsCZk43ukKV4ylgn7cbMaLouEUIWcxKdwZqagFfNPDMgrX-it8i0VktPRekUJ2YYQ01t2m6blN1z-a29puJi0imhjiWXbgHEfWRWMmi0RqRyBAMYWBHW0mMHrccP-BFuDrGZ-HCWrqQ1_ENwucLRtnuo_kUHOoENzNgKafs8vCMZIKH_UC9K4xVa1uaohKTvNak3eM1xWrrhIos7p4mzsI5JOS8JjDgzBMuWqCHeDjsdy1hP58MfAYGeA68tbYGi_-jHcnEwdGcS3igOYaPP-7cZVEforneTuVCNdHMVrNp1SGgPorRJ2GOX2CLC-iUmnsT_qo-hrgXHRtrZe36Ln_UDpo9MLAbZTdojnRaxCZMoXZKP80to0eMG8p1BUGLc07LxJZaRPZPb-iKsWDMKPAed6i70Si_3q16ejuXrXpHE4Qa-GP9k8F07HDrofC8on1PjJDgHah93xJtoC0XlCs7e3CsZ4oOt1NsyYqKZhsH72yS-yue0v9maARWbizjVz26bzh1_a9aIO_kFx5Jz57UhoHX1MAfTMLWetR5YnaGYDXYFibJiUx9TNu1nmOFhtyo_YCLL0BpaNY17MZcfYP7j2BtESwbb0b21D3sEkz_hr5AQ3H1PScQXAqb0lKJ9AUtAI790ynhzWfRKo4zuzNoPC2uTUtvWd9Dek3jb4kpe45kqOvT46yW-c_Hx7TFpL_gs0DNmnE9truVojrPJODi926oEnBxyy0Umn81IvyAXphd6APO69kq7YCrEstidyV0HnQ3h2yheMRYsXqE3cOtGZGGlXS-eboLFFpcuzYpQK9-WoHLx3KZI4SgB0-vW9oolT2RxFfvh0cUXMzbcSuUF6JNoVAODw5f34Z-SL_a8yWfQJKmMVMoKgPLFJT7-SMf6TBWi3RJn7RYhJpkiHXRlqCSCcus2WkoKGY1SB8-usZ5911Hb-bpj3P_XsfEdECRP-7_TbLnjnmvLzRfnGiat7DniCabpm8e_ZsXY0NTALQk0ozAOHuDccSA_vUZs6_EWFZ8VPgBjnbYBz8_e4yx6aIpHh4V0mfYklqSIHIf5y-s0oiAlblZThp70BCSMQSX2UiJkJgCPk7eko2yuHwUU-1VKAvoK4dkHVUdJGkZ8A6XGk6mIRGGHN94hg22aV9pQ05pkFJUBINC6GirDDwaQujR4hPMuC0RfM2JASsHm79aAZ363O5tCCEmqbL66lWDBSs7GoT3DG8QatQzlZHoRWCfnuhfeQibBCDQ3mBde_rCD_YdZLrBkP6vf2TfPZJnCRPmt0Jc6A_VMqweE7g8lyjW6HfsvGX-BjLX7UKAt9UmRCEFOJoA5AZz15CoW7v2UlBey2bbpGJ4EIJj2lWk1lLoxSeDEQZc0Lb9KrQ-2l0k2AcOAutilNX_zzERc7ffAZ40OmczAxX50573fx-_ErJEkapMaEn77maWuHUysYzJPPSKLGe5kukJd5MiwWpZfQmjXwU1XGsoON9pcCKXGepJofY9qA2BTjePZn7ykOstIcFwE4VBDdJFnB35dF25Zq0b1u3rxKrSX37bDJjqmxBVMezjCYC78tQfu5Ac_AwSp2C7MgdJGNEX7fKjvhnnmXmlmMGZnmpQmDE_Hrc8dg0MDW5Ce5ucTyIXdMMKFCxUWM91Mx0DlVIvxm8tqgOstet-6bI55ferWV_zMFMIgxlyv8LISNoEQUYmuJvZ8FADW389ini6_oMezLJLK_AQQJ3iq9s2xX9YiF1C15ElWtFkES2P906.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0923f2a238911d4f016ae87458482887d1b02fa8fe8854cf9b",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 109,
+    "completion_tokens": 82,
+    "total_tokens": 191,
+    "cost": 5.19e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.19e-05,
+      "upstream_inference_prompt_cost": 1.09e-05,
+      "upstream_inference_completions_cost": 4.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 36,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

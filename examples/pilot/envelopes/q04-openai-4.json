@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618619-vexUxl3fYyz6AbyJtAwp",
+  "object": "chat.completion",
+  "created": 1793618619,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"Wednesday\",\"confidence\":0.4,\"probabilities\":{\"Tuesday\":0.3,\"Wednesday\":0.4,\"Thursday\":0.3}}",
+        "refusal": null,
+        "reasoning": "**Creating juror choice probabilities**\n\nI need to generate a juror choice with probabilities that sum to 1. I'm considering using a day like Wednesday to keep things uniform-ish. It's crucial that I present the data in JSON format, as that's the requirement. I'll ensure the choice is clear, along with the associated probabilities so the user gets a structured, easy-to-understand output. This way, everything aligns with the task's expectations!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Creating juror choice probabilities**\n\nI need to generate a juror choice with probabilities that sum to 1. I'm considering using a day like Wednesday to keep things uniform-ish. It's crucial that I present the data in JSON format, as that's the requirement. I'll ensure the choice is clear, along with the associated probabilities so the user gets a structured, easy-to-understand output. This way, everything aligns with the task's expectations!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HK9Ag9iExqyCelX5CxAZawWHecYlygCfNLmxKtd00o3sDp_u6oVpkHBSV1B3KS1erBPWt6OZ0GcR2L3q3zYeHZttSbuZ1JRN7W5R5rIhXBMriyEqltXHDViJMMmQLqk7F1jlhvOTymSPEPg3aPyOFn49cwy7uR1fs2piSKXKSfAHj2Bk_YpWXGWbPfN2SiPu0O9-fBvzSt3kZ1YC7BfUnWTi0hw0q1h8k6RBtrjUTXCnBOxN-bDZQT0w5iveIpCl4D6SVNEzXGdVqLORzipER7dmSoqZXlJGkfFE5N-jZTgmxqKGjpTx8jNf6z5-671_NYnCk8Iy3Y79lgJ_yHj39i0zqUC16INFeEPacf_s4RK8ExCcdrFKegnKmg7sEp4NqNY2kHJWmsYt-k4rd-e-IfZ6SMUJKZ5zziwPW_PYc5fYXdxD-wW0K6v5MBE_2jqKMbk9HspG0_GUMn4Gov7-qfP2eA1H2ehJCy0JelMWrAZ7mVZwHOqQ3qeCdizWxvYkq6O68-NNOK06LfWDWOcUcXdf3nvVVPb8XsMLponiXe7gtM8d48jYn-Yv5W57A3iRWoD2uddLQN9KP0ZF0Yr6AV23bNu3kiN0jtDy_mqZ5cgcYGVuaYKlDTW_2zI3cF3to1eZQT3c20PVu9IQHhkGdJIv1rB4fIYhurxcvIli6mmxmnRM2bURXPyYt4USJ7CJ8Ov2CImV6CjkNlX6gm_CfvHsMvAMFpSLK9xJPgz6fZOk3vmt177lBUzxXoxkcpkCo9ZOKJ30tCfaHQAidQ8AYk_Px_AT_9Y5d0vR8eKllYiQ847lESRiSJ-jZaekK6GH8oJ-QeAN0VxNZMCRUjN4ccrMbc9fOsr-rfw0xJHMYD6PADhHg4BipVt2Zjhwt89tnE5IC3LAmJHjKgj_ReNzz5y1ngdQegvdFPA0dastb732GhAME3rR9dyl8LfsXObA_x9ocDTrXYQ0GDFksXHhzOQPKQdB-vv15iTDpaRFCieDsi6dKYD3tr52L8_Hn7GBETCFXzFPgVEJ1BaEAsD941q9cUDbvDdfCJPLovwlsBi-Gi1UC-L7uQ5kDJ9YNGdUIxaOIudaeeQmpulJZ-fqoVrwsDJdFF4Q2eCtFyqC_BPdhiSzwTzEzWn908XAe_v3EUD9xWCNWFJS3Je3ucza9tUfO1ZE_id9lv7yjFlLZx4Y22m6AfxPnW_g99dI81rK6j1d-MQK9cLRhHbbUcIlzrc1u08mn6sLbmzvG03yLK_yFjTxELPwUXbiojX7AFGb094A-cBjdEPIdyATJw0uju2IreHceNXGbkP9xj9NYwmqtFCSX9ZuiIZVYSd-mzkAXc6ly8bu-PDQGrT0cy8XlPNnZcSrT6jUVPSfxUf-e5BjzHwxjBmigDJ2cRVlpturG9ZEjDcTpj5wQh-LjAQeBn56j52SxwdAihnQXtcw4oHM52KJQtttZElR9v9c8IRpLy8IsoGC2TvOsngEz9yfcd4fvaKiybEJC1mt3A2AyhbY5tlVVZyAKs5X6lfxTaYw0lRJXp0gGCgFH_qxU3np6OzQRY4hPrVmCgiNNYVn9eaxnMqizmzG6206WXBJdP49EIvWs1c2Ryt9fhR7CLTGzGM-MrePLt40vkqBeerC4rRfS0Flytj0Zn5ceuXMkzit2tI3U7qO6ezHINffauuX1t6pR6Gx4it_ULKBjw8qzg8Uthpk93asI5d5eQ4_GneokTVN03IHwTn6V7t1uSpoNFP_v9S81RbHXEUNAn_hRiGT0GZpjn7j9vzM7p3aISiH7JxlF4tOXCfIFwP9MrYQtbLekGSNJkjsiZbITtAQhh3f-eI-xGrulIvUkbwOZj1_v0HYKTF1O7b_RaD7qaAU9mN7dYzYUDQj4SuTRXaQ_YIDmT1oo3kqcXyaJxOAIUD0QLaCQx6f-wggcRxJrsVVYmb2RmAMoID8_nm6Qt7E7nJ8jiAdY1vhSR8P6bJwC6refSAkxGGmAdtcQArlWtCS6hiXTX-bMkaxNdyKBSAJtNtBmMUv5rHfBur4ZeEejzYk-fwdqXEliNLp8tGKktBKJXlyg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0fdd27958979a1a5016ae872bc370487d19b401fe56f659fac",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 74,
+    "total_tokens": 174,
+    "cost": 4.7e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.7e-05,
+      "upstream_inference_prompt_cost": 1e-05,
+      "upstream_inference_completions_cost": 3.7e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 36,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

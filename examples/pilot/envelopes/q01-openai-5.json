@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618134-FA9n2PaExgpjUBvC0Fc2",
+  "object": "chat.completion",
+  "created": 1793618134,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"open on Sundays\",\"confidence\":0.6,\"probabilities\":{\"open on Sundays\":0.6,\"stay closed on Sundays\":0.4}}",
+        "refusal": null,
+        "reasoning": "**Deciding on choices**\n\nI realize we need to make a decision, probably regarding some kind of JSON format. It seems like polling preferences might be involved, especially if something is open on Sundays to support access. However, I'm also considering if there's an unspecified burden associated with that choice. Overall, I think we need to be careful about our options and remember that probabilities need to add up to 1. Let's focus on making a clear selection!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Deciding on choices**\n\nI realize we need to make a decision, probably regarding some kind of JSON format. It seems like polling preferences might be involved, especially if something is open on Sundays to support access. However, I'm also considering if there's an unspecified burden associated with that choice. Overall, I think we need to be careful about our options and remember that probabilities need to add up to 1. Let's focus on making a clear selection!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HDXerYqHPqyOOn4SJ3SoHvz3bm2K1P1K58YdW_cnlItk6X4koLV8d049NTxAuktGrLzMDj7OarXxSI8MAYa4fXdnje7LPTDMFeuiEdT1ZDib_9saL8cSkLSTjT3KxndXvPsDOz9avGL68v1kpgoN2wIccu4e3DK0d4tqCbtUs-IzsHIXYSJ2OOS-I3xWVB580SA6X60GqXUfTSdq_JhF6SF0NA_vtdt1kbDKDGIwepdk67pTf0q15RWu2YV_tcnf-VDpIrrJkepZyNr4tceufRe6ZPj1iaimS_AfbpHBMgrI_3UGz5hHMZNGJFf8X8rZjbuBkMopltzS0amBEgVNatvUciMZyzeIX4Qr6PjC7rmbuloFX_DJyhLB1ydsxALPW7nvWk31hQkIX_MQVN5MoWJvlw1SFwaHbYdgAJSXyVYM8fbdaKn3EYQJu3emqY4_5XJILDOLFd_Vwn4YRltntVL0OnGPXG5O4VSR1Q7VosYGyGwzIcTJz2dUL9gkgoHa1YsGxk5d33fxEexZPdZsYlL8pPRmsHmd73UkD2Cwh5zFXqppXKfUNGtynAuQH60ziyDhtuo7-NyyQmxdr5dvVLKxa54YqX8uCSms-a0A2v15KKfymd5vSZqP_E9IFftvQLjpMh9_angcwh5NCr-wTJZqOCImVP7z3k-j044gvszVP9Vw5QhfMFm7AxV-n_KYpABt8t3-HD0fUZqZ0Z-oEFZVcpzs_Q04hFG5XXHFcStj0FyliGDvtVAFvN2PECK_htFgd0aat_ZYLHZkqGVojiPuX3QZsrh0L83W_48fS9Wd5EYWVQpWrIJHyftJ31GSx6xzsSSEsrp9gNKkLdMXGP7jSjQrvg446cZAAkuCwoWKKE5fUvx8rOJDDInW0N8ls86rlmYa8qHiLmegZKSC6_ZKbXGn6QroCLUvVjitbXci99HmiC7_Garp1PT80uj0LpvYDWxtWMwO1n_KKf4e2GR0XtEvz1kpIkuPcvEYk-1ejWs7AzO0Xse8a10NncOi7A4xGVpBRBjuOfeYnM6i2ElF60gFMd7TNCbLr7crwarun3jZojhSS8Ymz5ePDHIinB5xqunr3H2MgEIdjoZ3q7g1XsHh1x0VNnE_PAIGX_fPny3GlfjWelvdSidcQ43TS_cZKi4pdKsQbNyp_5peuUnaDya9vfjsaOPYhQL9_kORS8a7E4JVdol3gJZEgMa0V9A0HI-DETYaC2SFobYYPmvjvsA8P2Y0CREw9atY7Th0D52GOfBTxX8dZJdnqvW0H-0itLyLFUqVoJIK8xYuOQfosmJ9EfdKiEr5bYVkexYAd-FHW4PoKrfK8C0LE36-C-g9SGoq_BfM7JtvOWkkyBnGzarcDks7K_K3l0O5F-wmxv7EbKFKC8RLOegPV2szVqkUCdWT8eD9Am7eBpou9d4-YndfTyEs8Y8cis00f_Wcl7wK4gU47cUj5bFB0ccghLoClFZG6mLD7f1bZJfLTd_VsiZw6awMvf3gIqumXOqw36i-kGbcw_1HZn2XFe4yLHRhSmOlxvWz9q79kJcjJgeu3r5xF91y5FhK-ZMu8E4KwVkUKFWuNEeiEMMb8TPitByvhCv1dqAJTWmjDkek5O85Nf9NzHLKNHmBXNYa3iJUYdmNr5SEKKtENpeXRBsvLDVa_CQ8liIuI0jxUM6mhEt-PqQsGZ4Oso3SdQb_7OyW6T1YWqtlvzHj4eLMOY9iUuVM0LPJVNVg5aMKjeAiq4Raqo7KWok166hPG1OzDSiVrsynqYltXxtGv1Y4DbXPiy_7mGA0LYOotl6I0RAR6yC-YHKW4k9vvgAE_nCPs1xHPdiCFyUgG9sfdvLO9nJkCP8lJpplw2mC5nAcCdfpH6ooQx0MN-xfDCshYSdlhE3VK5s5CMzW-tgcZcU3LS8KumpWdSO5sQIwPvxDVQkxisW1eFyY9ScdYNrdKBfQeyCYr2IH_usoCwEpcK7710huKJMtVuUfQ1Ha2JKlhUBb1qAWg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_008e98f90a01b44c016ae870d6b49087d184b82390b6bd0b0c",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 104,
+    "completion_tokens": 72,
+    "total_tokens": 176,
+    "cost": 4.64e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.64e-05,
+      "upstream_inference_prompt_cost": 1.04e-05,
+      "upstream_inference_completions_cost": 3.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 33,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

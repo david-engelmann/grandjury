@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793619027-vUKexGOTNkgLq5gOul3i",
+  "object": "chat.completion",
+  "created": 1793619027,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"both email and print\",\"confidence\":0.78,\"probabilities\":{\"email only\":0.12,\"print only\":0.08,\"both email and print\":0.8}}",
+        "refusal": null,
+        "reasoning": "**Deciding on jurors**\n\nI need to choose a juror who's sensible and can handle both aspects of the case, ensuring accessibility. It feels important that the probabilities sum to 1 ideally, especially when using a JSON structure. It looks like I need to weigh the options carefully to make a balanced decision. I'll make sure to consider how this choice impacts overall fairness and representation in the jury. Let's figure this out!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Deciding on jurors**\n\nI need to choose a juror who's sensible and can handle both aspects of the case, ensuring accessibility. It feels important that the probabilities sum to 1 ideally, especially when using a JSON structure. It looks like I need to weigh the options carefully to make a balanced decision. I'll make sure to consider how this choice impacts overall fairness and representation in the jury. Let's figure this out!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HRVr4jAMDeeUYmFH-KAHV_zc-Y_D0lCTN22Tv3UqKwHuEQXykCPGHhYclAwMyVtBXjSRGQD4ov8PDCRAr4tKlvAtTJRYpwX8_W_2TIimGw7upnCi0Hrb9YNeSklzP6Xd2fpDiGXtmIXUafYponf7yB7rM836KuuE5-RHr4fgzcVQjIw1OBJquZwTiGzCy7_VPURvCu9HOERE_07fYIx4hWh03nZtMj8j4GN0posRytVT5uflFgkge5HXx94Hn8dvpGRwfDchRF2iQ85zIdPwYtNBrtfX_H4OsgKLRbUWRsfLtvq1yQmeyI0gYel_kGArV8-AB89zaWJSAuYIVrQbykOsnU50-fze2JRDbqO0y-sTJErfUOY8Y8aUb-wzQYTCTouyTsN465NEfbBuLJc152pGnl9NN3fODnjorQwoZWCNjRbtHOzRWAPF70o4flUXKWUskowTiIYzLh9MJ_3pq-DylC6TlqR_3vEGHAYn6ZDzK-xiIW5lVCNzDjWLBZp6GiWZLYZs2VBy8d1xDnraD3yu0rBVsY8hWWfPW5Ttulq2dDe0trPBjqeKLMCL34nLehSDECTmIGSYEWDYKOVr414NLCXCwuJNRBdIXh9yI5UfTe8eZ0KtTb4ad_zs0jITD9jEFeXH8CfyzkHEZwiMcoAh_7mgbZhWy72oCGMqRZ7Fc5rgJQbTpDw7E69a68nZWgcA6EvYEMXIftmFEOVqRxFdndJoAfszYCaglhgb-G1hml1FBKjM1eqibWYcZgGnSNQz7i3TJB-epAezFQIhMCxmoM0Wo4Fk7U1Np_LIVsnO6QXsuy1IFBHj3MYT_0zdkQRL7zLorv3Lqa60w7FfmQqzmCo0p3kf7JO6PrOMXDWCKbRMfWVGGtetaNr_Ua-Y2YP2XZJcPgrDYAv3KX3wDt_Cc0ezdeXad3NwYpY2ptvV8YvpLJP-MutLT5JtkQtQ5s4KcbVzklwaC8fyQTJvK79qa9bU4Bfu2bGzegzHcglmO0HlnLFsq4zuo3LySF0Ke4b6eXDEQ_SD9Mhrv2AnYjKQp3TOCOEhF-CQA1ob3RV5OSnQAvI6jzuY1bUKkfBown4OcTTFvEdSNLG-Wt3WIpx8wIka6HI_U61A_CPkXTY9wrvr7VMz5R02iXQtp5SWGSBIGRMkC0sESh2COk5AiZDaQYGJnG0AyLL7AlA06_bxJTxNtM0oO5FDVU7lulxzGD_YAuIXfRadOSGpSxqbYy_i2ZSPNEoVm8L8dt-W2flSWU_445xu9hj-zS8R73VGM5RmrAWVomQ6vWlDmjPfBI-TnOE2GCPFwZlyf0EY_ZznBY0pjgh6rD6Q9G70fZnSV_N82JOygEyIO0sHkSJdVSrsdsfsJCqhHnq2fHgOeoxvHjAJ2ImrX2b-PU1Q9bOlGkDEctOCaxJTNgG59QV1d23CJmti5dDVrPpeDzwdAtOuRHSjYIMwkXz4C1CAJ_7gfH4iREBu9St6M4uLEKEd2V8IIqxYTzDyEbS1L90j0zncK2RS4kkEH1CJpG7zRRVnCKafdadLxGU5i07Vw6krdWzn3zuhTVHYvKMsWdXbJkYxpGVhe7R1OJ1WEAlPfqmIC-_bxGYuOLouwcO9sT60sIH8irpoOQGCgi7eqdq-LasJntND3931ab9JZdffz6ZBgT_929iyJzxY5VvD_eaE5Na6rkMsEIRQwvYZh-Y39f4GjYUkY4HzD6Yye5DrNwkGRLyTp8uU7LOhlD1eQJ5uh0kBXdvik6TyeJ2gcvPFFUmZrcndau5vFhuLYuy97ip7rtjJpUq60rDPd62b6a86azm5gja4UazuFrZIRfzcBDnayWgJnGnzuGrWG6fqOx-lQ_HD3IxCDd8mr5r_Xc0hmppD9iOS629X-VVLx6YXy8cTLX1_X2oTEGZZsQMhhGXhFDq.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_06135f21236503f6016ae874548fe487d18b69a681a981dbbf",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 109,
+    "completion_tokens": 74,
+    "total_tokens": 183,
+    "cost": 4.79e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.79e-05,
+      "upstream_inference_prompt_cost": 1.09e-05,
+      "upstream_inference_completions_cost": 3.7e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 28,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

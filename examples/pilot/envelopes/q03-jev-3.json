@@ -1,0 +1,19 @@
+{
+  "answers": {
+    "decision": {
+      "choice": "both cards and cash",
+      "confidence": 0.88,
+      "probabilities": {
+        "both cards and cash": 0.92,
+        "cards only": 0.0,
+        "cash only": 0.08
+      },
+      "type": "choice"
+    }
+  },
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 380,
+    "output_tokens": 46
+  }
+}

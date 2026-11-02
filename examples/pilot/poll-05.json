@@ -1,0 +1,73 @@
+{
+  "question": "Should the allotment gate be locked at dusk?",
+  "answers": [
+    "lock it at dusk",
+    "leave it unlocked",
+    "lock it at nine"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "lock it at dusk",
+      "reason": "jev-1.13.0 chose lock it at dusk with confidence 0.85"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "lock it at dusk",
+      "reason": "jev-1.13.0 chose lock it at dusk with confidence 0.83"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "lock it at dusk",
+      "reason": "jev-1.13.0 chose lock it at dusk with confidence 0.85"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "lock it at dusk",
+      "reason": "jev-1.13.0 chose lock it at dusk with confidence 0.85"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "lock it at dusk",
+      "reason": "jev-1.13.0 chose lock it at dusk with confidence 0.86"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "lock it at dusk",
+      "reason": "openai/gpt-6-luna chose lock it at dusk with confidence 0.52"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "lock it at dusk",
+      "reason": "openai/gpt-6-luna chose lock it at dusk with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "lock it at dusk",
+      "reason": "openai/gpt-6-luna chose lock it at dusk with confidence 0.45 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "lock it at dusk",
+      "reason": "openai/gpt-6-luna chose lock it at dusk with confidence 0.55"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "lock it at dusk",
+      "reason": "openai/gpt-6-luna chose lock it at dusk with confidence 0.42 and abstained",
+      "abstained": true
+    }
+  ]
+}

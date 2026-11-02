@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618755-qXJji4GVr2c4U87PuYVw",
+  "object": "chat.completion",
+  "created": 1793618755,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"lock it at dusk\",\"confidence\":0.55,\"probabilities\":{\"lock it at dusk\":0.55,\"leave it unlocked\":0.15,\"lock it at nine\":0.3}}",
+        "refusal": null,
+        "reasoning": "**Choosing probabilities carefully**\n\nI'm considering how to approach answering this poll. I need to pick probabilities that add up appropriately, which requires some thought. JSON format is a must, and I think locking in my choice at dusk might ensure safety in decision-making. I should focus on finding just one juror, and my confidence level seems moderate right now. I have to be careful with the exact strings I use for the probabilities involved.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Choosing probabilities carefully**\n\nI'm considering how to approach answering this poll. I need to pick probabilities that add up appropriately, which requires some thought. JSON format is a must, and I think locking in my choice at dusk might ensure safety in decision-making. I should focus on finding just one juror, and my confidence level seems moderate right now. I have to be careful with the exact strings I use for the probabilities involved.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HNGEAjKc_ug_QcdrQJTI8QMUkJ2dHC2ofsKNFF-OXrDO2w9eeZWi7pjmm0wbbJTzMv4K_EEz2EkAMPrUYMMjt9hqydqvP7toiNDB1GxRKPDrvRDcLKwyINngG1nzg2orvDJq3L-VvSnFDx6hRNcM8liBcA7IWekKjh47i3OcujqcUpA6TlXgx5wgvcztzHsjLVpSIL1rkpEoVhw-XSMDBwvePvPhwduBoVwdz_cbyXFgMoHUys_IabBwjfldNqv52wnkvDnBghDeeM0U6sc63x-7qVzgR23FGAXzze6vkRaV0ZGSB5XGgXBWMzjO6bL2oVsZ5H7rSB4VXybumCktnG20sEL0-FdqhaqyRsF3HPcFSC56DwmcgD32ifyMbUsvgeT1dRKSs9NNR6l4WZTnurfiJzGn8S4N763Of9McSH8VYRbRdkg9b-ck8xDzhougYzIhqtkxg9kR5ctKjmn_Es6i5UAcDNVnbIJxnOLty6mdU54t9VMjy86TDA_z1ZaFVFfj4bPJEnU37oK71M7SBXp2NpRgyZfCV_UFTUiloOUyPuMP-qu47JnJRt5TnydhfoK2RdIJaKJwQR8J2v8JeyMqu6kiu0SNJumCP6ZW1nZCNtOZxO3B1WRwqHs61-8x9rQ7lwpvOMjk8x38Lk9eu2399v_zEjP0v5OSpTOing85bTYoUwmKGZwAhOIOckn318wOdFJ9rUTS89KeFsazV1otUjkDuWxVyl41CiwKhkcupknMX9hWnAhSbX8Tc93H92yiZlUwi8ckSBALkfa84eapIilRn5km8kFMZ2xZ_HqULkyFcfFquXEcJ19BnbheYH8gXUjKxvLRo_4BffAFKSy0VpiyZQ5tcgJW8WTvHXy72cbmGPwWKyYordlM2hyYqMu_mL-shzntek9o57xOXvKnzV-Heqvj6-1gjPB9p1hshuZ162j67yijNaZA_NdXVmE30aIvkgaJQ4kz1oUpcTyevYwJJHKGRI_1B5WAONxd-d19Vz8Teks8VgKkc-eD88kAkzAwgaiHBfAJTTwBgKq2K4AfGd8S4s6vqZ0gRMYlE0yU75vLRJx-5U1D4APZ_TqQEjoc0HkhoYSulHkrH0KR8ilWsnsUQwcQyv3ZSRjDEeddjIJy9rBH6o87tYvbYjm55A-TzWsAntqMqbDPN7RMXgn27mU_gcgpbYnuMUdhqNn7Kgp-v9m4TiO5oCGAltYfLahM2Grz4MAvdZeOeDr0svtc1Fqt1HQN8uCejTexm53wqG9h4OhI5F0MO9tGX5hbaFCrRwYWcqDVwIHxQ_aygQPrBMuoCq_7RaPdvrgvmO12bvRNgoHhQMFi_A7QJW0gAwhqCldxfk15lghSEUbAWHuddCnBexPZKFtVSGF99GaTO3CKPuXWeme7ztAH3KEUiSozrpb1Wd_7xGHCQo1Buqh1nSK-c-53kGwUOl2Op5-NJL9HHi-C--iQY2zE-G-WX8z2bHZFDnWHLVdBjjkbkjEUDm5GnsHOQWYU89xENZxJJ4DTrsjSDFZn3Ba1rWnAY0aZb7hVdOAu48pxruW7l_C1nV09IH-8c8mbaRLeGLWXGM0zAxI2_o--Cbo6EOf0_qIZK85wG7yzJg8FrsD_3HSp-L58s84K75t6AsB3uZRH9X96VMyIG9fzS0kMrRZoJB6U4OcTKtT8x1du9i0lRfNHpQxHn2soZeH_EUwxAitHliUHyfv_okCkjHsFNZ3GSRNh9acPmSUrUwrOht2X_nF12rMDv6BP_WAYsg1lr6122A6m_Oot9adP87QXkYGFiVeanIZ6tJnanAgiYDQmO2Z15lZq0S1_g6TtCx1cX11GwaLgncj0_4R0rv2ICpeG0KYlkiEJ2kuOGSJFaw7KkjkMRhPxKWidwR_WT0yc_ZTuUzOenM25yFZ6GoJIXkcolwOo_LkIg3FE2I8TgIm7C48Fmt8bunEbn8G-DLkF7O6k94_KRq6Nc7BVajygy3TpUAYEe2MmQScBQ0NEmtWAeiy1N7d4-2fDk36q1qGuSp6nDi4OGqaiYlOyUIuEkeuVUyGxj9uPLxGzCaTLnW-_AtuaosAYmFeFmdizsAxNn25DV0yLII92-DzmRoiglRF8uKsT0-D93ogQ7IMdFhHOQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_00c5bc442501eba6016ae873449d3c87d1b3e2b2c4171bf815",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 90,
+    "total_tokens": 200,
+    "cost": 5.6e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.6e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 4.5e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 41,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

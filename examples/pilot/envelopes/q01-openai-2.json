@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618129-UjqjVfGO9tIf43SMepXE",
+  "object": "chat.completion",
+  "created": 1793618129,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"open on Sundays\",\"confidence\":0.65,\"probabilities\":{\"open on Sundays\":0.65,\"stay closed on Sundays\":0.35}}",
+        "refusal": null,
+        "reasoning": "**Considering output choices**\n\nI need to output in JSON format, which means I should be choosing options carefully. I’m thinking about a poll that’s somewhat subjective. For instance, maybe I’d consider whether the library is open on Sundays for convenience, but what about the resources available at the village library? Ultimately, it seems like I should pick the option that's open. I want to ensure that the total possibilities I choose sum to one, making the choice exact as offered.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Considering output choices**\n\nI need to output in JSON format, which means I should be choosing options carefully. I’m thinking about a poll that’s somewhat subjective. For instance, maybe I’d consider whether the library is open on Sundays for convenience, but what about the resources available at the village library? Ultimately, it seems like I should pick the option that's open. I want to ensure that the total possibilities I choose sum to one, making the choice exact as offered.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HDTxifffAmOvl3z3rBgvCsDawaLt6QkSvuwctnvzG63xpDe1LZU4VYuYLE9lqf9AqU6g8WtzeBI-aXKv4YWcpYP3YZ2gMrgbxkCCl-JCDRQVC6AyDACbGR4uGnH-EOXk9ujkEI-gS1jvdaVZ97rRR65EoyTYRLpfFT4MOSn56G3Ux-AJnW7yGjqC9YKV8wThu9b4xV9BpIfII97IU7W8gLrwzBNle0ba9ZUSc7120PbML7ktmRgtRfMVFB9elOxI6bmX4yzvmVcjg0_IjlNQqJG63eZGYfvvrO5E2ZfFnQshx04VyrXeQFkv_j5ON1xy_ibsO9x_aWx-dhn0SpBs7kd83sP7zEtaLESfVeUyMvyYL8s3YH_QVdVMRdkO2N2q4-NNaqAa9mkPc5c5v8i84N5i1DXopYuEsZ8yICjNJTMZNTVocihGihNgpa4UV194gATKz3-RoQF2a7TbM6bGN0da4V527ks5v6hsvZU0_tXPCeSW_OnFUzhMWphswURHctRY4uKDtS39_6zmvpi6_11mfR05J5UV3wbv_y-9XIsTUshzjXdRtwDzXJuPee20VD3mhsOKxNXBFvxXcCiihR90QTdJn9aLVX4UjGyMFHjAKFBL7G7TKzBhbLKFlNDxEV8u_QisugUJp8P7CKtvRbdRFKA2GZANQc7nM6OatPuFnSrTDnAf02UoDEmt3ei7IkGiy887nvC-XFWC9fCdn1KsdtqAS2qdacy_pREIDzukACBOMOHIBCEE5KW2s8YpfQoLHnNql0fjQ-nO04pNOZa5UjrgQEIR4kxo_u05hL4v2MQDfDl2JMCRnT9S5Mhs_Voh7hYhBC1OpNGRwnl7MfkcsA_3fNVqtOJMNwYZkBAibx2ky_E0XzHzR0Zvn3e4c1G_d3pXAzm7GVTEbBe2z33bsAVwKkG9vazyoYjKZwFfEBGC-c8GHmVyJS3MkLrqcWaYcHugrhBMd0u-434lvzmDshNWFnsh_JK7V32q2Qk38_BiiI-w8Y1uWOZtmRde60-B4GBFCOiZ9FWEMF0UKPU6BHjoOGPHL_HoANRgbwTpj9UHfhaRTgM-H-XbCTNmJTDUGlEV2L4145XdFwgq4WG_efIPNI88-o06bBB3EO1RV3W2DiYAz3f_P_VN6-6Kq1Nu5ijSstzc2czOClBiQe6-Cp4kM_Pot5LyU0rjqWmjrZ8X9Hh5ke28iSFqVB0TFjxo_OTBfpBv2JV7DWU42lnHc90yM6SplWjiAY6z8WfaMU4d6WsqB6LWvga9O8X8MC-8tTQtTTSKCnml-VxsliICUIBc5AhKptC_mEr37sZEAoPktJeJto7RuWI8xRKbWoedOkLEYXUmBor4xp2yeOSD6wAdD3qlOifYc6PC2xLjK2XLNSI0atwJZ8gY2U0UTrMIuWZm1DsO9ucCaVGPXFVStquZ5h2uVaJSne5Y7Ytv_azlAX03bkGfQ9sYEP644856Xd1DhtgFIxHO4TakR4qR81AC09fPEjnPSHCSdTe0sqzY423_8nrNqWqbnzb1KmamxObAN4FUIEJ7V1TN1as3JRfCSYMXkfc2-DsEyinFQ0O9pc0DHItJrc39Ssn4yOANJQh5lbiUEJnjHqh-Kjrg2WDxxD0tRv7GcXID5486TC6szHswLnuLi4kIvsgBSxTyPueQPKYLlzVpzVlpyASv2lP1IzTfWFY7etkI9xP_OEox-nrcgVus8Hea8QxynbPShlwn6SkDDlwGFyL0l_7akUHrv09bWKWgXavCUejIqT33YQbLTFwoavzVnxgnJfhIHkVFkDh5CnCr3QNpVg1ecMNaO6lOMnHpchF62oiAhp8SJsHJgY8n2K2IoAtfLM_Gn0rF9S2zLfK5GLqlh15RYynhfGTvri8n-SkG5UHRgl9I6_ym0cNxGI-s-qb_iQqpKGAYODEIeSyUydTM4L_cdZ7nYpzf5X6d-lIcp9oUiCzWcVVCLpf4v9y3pho1G2T9CiNO4Di7khPSbD-38pzHhVzQ5kubdJqdBqOa1HRuFVurB6qLfYkr1Sqzsv9i2YZAK4WS08DzQ5vs0MZy9Z0ACix-TEkmcCtyEJI5O-59Js=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_07305936c7cba165016ae870d1c1d887d19e203cc2eba6106f",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 104,
+    "completion_tokens": 78,
+    "total_tokens": 182,
+    "cost": 4.94e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.94e-05,
+      "upstream_inference_prompt_cost": 1.04e-05,
+      "upstream_inference_completions_cost": 3.9e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 39,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

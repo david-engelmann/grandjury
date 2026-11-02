@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618756-LxpaPOy8pYcE63NbJodQ",
+  "object": "chat.completion",
+  "created": 1793618756,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"lock it at dusk\",\"confidence\":0.42,\"probabilities\":{\"lock it at dusk\":0.42,\"leave it unlocked\":0.18,\"lock it at nine\":0.4}}",
+        "refusal": null,
+        "reasoning": "**Choosing lock timing**\n\nI need to make a decision about the lock timing for the allotment gate. It seems that the gate is typically locked at dusk for security reasons. However, if the lock at nine could accommodate evening gardeners, I should consider that too. I might need to weigh the probabilities of each option to figure out the most sensible choice. I’ll also look into the specifics, maybe even checking the exact JSON details related to this.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Choosing lock timing**\n\nI need to make a decision about the lock timing for the allotment gate. It seems that the gate is typically locked at dusk for security reasons. However, if the lock at nine could accommodate evening gardeners, I should consider that too. I might need to weigh the probabilities of each option to figure out the most sensible choice. I’ll also look into the specifics, maybe even checking the exact JSON details related to this.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HNGdsadgEXCKP6E_7xicFBcKugReTsiOxHwewv0FZDnC3Y3j3fNHB7aHzuMoeNZITWw6Ndun5tjbEfl3yKdj5qdXNE7BwK4fjnVRRfOInaZ64qMQWh2aFzXucIFCyOoABPs6QDnnHfQJD5RTVYUKPhob_1XyY6ZLvTmVhwJe4oppN90Kgzq_B4y94hPIktnziLERUtZLwn72H6Ci-NnmOBgSpsL9o1_KSHK2PZsEoFU8pkCRuiFxWiqCul9Jgn6zV3PGdeij2-4qwEwkGpAi_QR06CnFffMpY1p3wVUAYzu58-lcrzpxJ5mk5Ib3Plpv6-HypczXk3gchbisqyYcndlMVdW0p9wFaQmIbN_ySfHNLt9KEIncitf0uRr-yRSMo8yF1L7GDHsC9YmJ-98Owol3BV42hGcXfJjMP1KLOabG6QFGtBMdkSY7aBXm3L7OiXcM3-oj5q1re3iPqB55yeMi4kLstPIQYYaxBRP8amEnLrXJ8MDzzTzX0aMQ2HxhiAz299w-jqdTM4ACPw6CqPfsKCkVeVPC8cCyqMy24fBulb8osuGvUOKG5hXjH4UbYN6tcekAPFVn-SPq49R9QEAUtU7-qtICa2BoQxUFWewUN4pKa3NzRoHvn5hbJh9VAGkiXkyzym_TDiqJiS-jz6ohZvz6-W7iiCeNNwynjMjHqaSZYl-WdrZmkMZsEF9KPFNL1dfekU3YNyT2D_8pKXkVDi8lON8AW-CAEOP2Er3bC80J0qtre3gQ4RjZSjA00EvenLcteHX3fb0a9Qvf8T7CP1ZdCUDZQmOsagj6SrKNzhvb_sw6WrLIdgOO5zSokc5w-p1HfJYnF0svWiP1OrpEaZEiZvvTSFRzmlhu3EMWgQW_K-tJN6kj0XsKVB_RBe5hxZEqlvIlKE5SdeqPfETJz4OdDtjGClI_VgHxMfxr9GaW0rxToRkSck5Oe4HSoIVIpF0lFjIiizmkcAHKMzGo6smfGMeYkWETfLnXDk1SuP59XnyVtEdGv73BjnR-eEnnpoamSQKNejXaGAnHcWb2DtXJ_2fxblhlk-Bxk_6BqskAA3QpKBt9cdbPaIsIQJvRoAXcxXME0J3XQXfZfZdJsJ5eB7J7Yvda073xnX3eKXwlRk6hJfnQv44y9X-I3ZLTLA6U0zqtZ_ay3TDm9V0vG1LTRg7ey4MUdnUbbmCgcxHm5WFKwk-lfDjWj4Bh4hLWWnO4kDxCxMJmnfrE6kRn0OArQlaNLUj0Up5zKGD-FkRZh7G7_4irVr48nxPSv2GUAgghI-k4ejoN2Phc1yZK45KRC_bZ7rCTv0TcvXjahutPmDdkCgRPEh8NjVj7CsCd-AfQ6wB4fVlpmcZH6BnnNKeYBqfWzaKTycUHZlDjuk9fYwFv0LTRlcsNr5GK9uE41bsiUHyGlSpQuN0w3TJb196t0JJszcbee01UCn50ZpO9d0VBCmoZ1ARoJQXabTl8L8k5Dpt3uS12UzVO8wjNegPTNOq8yDhDNDOe2Rfs1tUo5ZFhlgwkr2IdpHLTDpo_WYRARvDQCTVJnlqGoUTtqHbhORGX4c1mQUzeWgW5qmjaFdn-bdRImK1k725UHvCcQaxuwHOQb5pf1lQBeIiGgbifOY4tf7jutis85r3PiE50nn5oqA4maE_COUj8dOUJzj4VBIw_9tSCR5JjZsNikKsfxZSvm-E6puQFUZ50j3EkYzx62fgtv249Ha5cFy2xjRc_VJnKhy8aqICryrMCdvsrXJxTITQMr35VcEBnxeQDB52BaBZzIorktpb73FgurdjUEm5IPGFoxhozmhA_Xyr-VmWGF2JUHFfcPz3kFEODOpLTrUJVeW0zERTb9aLeNmxyUAkpsBGZxfZ1V-MNe7YIPgL-IGy26nEyAPzaPcKkmFCPkGWqi00v51C1nBVUAHwt-BY1tRtwr1wBvib26974AVood8yxBfajR7EyIvJwX_qwlYqVLqBYdvnab7GaPNb23HK0aLXBFuNFNIGJ82jnovoUgvYt-43TN_z5-fnJAVCPW0fSpZ-eSXvS9sakDJdzqOcdVKXmpdrXsK6-cQgNUs25ahDhWRvr3y5y95WYncN9Q6HKqPHS6bPDgihMYGSsQtI0JNrjQjtCiE_jw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0b249a78ff23171a016ae87344c0f087d18bc561853f97c99a",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 90,
+    "total_tokens": 200,
+    "cost": 5.6e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.6e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 4.5e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 41,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
