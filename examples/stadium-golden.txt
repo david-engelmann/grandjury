@@ -1,0 +1,134 @@
+question, Should the night shift agent deploy on Fridays?
+responses, 124
+deploy |########################################| 62, 51.7%
+hold |#######################| 36, 30.0%
+deploy with a watcher |##############| 22, 18.3%
+wall of reasons
+deploy
+  juror-001, the queue is clear and the tests are green
+  juror-002, Friday traffic is the lightest of the week
+  juror-003, the change is small and well fenced
+  juror-004, waiting until Monday helps nobody
+  juror-005, the rollback path was rehearsed twice
+  juror-011, the diff touches nothing shared
+  juror-013, the queue is clear and the tests are green
+  juror-014, Friday traffic is the lightest of the week
+  juror-015, the change is small and well fenced
+  juror-021, waiting until Monday helps nobody
+  juror-022, the rollback path was rehearsed twice
+  juror-023, the diff touches nothing shared
+  juror-024, the queue is clear and the tests are green
+  juror-025, Friday traffic is the lightest of the week
+  juror-031, the change is small and well fenced
+  juror-032, waiting until Monday helps nobody
+  juror-033, the rollback path was rehearsed twice
+  juror-034, the diff touches nothing shared
+  juror-035, the queue is clear and the tests are green
+  juror-042, Friday traffic is the lightest of the week
+  juror-043, the change is small and well fenced
+  juror-044, waiting until Monday helps nobody
+  juror-045, the rollback path was rehearsed twice
+  juror-051, the diff touches nothing shared
+  juror-052, the queue is clear and the tests are green
+  juror-053, Friday traffic is the lightest of the week
+  juror-054, the change is small and well fenced
+  juror-055, waiting until Monday helps nobody
+  juror-061, the rollback path was rehearsed twice
+  juror-062, the diff touches nothing shared
+  juror-063, the queue is clear and the tests are green
+  juror-064, Friday traffic is the lightest of the week
+  juror-065, the change is small and well fenced
+  juror-071, waiting until Monday helps nobody
+  juror-072, the rollback path was rehearsed twice
+  juror-073, the diff touches nothing shared
+  juror-074, the queue is clear and the tests are green
+  juror-075, Friday traffic is the lightest of the week
+  juror-081, the change is small and well fenced
+  juror-082, waiting until Monday helps nobody
+  juror-083, the rollback path was rehearsed twice
+  juror-084, the diff touches nothing shared
+  juror-085, the queue is clear and the tests are green
+  juror-091, Friday traffic is the lightest of the week
+  juror-092, the change is small and well fenced
+  juror-093, waiting until Monday helps nobody
+  juror-094, the rollback path was rehearsed twice
+  juror-095, the diff touches nothing shared
+  juror-101, the queue is clear and the tests are green
+  juror-102, Friday traffic is the lightest of the week
+  juror-103, the change is small and well fenced
+  juror-104, waiting until Monday helps nobody
+  juror-105, the rollback path was rehearsed twice
+  juror-111, the diff touches nothing shared
+  juror-112, the queue is clear and the tests are green
+  juror-113, Friday traffic is the lightest of the week
+  juror-114, the change is small and well fenced
+  juror-115, waiting until Monday helps nobody
+  juror-121, the rollback path was rehearsed twice
+  juror-122, the diff touches nothing shared
+  juror-123, the queue is clear and the tests are green
+  juror-124, Friday traffic is the lightest of the week
+hold
+  juror-006, nobody is awake to watch the graphs
+  juror-007, a Friday fault festers until Monday
+  juror-008, the on call rotation is thin this week
+  juror-016, the last Friday deploy cost a weekend
+  juror-017, the change can wait two days safely
+  juror-018, the review was rushed and it shows
+  juror-026, nobody is awake to watch the graphs
+  juror-027, a Friday fault festers until Monday
+  juror-028, the on call rotation is thin this week
+  juror-036, the last Friday deploy cost a weekend
+  juror-037, the change can wait two days safely
+  juror-038, the review was rushed and it shows
+  juror-046, nobody is awake to watch the graphs
+  juror-047, a Friday fault festers until Monday
+  juror-048, the on call rotation is thin this week
+  juror-056, the last Friday deploy cost a weekend
+  juror-057, the change can wait two days safely
+  juror-058, the review was rushed and it shows
+  juror-066, nobody is awake to watch the graphs
+  juror-067, a Friday fault festers until Monday
+  juror-068, the on call rotation is thin this week
+  juror-076, the last Friday deploy cost a weekend
+  juror-077, the change can wait two days safely
+  juror-078, the review was rushed and it shows
+  juror-086, nobody is awake to watch the graphs
+  juror-087, a Friday fault festers until Monday
+  juror-088, the on call rotation is thin this week
+  juror-096, the last Friday deploy cost a weekend
+  juror-097, the change can wait two days safely
+  juror-098, the review was rushed and it shows
+  juror-106, nobody is awake to watch the graphs
+  juror-107, a Friday fault festers until Monday
+  juror-108, the on call rotation is thin this week
+  juror-116, the last Friday deploy cost a weekend
+  juror-117, the change can wait two days safely
+  juror-118, the review was rushed and it shows
+deploy with a watcher
+  juror-009, the watcher catches what the graphs miss
+  juror-010, a named human beats a paging rule
+  juror-019, the risk is real but watchable
+  juror-020, deploy, but keep eyes on the error rate
+  juror-029, the watcher can roll back in one step
+  juror-030, attention is cheaper than a weekend
+  juror-039, the watcher catches what the graphs miss
+  juror-040, a named human beats a paging rule
+  juror-049, the risk is real but watchable
+  juror-050, deploy, but keep eyes on the error rate
+  juror-059, the watcher can roll back in one step
+  juror-060, attention is cheaper than a weekend
+  juror-069, the watcher catches what the graphs miss
+  juror-079, a named human beats a paging rule
+  juror-080, the risk is real but watchable
+  juror-089, deploy, but keep eyes on the error rate
+  juror-090, the watcher can roll back in one step
+  juror-100, attention is cheaper than a weekend
+  juror-109, the watcher catches what the graphs miss
+  juror-110, a named human beats a paging rule
+  juror-119, the risk is real but watchable
+  juror-120, deploy, but keep eyes on the error rate
+spoiled, 4
+  juror-012, deploy at dawn
+  juror-041, ask a human first
+  juror-070, never deploy
+  juror-099, deploy at dawn

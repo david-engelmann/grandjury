@@ -1,0 +1,5 @@
+question, Should the night shift agent deploy on Fridays?
+responses, 124
+priced, 120 responses, 0.033000 dollars
+unpriced, 4 responses
+unpriced model, tiny-c, 4 responses
