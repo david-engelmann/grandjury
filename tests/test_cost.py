@@ -110,6 +110,62 @@ def test_a_model_label_holding_an_unpaired_surrogate_is_named():
     assert defects == ["a model label holds an unpaired surrogate"]
 
 
+FORGED_LABEL = "evil\nunpriced model, forged, 7 responses"
+
+
+def prices_with_label(label, value):
+    return json.dumps({"prices": {label: value}})
+
+
+def test_a_model_label_holding_a_newline_is_named_not_printed():
+    table, defects = load_prices_text(
+        prices_with_label(FORGED_LABEL, 7)
+    )
+    assert table is None
+    assert defects == ["a model label holds a newline"]
+
+
+def test_a_newline_label_is_named_before_a_bad_price_string():
+    table, defects = load_prices_text(
+        prices_with_label(FORGED_LABEL, "cheap")
+    )
+    assert table is None
+    assert defects == ["a model label holds a newline"]
+
+
+def test_a_newline_label_is_named_before_a_negative_price():
+    table, defects = load_prices_text(
+        prices_with_label(FORGED_LABEL, "-0.5")
+    )
+    assert table is None
+    assert defects == ["a model label holds a newline"]
+
+
+def test_a_newline_label_is_named_before_a_surrogate_price():
+    table, defects = load_prices_text(
+        prices_with_label(FORGED_LABEL, "\ud800x")
+    )
+    assert table is None
+    assert defects == ["a model label holds a newline"]
+
+
+def test_a_newline_label_with_a_valid_price_loads_no_table():
+    table, defects = load_prices_text(
+        prices_with_label(FORGED_LABEL, "0.1")
+    )
+    assert table is None
+    assert defects == ["a model label holds a newline"]
+
+
+def test_a_carriage_return_label_with_a_valid_price_is_named():
+    label = "evil\runpriced model, forged, 7 responses"
+    table, defects = load_prices_text(
+        prices_with_label(label, "0.1")
+    )
+    assert table is None
+    assert defects == ["a model label holds a newline"]
+
+
 def test_the_cost_of_a_fully_priced_poll():
     poll = load_poll({
         "question": "q",
@@ -283,3 +339,47 @@ def test_an_exact_half_past_the_28th_digit_rounds_up():
     assert line == (
         "priced, 1 responses, 1000000000000000000000.000001 dollars"
     )
+
+
+def abstained_response(juror, answer, model="tiny-a", reason="a reason"):
+    entry = response(juror, answer, model=model, reason=reason)
+    entry["abstained"] = True
+    return entry
+
+
+def test_an_abstained_response_is_priced_like_any_other_response():
+    poll = load_poll({
+        "question": "q",
+        "answers": ["red", "blue"],
+        "responses": [
+            response("juror-1", "red"),
+            abstained_response("juror-2", "blue"),
+        ],
+    })
+    table = load_prices({"prices": {"tiny-a": "0.0002"}})
+    assert cost_lines(poll, table) == [
+        "question, q",
+        "responses, 2",
+        "priced, 2 responses, 0.000400 dollars",
+        "unpriced, 0 responses",
+    ]
+
+
+def test_an_abstained_response_from_an_unpriced_model_is_named():
+    poll = load_poll({
+        "question": "q",
+        "answers": ["red", "blue"],
+        "responses": [
+            response("juror-1", "red"),
+            abstained_response("juror-2", "blue", model="tiny-c"),
+            abstained_response("juror-3", "red", model="tiny-c"),
+        ],
+    })
+    table = load_prices({"prices": {"tiny-a": "0.0002"}})
+    assert cost_lines(poll, table) == [
+        "question, q",
+        "responses, 3",
+        "priced, 1 responses, 0.000200 dollars",
+        "unpriced, 2 responses",
+        "unpriced model, tiny-c, 2 responses",
+    ]

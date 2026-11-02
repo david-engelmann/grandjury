@@ -1,0 +1,18 @@
+question, Should the village library open on Sunday mornings?
+responses, 10
+open on Sundays |########################################| 5, 100.0%
+stay closed on Sundays || 0, 0.0%
+wall of reasons
+open on Sundays
+  openai-1, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-2, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-3, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-4, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-5, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+stay closed on Sundays
+abstained, 5
+  jev-1, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-2, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-3, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-4, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-5, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained

@@ -1,0 +1,18 @@
+{
+  "answers": {
+    "decision": {
+      "choice": "open on Sundays",
+      "confidence": 0.12,
+      "probabilities": {
+        "open on Sundays": 0.56,
+        "stay closed on Sundays": 0.44
+      },
+      "type": "choice"
+    }
+  },
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 360,
+    "output_tokens": 38
+  }
+}

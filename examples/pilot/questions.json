@@ -1,0 +1,97 @@
+[
+  {
+    "question": "Should the village library open on Sunday mornings?",
+    "answers": [
+      "open on Sundays",
+      "stay closed on Sundays"
+    ]
+  },
+  {
+    "question": "When should the community hall hold its spring clean?",
+    "answers": [
+      "the first Saturday of April",
+      "the last Saturday of April",
+      "a weekday evening"
+    ]
+  },
+  {
+    "question": "Should the school bake sale take card payments?",
+    "answers": [
+      "cards only",
+      "cash only",
+      "both cards and cash"
+    ]
+  },
+  {
+    "question": "Which night should the book club meet?",
+    "answers": [
+      "Tuesday",
+      "Wednesday",
+      "Thursday"
+    ]
+  },
+  {
+    "question": "Should the allotment gate be locked at dusk?",
+    "answers": [
+      "lock it at dusk",
+      "leave it unlocked",
+      "lock it at nine"
+    ]
+  },
+  {
+    "question": "What should the pub quiz do with tied scores?",
+    "answers": [
+      "a tiebreak question",
+      "share the prize",
+      "replay the final round"
+    ]
+  },
+  {
+    "question": "Should the parish newsletter go out by email instead of print?",
+    "answers": [
+      "email only",
+      "print only",
+      "both email and print"
+    ]
+  },
+  {
+    "question": "When should the farmers market start in summer?",
+    "answers": [
+      "seven in the morning",
+      "eight in the morning",
+      "nine in the morning"
+    ]
+  },
+  {
+    "question": "Should the scout troop camp by the river or in the woods?",
+    "answers": [
+      "by the river",
+      "in the woods"
+    ]
+  },
+  {
+    "question": "What should the choir sing at the winter concert?",
+    "answers": [
+      "carols only",
+      "a mix of carols and folk songs",
+      "folk songs only"
+    ]
+  },
+  {
+    "question": "Should the bus stop move closer to the shops?",
+    "answers": [
+      "move it closer",
+      "keep it where it is",
+      "add a second stop"
+    ]
+  },
+  {
+    "question": "How should the village fete handle rain?",
+    "answers": [
+      "carry on in the rain",
+      "move into the hall",
+      "postpone by a week",
+      "cancel outright"
+    ]
+  }
+]

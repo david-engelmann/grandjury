@@ -234,6 +234,56 @@ def test_a_reason_holding_a_carriage_return_is_named():
     assert defects == ["response 0 field reason holds a newline"]
 
 
+def test_a_question_holding_a_newline_is_named():
+    data = valid_data()
+    data["question"] = "Which door\nshould the agent pick?"
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["field question holds a newline"]
+
+
+def test_a_question_holding_a_carriage_return_is_named():
+    data = valid_data()
+    data["question"] = "Which door\rshould the agent pick?"
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["field question holds a newline"]
+
+
+def test_an_answer_holding_a_newline_is_named():
+    data = valid_data()
+    data["answers"] = ["red", "blue\nspoofed", "green"]
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["answer 1 holds a newline"]
+
+
+def test_a_juror_holding_a_newline_is_named():
+    data = valid_data()
+    data["responses"][0]["juror"] = "juror-1\nspoofed, 99, 100.0%"
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 0 field juror holds a newline"]
+
+
+def test_a_model_holding_a_newline_is_named():
+    data = valid_data()
+    data["responses"][0]["model"] = (
+        "tiny-a\nunpriced model, spoof, 9 responses"
+    )
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 0 field model holds a newline"]
+
+
+def test_a_response_answer_holding_a_carriage_return_is_named():
+    data = valid_data()
+    data["responses"][0]["answer"] = "red\rspoofed"
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 0 field answer holds a newline"]
+
+
 def test_unnamed_fields_of_the_poll_are_ignored():
     data = valid_data()
     data["counts"] = {"red": 99, "blue": 99}
@@ -374,3 +424,135 @@ def test_a_percentage_half_rounds_up_not_to_even():
     lines = render_tally_lines(poll)
     assert "red, 1, 6.3%" in lines
     assert "blue, 15, 93.8%" in lines
+
+
+def abstained_response(juror, answer, model="tiny-a", reason="a reason"):
+    entry = response(juror, answer, model=model, reason=reason)
+    entry["abstained"] = True
+    return entry
+
+
+def test_an_abstained_response_loads_clean_and_keeps_its_kind():
+    data = valid_data()
+    data["responses"] = [
+        response("juror-1", "red"),
+        abstained_response("juror-2", "blue"),
+    ]
+    poll, defects = load(data)
+    assert defects == []
+    assert "abstained" not in poll["responses"][0]
+    assert poll["responses"][1]["abstained"] is True
+
+
+def test_an_abstained_field_holding_false_is_named():
+    data = valid_data()
+    entry = response("juror-1", "red")
+    entry["abstained"] = False
+    data["responses"] = [entry]
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 0 field abstained is not true"]
+
+
+def test_an_abstained_field_holding_a_string_is_named():
+    data = valid_data()
+    entry = response("juror-1", "red")
+    entry["abstained"] = "true"
+    data["responses"] = [response("juror-0", "blue"), entry]
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 1 field abstained is not true"]
+
+
+def test_an_abstained_field_holding_a_number_is_named():
+    data = valid_data()
+    entry = response("juror-1", "red")
+    entry["abstained"] = 1
+    data["responses"] = [entry]
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 0 field abstained is not true"]
+
+
+def test_an_abstained_response_with_an_empty_reason_is_still_named():
+    data = valid_data()
+    entry = abstained_response("juror-1", "red", reason="")
+    data["responses"] = [entry]
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["response 0 field reason is empty"]
+
+
+def test_a_duplicate_juror_is_named_when_one_response_abstained():
+    data = valid_data()
+    data["responses"] = [
+        response("juror-1", "red"),
+        abstained_response("juror-1", "blue"),
+    ]
+    poll, defects = load(data)
+    assert poll is None
+    assert defects == ["duplicate juror juror-1"]
+
+
+def test_the_tally_counts_abstained_responses_apart():
+    data = valid_data()
+    data["responses"] = [
+        response("juror-1", "red"),
+        response("juror-2", "red"),
+        response("juror-3", "blue"),
+        response("juror-4", "purple"),
+        abstained_response("juror-5", "red"),
+        abstained_response("juror-6", "purple"),
+    ]
+    poll, defects = load(data)
+    assert defects == []
+    tally = tally_poll(poll)
+    assert tally["responses"] == 6
+    assert tally["valid"] == 3
+    assert tally["spoiled"] == 1
+    assert tally["abstained"] == 2
+    rows = {row["answer"]: row for row in tally["rows"]}
+    assert rows["red"]["count"] == 2
+    assert rows["red"]["share"] == Fraction(2, 3)
+    assert rows["blue"]["count"] == 1
+    assert rows["blue"]["share"] == Fraction(1, 3)
+
+
+def test_the_tally_lines_name_the_abstained_count_after_spoiled():
+    data = valid_data()
+    data["answers"] = ["red", "blue"]
+    data["responses"] = [
+        response("juror-1", "red"),
+        response("juror-2", "purple"),
+        abstained_response("juror-3", "blue"),
+    ]
+    poll, defects = load(data)
+    assert defects == []
+    assert render_tally_lines(poll) == [
+        "question, Which door should the agent pick?",
+        "responses, 3",
+        "valid, 1",
+        "spoiled, 1",
+        "abstained, 1",
+        "red, 1, 100.0%",
+        "blue, 0, 0.0%",
+    ]
+
+
+def test_the_tally_lines_omit_the_abstained_line_when_none_abstained():
+    data = valid_data()
+    data["answers"] = ["red", "blue"]
+    data["responses"] = [
+        response("juror-1", "red"),
+        response("juror-2", "purple"),
+    ]
+    poll, defects = load(data)
+    assert defects == []
+    assert render_tally_lines(poll) == [
+        "question, Which door should the agent pick?",
+        "responses, 2",
+        "valid, 1",
+        "spoiled, 1",
+        "red, 1, 100.0%",
+        "blue, 0, 0.0%",
+    ]

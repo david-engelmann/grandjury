@@ -1,0 +1,18 @@
+{
+  "answers": {
+    "decision": {
+      "choice": "in the woods",
+      "confidence": 0.34,
+      "probabilities": {
+        "by the river": 0.33,
+        "in the woods": 0.67
+      },
+      "type": "choice"
+    }
+  },
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 362,
+    "output_tokens": 37
+  }
+}

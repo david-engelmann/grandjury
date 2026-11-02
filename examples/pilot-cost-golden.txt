@@ -1,0 +1,5 @@
+question, Should the village library open on Sunday mornings?
+responses, 10
+priced, 5 responses, 0.000260 dollars
+unpriced, 5 responses
+unpriced model, jev-1.13.0, 5 responses

@@ -76,3 +76,41 @@ def test_dashes_inside_an_ignored_directory_pass_the_scan(tmp_path):
     assert result.returncode == 0
     assert "U+2014=0" in result.stdout
     assert "U+2013=0" in result.stdout
+
+
+def test_dashes_inside_the_recorded_envelopes_pass_the_scan(tmp_path):
+    root = plant_tree(tmp_path)
+    envelopes = root / "examples" / "pilot" / "envelopes"
+    envelopes.mkdir(parents=True)
+    (envelopes / "q01-jev-1.json").write_text(
+        f"{{\"reading\": \"one {EM_DASH} two {EN_DASH} three\"}}\n",
+        encoding="utf-8",
+    )
+    result = run_scan(root)
+    assert result.returncode == 0
+    assert "U+2014=0" in result.stdout
+    assert "U+2013=0" in result.stdout
+
+
+def test_a_dash_in_the_pilot_directory_outside_envelopes_fails(tmp_path):
+    root = plant_tree(tmp_path)
+    pilot = root / "examples" / "pilot"
+    pilot.mkdir(parents=True)
+    (pilot / "poll-01.json").write_text(
+        f"{{\"question\": \"one {EM_DASH} two\"}}\n", encoding="utf-8"
+    )
+    result = run_scan(root)
+    assert result.returncode == 1
+    assert "U+2014=1" in result.stdout
+
+
+def test_a_dash_elsewhere_in_examples_still_fails_the_scan(tmp_path):
+    root = plant_tree(tmp_path)
+    examples = root / "examples"
+    examples.mkdir()
+    (examples / "notes.md").write_text(
+        f"one {EN_DASH} two\n", encoding="utf-8"
+    )
+    result = run_scan(root)
+    assert result.returncode == 1
+    assert "U+2013=1" in result.stdout

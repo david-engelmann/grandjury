@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618264-V4A4HtN3hxuogbOtY4Gt",
+  "object": "chat.completion",
+  "created": 1793618264,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"the last Saturday of April\",\"confidence\":0.45,\"probabilities\":{\"the first Saturday of April\":0.3,\"the last Saturday of April\":0.45,\"a weekday evening\":0.25}}",
+        "refusal": null,
+        "reasoning": "**Ensuring correct JSON format**\n\nI need to provide the answer in JSON format precisely, making sure the choices have clear preferences and the probabilities add up to 1. It's crucial that I offer an exact response, not just a rough estimate. I'll be careful with the values so they make sense, while checking that everything aligns correctly. There’s a lot of detail here that I need to focus on to make sure I get it right!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Ensuring correct JSON format**\n\nI need to provide the answer in JSON format precisely, making sure the choices have clear preferences and the probabilities add up to 1. It's crucial that I offer an exact response, not just a rough estimate. I'll be careful with the values so they make sense, while checking that everything aligns correctly. There’s a lot of detail here that I need to focus on to make sure I get it right!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HFa0qAH4Y6zjpJ4IW0MgdIXcyokPwqGLyp8Pvk6nxIUWtvw2z5gecMj9-QAKHIRbPUZOE4HBgyBFzRCymJeSxV2T3MXrAiSmRVYOOm1OgWf7zgw0Jbf_d9GiK4Tkz2yaCWdEVxR-xfTGAEUHr6iT6H2v-h7YRO6eVUzSMMxZqqcHFBr1tGoTF6pVu0DPB5-6gdVQoX6HWCmD-royS_DMRSW5Ebkkh4CntJfFsfyq1H7-5rgLsQs-4x_oP6AQnvt_qyI-UNSqhJrVcipBA8bLZK33HwEaYvA158RKhaO1OyBKD_NQ_KW0KNLz1axmrIxp2XzqIo0Ori7svpgDmTJDggFeCdlOzRWeRPiXdInX0OwWkBLcwnCiKQAdyms1dmmbskt9qYiwvmWp1XD7GEWi6nZlNkr6inGesthDfy9ZD_OZlDOQH3lr2yxgzv25E9DoTkgt902ZN91epv2eTDay0M3xbaJ4dGripkIG6yxiSKqOjnfPZnrrrC-YKwAbXLNbhXUfgld9a3NUjb17lMzbsLFnogbnPJfelLf2DW_xI3BdSRp15iiqX9YtI-zB2E5dFCIYQInaZ7qTUqO-t8MlmpT-_T0jhqsFPFPrc0UvpBogx2p9jDduhLS4cF05ZBuNcmv9zNSJRcvXo8pp6q0BKHBrGF_MGzfTWOyQ2J2Yc6qmHuKC8bLEK9jZr7riRCKrJq9aHNEF6mqzoVaI6pVSsYGjSWBDDcSLFJ7euPnDiw0ACwGYXftNBBXbGh4WSnn5TVqdiI1GUoh2ImslzptPj-ZWDvhaMnlixVpqxjTmbxQWMkhTRd97maSGgjEybfn9qy6SYJ-zFXuxqcXO0sMwevmw6Rgl9d2pN7-WS2dtaI60-byztUMYltIc8hMfNvQJGfRWuLZ925tEFCE1dN7jyep8UOM4FHvaBFi4sO8wLAWx5C_aB5JU4POAgYkeQHSPXprToVcrrrRV1DFEi2PlQoQzc5x3JGZfEozK2nuRO1GjCeQ-AKmCAL7UY7RbBLEqKgRNXbheP00zFH4YhI8ztJGhsfHdwfQNckJfeCvezZPcAYtAkOI3zDOolaoWunqs-H5b3bLw2OW_mhlI6-G2C8qDHzCBjHx3NLMUnikpxAvpSzYLQK6IdHBKOw1pK5iWfnO8tJuy1oOeCBTgNtSEL9xFWc8Vh7z1xs4Ln73MaJ0MZWWcRFeB6nBxyKpZqJKOaCxKgdQkzc3Zfp07GSTY6z2zUBcJzVcUhHayFoqWXiQoermR7-pBhmdGSQ3TMIbpJT3VQpDgqdgZ_kdNqRGkw3j8czZvrHrcWkCxxdefPdkB8X4jaSV9AM3mqOiFa0dG4ZOI1TpmM4Xrr7PieZ1YFEb-QZ9sH2gjyEgB3Il96unwfTfkcC3N4NlllhK3v4hKExWa0hVuLjGOf35QQmFInWyad3nkZuJX9gd_vvOIZPu5wkuR1Z9ChA3y576u6AzjPCMwnbhX0FmplYNSnQfqcuI_A-Y78sadJi1lRg9NexaPVrpPW0m_UBH5Eaa3FlOD45uXqP-34I3HWp2liQHEsYqWXU9AaHt-Tw-4bSeAcZwjJwmdMSQC4g8I7N7fwYNai4rCHQQnTGRc9wXCNkpozDrKzcJ7wb_KkKXdX2AwYTnHhWuWq_24ovoEN-jrE-rU-ZYgTB0KNGCrql-pX4FK5b8fMht1hvkLAVfNjn1ut3nor_8WuFwwIza7_wZULxqgYft_76sBBav6iSF8bjALsupPTyXleDfEUkW30tLlFvfhOCebz-YNAAiaYkRjpNp7RMytG96-0KbgGBGAcCHWiDY27EdGNGyTpV2qFMKbL8KSf7vM-sdtX0oHb9vv2Iy0vHF7TsU1gjs04WQITDWHwOJs1li8V1ejMad19A4Ha2YbKHqus8eQ47uupBsjfRFhocv.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0d961a5fe28257d3016ae871593e8c87d181c7f22da02faa91",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "completion_tokens": 77,
+    "total_tokens": 189,
+    "cost": 4.97e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.97e-05,
+      "upstream_inference_prompt_cost": 1.12e-05,
+      "upstream_inference_completions_cost": 3.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 25,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

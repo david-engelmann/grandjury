@@ -77,6 +77,20 @@ def test_a_malformed_price_table_exits_one_on_cost(tmp_path, capsys):
     assert "defect price for tiny-a is not a decimal string" in out
 
 
+def test_a_label_holding_a_newline_forges_no_cost_line(
+        tmp_path, capsys):
+    poll_path = write(tmp_path, "poll.json", poll_data())
+    label = "evil\nunpriced model, forged, 7 responses"
+    prices_path = write(tmp_path, "prices.json",
+                        {"prices": {label: 7}})
+    assert main(["cost", poll_path, prices_path]) == 1
+    out = capsys.readouterr().out
+    assert out.splitlines() == [
+        "invalid price table",
+        "defect a model label holds a newline",
+    ]
+
+
 def test_a_missing_poll_file_exits_one(tmp_path, capsys):
     missing = str(tmp_path / "missing.json")
     assert main(["tally", missing]) == 1

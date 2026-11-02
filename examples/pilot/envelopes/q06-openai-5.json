@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618893-3oJYkk4Ga2OMkAK3cPCW",
+  "object": "chat.completion",
+  "created": 1793618893,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"a tiebreak question\",\"confidence\":0.72,\"probabilities\":{\"a tiebreak question\":0.72,\"share the prize\":0.18,\"replay the final round\":0.1}}",
+        "refusal": null,
+        "reasoning": "**Deciding on tiebreak question**\n\nI need to focus on outputting JSON. I should consider choosing a tiebreak question carefully. The probabilities probably need to sum to 1. I’m thinking about how I can express my level of confidence in this setup. It feels important to get it right since the user is depending on me for accuracy and clarity. Let’s see how I can structure this effectively!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Deciding on tiebreak question**\n\nI need to focus on outputting JSON. I should consider choosing a tiebreak question carefully. The probabilities probably need to sum to 1. I’m thinking about how I can express my level of confidence in this setup. It feels important to get it right since the user is depending on me for accuracy and clarity. Let’s see how I can structure this effectively!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HPODkRcjqngR7oQyTME6AXLkolvtzwXBYCGsD-Q4GZwTHtCKfWfQrDcj6iFa5ZXZhyVnQzRN3mf9e1Xwor8BvIOHBdqn5AyWGZeXevj_0XvSSPqNdpxOfH3DSe4ojhNtsW6FEcs3hgIqc-0lJXB5asF43Kv05fyRW6HzZ_IGNd5DmCUUUKEoKdX12-bm_mC2-qDYY8ytcNY-_JeID1qI9BCKCNVRf4GkAzH1P05ea7HRw4NHrT6HlE0HHbKG2s0uZttc8vxHyzTSt5lyUSrtjM0XCYf_n_BGN5ZICwJHQhh0hWlaYqEEBHqLNZqrTvHzI3T0ELtG4L4kvT6brJLBECORx4AzdnJIyQJRfpH_57-2DmG_18_dW5ZFcjzwyLbrIu3gxE5N_SKo1QuJTJpHHCq--KQlc6MxZbJN8UxjR8BN7pR0ux8jBIA-5zXesPmY9RxLOne6oRNIAPsrI6Y8QGmlaySsbsrbGUiGCpojIr0lyUgyW8cKfGU6VYm73vsviIzecMirud5Ij2KK6q6uYDQVgz5JXQYXtGrOoJzwjCPm-F-XlmHcqGOc_EE-vDh1f-YAegqdengItiirFfPva-p2_F2z4eIgKI7PyKMaFpcqpfsp4bCaIUsKbaUq5H0HHIOfO3IIQX_ycmIFR2_7svJXB-KEgcFMeBjQ0RI6PJgcrdZ2M1rDkd7tkMOENWe7oJtYrSWFGeJLDtRbewIRxVSvGXNAGKRKWVjBzgk3sUAi3dhFBLTK7pjbW8sclhPvhKynvtmqPcJRbFNoN0fi7KOdyrvxPsqwTpuyitubRKH1caNQw8vGlI94FI9Q-Em_Pt7cgOo-dJSOOScHl06LgOodrEG6M9eJNgvPjD73F03aZxUYGTk37ddzHARNCWQP4Xs4it97R9WLnTEPgfVEZ-0boMH1pHUjTxETeZEIY9gUGGD49xtJVpBwTeVEK2AY5d2QQTA7XudxkQ6Ua2MjzYNKmY3G4IBxV3DygyoJN_4rTVw8u1_HCjWK978YrCFJYPKZuSqI08MkXSoiBko_u3sRu9f-LEwLK4YQRpUOl-p_E8lf9YohGKLH5kxy3mvteWVfMMmlou2BXY0D7Zu9nUul9i7sto4loGpORfZmm2Da5e5tXC0HHU2FiQ01bjpNco7psk4z6X4yeS2Ba4Dm9zJyBzf7Be7w4wBCQE_AAxELScqRyVv5ZZBokfFBNRVqtMfszRx1Cv2AWciinRR0looC6bPiqTNazjl7SkLc9-cApdueyFALftspQROwVT-GQxwAWCQwaokZyOKascquyNwadEVmEBKx2Px4INhEaYgqWecT-Ak1TRhE75HldQgJoeXYAfEww8G3Jix32iJFsXF01s_mr14FPBj52JrINuR4V43av_a3aMKGzBw6NNrRvQzePlZ62YaDsxm2S25DoNwYMhfMQv9Fq9Mna7aPOSgo2L--_QUIy6C1CNKcippeWAnF7j_8x7Zjcx-BZodg3cyocoWEpgg8U9NVG25QpI6-Tg7-v-1xI221z3v3RhELC02gMviK5H-kDPZlmgSVTQ3D3wXwuERCdnJh9cFUSbIve74PzPpHsif1JBKN4nBMxoH-0fj84LCLMQGv-ru1GpIKS5ao35cjR7d89AuNb1HprY4ICOfG-1E50UYaVVPEoRrKCWjC4ltxN1OfJfs-a8IDyX2ywiNhTHJwsLC0MGvQbVsd5h-oCggorDpz2fYmPFJuq9nrZIQueOl6v67A3qZx1wtD38hTOSVrkNL5SfHiohNvEBIkJZbhLu-3YulrgifF3U345I3F23zwY34R9qlSQcRI0RUbVCMLFEtSHYL-mnkwCoOYVTvEI2hovtH3LG8SeP8QtpagaVbR-f43a7btQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0a75633bf2bd607a016ae873cdabec87d19d94808b168d2fe7",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 111,
+    "completion_tokens": 76,
+    "total_tokens": 187,
+    "cost": 4.91e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.91e-05,
+      "upstream_inference_prompt_cost": 1.11e-05,
+      "upstream_inference_completions_cost": 3.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 24,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

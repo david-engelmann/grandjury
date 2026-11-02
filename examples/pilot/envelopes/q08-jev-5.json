@@ -1,0 +1,19 @@
+{
+  "answers": {
+    "decision": {
+      "choice": "eight in the morning",
+      "confidence": 0.48,
+      "probabilities": {
+        "eight in the morning": 0.65,
+        "nine in the morning": 0.06,
+        "seven in the morning": 0.29
+      },
+      "type": "choice"
+    }
+  },
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 388,
+    "output_tokens": 50
+  }
+}

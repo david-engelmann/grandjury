@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793618262-c0NcK3SqjgSzZatFi9wo",
+  "object": "chat.completion",
+  "created": 1793618262,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"the first Saturday of April\",\"confidence\":0.45,\"probabilities\":{\"the first Saturday of April\":0.45,\"the last Saturday of April\":0.35,\"a weekday evening\":0.2}}",
+        "refusal": null,
+        "reasoning": "**Determining probabilities**\n\nI need to provide an answer from the perspective of a juror without any context. I should choose the first Saturday in April and calculate the probabilities for each possible answer, ensuring that they sum to 1. It makes sense to select the first Saturday due to practical considerations within the community. I think I should format the response in a JSON structure, keeping it straightforward and precise. I'll focus on presenting exactly one choice.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Determining probabilities**\n\nI need to provide an answer from the perspective of a juror without any context. I should choose the first Saturday in April and calculate the probabilities for each possible answer, ensuring that they sum to 1. It makes sense to select the first Saturday due to practical considerations within the community. I think I should format the response in a JSON structure, keeping it straightforward and precise. I'll focus on presenting exactly one choice.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6HFY8e4_2emlghoc_2NPG6r-LIA8b6AKmjod9k3aaXXrBn39eHSnNLByPsWDOBnv-MqZd6uE-1SF_Hl_TInkAxD3OZJwjndfBPUsROd0hvuTgRbQKu6BjRzmWkRyuyv0VWcUYH-wVZPsXGO7U7ST5yWT8CxLZfblhstMbfKiugXsH-OF2knwNnMDWytH6W6w0Og6WeblCzEgLAmu0WRf1Cj7PJKrALW0AaumQBbPOGfCz08VZBlNu6Lk-rmhU93SIOkIxMrNeU3QylMYAnapdign0VLXfLLjXF53E2ZpWIUbAqGyeqcbtu8lMgcP5XHJOc1YPlkalXTz-MkJ7x5WwRXgVVPnoOrKgnwLVCKKeQJBspmQB6tXX7J_CEdbEZykvOz1zFlFSLDBXQ4f_Nc3n9FuGzEG0fLqRY94xg7yBlNePOk6JPfAoEj4t-3vueWMj0kdRBhNvwe4Gn6NirFSTh0iRyYY8PUAMc6hXHlptjBNph5oL_Czkshi4sq8pY64wN9VtYF06RWs4AR3o-0oU3YYAk8iiSSBLPdjmgBGCfgOvkbvpIp0QGcuZXSPCjctvYEVDYvR7_sgmvEJzVlBgeI1z1ZOZo_6KCmVFDd32qaXQoTd043FAUPlysi3tp-zKH6pmCtAuSzycdeURa1J837TQFWvWDgNMLzEBbJFGjHodFX4tBiSBkjjVHMeQL2qKqkAfiRxpKNWXlKEt0gMlBmdhVeAV78tGmGx9SeC-Yg9yYznJFqmooFMtdvqpfxCzA5yBbb9kzsHxlGrn7Ee_7Ozda5_QbrDoRyhxOU_ZbWEejWMOxKJ8kJ5nsY_XrtUv4UAmK6NP4dK-QBHNmG8hSLwHPqSspt6ic-gRoE7zKWb7y71wPz8iybE4KcxJQ30itA0mIo0qM2N25r0v1aaHarpOP8r-CuVsBPj0iWpxQ-1WnrnZGwU31cC8PZ4nDR3FASE-4UmBjcxaTp5cbzUtxiGMiBiD-2kDLqNqvabDYwB8Cj48YjYDJEq9rLvwxTiFGkljEvqH-IyTwd8YF0ymc_2D-FefXxsCjCriIBV1Z-tXFyTP9bqCpexnDasDenRSIHMmKGjqyP1t_r-QG12kLqVbj2evfXiNOBFMmShXaP5GEsD9rihr3aF9ZLMX4LoLhReOa6tDLgqiGzvs61bLnFR8SLLERSDL2kCpVCyHQHDebU_qTUqvbVJIZGcgd8BtQUxl5-nTQBW1MQrFT6i_Sj_JOJq3VGeL6bVcVFiAD9p-F1G4xBqR1zP8bDusBwDM5D6zhWzyBzXHoYx1WtT1uD26DVWujqY5cAScx_ytlAlMtdYrQfX4OvhhXfDbiYwYoudi17NzbBJXhIX3VaQ3D_2a7KRfEBiMWReU9nZlYefx_yezOTpWptDAyOH02n4bwYojM-4E8UMHdo2Mb74IafNl4yGQXeziumtg1GiH_1bxMVXS7mJfu8q3I-yDGFFh9Q0u4g0zEkU_FHoJ6Lso2jPskryuIcgTnYRPgXW7BADwLVau0GEIpWxIURYXmfUdnbSEKT0Xmn7yRYTv7_RIi4ID8VgLR4f3u7gplZV3EHy4UkACWSa4sVL7IIxpPEjqymnRyoztWxsHktLzMcn0XzYBE1Isc_hbIJe79a_SQIkqNURyDHHZJZXvWS5bh5uPPsLsdEoM1CL0FgN5NFeVNOCgZBZwaDfc5ax6vgxoFWGBfgkP0s-TetMomzxJsubkUCpcjReDZLYPBxcYcySuCErHFrsmwOv7GLOfyoENwUlnWOFRUslZuKVeuuJOP59m5zufyEXVTvLqVIeygu9UKT71jZ846LCSIfmyVsZqlWW_HcQnxidQFiV5q7XyQ9svFWMqzmXX9hYS26qYya0c21fGEnvJOMkwzdW52L4yl863_D6QYyy_n0Z840_L72Px-v_jEg6zzKZZrbqN2hrUCOfgl8Otwktl0fAKdP7wQ7Do50vJnP68VesogtcD3pBSTvlTR9Xy3wA-rPQze8_naeXb31rnPN0hHJLtzBwiVcPsft8Q4fvGlz5RFu11Akefw4KzIXPXeUM-Ko_8cDKSCJMTYI65mYBi62zW4ugMNWmH5CDMIpr9wAzisGkZDaq_LLkReIugNLuyYQ6N52DI8e-Ctv9KuVrF04MYfuVGD87VicGrig1cdy6qmBg9U2P0LbZ1_vlYWNEI0oh2Z_GVS9lvN5dVsbzoQDQ6zMBazmG5zpYDdt-IXMU6GP5S8kOU9nYdJDdmO7WXHBJKJk8Xp65fCMJj_P_6N5LwNbODrOMXJBdG7z0ZjRaL5I4xhgSvuTkwg9i71qPxFYbGEwWiQl29A==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_05759a6812f7fb17016ae871573e2887d1b2a9b5c20b4d3a11",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "completion_tokens": 108,
+    "total_tokens": 220,
+    "cost": 6.52e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.52e-05,
+      "upstream_inference_prompt_cost": 1.12e-05,
+      "upstream_inference_completions_cost": 5.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 56,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

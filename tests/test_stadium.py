@@ -149,3 +149,61 @@ def test_the_same_poll_renders_byte_identical_lines_twice():
     first = "\n".join(render_stadium(poll))
     second = "\n".join(render_stadium(poll))
     assert first == second
+
+
+def abstained(juror, answer, reason="a reason", model="tiny-a"):
+    entry = response(juror, answer, reason, model)
+    entry["abstained"] = True
+    return entry
+
+
+def test_the_abstained_section_stands_between_wall_and_spoiled():
+    poll = load({
+        "question": "q",
+        "answers": ["red", "blue"],
+        "responses": [
+            response("juror-1", "red", "the shortest path"),
+            abstained("juror-2", "blue", "too close to call"),
+            response("juror-3", "purple", "answering from habit"),
+        ],
+    })
+    assert render_stadium(poll) == [
+        "question, q",
+        "responses, 3",
+        "red |" + "#" * 40 + "| 1, 100.0%",
+        "blue || 0, 0.0%",
+        "wall of reasons",
+        "red",
+        "  juror-1, the shortest path",
+        "blue",
+        "abstained, 1",
+        "  juror-2, too close to call",
+        "spoiled, 1",
+        "  juror-3, purple",
+    ]
+
+
+def test_no_abstained_section_stands_when_nobody_abstained():
+    poll = load({
+        "question": "q",
+        "answers": ["red", "blue"],
+        "responses": [response("juror-1", "red")],
+    })
+    lines = render_stadium(poll)
+    assert not any(line.startswith("abstained") for line in lines)
+
+
+def test_the_abstained_section_lists_each_abstention_in_order():
+    poll = load({
+        "question": "q",
+        "answers": ["red", "blue"],
+        "responses": [
+            abstained("juror-1", "red", "first held back"),
+            response("juror-2", "red", "a plain answer"),
+            abstained("juror-3", "blue", "second held back"),
+        ],
+    })
+    lines = render_stadium(poll)
+    opening = lines.index("abstained, 2")
+    assert lines[opening + 1] == "  juror-1, first held back"
+    assert lines[opening + 2] == "  juror-3, second held back"
