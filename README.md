@@ -8,7 +8,14 @@ Ask one big model a question and you get one confident answer. Grandjury asks th
 
 ## Status
 
-Seeded on 2026-10-29. The concept is claimed and the build has not started.
+Seeded in October 2026. Setup has landed and the build has not started. Part of the Spectacle line in the 39 repo storefront perfection programme.
+
+## Programme status
+
+- Closed perfection rounds, 0 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed. Seeding and setup are not rounds.
+- Contract, SETUP-1 to SETUP-4 met by the setup slice. The first slice obligations GJ-1 to GJ-4 stand in stub form in CONTRACT.md and are not yet met.
+- The first slice is the polling harness and the stadium visual fed entirely by recorded responses, with the cost counter computing what the live poll would have cost.
+- Local gate, python3 scripts/codepoint_scan.py and python3 -m pytest tests -q. CI runs the same commands.
 
 ## Licence
 
