@@ -19,7 +19,13 @@ def test_contract_carries_the_setup_obligations():
 
 def test_readme_reports_the_contract_status():
     text = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert any(line.startswith("- Contract,") for line in text.splitlines())
+    expected = (
+        "- Contract, SETUP-1 to SETUP-4 met by the setup slice. "
+        "The first slice obligations GJ-1 to GJ-4 now stand in full form "
+        "in CONTRACT.md, and their standing is not claimed here, as slice 2 "
+        "is in review and no round has closed."
+    )
+    assert expected in text.splitlines()
 
 def test_ci_runs_the_same_gate_as_the_local_gate():
     text = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")

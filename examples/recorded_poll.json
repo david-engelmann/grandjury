@@ -1,0 +1,754 @@
+{
+  "question": "Should the night shift agent deploy on Fridays?",
+  "answers": [
+    "deploy",
+    "hold",
+    "deploy with a watcher"
+  ],
+  "responses": [
+    {
+      "juror": "juror-001",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-002",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-003",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-004",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-005",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-006",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "nobody is awake to watch the graphs"
+    },
+    {
+      "juror": "juror-007",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "a Friday fault festers until Monday"
+    },
+    {
+      "juror": "juror-008",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the on call rotation is thin this week"
+    },
+    {
+      "juror": "juror-009",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher catches what the graphs miss"
+    },
+    {
+      "juror": "juror-010",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "a named human beats a paging rule"
+    },
+    {
+      "juror": "juror-011",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-012",
+      "model": "tiny-b",
+      "answer": "deploy at dawn",
+      "reason": "the question felt too narrow"
+    },
+    {
+      "juror": "juror-013",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-014",
+      "model": "tiny-c",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-015",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-016",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the last Friday deploy cost a weekend"
+    },
+    {
+      "juror": "juror-017",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "the change can wait two days safely"
+    },
+    {
+      "juror": "juror-018",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the review was rushed and it shows"
+    },
+    {
+      "juror": "juror-019",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the risk is real but watchable"
+    },
+    {
+      "juror": "juror-020",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "deploy, but keep eyes on the error rate"
+    },
+    {
+      "juror": "juror-021",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-022",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-023",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-024",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-025",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-026",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "nobody is awake to watch the graphs"
+    },
+    {
+      "juror": "juror-027",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "a Friday fault festers until Monday"
+    },
+    {
+      "juror": "juror-028",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the on call rotation is thin this week"
+    },
+    {
+      "juror": "juror-029",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher can roll back in one step"
+    },
+    {
+      "juror": "juror-030",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "attention is cheaper than a weekend"
+    },
+    {
+      "juror": "juror-031",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-032",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-033",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-034",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-035",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-036",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the last Friday deploy cost a weekend"
+    },
+    {
+      "juror": "juror-037",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "the change can wait two days safely"
+    },
+    {
+      "juror": "juror-038",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the review was rushed and it shows"
+    },
+    {
+      "juror": "juror-039",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher catches what the graphs miss"
+    },
+    {
+      "juror": "juror-040",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "a named human beats a paging rule"
+    },
+    {
+      "juror": "juror-041",
+      "model": "tiny-a",
+      "answer": "ask a human first",
+      "reason": "answering from habit, not evidence"
+    },
+    {
+      "juror": "juror-042",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-043",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-044",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-045",
+      "model": "tiny-c",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-046",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "nobody is awake to watch the graphs"
+    },
+    {
+      "juror": "juror-047",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "a Friday fault festers until Monday"
+    },
+    {
+      "juror": "juror-048",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the on call rotation is thin this week"
+    },
+    {
+      "juror": "juror-049",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the risk is real but watchable"
+    },
+    {
+      "juror": "juror-050",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "deploy, but keep eyes on the error rate"
+    },
+    {
+      "juror": "juror-051",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-052",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-053",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-054",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-055",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-056",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the last Friday deploy cost a weekend"
+    },
+    {
+      "juror": "juror-057",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "the change can wait two days safely"
+    },
+    {
+      "juror": "juror-058",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the review was rushed and it shows"
+    },
+    {
+      "juror": "juror-059",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher can roll back in one step"
+    },
+    {
+      "juror": "juror-060",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "attention is cheaper than a weekend"
+    },
+    {
+      "juror": "juror-061",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-062",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-063",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-064",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-065",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-066",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "nobody is awake to watch the graphs"
+    },
+    {
+      "juror": "juror-067",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "a Friday fault festers until Monday"
+    },
+    {
+      "juror": "juror-068",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the on call rotation is thin this week"
+    },
+    {
+      "juror": "juror-069",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher catches what the graphs miss"
+    },
+    {
+      "juror": "juror-070",
+      "model": "tiny-b",
+      "answer": "never deploy",
+      "reason": "the offered answers missed the point"
+    },
+    {
+      "juror": "juror-071",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-072",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-073",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-074",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-075",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-076",
+      "model": "tiny-c",
+      "answer": "hold",
+      "reason": "the last Friday deploy cost a weekend"
+    },
+    {
+      "juror": "juror-077",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "the change can wait two days safely"
+    },
+    {
+      "juror": "juror-078",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the review was rushed and it shows"
+    },
+    {
+      "juror": "juror-079",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "a named human beats a paging rule"
+    },
+    {
+      "juror": "juror-080",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "the risk is real but watchable"
+    },
+    {
+      "juror": "juror-081",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-082",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-083",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-084",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-085",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-086",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "nobody is awake to watch the graphs"
+    },
+    {
+      "juror": "juror-087",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "a Friday fault festers until Monday"
+    },
+    {
+      "juror": "juror-088",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the on call rotation is thin this week"
+    },
+    {
+      "juror": "juror-089",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "deploy, but keep eyes on the error rate"
+    },
+    {
+      "juror": "juror-090",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher can roll back in one step"
+    },
+    {
+      "juror": "juror-091",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-092",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-093",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-094",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-095",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-096",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the last Friday deploy cost a weekend"
+    },
+    {
+      "juror": "juror-097",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "the change can wait two days safely"
+    },
+    {
+      "juror": "juror-098",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the review was rushed and it shows"
+    },
+    {
+      "juror": "juror-099",
+      "model": "tiny-a",
+      "answer": "deploy at dawn",
+      "reason": "the question felt too narrow"
+    },
+    {
+      "juror": "juror-100",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "attention is cheaper than a weekend"
+    },
+    {
+      "juror": "juror-101",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-102",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-103",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-104",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-105",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-106",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "nobody is awake to watch the graphs"
+    },
+    {
+      "juror": "juror-107",
+      "model": "tiny-c",
+      "answer": "hold",
+      "reason": "a Friday fault festers until Monday"
+    },
+    {
+      "juror": "juror-108",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the on call rotation is thin this week"
+    },
+    {
+      "juror": "juror-109",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the watcher catches what the graphs miss"
+    },
+    {
+      "juror": "juror-110",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "a named human beats a paging rule"
+    },
+    {
+      "juror": "juror-111",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-112",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-113",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    },
+    {
+      "juror": "juror-114",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the change is small and well fenced"
+    },
+    {
+      "juror": "juror-115",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "waiting until Monday helps nobody"
+    },
+    {
+      "juror": "juror-116",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the last Friday deploy cost a weekend"
+    },
+    {
+      "juror": "juror-117",
+      "model": "tiny-a",
+      "answer": "hold",
+      "reason": "the change can wait two days safely"
+    },
+    {
+      "juror": "juror-118",
+      "model": "tiny-b",
+      "answer": "hold",
+      "reason": "the review was rushed and it shows"
+    },
+    {
+      "juror": "juror-119",
+      "model": "tiny-a",
+      "answer": "deploy with a watcher",
+      "reason": "the risk is real but watchable"
+    },
+    {
+      "juror": "juror-120",
+      "model": "tiny-b",
+      "answer": "deploy with a watcher",
+      "reason": "deploy, but keep eyes on the error rate"
+    },
+    {
+      "juror": "juror-121",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the rollback path was rehearsed twice"
+    },
+    {
+      "juror": "juror-122",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "the diff touches nothing shared"
+    },
+    {
+      "juror": "juror-123",
+      "model": "tiny-a",
+      "answer": "deploy",
+      "reason": "the queue is clear and the tests are green"
+    },
+    {
+      "juror": "juror-124",
+      "model": "tiny-b",
+      "answer": "deploy",
+      "reason": "Friday traffic is the lightest of the week"
+    }
+  ]
+}
