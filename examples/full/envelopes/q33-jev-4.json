@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "gardens",
+      "confidence": 0.46,
+      "probabilities": {
+        "gardens": 0.64,
+        "doors and gates": 0.07,
+        "harvest scenes": 0.29
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 381,
+    "output_tokens": 44
+  }
+}

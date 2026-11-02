@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "a classic musical",
+      "confidence": 0.55,
+      "probabilities": {
+        "a comedy": 0.28,
+        "a drama": 0.05,
+        "a documentary": 0.01,
+        "a classic musical": 0.66
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 401,
+    "output_tokens": 52
+  }
+}

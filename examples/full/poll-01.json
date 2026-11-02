@@ -1,0 +1,62 @@
+{
+  "question": "Should the post office counter open an hour earlier on market days?",
+  "answers": [
+    "open an hour earlier",
+    "keep the current hours"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "open an hour earlier",
+      "reason": "jev-1.13.0 chose open an hour earlier with confidence 0.04 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "open an hour earlier",
+      "reason": "jev-1.13.0 chose open an hour earlier with confidence 0.1 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "keep the current hours",
+      "reason": "jev-1.13.0 chose keep the current hours with confidence 0.0 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "open an hour earlier",
+      "reason": "jev-1.13.0 chose open an hour earlier with confidence 0.06 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "open an hour earlier",
+      "reason": "jev-1.13.0 chose open an hour earlier with confidence 0.0 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "keep the current hours",
+      "reason": "openai/gpt-6-luna chose keep the current hours with confidence 0.55"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "open an hour earlier",
+      "reason": "openai/gpt-6-luna chose open an hour earlier with confidence 0.55"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "open an hour earlier",
+      "reason": "openai/gpt-6-luna chose open an hour earlier with confidence 0.55"
+    }
+  ]
+}

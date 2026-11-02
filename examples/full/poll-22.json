@@ -1,0 +1,46 @@
+{
+  "question": "Should the running club add a Sunday morning run?",
+  "answers": [
+    "add it",
+    "keep Saturdays only"
+  ],
+  "responses": [
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "add it",
+      "reason": "jev-1.13.0 chose add it with confidence 0.26 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "keep Saturdays only",
+      "reason": "openai/gpt-6-luna chose keep Saturdays only with confidence 0.55"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "add it",
+      "reason": "openai/gpt-6-luna chose add it with confidence 0.5"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "add it",
+      "reason": "openai/gpt-6-luna chose add it with confidence 0.6"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "add it",
+      "reason": "openai/gpt-6-luna chose add it with confidence 0.55"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "add it",
+      "reason": "openai/gpt-6-luna chose add it with confidence 0.55"
+    }
+  ]
+}

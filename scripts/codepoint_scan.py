@@ -4,9 +4,9 @@ covers files whose suffix is .md, .txt, .py, .json, .toml, .yml, or
 .yaml, and extensionless files such as LICENSE. Zero of each is
 required. Exit 1 when any are found. Files inside ignored environment
 and build directories are skipped, and the recorded envelopes under
-examples/pilot/envelopes are skipped under the Round 2 scan scope
-amendment in CONTRACT.md, because they are recorded data the routes
-returned and not prose this repo wrote."""
+examples/pilot/envelopes and examples/full/envelopes are skipped
+under the scan scope amendments in CONTRACT.md, because they are
+recorded data the routes returned and not prose this repo wrote."""
 import pathlib, sys
 root = pathlib.Path(__file__).resolve().parent.parent
 counts = {"U+2014": 0, "U+2013": 0}
@@ -18,6 +18,8 @@ for p in sorted(root.rglob("*")):
     if any(part in ignored_dirs or part.endswith(".egg-info") for part in rel.parts[:-1]):
         continue
     if rel.parts[:3] == ("examples", "pilot", "envelopes"):
+        continue
+    if rel.parts[:3] == ("examples", "full", "envelopes"):
         continue
     if p.suffix not in {".md", ".txt", ".py", ".json", ".toml", ".yml", ".yaml", ""}:
         continue

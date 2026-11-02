@@ -1,0 +1,31 @@
+{
+  "question": "When should the orchard group press the apples?",
+  "answers": [
+    "in late September",
+    "in mid October",
+    "in early November"
+  ],
+  "responses": [
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid October",
+      "reason": "openai/gpt-6-luna chose in mid October with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid October",
+      "reason": "openai/gpt-6-luna chose in mid October with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid October",
+      "reason": "openai/gpt-6-luna chose in mid October with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

@@ -1,16 +1,19 @@
 """The grandjury command line surface.
 
-Three commands read recorded polls from local files. The tally
+Four commands read recorded polls from local files. The tally
 command prints the tally, the stadium command prints the stadium
-view, and the cost command prints what the poll would have cost
-live from a price table. Each command prints the defects of a
-malformed input and exits with status one. Nothing here touches
-the network, and no command makes a live call.
+view, the cost command prints what the poll would have cost
+live from a price table, and the agreement command prints the
+agreement reading over one or more polls. Each command prints
+the defects of a malformed input and exits with status one.
+Nothing here touches the network, and no command makes a live
+call.
 """
 
 import argparse
 import sys
 
+from grandjury.agreement import agreement_lines
 from grandjury.polls import (
     cost_lines,
     load_poll_file,
@@ -62,6 +65,18 @@ def _command_cost(args):
     return 0
 
 
+def _command_agreement(args):
+    polls = []
+    for path in args.poll_files:
+        poll = _load_poll_or_print_defects(path)
+        if poll is None:
+            return 1
+        polls.append(poll)
+    for line in agreement_lines(polls):
+        print(line)
+    return 0
+
+
 def main(argv=None):
     """Run the grandjury command line and return the exit status."""
     parser = argparse.ArgumentParser(
@@ -85,6 +100,11 @@ def main(argv=None):
     cost_parser.add_argument("poll_file")
     cost_parser.add_argument("prices_file")
     cost_parser.set_defaults(handler=_command_cost)
+    agreement_parser = commands.add_parser(
+        "agreement", help="print the agreement reading over polls"
+    )
+    agreement_parser.add_argument("poll_files", nargs="+")
+    agreement_parser.set_defaults(handler=_command_agreement)
     args = parser.parse_args(argv)
     return args.handler(args)
 

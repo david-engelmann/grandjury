@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "sweet peas",
+      "confidence": 0.45,
+      "probabilities": {
+        "sunflowers": 0.04,
+        "sweet peas": 0.59,
+        "runner beans": 0.29,
+        "lavender": 0.08
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 403,
+    "output_tokens": 51
+  }
+}

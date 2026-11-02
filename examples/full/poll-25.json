@@ -1,0 +1,62 @@
+{
+  "question": "Which tree should the parish plant on the green?",
+  "answers": [
+    "an oak",
+    "a lime",
+    "a cherry"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "an oak",
+      "reason": "jev-1.13.0 chose an oak with confidence 0.58"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "an oak",
+      "reason": "jev-1.13.0 chose an oak with confidence 0.6"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "an oak",
+      "reason": "jev-1.13.0 chose an oak with confidence 0.58"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "an oak",
+      "reason": "jev-1.13.0 chose an oak with confidence 0.56"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "an oak",
+      "reason": "openai/gpt-6-luna chose an oak with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "a lime",
+      "reason": "openai/gpt-6-luna chose a lime with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "an oak",
+      "reason": "openai/gpt-6-luna chose an oak with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "an oak",
+      "reason": "openai/gpt-6-luna chose an oak with confidence 0.45 and abstained",
+      "abstained": true
+    }
+  ]
+}

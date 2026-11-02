@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "share it among members",
+      "confidence": 0.58,
+      "probabilities": {
+        "sell it at the market": 0.26,
+        "share it among members": 0.72,
+        "give it to the school": 0.02
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 397,
+    "output_tokens": 52
+  }
+}

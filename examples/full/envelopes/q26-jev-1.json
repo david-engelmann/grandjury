@@ -1,0 +1,18 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "resurface it",
+      "confidence": 0.56,
+      "probabilities": {
+        "resurface it": 0.78,
+        "patch it for now": 0.22
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 364,
+    "output_tokens": 40
+  }
+}

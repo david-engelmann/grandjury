@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "a pantomime",
+      "confidence": 1.0,
+      "probabilities": {
+        "a pantomime": 1.0,
+        "a comedy play": 0.0,
+        "a musical revue": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 384,
+    "output_tokens": 48
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "question": "Should the village buy a shared marquee for events?",
+  "answers": [
+    "buy one",
+    "hire one when needed",
+    "do without"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "hire one when needed",
+      "reason": "jev-1.13.0 chose hire one when needed with confidence 0.52"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "hire one when needed",
+      "reason": "jev-1.13.0 chose hire one when needed with confidence 0.62"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "hire one when needed",
+      "reason": "jev-1.13.0 chose hire one when needed with confidence 0.58"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "hire one when needed",
+      "reason": "jev-1.13.0 chose hire one when needed with confidence 0.58"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "hire one when needed",
+      "reason": "jev-1.13.0 chose hire one when needed with confidence 0.5"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "hire one when needed",
+      "reason": "openai/gpt-6-luna chose hire one when needed with confidence 0.58"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "hire one when needed",
+      "reason": "openai/gpt-6-luna chose hire one when needed with confidence 0.55"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "hire one when needed",
+      "reason": "openai/gpt-6-luna chose hire one when needed with confidence 0.57"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "hire one when needed",
+      "reason": "openai/gpt-6-luna chose hire one when needed with confidence 0.62"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "hire one when needed",
+      "reason": "openai/gpt-6-luna chose hire one when needed with confidence 0.62"
+    }
+  ]
+}

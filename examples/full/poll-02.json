@@ -1,0 +1,59 @@
+{
+  "question": "Which soup should the lunch club serve on Fridays?",
+  "answers": [
+    "tomato",
+    "leek and potato",
+    "carrot and lentil"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "tomato",
+      "reason": "jev-1.13.0 chose tomato with confidence 0.33 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "tomato",
+      "reason": "jev-1.13.0 chose tomato with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "tomato",
+      "reason": "jev-1.13.0 chose tomato with confidence 0.37 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "tomato",
+      "reason": "jev-1.13.0 chose tomato with confidence 0.31 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "tomato",
+      "reason": "jev-1.13.0 chose tomato with confidence 0.37 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "tomato",
+      "reason": "openai/gpt-6-luna chose tomato with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "tomato",
+      "reason": "openai/gpt-6-luna chose tomato with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

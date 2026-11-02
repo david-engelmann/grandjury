@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "in late July",
+      "confidence": 0.4,
+      "probabilities": {
+        "in late July": 0.6,
+        "in mid August": 0.39,
+        "in early September": 0.01
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 383,
+    "output_tokens": 46
+  }
+}

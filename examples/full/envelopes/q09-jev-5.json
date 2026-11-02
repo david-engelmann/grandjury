@@ -1,0 +1,18 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "add the class",
+      "confidence": 0.34,
+      "probabilities": {
+        "add the class": 0.67,
+        "keep the timetable as it is": 0.33
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 366,
+    "output_tokens": 40
+  }
+}

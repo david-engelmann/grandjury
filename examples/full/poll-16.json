@@ -1,0 +1,69 @@
+{
+  "question": "Which day should the jumble sale be held?",
+  "answers": [
+    "on Saturday",
+    "on Sunday"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "on Saturday",
+      "reason": "jev-1.13.0 chose on Saturday with confidence 0.74"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "on Saturday",
+      "reason": "jev-1.13.0 chose on Saturday with confidence 0.7"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "on Saturday",
+      "reason": "jev-1.13.0 chose on Saturday with confidence 0.68"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "on Saturday",
+      "reason": "jev-1.13.0 chose on Saturday with confidence 0.68"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "on Saturday",
+      "reason": "jev-1.13.0 chose on Saturday with confidence 0.7"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "on Saturday",
+      "reason": "openai/gpt-6-luna chose on Saturday with confidence 0.5"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "on Saturday",
+      "reason": "openai/gpt-6-luna chose on Saturday with confidence 0.5"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "on Saturday",
+      "reason": "openai/gpt-6-luna chose on Saturday with confidence 0.5"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "on Saturday",
+      "reason": "openai/gpt-6-luna chose on Saturday with confidence 0.5"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "on Saturday",
+      "reason": "openai/gpt-6-luna chose on Saturday with confidence 0.5"
+    }
+  ]
+}

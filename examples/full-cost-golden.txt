@@ -1,0 +1,5 @@
+question, Should the post office counter open an hour earlier on market days?
+responses, 8
+priced, 3 responses, 0.000153 dollars
+unpriced, 5 responses
+unpriced model, jev-1.13.0, 5 responses

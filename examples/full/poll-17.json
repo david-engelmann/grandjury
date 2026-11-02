@@ -1,0 +1,56 @@
+{
+  "question": "Should the swimming pool offer early morning lane swimming?",
+  "answers": [
+    "offer it",
+    "keep the current timetable"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "offer it",
+      "reason": "jev-1.13.0 chose offer it with confidence 0.38 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "offer it",
+      "reason": "jev-1.13.0 chose offer it with confidence 0.36 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "offer it",
+      "reason": "jev-1.13.0 chose offer it with confidence 0.36 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "offer it",
+      "reason": "jev-1.13.0 chose offer it with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "offer it",
+      "reason": "jev-1.13.0 chose offer it with confidence 0.38 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "offer it",
+      "reason": "openai/gpt-6-luna chose offer it with confidence 0.6"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "offer it",
+      "reason": "openai/gpt-6-luna chose offer it with confidence 0.58"
+    }
+  ]
+}

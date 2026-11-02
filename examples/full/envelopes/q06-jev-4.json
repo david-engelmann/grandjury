@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "the second Saturday",
+      "confidence": 0.15,
+      "probabilities": {
+        "the first Saturday": 0.33,
+        "the second Saturday": 0.36,
+        "the third Saturday": 0.22,
+        "the last Saturday": 0.09
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 406,
+    "output_tokens": 55
+  }
+}

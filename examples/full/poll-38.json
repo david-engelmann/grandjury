@@ -1,0 +1,80 @@
+{
+  "question": "Which evening should the language class meet?",
+  "answers": [
+    "Monday evening",
+    "Wednesday evening",
+    "Friday evening"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "Wednesday evening",
+      "reason": "jev-1.13.0 chose Wednesday evening with confidence 0.48 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "Wednesday evening",
+      "reason": "jev-1.13.0 chose Wednesday evening with confidence 0.43 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "Wednesday evening",
+      "reason": "jev-1.13.0 chose Wednesday evening with confidence 0.43 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "Wednesday evening",
+      "reason": "jev-1.13.0 chose Wednesday evening with confidence 0.48 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "Wednesday evening",
+      "reason": "jev-1.13.0 chose Wednesday evening with confidence 0.46 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "Wednesday evening",
+      "reason": "openai/gpt-6-luna chose Wednesday evening with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "Wednesday evening",
+      "reason": "openai/gpt-6-luna chose Wednesday evening with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "Wednesday evening",
+      "reason": "openai/gpt-6-luna chose Wednesday evening with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "Wednesday evening",
+      "reason": "openai/gpt-6-luna chose Wednesday evening with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "Wednesday evening",
+      "reason": "openai/gpt-6-luna chose Wednesday evening with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "question": "What should the bakery bake for the harvest festival?",
+  "answers": [
+    "a giant loaf",
+    "spiced buns",
+    "fruit pies",
+    "honey cakes"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "fruit pies",
+      "reason": "jev-1.13.0 chose fruit pies with confidence 0.71"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "fruit pies",
+      "reason": "jev-1.13.0 chose fruit pies with confidence 0.69"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "fruit pies",
+      "reason": "jev-1.13.0 chose fruit pies with confidence 0.63"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "fruit pies",
+      "reason": "jev-1.13.0 chose fruit pies with confidence 0.68"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "fruit pies",
+      "reason": "jev-1.13.0 chose fruit pies with confidence 0.71"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "spiced buns",
+      "reason": "openai/gpt-6-luna chose spiced buns with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "fruit pies",
+      "reason": "openai/gpt-6-luna chose fruit pies with confidence 0.42 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "fruit pies",
+      "reason": "openai/gpt-6-luna chose fruit pies with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "spiced buns",
+      "reason": "openai/gpt-6-luna chose spiced buns with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}
