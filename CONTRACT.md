@@ -14,7 +14,9 @@ This Contract is the executable spec for grandjury. Every obligation is checked 
   and U+2013 in every Markdown and text file in the repo and requires
   zero of each. The scan runs in the local gate and in CI.
 - SETUP-4. Every fixture and example committed to this repo is synthetic
-  and written for this repo. Nothing real is ever committed.
+  and written for this repo. Nothing real is ever committed. Check, a
+  manual sanitization review of every added fixture and example, with
+  its result recorded in the gate report.
 
 ## First slice obligations, stub form
 
