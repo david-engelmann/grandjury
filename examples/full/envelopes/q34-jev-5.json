@@ -1,0 +1,18 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "keep three mornings",
+      "confidence": 0.72,
+      "probabilities": {
+        "four mornings": 0.14,
+        "keep three mornings": 0.86
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 361,
+    "output_tokens": 36
+  }
+}

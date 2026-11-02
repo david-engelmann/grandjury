@@ -1,0 +1,74 @@
+{
+  "question": "Should the museum open a small cafe?",
+  "answers": [
+    "open one",
+    "keep the museum as it is"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "open one",
+      "reason": "jev-1.13.0 chose open one with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "open one",
+      "reason": "jev-1.13.0 chose open one with confidence 0.28 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "open one",
+      "reason": "jev-1.13.0 chose open one with confidence 0.28 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "open one",
+      "reason": "jev-1.13.0 chose open one with confidence 0.3 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "open one",
+      "reason": "jev-1.13.0 chose open one with confidence 0.3 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "open one",
+      "reason": "openai/gpt-6-luna chose open one with confidence 0.7"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "open one",
+      "reason": "openai/gpt-6-luna chose open one with confidence 0.6"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "open one",
+      "reason": "openai/gpt-6-luna chose open one with confidence 0.62"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "open one",
+      "reason": "openai/gpt-6-luna chose open one with confidence 0.58"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "open one",
+      "reason": "openai/gpt-6-luna chose open one with confidence 0.6"
+    }
+  ]
+}

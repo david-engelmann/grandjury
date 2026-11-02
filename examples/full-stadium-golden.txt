@@ -1,0 +1,16 @@
+question, Should the post office counter open an hour earlier on market days?
+responses, 8
+open an hour earlier |########################################| 2, 66.7%
+keep the current hours |####################| 1, 33.3%
+wall of reasons
+open an hour earlier
+  openai-4, openai/gpt-6-luna chose open an hour earlier with confidence 0.55
+  openai-5, openai/gpt-6-luna chose open an hour earlier with confidence 0.55
+keep the current hours
+  openai-2, openai/gpt-6-luna chose keep the current hours with confidence 0.55
+abstained, 5
+  jev-1, jev-1.13.0 chose open an hour earlier with confidence 0.04 and abstained
+  jev-2, jev-1.13.0 chose open an hour earlier with confidence 0.1 and abstained
+  jev-3, jev-1.13.0 chose keep the current hours with confidence 0.0 and abstained
+  jev-4, jev-1.13.0 chose open an hour earlier with confidence 0.06 and abstained
+  jev-5, jev-1.13.0 chose open an hour earlier with confidence 0.0 and abstained

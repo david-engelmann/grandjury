@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "cream",
+      "confidence": 0.68,
+      "probabilities": {
+        "cream": 0.79,
+        "sage green": 0.13,
+        "pale blue": 0.08
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 379,
+    "output_tokens": 42
+  }
+}

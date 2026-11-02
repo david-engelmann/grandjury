@@ -1,0 +1,75 @@
+{
+  "question": "Which path should the walking group take for the spring walk?",
+  "answers": [
+    "the river path",
+    "the ridge path",
+    "the woodland path",
+    "the canal path"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "the woodland path",
+      "reason": "jev-1.13.0 chose the woodland path with confidence 0.59"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "the woodland path",
+      "reason": "jev-1.13.0 chose the woodland path with confidence 0.51"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "the woodland path",
+      "reason": "jev-1.13.0 chose the woodland path with confidence 0.53"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "the woodland path",
+      "reason": "jev-1.13.0 chose the woodland path with confidence 0.55"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "the woodland path",
+      "reason": "jev-1.13.0 chose the woodland path with confidence 0.52"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "the woodland path",
+      "reason": "openai/gpt-6-luna chose the woodland path with confidence 0.55"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "the woodland path",
+      "reason": "openai/gpt-6-luna chose the woodland path with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "the woodland path",
+      "reason": "openai/gpt-6-luna chose the woodland path with confidence 0.25 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "the woodland path",
+      "reason": "openai/gpt-6-luna chose the woodland path with confidence 0.3 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "the woodland path",
+      "reason": "openai/gpt-6-luna chose the woodland path with confidence 0.35 and abstained",
+      "abstained": true
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "question": "What should the beekeeping group do with the honey harvest?",
+  "answers": [
+    "sell it at the market",
+    "share it among members",
+    "give it to the school"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "share it among members",
+      "reason": "jev-1.13.0 chose share it among members with confidence 0.53"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "share it among members",
+      "reason": "jev-1.13.0 chose share it among members with confidence 0.49 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "share it among members",
+      "reason": "jev-1.13.0 chose share it among members with confidence 0.55"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "share it among members",
+      "reason": "jev-1.13.0 chose share it among members with confidence 0.53"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "share it among members",
+      "reason": "jev-1.13.0 chose share it among members with confidence 0.58"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "share it among members",
+      "reason": "openai/gpt-6-luna chose share it among members with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "share it among members",
+      "reason": "openai/gpt-6-luna chose share it among members with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "give it to the school",
+      "reason": "openai/gpt-6-luna chose give it to the school with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "give it to the school",
+      "reason": "openai/gpt-6-luna chose give it to the school with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "share it among members",
+      "reason": "openai/gpt-6-luna chose share it among members with confidence 0.45 and abstained",
+      "abstained": true
+    }
+  ]
+}

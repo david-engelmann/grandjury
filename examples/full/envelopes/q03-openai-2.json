@@ -1,0 +1,54 @@
+{
+  "id": "gen-1793638255-rDc49V8Q55qGCtdNdauU",
+  "object": "chat.completion",
+  "created": 1793638255,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"on Thursdays\",\"confidence\":0.5,\"probabilities\":{\"on Thursdays\":0.5,\"on Fridays\":0.5}}",
+        "refusal": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6L9wgWpEX6R4E1sorp19WFOlPT_jP_KVS8BMARIDIucbnrShyeCZr3nB7hR7i0p_L_l99KxDtHcZNUPuKz7dq0SAkO52LbKsoWXLsKu8NTlUBj-f-Trk7_3dljZtZRzK8_-fl29H_VPYQkQkeFWgbuIW9qCXLSS8ktpTVC-addtF2rtLO7ucjLosnshbc6H0fnDcq7r3LpV_iQGQVvU-Sx3j4NDLKN9IC0bDRsxEGKaQG829l_AjKqNrBlt6T0xC8CEBS2e7uiplCL1a6LmOv1V3xLZPHc326bQq4wVULbz-3ldent8frLeaTW3bnE4HBCZuxgTaLm1RLVilptgqxF-fEfzAuAvXe8dmKLjNi8YGz8JOtioMtyFFgIm1cjTmjCm3wcqP5eYdcnIsIvfpw13rrUZSSvpswiSBcsDn2_yE6Mshcn0ijhpfQAPISaAg2UtlZmhX85BkYtdWBDGntGbPqlCDlrsTiz8pxBwzdSIOR1ZygqJdFdm0DLNp_rS4U5BEXJr_cJLbwg5ProvD97KZa3bahjKZeLRHgsh6C3zi92Ok4vAJdIvO4NvR-RbWj4ngvKyE0seldtcQ2Ig5pY49OPGbDwHyzeBNwOAE_ih3QPd4cOncOuJLEsXeUM-exvki5-21kxuJ-kUmA9J2CbjnjZdXfKdlxQLdwHq2QPc3uWx8yKhtYmtxN6sml1SO_IJjnJ_3xWGZd8KS8DKUxqf8kAwzHFjxR2D-hgAcZXs2R8G4yw4OCvim8sW5FCBhoxmttFUG_eS5mUC7jEYv-EPBz9AEgIxcoey9ZF3iXTdbSMv3sA8M9NWUS3lJPA8k8sLgvFR-T2APtkuQGOPTvz2g4ZA9hYHSdKX6zp0OJbVHbqQMrtZLiV-5uVV6evNh6lIGpcX-QoAhzsulPT_eXX02t4kF9Z8OC59c99_Z2upgQw2P9GlF7rsnQFL_A6PrgDNz5O682XPjA-olT7Xn0rS1QFLXogCdIDagXiwkuPYCDOHQbvlmTmxVuo-W6UyUUrauPj-gocYByDezrJqcY_4spD9-H2O_XS7VVUORwt9qjO_uJ6rayxi229bJrNdR_ePaYsLHRBZIG6jjhknvgcOXYpxk5QXsaatIlYpF2yRYG3YTF7_oSyKjTzypHbIVg7h_HDvtkH6gvgGCM9g7IFY2NCkY2GypEY8StdJsKpJ-El-80E7JHNbyAumXAtjxUcZ0_ptAKD_vVRxJ-BqIlocRrHrci1KQZAkdNi0-RDTOdw0MULCfv_qxqd9OUUyuKKav7HpS6CBTTkUuLnRnGPz3E-smOsq1_SE67_sg5f18idbh2tDeHqDK5-Vr_4zCeCIDtuHsW4ujnp2vawe-cmZsl2ZuKbGA-R-jju5ZfxUNGsTdcD8-C32YOMyvB3u-UOAqg_GFMo8w1UNMH1xgfNWp7OZa7gd5AlK1wPwHdncFl8E5Jb75kfNaPMGS0AGAcW3j-gOXUV428IR_wTxErXBEwZMHsGwwpWkep9zy63W6bHRr--85AOHe0yv02P5dRcPYb0jjig1VsaDbd5jiaxdspbHbkE2zvDbtSbA6Xpe80RugPetgjojze_KW9mh_QCmjY0eI3lZIYz00SNBjhgzcdfEOlIt7S12XAYR6fUiT4Cw5VpL8T3_9KTPUTS0632OLGrQzRIaapcQ1gteWFLVu-tNQ4NHXf1nxd1nqr9g51-L5V8SmsV0l-NlVX3g086JP3lNJmK57A12Ge4N5uKkSH80Hq7jsxNmNdM0Y6UVZHkK_Me-AxaZd8La1tPo5mUR05Rm-tYdh3bM_aUoakQZITabGiv4t1EFpSTC6UiDqLnTXvqatwzue7leTGK70bArvaHSmBFDTVuhHa8rOlUxTZmwS1zio23XqRzOdGG_0K2ROTox6miF1JGfEqsOeXPyrDHeS73YmfSQNy2VRZuQNjlYuYAH78OBinjZFbg5cAfJgNXqQulrYv99ieSpICDhwIIeOtT-PTmNJMnrpnfhicMNP2eZRHsvEZ0j2P2tOoUpUmb0rgMrmr89BDOZ1k0ki4ZaazPYeC7CV54oiNeiC3jTk1D3PkweB69KRx-ccyRPf7t75KKOnuZQuswD1r0LkCkztLDdOH1R7f_lVWM9-LAgXZtOVl8v2B4QVvrS8CVU32LOZ4bMGXBoP0roUAYZw98eEFo1VblyzswLlNtBMd8W6QR19iTNEuWRy8bnK7M4YjwDbHaQ2w3JgHLPr1T0MhAu1TuWhtFEIDt7b9bL9pHl9CR0Cvnf5reMj3LUJwgPLUNm31UKwOTHKmQ5S9HujXN-fNRZpTMImC1ETVWF8iG6xhTUiyPw-B6e6g9b_-VK4bAsSVQXyr79Xq27rCKLIQY5hMWweE61T1ODn1qcVhz6E__Yts-HVL2wg3fKK5eaV91wq3mZQVwotifkehHn2twHi707TUk2OvrnWaeCQPvjnNTbcY37nr2JkVSHRuKQ1e7OeyHvCshK8HD_17vUMcTtsBSWFIz-OTKY-1S7nU_MkvWnkiSCquRva_xo6UpI=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_05f1eb3947332bc7016ae8bf7023d887d18fe484970720b2f1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 105,
+    "completion_tokens": 105,
+    "total_tokens": 210,
+    "cost": 6.3e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.3e-05,
+      "upstream_inference_prompt_cost": 1.05e-05,
+      "upstream_inference_completions_cost": 5.25e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 70,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

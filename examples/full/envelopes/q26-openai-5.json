@@ -1,0 +1,54 @@
+{
+  "id": "gen-1793639737-qKv0rObDfkr87dxpvsY5",
+  "object": "chat.completion",
+  "created": 1793639737,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"resurface it\",\"confidence\":0.55,\"probabilities\":{\"resurface it\":0.55,\"patch it for now\":0.45}}",
+        "refusal": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6MU7TuMwlBxvoMOwSRfGxLv9jU1XRvJCMsv8DJO0dAx75Lq9NzOLmtzC03yCvTEd0ImC8GXugwmpSh2qTsKnKxr7L28dOdE6Hig53msNE169OkqCEJuXWDB5HaGJlAhVi1kz3SWIO5weoimnLkUoFesFrXrB_7jbN9BRYFMQR4bfLN9vOOrAXRE8i_6vcCrAbQWew8LQr2b4cm3dFLBNQzcitvBs0DrThX6wmCCnsxTFDVtJvzrhWatYjKNd1hVp_OB1yrOYkDfzFZKjEnQex7OhZv13kTLSHi6b-haZuMKapblRwF6p3o6YuqNQo4S8awJc2196XUWvBmZx2gYke0yjDnXCKR1RaForrT2neae5ylJi7vhJhW5fuLaN7P3gzuRyUN8dEVvQAVKLidlIVWO6J2eGDfL2OlfBRK5OTgh58GPzICGtMRxJ2qT7m4z7SrsWVtmh0m74lCGXOJG5HYqfYti7T4Dq8FdsvI3M2wQf0hoNx_94sOc_SDdreOLOIT5pSegp1h_LqaozXHCu0_eb2EUtQ677jmue5kgEYQmO5bJqLRDAloYte5LuUa5PWcqy58FmPvrOCEax-cbsiUAaGjYiPHo7N4sRPu3rt8PJHyxXg0ubayYFkc3Fp6IS7ScKWHvh2d5Y0nIb7WKdYBha6ymQjcMAoiavL0671hXL7eh5Kyzt1m738cI_IzaAkimBee4fQZct2ff7GkZAaeIM5zlsMnHJ222b4iQSlCE-7Zb0FMbm8qMymZhdP-Cl09vdYqbjPFQydtcak4FQln1RN1A1VuS1qXsvydv4wwDCK9o9dhZJF4aUWm5tqlhFTrT_tj8fXtUSFjt4GJJIVkJ6jEUaZEllLD5E5ibnKzRdmJhLBtNpL7NyNxH5dt1pZA5kYP4MqJ_hN-BnXP7kOuponsz6FRhIWpwU67b75lIf8f06EhOpSF7Ar1rC8aLN62XaxCnplGRTbT2uFFrItI1mSeDD6sTMxwXaPLtuexNuhohBJwPGGXl0c8CBIxo33yGLwAzkDqoojNNC95jl1dunpUh23kbEoiOsjr4g2B6xqnHxNkIYd7aymLly5_G7UO2ochXT62uRxO9ae9zEHrSn9zPJ5gt59FuYOL0UjGuTXObIelG85Q14UKK0lf6Dtjg4mqOguS8Rj1fmR7eRtdNiclVxPZYvSOob2iMXn_dj0U3w-QYskI0WoBB8fGqU8JgWjcxR9ShEZOkvApuw0Hy99JijlIYcBVwPiSeduQqMZ2s7heYxhzO2S0F-4lE1LUGkChAFeI1BjuOFifuYrE9b-_kd3bxEiXDbTEUud_jHVWzBbcaNkxbniBx7mDsWgIN-tBO8VqbpFP7MWVFrycg7-AlgUhjggtQdiUEEofqxQY-WoOJo0bC6nNVcrurkunn66LMrvafg4LZ0PFtGMgn9ihHLLcuCEOaPnRNThCvZawNpByenurEfeodh03k8XDLpbhbdYqs8nlvyLFTg2jiFxNY3FREtkOkGc9R56H597dDfnTMkPMfwCpRbPwL-s-H9OLJjgSwqr_2B7tZgOJ5ERNFJLD6lmEnSVZRYap54RKTwj2Qp3Nl2coMQn8ci1I8CZ9rcP-vgP42W8Yv39dMAm-Sdh4Zd1FkLXU96o5yZWU_4Sa7_tFsvRTzWVEO2BL1nDLkQi5IHSS4hKa7X9oPg7iFW66DjLoPJa2XDEgNXFEiJeKpE2Zpv_I_Ew4wzYFuutTTX0zn1XB27Vl8il_fRwlMcnYozC0mbiGGdl5hZWgVPDT0bDmnor9oPdf0NlcWTOrYWuog5jtezXkQcAKuqkCcEohLrEbKxniUHkjiaOYwtjLmG7AVmzN8EmdlwivOJqGn6XI1X4aMWJzHOdo62bFCPmyzyL0KqzJhv0ehE5DLxUn6bUmry4JNfAVXSOzlVAMDCT-8w8DcZesL_qyWA4DjcvSSRY1PG4NWtmeeGeWt0bbvskdJR8yiPim-T-2Mb3ap1UcE6VJaXaZpidrNNgSXPxEgZZ9Ter94pk5d7KWVGonAezCQPFRscmkprc_2-xTZQwEPNePlxNbS-CDwTVAI4OHSrXZUD3D-by3Q4xwNbASYR9g_UnnNjLXzgwxJrLo1reUvuOtiANmXN7GdRcE0UDArCwlw4oYG2odDN0xbsRMVYLlSjvvWlnbpO6xDDm2gu7k6S6vvvPyxvZfi0Fd1TcmpI9h67xe6iS_MRrCMVtnZ4_st0vLxUnF_PNHRv_Gzv0t7wLmwqylSVSWDINy1QOtAoyVWKBIHsFAqOVwp2HvyQlZBu9bwjs7zKEaCf2cRNgbyalTCSQfiTpWaNcF0LnqRhXge8rqSQJsRxylEknfZKUu9VHaU-esEQB5ULdQM64vEQ1r9j7APuNJBGslcyknb2S2oMm8F8-OVShWCT6dbcG0U6U1QY0c8cjCgRdhp4VH5xov1x81RocNoFl3NR0EpvVdSiI84-nWAQVetcim91aPTtetDjcxM7C5Ai.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_02db10ea044a2d6d016ae8c53aa24487d19cad797065e32b25",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 105,
+    "completion_tokens": 108,
+    "total_tokens": 213,
+    "cost": 6.45e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.45e-05,
+      "upstream_inference_prompt_cost": 1.05e-05,
+      "upstream_inference_completions_cost": 5.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 69,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

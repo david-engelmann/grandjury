@@ -1,0 +1,74 @@
+{
+  "question": "What should the sewing circle make for the charity stall?",
+  "answers": [
+    "tote bags",
+    "aprons",
+    "cushion covers",
+    "quilts"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "quilts",
+      "reason": "jev-1.13.0 chose quilts with confidence 0.35 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "quilts",
+      "reason": "jev-1.13.0 chose quilts with confidence 0.33 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "tote bags",
+      "reason": "jev-1.13.0 chose tote bags with confidence 0.36 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "quilts",
+      "reason": "jev-1.13.0 chose quilts with confidence 0.31 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "quilts",
+      "reason": "jev-1.13.0 chose quilts with confidence 0.29 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "tote bags",
+      "reason": "openai/gpt-6-luna chose tote bags with confidence 0.38 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "tote bags",
+      "reason": "openai/gpt-6-luna chose tote bags with confidence 0.48 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "tote bags",
+      "reason": "openai/gpt-6-luna chose tote bags with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "tote bags",
+      "reason": "openai/gpt-6-luna chose tote bags with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

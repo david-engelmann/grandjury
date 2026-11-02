@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "hire one when needed",
+      "confidence": 0.52,
+      "probabilities": {
+        "buy one": 0.3,
+        "hire one when needed": 0.68,
+        "do without": 0.02
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 382,
+    "output_tokens": 46
+  }
+}

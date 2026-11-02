@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "tomato",
+      "confidence": 0.34,
+      "probabilities": {
+        "tomato": 0.56,
+        "leek and potato": 0.14,
+        "carrot and lentil": 0.3
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 387,
+    "output_tokens": 47
+  }
+}

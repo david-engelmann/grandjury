@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "the woodland path",
+      "confidence": 0.55,
+      "probabilities": {
+        "the river path": 0.22,
+        "the ridge path": 0.08,
+        "the woodland path": 0.66,
+        "the canal path": 0.04
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 409,
+    "output_tokens": 55
+  }
+}

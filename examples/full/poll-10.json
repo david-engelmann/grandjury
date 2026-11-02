@@ -1,0 +1,40 @@
+{
+  "question": "What colour should the hall kitchen be repainted?",
+  "answers": [
+    "cream",
+    "sage green",
+    "pale blue"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "cream",
+      "reason": "jev-1.13.0 chose cream with confidence 0.64"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "cream",
+      "reason": "jev-1.13.0 chose cream with confidence 0.62"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "cream",
+      "reason": "jev-1.13.0 chose cream with confidence 0.66"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "cream",
+      "reason": "jev-1.13.0 chose cream with confidence 0.68"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "cream",
+      "reason": "jev-1.13.0 chose cream with confidence 0.67"
+    }
+  ]
+}

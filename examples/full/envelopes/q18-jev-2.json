@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "landscapes",
+      "confidence": 0.76,
+      "probabilities": {
+        "landscapes": 0.84,
+        "portraits": 0.04,
+        "still life": 0.12
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 382,
+    "output_tokens": 45
+  }
+}

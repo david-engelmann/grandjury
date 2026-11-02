@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "an oak",
+      "confidence": 0.6,
+      "probabilities": {
+        "an oak": 0.73,
+        "a lime": 0.26,
+        "a cherry": 0.01
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 377,
+    "output_tokens": 42
+  }
+}

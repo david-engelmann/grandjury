@@ -1,0 +1,18 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "once a day as now",
+      "confidence": 0.62,
+      "probabilities": {
+        "twice a day": 0.19,
+        "once a day as now": 0.81
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 365,
+    "output_tokens": 42
+  }
+}

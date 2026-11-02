@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "fruit pies",
+      "confidence": 0.71,
+      "probabilities": {
+        "a giant loaf": 0.07,
+        "spiced buns": 0.1,
+        "fruit pies": 0.78,
+        "honey cakes": 0.05
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 407,
+    "output_tokens": 54
+  }
+}

@@ -1,0 +1,443 @@
+question, Should the post office counter open an hour earlier on market days?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  open an hour earlier, 0, 0, 0.0%
+  keep the current hours, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 3, valid 3, abstained 0, spoiled 0
+  open an hour earlier, 2, 2/3, 66.7%
+  keep the current hours, 1, 1/3, 33.3%
+plurality, openai/gpt-6-luna, open an hour earlier
+pluralities, not counted
+question, Which soup should the lunch club serve on Fridays?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  tomato, 0, 0, 0.0%
+  leek and potato, 0, 0, 0.0%
+  carrot and lentil, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 2, valid 0, abstained 2, spoiled 0
+  tomato, 0, 0, 0.0%
+  leek and potato, 0, 0, 0.0%
+  carrot and lentil, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+jury, jev-1.13.0, recorded 2, valid 0, abstained 2, spoiled 0
+  on Thursdays, 0, 0, 0.0%
+  on Fridays, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  on Thursdays, 5, 1, 100.0%
+  on Fridays, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, on Thursdays
+pluralities, not counted
+question, What should the gardening club plant along the fence this year?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  sunflowers, 0, 0, 0.0%
+  sweet peas, 0, 0, 0.0%
+  runner beans, 0, 0, 0.0%
+  lavender, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 3, valid 0, abstained 3, spoiled 0
+  sunflowers, 0, 0, 0.0%
+  sweet peas, 0, 0, 0.0%
+  runner beans, 0, 0, 0.0%
+  lavender, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the farm shop sell flowers as well as vegetables?
+jury, jev-1.13.0, recorded 4, valid 0, abstained 4, spoiled 0
+  sell flowers too, 0, 0, 0.0%
+  vegetables only, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  sell flowers too, 5, 1, 100.0%
+  vegetables only, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, sell flowers too
+pluralities, not counted
+question, When should the repair cafe run each month?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  the first Saturday, 0, 0, 0.0%
+  the second Saturday, 0, 0, 0.0%
+  the third Saturday, 0, 0, 0.0%
+  the last Saturday, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 1, valid 0, abstained 1, spoiled 0
+  the first Saturday, 0, 0, 0.0%
+  the second Saturday, 0, 0, 0.0%
+  the third Saturday, 0, 0, 0.0%
+  the last Saturday, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the school playground open to families at weekends?
+jury, jev-1.13.0, recorded 3, valid 3, abstained 0, spoiled 0
+  open it at weekends, 3, 1, 100.0%
+  keep it closed, 0, 0, 0.0%
+plurality, jev-1.13.0, open it at weekends
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  open it at weekends, 5, 1, 100.0%
+  keep it closed, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, open it at weekends
+pluralities, agree
+question, Which film should the cinema club show in December?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  a comedy, 0, 0, 0.0%
+  a drama, 0, 0, 0.0%
+  a documentary, 0, 0, 0.0%
+  a classic musical, 5, 1, 100.0%
+plurality, jev-1.13.0, a classic musical
+jury, openai/gpt-6-luna, recorded 2, valid 0, abstained 2, spoiled 0
+  a comedy, 0, 0, 0.0%
+  a drama, 0, 0, 0.0%
+  a documentary, 0, 0, 0.0%
+  a classic musical, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the gym add a beginners class on Monday evenings?
+jury, jev-1.13.0, recorded 4, valid 0, abstained 4, spoiled 0
+  add the class, 0, 0, 0.0%
+  keep the timetable as it is, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  add the class, 5, 1, 100.0%
+  keep the timetable as it is, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, add the class
+pluralities, not counted
+question, What colour should the hall kitchen be repainted?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  cream, 5, 1, 100.0%
+  sage green, 0, 0, 0.0%
+  pale blue, 0, 0, 0.0%
+plurality, jev-1.13.0, cream
+pluralities, not counted
+question, Should the dog show move to the bigger field?
+jury, jev-1.13.0, recorded 2, valid 0, abstained 2, spoiled 0
+  move it, 0, 0, 0.0%
+  keep it on the green, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  move it, 5, 1, 100.0%
+  keep it on the green, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, move it
+pluralities, not counted
+question, When should the youth club take its summer trip?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  in late July, 0, 0, 0.0%
+  in mid August, 0, 0, 0.0%
+  in early September, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  in late July, 0, 0, 0.0%
+  in mid August, 0, 0, 0.0%
+  in early September, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the toy library lend board games as well as toys?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  lend games too, 5, 1, 100.0%
+  toys only, 0, 0, 0.0%
+plurality, jev-1.13.0, lend games too
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  lend games too, 5, 1, 100.0%
+  toys only, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, lend games too
+pluralities, agree
+question, What should the bakery bake for the harvest festival?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  a giant loaf, 0, 0, 0.0%
+  spiced buns, 0, 0, 0.0%
+  fruit pies, 5, 1, 100.0%
+  honey cakes, 0, 0, 0.0%
+plurality, jev-1.13.0, fruit pies
+jury, openai/gpt-6-luna, recorded 4, valid 0, abstained 4, spoiled 0
+  a giant loaf, 0, 0, 0.0%
+  spiced buns, 0, 0, 0.0%
+  fruit pies, 0, 0, 0.0%
+  honey cakes, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the last bus leave an hour later on Friday nights?
+jury, jev-1.13.0, recorded 2, valid 2, abstained 0, spoiled 0
+  leave later, 2, 1, 100.0%
+  keep the last bus as it is, 0, 0, 0.0%
+plurality, jev-1.13.0, leave later
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  leave later, 5, 1, 100.0%
+  keep the last bus as it is, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, leave later
+pluralities, agree
+question, Which day should the jumble sale be held?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  on Saturday, 5, 1, 100.0%
+  on Sunday, 0, 0, 0.0%
+plurality, jev-1.13.0, on Saturday
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  on Saturday, 5, 1, 100.0%
+  on Sunday, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, on Saturday
+pluralities, agree
+question, Should the swimming pool offer early morning lane swimming?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  offer it, 0, 0, 0.0%
+  keep the current timetable, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 2, valid 2, abstained 0, spoiled 0
+  offer it, 2, 1, 100.0%
+  keep the current timetable, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, offer it
+pluralities, not counted
+question, What should the art group show at the spring exhibition?
+jury, jev-1.13.0, recorded 4, valid 4, abstained 0, spoiled 0
+  landscapes, 4, 1, 100.0%
+  portraits, 0, 0, 0.0%
+  still life, 0, 0, 0.0%
+plurality, jev-1.13.0, landscapes
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  landscapes, 0, 0, 0.0%
+  portraits, 0, 0, 0.0%
+  still life, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the village hall roof be repaired this year or next year?
+jury, jev-1.13.0, recorded 4, valid 4, abstained 0, spoiled 0
+  this year, 4, 1, 100.0%
+  next year, 0, 0, 0.0%
+plurality, jev-1.13.0, this year
+jury, openai/gpt-6-luna, recorded 2, valid 2, abstained 0, spoiled 0
+  this year, 2, 1, 100.0%
+  next year, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, this year
+pluralities, agree
+question, When should the orchard group press the apples?
+jury, openai/gpt-6-luna, recorded 3, valid 0, abstained 3, spoiled 0
+  in late September, 0, 0, 0.0%
+  in mid October, 0, 0, 0.0%
+  in early November, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Where should the chess club meet?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  in the cafe, 0, 0, 0.0%
+  in the pub, 0, 0, 0.0%
+  in the community room, 5, 1, 100.0%
+plurality, jev-1.13.0, in the community room
+jury, openai/gpt-6-luna, recorded 1, valid 1, abstained 0, spoiled 0
+  in the cafe, 0, 0, 0.0%
+  in the pub, 0, 0, 0.0%
+  in the community room, 1, 1, 100.0%
+plurality, openai/gpt-6-luna, in the community room
+pluralities, agree
+question, Should the running club add a Sunday morning run?
+jury, jev-1.13.0, recorded 1, valid 0, abstained 1, spoiled 0
+  add it, 0, 0, 0.0%
+  keep Saturdays only, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  add it, 4, 4/5, 80.0%
+  keep Saturdays only, 1, 1/5, 20.0%
+plurality, openai/gpt-6-luna, add it
+pluralities, not counted
+question, What should the sewing circle make for the charity stall?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  tote bags, 0, 0, 0.0%
+  aprons, 0, 0, 0.0%
+  cushion covers, 0, 0, 0.0%
+  quilts, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 4, valid 0, abstained 4, spoiled 0
+  tote bags, 0, 0, 0.0%
+  aprons, 0, 0, 0.0%
+  cushion covers, 0, 0, 0.0%
+  quilts, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the primary school start a breakfast club?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  start one, 5, 1, 100.0%
+  not this year, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, start one
+pluralities, not counted
+question, Which tree should the parish plant on the green?
+jury, jev-1.13.0, recorded 4, valid 4, abstained 0, spoiled 0
+  an oak, 4, 1, 100.0%
+  a lime, 0, 0, 0.0%
+  a cherry, 0, 0, 0.0%
+plurality, jev-1.13.0, an oak
+jury, openai/gpt-6-luna, recorded 4, valid 0, abstained 4, spoiled 0
+  an oak, 0, 0, 0.0%
+  a lime, 0, 0, 0.0%
+  a cherry, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the tennis club resurface the second court?
+jury, jev-1.13.0, recorded 4, valid 4, abstained 0, spoiled 0
+  resurface it, 4, 1, 100.0%
+  patch it for now, 0, 0, 0.0%
+plurality, jev-1.13.0, resurface it
+jury, openai/gpt-6-luna, recorded 3, valid 3, abstained 0, spoiled 0
+  resurface it, 1, 1/3, 33.3%
+  patch it for now, 2, 2/3, 66.7%
+plurality, openai/gpt-6-luna, patch it for now
+pluralities, differ
+question, When should the history society hold its winter talk?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  on a weekday evening, 5, 1, 100.0%
+  on a Saturday afternoon, 0, 0, 0.0%
+  on a Sunday afternoon, 0, 0, 0.0%
+plurality, jev-1.13.0, on a weekday evening
+jury, openai/gpt-6-luna, recorded 5, valid 3, abstained 2, spoiled 0
+  on a weekday evening, 0, 0, 0.0%
+  on a Saturday afternoon, 3, 1, 100.0%
+  on a Sunday afternoon, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, on a Saturday afternoon
+pluralities, differ
+question, Should the cafe serve breakfast all day?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  all day, 0, 0, 0.0%
+  mornings only, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 3, valid 3, abstained 0, spoiled 0
+  all day, 3, 1, 100.0%
+  mornings only, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, all day
+pluralities, not counted
+question, What should the drama group perform at Christmas?
+jury, jev-1.13.0, recorded 1, valid 1, abstained 0, spoiled 0
+  a pantomime, 1, 1, 100.0%
+  a comedy play, 0, 0, 0.0%
+  a musical revue, 0, 0, 0.0%
+plurality, jev-1.13.0, a pantomime
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  a pantomime, 5, 1, 100.0%
+  a comedy play, 0, 0, 0.0%
+  a musical revue, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, a pantomime
+pluralities, agree
+question, Should the village buy a shared marquee for events?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  buy one, 0, 0, 0.0%
+  hire one when needed, 5, 1, 100.0%
+  do without, 0, 0, 0.0%
+plurality, jev-1.13.0, hire one when needed
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  buy one, 0, 0, 0.0%
+  hire one when needed, 5, 1, 100.0%
+  do without, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, hire one when needed
+pluralities, agree
+question, Which path should the walking group take for the spring walk?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  the river path, 0, 0, 0.0%
+  the ridge path, 0, 0, 0.0%
+  the woodland path, 5, 1, 100.0%
+  the canal path, 0, 0, 0.0%
+plurality, jev-1.13.0, the woodland path
+jury, openai/gpt-6-luna, recorded 5, valid 1, abstained 4, spoiled 0
+  the river path, 0, 0, 0.0%
+  the ridge path, 0, 0, 0.0%
+  the woodland path, 1, 1, 100.0%
+  the canal path, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, the woodland path
+pluralities, agree
+question, Should the post box be emptied twice a day?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  twice a day, 0, 0, 0.0%
+  once a day as now, 5, 1, 100.0%
+plurality, jev-1.13.0, once a day as now
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  twice a day, 0, 0, 0.0%
+  once a day as now, 5, 1, 100.0%
+plurality, openai/gpt-6-luna, once a day as now
+pluralities, agree
+question, What should the photography club shoot for its calendar?
+jury, jev-1.13.0, recorded 5, valid 1, abstained 4, spoiled 0
+  gardens, 1, 1, 100.0%
+  doors and gates, 0, 0, 0.0%
+  harvest scenes, 0, 0, 0.0%
+plurality, jev-1.13.0, gardens
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  gardens, 0, 0, 0.0%
+  doors and gates, 0, 0, 0.0%
+  harvest scenes, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the playgroup meet four mornings a week instead of three?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  four mornings, 0, 0, 0.0%
+  keep three mornings, 5, 1, 100.0%
+plurality, jev-1.13.0, keep three mornings
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  four mornings, 0, 0, 0.0%
+  keep three mornings, 5, 1, 100.0%
+plurality, openai/gpt-6-luna, keep three mornings
+pluralities, agree
+question, When should the bonfire be lit on bonfire night?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  at six in the evening, 0, 0, 0.0%
+  at seven in the evening, 0, 0, 0.0%
+  at eight in the evening, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  at six in the evening, 0, 0, 0.0%
+  at seven in the evening, 5, 1, 100.0%
+  at eight in the evening, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, at seven in the evening
+pluralities, not counted
+question, Should the museum open a small cafe?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  open one, 0, 0, 0.0%
+  keep the museum as it is, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  open one, 5, 1, 100.0%
+  keep the museum as it is, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, open one
+pluralities, not counted
+question, What should the beekeeping group do with the honey harvest?
+jury, jev-1.13.0, recorded 5, valid 4, abstained 1, spoiled 0
+  sell it at the market, 0, 0, 0.0%
+  share it among members, 4, 1, 100.0%
+  give it to the school, 0, 0, 0.0%
+plurality, jev-1.13.0, share it among members
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  sell it at the market, 0, 0, 0.0%
+  share it among members, 0, 0, 0.0%
+  give it to the school, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Which evening should the language class meet?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  Monday evening, 0, 0, 0.0%
+  Wednesday evening, 0, 0, 0.0%
+  Friday evening, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  Monday evening, 0, 0, 0.0%
+  Wednesday evening, 0, 0, 0.0%
+  Friday evening, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+question, Should the car park behind the shops be free on Sundays?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  free on Sundays, 5, 1, 100.0%
+  charge every day, 0, 0, 0.0%
+plurality, jev-1.13.0, free on Sundays
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  free on Sundays, 5, 1, 100.0%
+  charge every day, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, free on Sundays
+pluralities, agree
+question, What should the youth orchestra play at the summer concert?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  film themes, 0, 0, 0.0%
+  folk tunes, 0, 0, 0.0%
+  classical favourites, 5, 1, 100.0%
+  jazz standards, 0, 0, 0.0%
+plurality, jev-1.13.0, classical favourites
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  film themes, 0, 0, 0.0%
+  folk tunes, 0, 0, 0.0%
+  classical favourites, 0, 0, 0.0%
+  jazz standards, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, none
+pluralities, not counted
+agreements, 12 of 14

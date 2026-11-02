@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "quilts",
+      "confidence": 0.33,
+      "probabilities": {
+        "tote bags": 0.44,
+        "aprons": 0.03,
+        "cushion covers": 0.03,
+        "quilts": 0.5
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 406,
+    "output_tokens": 53
+  }
+}

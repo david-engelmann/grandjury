@@ -1,0 +1,55 @@
+{
+  "question": "Which film should the cinema club show in December?",
+  "answers": [
+    "a comedy",
+    "a drama",
+    "a documentary",
+    "a classic musical"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "a classic musical",
+      "reason": "jev-1.13.0 chose a classic musical with confidence 0.55"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "a classic musical",
+      "reason": "jev-1.13.0 chose a classic musical with confidence 0.6"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "a classic musical",
+      "reason": "jev-1.13.0 chose a classic musical with confidence 0.61"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "a classic musical",
+      "reason": "jev-1.13.0 chose a classic musical with confidence 0.57"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "a classic musical",
+      "reason": "jev-1.13.0 chose a classic musical with confidence 0.59"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "a classic musical",
+      "reason": "openai/gpt-6-luna chose a classic musical with confidence 0.3 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "a classic musical",
+      "reason": "openai/gpt-6-luna chose a classic musical with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

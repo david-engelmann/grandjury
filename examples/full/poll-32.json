@@ -1,0 +1,69 @@
+{
+  "question": "Should the post box be emptied twice a day?",
+  "answers": [
+    "twice a day",
+    "once a day as now"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "once a day as now",
+      "reason": "jev-1.13.0 chose once a day as now with confidence 0.58"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "once a day as now",
+      "reason": "jev-1.13.0 chose once a day as now with confidence 0.56"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "once a day as now",
+      "reason": "jev-1.13.0 chose once a day as now with confidence 0.6"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "once a day as now",
+      "reason": "jev-1.13.0 chose once a day as now with confidence 0.58"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "once a day as now",
+      "reason": "jev-1.13.0 chose once a day as now with confidence 0.62"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "once a day as now",
+      "reason": "openai/gpt-6-luna chose once a day as now with confidence 0.65"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "once a day as now",
+      "reason": "openai/gpt-6-luna chose once a day as now with confidence 0.55"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "once a day as now",
+      "reason": "openai/gpt-6-luna chose once a day as now with confidence 0.58"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "once a day as now",
+      "reason": "openai/gpt-6-luna chose once a day as now with confidence 0.65"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "once a day as now",
+      "reason": "openai/gpt-6-luna chose once a day as now with confidence 0.65"
+    }
+  ]
+}

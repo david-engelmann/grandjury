@@ -1,0 +1,53 @@
+{
+  "question": "When should the repair cafe run each month?",
+  "answers": [
+    "the first Saturday",
+    "the second Saturday",
+    "the third Saturday",
+    "the last Saturday"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "the second Saturday",
+      "reason": "jev-1.13.0 chose the second Saturday with confidence 0.23 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "the second Saturday",
+      "reason": "jev-1.13.0 chose the second Saturday with confidence 0.17 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "the second Saturday",
+      "reason": "jev-1.13.0 chose the second Saturday with confidence 0.19 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "the second Saturday",
+      "reason": "jev-1.13.0 chose the second Saturday with confidence 0.15 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "the second Saturday",
+      "reason": "jev-1.13.0 chose the second Saturday with confidence 0.17 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "the second Saturday",
+      "reason": "openai/gpt-6-luna chose the second Saturday with confidence 0.3 and abstained",
+      "abstained": true
+    }
+  ]
+}

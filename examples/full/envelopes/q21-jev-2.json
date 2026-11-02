@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "in the community room",
+      "confidence": 0.89,
+      "probabilities": {
+        "in the cafe": 0.06,
+        "in the pub": 0.01,
+        "in the community room": 0.93
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 382,
+    "output_tokens": 48
+  }
+}

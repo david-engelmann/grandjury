@@ -1,0 +1,80 @@
+{
+  "question": "When should the youth club take its summer trip?",
+  "answers": [
+    "in late July",
+    "in mid August",
+    "in early September"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "in late July",
+      "reason": "jev-1.13.0 chose in late July with confidence 0.43 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "in late July",
+      "reason": "jev-1.13.0 chose in late July with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "in late July",
+      "reason": "jev-1.13.0 chose in late July with confidence 0.44 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "in late July",
+      "reason": "jev-1.13.0 chose in late July with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "in late July",
+      "reason": "jev-1.13.0 chose in late July with confidence 0.44 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid August",
+      "reason": "openai/gpt-6-luna chose in mid August with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid August",
+      "reason": "openai/gpt-6-luna chose in mid August with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid August",
+      "reason": "openai/gpt-6-luna chose in mid August with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid August",
+      "reason": "openai/gpt-6-luna chose in mid August with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "in mid August",
+      "reason": "openai/gpt-6-luna chose in mid August with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

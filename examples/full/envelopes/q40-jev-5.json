@@ -1,0 +1,20 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "classical favourites",
+      "confidence": 0.87,
+      "probabilities": {
+        "film themes": 0.1,
+        "folk tunes": 0.0,
+        "classical favourites": 0.9,
+        "jazz standards": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 404,
+    "output_tokens": 53
+  }
+}

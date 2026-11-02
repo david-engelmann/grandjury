@@ -47,7 +47,26 @@ def test_readme_reports_the_round_two_status():
         "the raw envelopes and the run record under examples."
     )
     assert slice_line in lines
-    assert "built and in review" not in text
+
+def test_readme_reports_the_round_three_status():
+    text = (ROOT / "README.md").read_text(encoding="utf-8")
+    lines = text.splitlines()
+    standing = (
+        "- Contract, GJ-7 and GJ-8 now stand in full form in "
+        "CONTRACT.md under the Round 3 obligations, and their standing "
+        "is not claimed here, as Round 3 has not closed."
+    )
+    assert standing in lines
+    slice_line = (
+        "- Slice 4 is built and in review. It carries the full live "
+        "poll over both decision model routes, forty synthetic "
+        "questions with five seats per question per model and the raw "
+        "envelopes and the run record under examples, and the "
+        "agreement reading over the recorded responses with its "
+        "command and its golden."
+    )
+    assert slice_line in lines
+    assert text.count("built and in review") == 1
 
 def test_ci_runs_the_same_gate_as_the_local_gate():
     text = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")

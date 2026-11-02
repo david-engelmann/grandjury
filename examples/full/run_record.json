@@ -1,0 +1,46 @@
+{
+  "questions": 40,
+  "seats_per_question_per_model": 5,
+  "models": {
+    "jev-1.13.0": {
+      "route": "jev",
+      "calls_attempted": 200,
+      "calls_recorded": 165,
+      "failed_calls": 35,
+      "abstained": 73,
+      "input_tokens": 62514,
+      "output_tokens": 7295
+    },
+    "openai/gpt-6-luna": {
+      "route": "chat",
+      "calls_attempted": 200,
+      "calls_recorded": 162,
+      "failed_calls": 38,
+      "abstained": 59,
+      "input_tokens": 17304,
+      "output_tokens": 13055,
+      "cost_dollars": "0.0082579"
+    }
+  },
+  "incident": {
+    "jev-1.13.0": {
+      "attempts_in_round": 201,
+      "attempts_that_never_left_the_machine": 0,
+      "calls_discarded": 0,
+      "calls_in_the_recorded_run": 200,
+      "diagnostic_calls": 0,
+      "envelopes_lost_and_seats_rerun": 0,
+      "route_verification_calls": 1
+    },
+    "lost_token_usage": "no envelope was lost in this round, and no token usage is unaccounted",
+    "openai/gpt-6-luna": {
+      "attempts_in_round": 201,
+      "attempts_that_never_left_the_machine": 0,
+      "calls_discarded": 0,
+      "calls_in_the_recorded_run": 200,
+      "diagnostic_calls": 0,
+      "envelopes_lost_and_seats_rerun": 0,
+      "route_verification_calls": 1
+    }
+  }
+}
