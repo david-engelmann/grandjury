@@ -23,6 +23,6 @@ def test_readme_reports_the_contract_status():
 
 def test_ci_runs_the_same_gate_as_the_local_gate():
     text = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
-    live = "\n".join(line for line in text.splitlines() if not line.lstrip().startswith("#"))
+    live = "\n".join(line.split("#", 1)[0] for line in text.splitlines())
     assert "python3 scripts/codepoint_scan.py" in live
     assert "python3 -m pytest tests -q" in live
