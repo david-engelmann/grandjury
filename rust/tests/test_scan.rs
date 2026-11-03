@@ -13,6 +13,12 @@
 //! additions of PORT-9, a dash in a Rust file failing the
 //! scan and a dash inside the cargo target directory passing
 //! it, and they stand in the Python suite in the same words.
+//! PORT-15 carries the removal on these same pins. The
+//! envelope pins in this file, the Rust file pin, and the target
+//! directory pin are the pins the removal states for the
+//! scan, and they stand unchanged with the Python script
+//! gone, because the in crate reading they pin is the gate
+//! form the removal leaves behind.
 
 mod shared;
 

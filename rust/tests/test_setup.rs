@@ -4,8 +4,9 @@
 //! Each translated pin can fail for a real reason against a
 //! repo that lost a setup file or let its status drift from
 //! its contract. The port pins hold the README port line to
-//! exactly one standing, the CI cargo steps beside the Python
-//! gate commands, and the contract port items in place.
+//! exactly one standing, the CI cargo steps and the scan
+//! through the codepoint_scan binary, and the contract
+//! port items in place.
 
 mod shared;
 
@@ -71,7 +72,7 @@ fn readme_reports_the_round_three_status() {
 #[test]
 fn readme_states_the_local_gate_with_the_cargo_gate() {
     let text = root_text("README.md");
-    let line = "- Local gate, python3 scripts/codepoint_scan.py and python3 -m pytest tests -q, and the cargo gate of cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check. CI runs the same commands.";
+    let line = "- Local gate, cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan. CI runs the same commands.";
     assert!(lines_of(&text).contains(&line));
 }
 
@@ -79,7 +80,7 @@ fn readme_states_the_local_gate_with_the_cargo_gate() {
 fn agents_annex_states_the_local_gate_with_the_cargo_gate() {
     let text = root_text("AGENTS.md");
     assert!(text.contains(
-        "python3 -m pytest tests -q beside the cargo gate of cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check"
+        "cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan, and the suite runs offline"
     ));
 }
 
@@ -91,19 +92,21 @@ fn ci_runs_the_same_gate_as_the_local_gate() {
         .map(|line| line.split('#').next().unwrap_or(""))
         .collect::<Vec<&str>>()
         .join("\n");
-    assert!(live.contains("python3 scripts/codepoint_scan.py"));
-    assert!(live.contains("python3 -m pytest tests -q"));
+    assert!(live.contains("cargo run --bin codepoint_scan"));
+    assert!(!live.contains("pytest"));
+    assert!(!live.contains("scripts/codepoint_scan.py"));
+    assert!(!live.contains("setup-python"));
 }
 
 #[test]
 fn readme_states_the_rust_port_line_exactly_once() {
     let text = root_text("README.md");
-    let port_line = "- The Rust port has been built and is in review. It carries the same behavior as the Python package, checked against the same goldens.";
+    let port_line = "- The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.";
     assert_eq!(text.matches(port_line).count(), 1);
 }
 
 #[test]
-fn ci_carries_the_cargo_steps_beside_the_python_gate() {
+fn ci_carries_the_cargo_steps() {
     let text = root_text(".github/workflows/ci.yml");
     let live: String = text
         .lines()
@@ -120,7 +123,7 @@ fn contract_carries_the_port_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in [
         "PORT-1", "PORT-2", "PORT-3", "PORT-4", "PORT-5", "PORT-6", "PORT-7", "PORT-8", "PORT-9",
-        "PORT-10", "PORT-11", "PORT-12", "PORT-13", "PORT-14",
+        "PORT-10", "PORT-11", "PORT-12", "PORT-13", "PORT-14", "PORT-15",
     ] {
         assert!(text.contains(oid), "{}", oid);
     }
