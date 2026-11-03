@@ -1,0 +1,75 @@
+[package]
+name = "grandjury"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "rust/src/lib.rs"
+
+[[bin]]
+name = "grandjury"
+path = "rust/src/main.rs"
+
+[[bin]]
+name = "codepoint_scan"
+path = "rust/src/bin/codepoint_scan.rs"
+
+# The integration tests live beside the library under rust/tests, so
+# each one is named here with its path rather than discovered from a
+# root level tests directory.
+[[test]]
+name = "test_polls"
+path = "rust/tests/test_polls.rs"
+
+[[test]]
+name = "test_cost"
+path = "rust/tests/test_cost.rs"
+
+[[test]]
+name = "test_seats"
+path = "rust/tests/test_seats.rs"
+
+[[test]]
+name = "test_stadium"
+path = "rust/tests/test_stadium.rs"
+
+[[test]]
+name = "test_agreement"
+path = "rust/tests/test_agreement.rs"
+
+[[test]]
+name = "test_cli"
+path = "rust/tests/test_cli.rs"
+
+[[test]]
+name = "test_examples"
+path = "rust/tests/test_examples.rs"
+
+[[test]]
+name = "test_pilot"
+path = "rust/tests/test_pilot.rs"
+
+[[test]]
+name = "test_full"
+path = "rust/tests/test_full.rs"
+
+[[test]]
+name = "test_scan"
+path = "rust/tests/test_scan.rs"
+
+[[test]]
+name = "test_setup"
+path = "rust/tests/test_setup.rs"
+
+[[test]]
+name = "test_makers"
+path = "rust/tests/test_makers.rs"
+
+[[test]]
+name = "test_binary_surface"
+path = "rust/tests/test_binary_surface.rs"
+
+[dependencies]
+num-bigint = "0.4"
+num-rational = "0.4"
+num-traits = "0.2"

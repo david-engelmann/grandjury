@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Count U+2014 and U+2013 in the text files of the repo. The scan
-covers files whose suffix is .md, .txt, .py, .json, .toml, .yml, or
-.yaml, and extensionless files such as LICENSE. Zero of each is
-required. Exit 1 when any are found. Files inside ignored environment
-and build directories are skipped, and the recorded envelopes under
+covers files whose suffix is .md, .txt, .py, .json, .toml, .yml,
+.yaml, or .rs, and extensionless files such as LICENSE. Zero of each
+is required. Exit 1 when any are found. Files inside ignored
+environment and build directories are skipped, the cargo target
+directory among them, and the recorded envelopes under
 examples/pilot/envelopes and examples/full/envelopes are skipped
 under the scan scope amendments in CONTRACT.md, because they are
 recorded data the routes returned and not prose this repo wrote."""
 import pathlib, sys
 root = pathlib.Path(__file__).resolve().parent.parent
 counts = {"U+2014": 0, "U+2013": 0}
-ignored_dirs = {".git", ".venv", "venv", "dist", "build", "node_modules", "__pycache__"}
+ignored_dirs = {".git", ".venv", "venv", "dist", "build", "target", "node_modules", "__pycache__"}
 for p in sorted(root.rglob("*")):
     if not p.is_file():
         continue
@@ -21,7 +22,7 @@ for p in sorted(root.rglob("*")):
         continue
     if rel.parts[:3] == ("examples", "full", "envelopes"):
         continue
-    if p.suffix not in {".md", ".txt", ".py", ".json", ".toml", ".yml", ".yaml", ""}:
+    if p.suffix not in {".md", ".txt", ".py", ".json", ".toml", ".yml", ".yaml", ".rs", ""}:
         continue
     text = p.read_text(encoding="utf-8", errors="replace")
     counts["U+2014"] += text.count("\u2014")

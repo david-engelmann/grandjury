@@ -140,3 +140,26 @@ def test_a_dash_elsewhere_in_examples_still_fails_the_scan(tmp_path):
     result = run_scan(root)
     assert result.returncode == 1
     assert "U+2013=1" in result.stdout
+
+
+def test_a_dash_in_a_rust_file_fails_the_scan(tmp_path):
+    root = plant_tree(tmp_path)
+    (root / "module.rs").write_text(
+        f"// a comment {EM_DASH} here\n", encoding="utf-8"
+    )
+    result = run_scan(root)
+    assert result.returncode == 1
+    assert "U+2014=1" in result.stdout
+
+
+def test_dashes_inside_the_target_directory_pass_the_scan(tmp_path):
+    root = plant_tree(tmp_path)
+    target = root / "target"
+    target.mkdir()
+    (target / "planted.md").write_text(
+        f"{EM_DASH} and {EN_DASH}\n", encoding="utf-8"
+    )
+    result = run_scan(root)
+    assert result.returncode == 0
+    assert "U+2014=0" in result.stdout
+    assert "U+2013=0" in result.stdout
