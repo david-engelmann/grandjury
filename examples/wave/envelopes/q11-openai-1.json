@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750746-qNwFvAFyK4EDkl3RuP5R",
+  "object": "chat.completion",
+  "created": 1793750746,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"add a second stop\",\"confidence\":0.4,\"probabilities\":{\"move it closer\":0.3,\"keep it where it is\":0.3,\"add a second stop\":0.4}}",
+        "refusal": null,
+        "reasoning": "**Considering the answer structure**\n\nI need to respond to a poll without any context, which is tricky. I might need to ensure that the probabilities I provide sum up to 1. Choosing one seems reasonable, but I also think a second option could make sense. However, there’s the issue of confidence in the juror’s answer and how to represent that with a probability distribution. It's a complex situation to navigate!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Considering the answer structure**\n\nI need to respond to a poll without any context, which is tricky. I might need to ensure that the probabilities I provide sum up to 1. Choosing one seems reasonable, but I also think a second option could make sense. However, there’s the issue of confidence in the juror’s answer and how to represent that with a probability distribution. It's a complex situation to navigate!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nbdqcf5kQz7S96-J0ToAJUiPocxjFEl-V2R3NcaqsA9ExzYJiWctKSkqm3B72gFcyG7AdMGEqknbVK1tH63ZeyinOiuEnW7VaVFIqoIK7FhMGxWiAUMl3pqL1dDogZSFGnQWhNDKYWSDu4nBIGLRHyWbF9cKkGFiGziY5zOOYJNieJO-GzR7HQTesdrmxxrZsfhe9OL0CzGSjbWL8hyIdnceLCTZ9qrFO6rbrpXgOQdAxS6676OCzp9pnVhkUI9RUzFQxhhJtkksRhH4kULfueBquYlATwzAkLM2hgMp5ZOUKijC9F01G6L_vmGweGecuZqB9qCkV4VGbWXhHx5eKjfyv-KbStFBzh8hwz4rpHzZYBzQGczQFALj_MRknfAXAd-a0WILwKcEFDg2xGE2gtBQBRC92YKwZn7R7MW21fee2-MrGVSxcRoAciRAYsrIskq8KwMhdgvegd_mWL87M35hB6HQ1-YctFTQNO9--i92uWp26j8CBLYzHNmwGHylcaMxByn20bK61BaA2jzK-4dRu8aocSghHLTSZT5vwqFC174p2xqr7tfW283lPnSgQg_nD_4dQxT4rGetnydobV14TyKpQf6XBhVtUg7Ag0MRQQMLr8Nn1U1gxV7zquJa0G_Yw7j7P8doTwXmFyGlIBHaascVXoLbiMP5UirTypGTVK7iPNW4g4yXjMdOQ_rsl1TdoMiKL-FTMPgwCO_1QS4KD0zyVsfLws_ffkUwlGYOi48mocoHXjuxE_XWvr3kYCy8EYdOQTDBrE42sf595x_KIt56vwLldXMM7O-s1NPLO3j6gCmRq-bhN9W2r3Xxu-GE-vCrYPeEl6LKS5nWZdWo8MFvQxMw-WLApvWne4MQIqyXQ4uHQUfTAcPLAm978rLXrW5VCDnv7w6r7dfxDf6sSuJGa53I91FMdUKPD65xo9r0eheDeTZmqWH2OXczCw7IOQBNZ1eWOhLZuHxKC0PtPRzikDE8F4TVoYFB3Eu3h6dviLjVxI8wmic9WgYPzG3jUF8NwokWR82qE0ftEHSQC5l7Q8d32ONJmoT5qq_RuaDu82NHrXXh0SZHV-HEyuI1KL8ZqRdyxyw_WowjadnfE6CVExfLS0E9U2k3vyqWBrsS_32tWPP6LO25-n-iT0mAQ6z6PaBjSlPoXvP1Vsgo4JH32LGJ2yMkS5giPz7ZFhhRE6JqT4iwi6QcYENXrFbVBgdPCilhAqFdOYe5ri5nQczdrQxNOxASI4_FVxRKEvUHIZsR6Q_gOZIUew8ppbPU3-whUCbo6F8ZDr6Lhz5x8i5Ej13LlNrtpM1HAPvbv8W1fraQZVnVc3_oh6BOf0nDc_r6YI1b9y-UfZUn91gjEqTRsV2cGFYhqzaXhqjO-xcx-JJBq4TblRPl9py5QqLXFmbs3f7DsSxaAHne7ZqE83oZY2Z2zcI49lG-yHLOmgOIA93kWaBJWB5EfUz3xGEVWOl42IAHiC8no3I_qjWN_qd63uTXQtm9jJv_gDx917HkTTIuRAOEAzGIl9zI595-De7zXdKECV1XgpLjct0iIjMAwgJmq_vk-zQu6CbCzcG1_IsdSack9Pm8c7Oz5LmHyea2g59A3OgZEJNJqGq5Oyd8f9dkK0TZm9J4WXwLYv22oQY-IDpYPcWgnCJf1FqlCK5-rpiUBbBU17ReixxUNSObW-SwzrFjXPy_2CfrVLx1OxTQalDnpvR-YhQQyySHIFSftASqMBd-4TrpXOHZ1xhabc5oxDjDYomYvn4XW5rtvjPEFONO5mPXEpgwJ3PgJpzBJnDw-BqSBgLl41CE3HnJX4cNMV0YPAqQrviU7dPkNh5p9jclCXRhol4HeiL8gWGE0lTsG5bkbZ_74yEygbazs2wR5rlN6r7VBO1uGKjKjiZkTceq8tL7PWqystddoIYJlRd0cGPXaegtgHs7DtfNxflRR9xyMexDNyp-QEH1g4ApM8kTNMmRque9lMqZgSOna7yrUkY1FKKrRRbUGZJkrpt8D6T9XbqUgO1UHpogwXZYRi_CQbCiYoGsVGS5YYRFuympWeckYxgsOfACsKWQS2f72L5mICtZBtBfhCZDHoXj3QE4VKfVX_OhFUa6CAGohR01M9CsQNpNzn-twoDUZyI2wVl7W0OLF4J4KNfvDUyju5DVV6WtmNIgw3OnJ7nQM9zDBbslyVo_nmsdA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_087514ded86cc349016aea76dbc55487d1bec79f9490389770",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 111,
+    "completion_tokens": 97,
+    "total_tokens": 208,
+    "cost": 5.96e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.96e-05,
+      "upstream_inference_prompt_cost": 1.11e-05,
+      "upstream_inference_completions_cost": 4.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 47,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

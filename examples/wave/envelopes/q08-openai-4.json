@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750719-RLtYFWNCxBrSxujIkm3R",
+  "object": "chat.completion",
+  "created": 1793750719,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"seven in the morning\",\"confidence\":0.5,\"probabilities\":{\"seven in the morning\":0.5,\"eight in the morning\":0.35,\"nine in the morning\":0.15}}",
+        "refusal": null,
+        "reasoning": "**Evaluating market probabilities**\n\nI need to choose a reasonable approach for identifying seven likely markets before summer. It's important to sum the probabilities accurately to ensure clarity in my data. Okay, if I’m using JSON for representation, I want to make sure it’s exact for proper interpretation and use. Overall, I'm focused on getting it right and clear to understand! Let’s break this down and determine which markets have the best potential.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Evaluating market probabilities**\n\nI need to choose a reasonable approach for identifying seven likely markets before summer. It's important to sum the probabilities accurately to ensure clarity in my data. Okay, if I’m using JSON for representation, I want to make sure it’s exact for proper interpretation and use. Overall, I'm focused on getting it right and clear to understand! Let’s break this down and determine which markets have the best potential.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nbA_TKYu2jz2cKt0Y2TbpEs7sJYuioZGWYOu6JbEeMDXmKcKLTj5k3PilpcE8IcnYqfKQcPp4D79w6l1w_v7IRw09yew1k5M2hrv0Pu4F694Gi9F-kJ2E0pgGmS4sBr5uwauEXgJ3QDUhl7mfj61QhmBra-cnuybMQrFMQBv5UcIYOy40gPBVdRaR83gCL0FXumiMoe-uLvzQCRtyEzVV4ZMChKriujRQkuebDordih5XuoTeeExyS6E226E0ShZWwP3BxzrTmW5xHMWvT2nW88beZkjnk82CkArIn90bFQCCtsWXD4Zf1k44gIN7rd3m5a0DnvafmZDUFSLSwZA-CsOIqb-9etH95eIL4RCyCyOlQ1Q-aKc6bzldWQ08EYYH7xKNkBHYpkxwQv-iL1Xd0tTMb4Xz0WgvVNV4NLGC3-MxHDrfGsYTJ8qge8oSimElzA9W2LZFkKdpZGZ48lfYHWB2L4a5rrV4RTJb7ZBIuh61JJCWzhuxcPwmiJ7utP2cVchzQpR3SOIywteCEjC28t5vdzEAT_KL46jtcRHYVyhTeOa3x7ScNNL6p7CIU8yBSLV20NN3Y1c56yNefeZtNQExjabl4pX4thVsDKB7az4DuvkbDGkOmHVqc73enWiegi53P89pxWVPKRhgPWcw9luhgsIp5sQEGVuBWXM9ABLuzaG5XeQTif1QJgzA9dJ7Y-UgLqKeXO52vGkcValpvW0kquGhjm8FcsjV7V6U558rOABHVIveJm-4lWFLdbHd6Ih5BKTl3QLhYpanqw_dOVGjV7R8ntI7clVcnKcCRyFV-emBcKyfD_8S-nt8sdzIKYSgLrgRVYnnAWq6ofgNZmQVIhdgv41NeVSpag8SrZQQFkPX3VyTIrCceY1qJ-zpw58XxQRN7FyX_xNYthwKl701bcUoL2KClbIahUeniA56v12KEEp5KzD03psg6a2TcLWnLdkkc9nDacTO_qp7fMS4hogdCjknhHm0bThikCggLCPsOuWQZZ_WqIMZW9rG0f5VH4uQBCRF6fqHHzq4ggY0fXC2k0yGk3oYk7I8fNey-X-M3I87-APT192i-I3bKQHvubAgKzHwqs8p6Jc6d-CJRjSjpk3o91hw85m7Wwf60zKz2OgcmLTE9mgA_NDjQgsvaa85DRAIZTgh15KrxDJVquaheKOE5HY-KK3v8SXbd3Rv359Jp7av3BG-dirC0F0aePTHq2hoRfG9gWjyEv26ViWQyxbmu_C2T1YVvJDP1YIGBXwGDSBRTN4zRNfn1SNDa1E76AIE1JAoe8xFMvf_Yvs0WULQcuJAGals4HmNcxgzCFg80U5oDDJ5BO7nbKTZGpET4nQ--ys9d8LcgthG2e_6jFuCY-96fbwlyEm_C_wjXNkFM8OPF_NNljxUhqY0xkBFEPaeXTfkomBKV0Ta5S7eH_w2bT0TzG5IShdmtIXP8gt0QqLSr3Q__0uYyofFT4Obgs73z9F4z2sh83s3p8b1lrR6NdW0GNIKZfJprgyUees8dvRZcIfHu-G87hNBUVzvf8jGFgsHsIm_Q9A7kDDtLvQoBZ9aiHBN6ktJJ6Ci7EQxAT4l5TrjVy5_603up1NBT51ZsSmx85-PePkIh4d8UoXyRpJnBYWjldaS2P2i-DCge6AIIfnjbgz3QBDrHfENBMgq0hzGLrcVDma4z0WqdA41a70OdAtS5tPAlf-bTqYqNvxOPWWVZMnCi-u0n4dg3XjofYilsVCdY211PyjFDHOZlM6POILR0FNLtVjgx-fbtrzh2zhI1uRi0IK_5Ga_E3DjTFrxAstgF78GDEC2AxKUp3YW4ZdW2O7or5XsTNEhz7HHm6cbBOAbPhnSINmM4W-GVJx_dkRyzWhw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_06c1caab60788d46016aea76bfcd2087d188db95084c944c87",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 73,
+    "total_tokens": 183,
+    "cost": 4.75e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.75e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 3.65e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 23,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

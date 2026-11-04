@@ -66,7 +66,30 @@ fn readme_reports_the_round_three_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 4 has landed. It carries the full live poll over both decision model routes, forty synthetic questions with five seats per question per model and the raw envelopes and the run record under examples, and the agreement reading over the recorded responses with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert_eq!(text.matches("built and in review").count(), 0);
+    // Altered at the Round 4 slice for its named mechanical
+    // consequence. This pin counted the slices standing in
+    // review across the whole README, and slice 5 stands in
+    // review while Round 4 is built, so the count is one
+    // until the Round 4 closure lands slice 5 and the count
+    // returns to zero. The round four pin below holds the
+    // slice line itself.
+    assert_eq!(text.matches("built and in review").count(), 1);
+}
+
+#[test]
+fn readme_reports_the_round_four_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let slice_line = "- Slice 5 is built and in review. It carries the second wave poll over both decision model routes, the twelve pilot questions asked again with five seats per question per model and the raw envelopes and the run record under examples, and the wave comparison reading over the pilot and wave polls with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+}
+
+#[test]
+fn contract_carries_the_round_four_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-9", "GJ-10"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
 }
 
 #[test]

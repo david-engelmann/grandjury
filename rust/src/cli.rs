@@ -1,6 +1,6 @@
 //! The grandjury command line surface, as a library function.
 //!
-//! Four commands work on recorded polls. The dispatch mirrors
+//! Five commands work on recorded polls. The dispatch mirrors
 //! the Python argparse surface of the same name, the help and
 //! usage text wraps at the width the Python surface wraps at
 //! under PORT-7, the arguments are carried as the code unit
@@ -13,6 +13,7 @@
 use std::path::PathBuf;
 
 use crate::agreement::agreement_lines;
+use crate::compare::compare_lines;
 use crate::polls::{
     cost_lines, load_poll_file, load_prices_file, render_stadium, render_tally_lines, Poll,
 };
@@ -272,23 +273,27 @@ fn spec_max_invocation(spec: &ParserSpec) -> usize {
     max
 }
 
-const COMMANDS: [&str; 4] = ["tally", "stadium", "cost", "agreement"];
+const COMMANDS: [&str; 5] = ["tally", "stadium", "cost", "agreement", "compare"];
 
 fn top_spec() -> ParserSpec {
-    let mut commands = action("{tally,stadium,cost,agreement}", None);
+    let mut commands = action("{tally,stadium,cost,agreement,compare}", None);
     commands.subactions = vec![
         action("tally", Some("print the tally of a recorded poll")),
         action("stadium", Some("print the stadium view of a recorded poll")),
         action("cost", Some("print the cost report of a recorded poll")),
         action("agreement", Some("print the agreement reading over polls")),
+        action(
+            "compare",
+            Some("print the wave comparison reading over two poll sets"),
+        ),
     ];
     let mut spec = ParserSpec {
         prog: "grandjury",
         description: Some("Poll tiny models and render the stadium vote."),
         opt_usage: "[-h]",
-        pos_usage: "{tally,stadium,cost,agreement} ...",
+        pos_usage: "{tally,stadium,cost,agreement,compare} ...",
         opt_parts: vec!["[-h]"],
-        pos_parts: vec!["{tally,stadium,cost,agreement}", "..."],
+        pos_parts: vec!["{tally,stadium,cost,agreement,compare}", "..."],
         positionals: vec![commands],
         options: vec![help_action()],
         max_invocation: 0,
@@ -327,6 +332,12 @@ fn sub_spec(command: &str) -> ParserSpec {
             vec![action("poll_files", None)],
             "poll_files [poll_files ...]",
             vec!["poll_files", "[poll_files ...]"],
+        ),
+        "compare" => (
+            "grandjury compare",
+            vec![action("first_dir", None), action("second_dir", None)],
+            "first_dir second_dir",
+            vec!["first_dir", "second_dir"],
         ),
         _ => unreachable!("a known command"),
     };
@@ -847,7 +858,7 @@ fn invalid_choice(spec: &ParserSpec, columns: usize, value: &PText) -> Outcome {
         spec,
         columns,
         &format!(
-            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement')",
+            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare')",
             py_repr(value)
         ),
     )
@@ -871,6 +882,7 @@ fn parse_subcommand(
     let positional_names: &[&str] = match command {
         "cost" => &["poll_file", "prices_file"],
         "agreement" => &["poll_files"],
+        "compare" => &["first_dir", "second_dir"],
         _ => &["poll_file"],
     };
     let unlimited = command == "agreement";
@@ -1007,6 +1019,7 @@ fn run_subcommand(
         "stadium" => command_stadium(&values[0]),
         "cost" => command_cost(&values[0], &values[1]),
         "agreement" => command_agreement(&values),
+        "compare" => command_compare(&values[0], &values[1]),
         _ => unreachable!("a known command"),
     }
 }
@@ -1014,7 +1027,14 @@ fn run_subcommand(
 /// Load one poll or stand its defect lines in the outcome
 /// lines, as the Python surface prints them.
 fn load_poll_or_lines(path: &PText, lines: &mut Vec<String>) -> Option<Poll> {
-    let (poll, defects) = load_poll_file(&path_from_arg(path));
+    load_poll_path_or_lines(&path_from_arg(path), lines)
+}
+
+/// Load one poll from a path already in hand or stand its
+/// defect lines in the outcome lines, the one home of the
+/// invalid poll surface the commands print.
+fn load_poll_path_or_lines(path: &std::path::Path, lines: &mut Vec<String>) -> Option<Poll> {
+    let (poll, defects) = load_poll_file(path);
     if !defects.is_empty() {
         lines.push("invalid poll".to_string());
         for defect in defects {
@@ -1081,4 +1101,52 @@ fn command_agreement(files: &[PText]) -> Outcome {
     }
     lines.extend(agreement_lines(&polls));
     Outcome::plain(lines, 0)
+}
+
+/// Load the poll set of one directory, the files named
+/// poll-01.json, poll-02.json, and so on in number order,
+/// consecutive from the first, the set ending at the first
+/// number whose file does not stand. The first file that
+/// draws defects stands its defect lines in the outcome
+/// lines, as the loader surface prints them. A directory in
+/// which the first poll file does not stand reads that file
+/// through the loader, so its defect stands as the defect a
+/// missing poll file draws.
+fn load_poll_set(dir: &PText, lines: &mut Vec<String>) -> Option<Vec<Poll>> {
+    let directory = path_from_arg(dir);
+    let mut polls: Vec<Poll> = Vec::new();
+    let mut index = 1usize;
+    loop {
+        let path = directory.join(format!("poll-{:02}.json", index));
+        if !path.exists() && !polls.is_empty() {
+            break;
+        }
+        let poll = load_poll_path_or_lines(&path, lines)?;
+        polls.push(poll);
+        index += 1;
+    }
+    Some(polls)
+}
+
+fn command_compare(first_dir: &PText, second_dir: &PText) -> Outcome {
+    let mut lines: Vec<String> = Vec::new();
+    let first = match load_poll_set(first_dir, &mut lines) {
+        Some(polls) => polls,
+        None => return Outcome::plain(lines, 1),
+    };
+    let second = match load_poll_set(second_dir, &mut lines) {
+        Some(polls) => polls,
+        None => return Outcome::plain(lines, 1),
+    };
+    match compare_lines(&first, &second) {
+        Ok(reading) => {
+            lines.extend(reading);
+            Outcome::plain(lines, 0)
+        }
+        Err(defect) => {
+            lines.push("invalid comparison".to_string());
+            lines.push(format!("defect {}", defect));
+            Outcome::plain(lines, 1)
+        }
+    }
 }

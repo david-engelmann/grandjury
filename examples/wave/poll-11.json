@@ -1,0 +1,80 @@
+{
+  "question": "Should the bus stop move closer to the shops?",
+  "answers": [
+    "move it closer",
+    "keep it where it is",
+    "add a second stop"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "move it closer",
+      "reason": "jev-1.13.0 chose move it closer with confidence 0.43 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "move it closer",
+      "reason": "jev-1.13.0 chose move it closer with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "move it closer",
+      "reason": "jev-1.13.0 chose move it closer with confidence 0.42 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "move it closer",
+      "reason": "jev-1.13.0 chose move it closer with confidence 0.37 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "move it closer",
+      "reason": "jev-1.13.0 chose move it closer with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "add a second stop",
+      "reason": "openai/gpt-6-luna chose add a second stop with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "move it closer",
+      "reason": "openai/gpt-6-luna chose move it closer with confidence 0.45 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "add a second stop",
+      "reason": "openai/gpt-6-luna chose add a second stop with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "add a second stop",
+      "reason": "openai/gpt-6-luna chose add a second stop with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "add a second stop",
+      "reason": "openai/gpt-6-luna chose add a second stop with confidence 0.4 and abstained",
+      "abstained": true
+    }
+  ]
+}

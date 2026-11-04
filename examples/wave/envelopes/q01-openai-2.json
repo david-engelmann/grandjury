@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750653-4gd5JdjvEYPVs5BRbejK",
+  "object": "chat.completion",
+  "created": 1793750653,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"open on Sundays\",\"confidence\":0.65,\"probabilities\":{\"open on Sundays\":0.65,\"stay closed on Sundays\":0.35}}",
+        "refusal": null,
+        "reasoning": "**Determining output preferences**\n\nI need to ensure we output in JSON format. There's no context provided, so I’m considering how to approach polling a juror effectively. Maybe I should ask if they prefer access on Sundays? The response could simply state that we’re open on Sundays. I’m thinking about probabilities, which should sum to 1, and I feel a confidence level of about .65 about this approach. I want to make sure everything is exact!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Determining output preferences**\n\nI need to ensure we output in JSON format. There's no context provided, so I’m considering how to approach polling a juror effectively. Maybe I should ask if they prefer access on Sundays? The response could simply state that we’re open on Sundays. I’m thinking about probabilities, which should sum to 1, and I feel a confidence level of about .65 about this approach. I want to make sure everything is exact!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nZ_VHj6OimA5G7PXetalq5K9-cE5DHxWOQg8nydRcYHmm2uziVifeQM2H8zGtxjuQJnpZs0v11BYdd2KOGX7O9yLyNoPYC9E9YA5LHc4wyk3ecZ_a4zP6gUYhk0leShH2kzDWn4YVzl_Gj3rV8H_XcayBwTTvo_yD4ysgMp-EekDJaCluH68OZ-qa5LpSNF2SyVo--rzGu0Y9DIlrJWChCUOXYNAsgOIXz01HQdpgmqQ5MU5A2V00bZlSP-iiFyq1xbaYj5V-24a6M4l3I6f8PqQon856hTYNaVtA6o_j3b9ZgD8lCHD4W0V5vCA-Ev8TTl0I8xjRen3tDyA9mRK26TvilIwk9xGuh8OLME0wzVwVeLwftLX_fL7I5K_n0txIltzHEFHHMmb9Pz1xjwDhjhVBioRTnHQTK17-zxXjP3_4GnN9QPsV8EaOI-NVl01j5FmT87-QreG6w6w6O-XnKDO4s4NGG-ImXj07EygFroZcFjsK6XxmNaRFek0LeEjIL02HT8nVYuA8Oyh7apCwXf0qLn5Cr-N7JcBQmpozd_nTr1W9hV59cXQU6l3g-PU5SDd2WsdQOMuZiGSKeKr_Q5H47iEk86V2QG5RK68AGFQ-d9j2GFbeofmTShEMobVqCRnS2gsbH6bkdPW5P3_bilu8-8rM1CLqZIVKa0yt_zmmloyAZHqucsa2ruffEIY0ADSXBQJTv8BH7JPXD3Jerc-v6u250-rFWEAKHSMRPqFtxVy6c1HWq0Zz7gjAhk0Dyx4vFW07gi7v6DS57xBVEnQUZ8pSBiZA8qEgRNr6LrS36rjtV0AzMZLzwQDIRCWX0jYFYpjfZsqZQOCIeEnI2r7ABw8qMwONhZWJHc467N0wqBnN2-Bih3Tbe0SUm3bFNFAuHNYzHUlT0gF6kDhuQh66qCBu2YrCBDiTX35qUvXdzp-e1try9cAoJZBH4s7jkZ9hKGy90GhG6fwwggchGMLWPMngqu-m0fBZzBOGMMP_fECBKWyVEbp0ZyBb1dQukoXyJpQ5GnDqZrbzzfsOFm1WsV-M-hAEFz8u3tHeSDQETkZfPK1Ee7J7Gvt9naQk8rO9MjtBx1wGM4xyuhdirNPB54Hr5KlzECG-9wUAFciWhtVMUFbp8nElNgS7qXmB8rpqELc75Nfnzv0GsXeIgLZG2mbsFfxMJFCf6xWHBYsyAfDO-rbcRP6VODylVLFcMhUANF1PdFVudyQYtezbUf7kL64Djt5YZ0ZQFl_77_pyAmSUlbzHUrcBx9UmdlF8P6UEe0mZ6x7drGaE5A8O_EWr334kYzU_sJHdcOef2Njo_s69Li6R0mRdbfuOvuLVx4XENx_IKEHj7DX720P5-nPPIbaXnb5IOMeUU4nli2pcyiAi6V_o6_QONKW-oc9gTVegEQgFuac2265KmQen5oIUfzVSUdW2s7D-enrwTGouTsbJGOGhGAd4SJ0KLyYDcYQUAemFwz5oimKiy3BoDmDXSO2uZ0JnnsX3chPAUc9i0ZiuzS_IlvFNyazjufq2KY3wxNOJ3Ix9HnzAyPq0eug3ug7hvmgch6qC2bW_CFLhSeuDtoDwD7x_zZwt9KSq5rJIkj58wUsTokiuhEmG6HMvc1IBXNJd3EN97tdZtQIDIbsQUZCxigkcJO1zcd8C4PkQLqP9_hIyp0R_S7YTZ_SimkJbrJT7tmh3sMK85lk__BvmZh0hM-MDGJ_W2grSC3avNNvMDsns8VqWAv5JANGC9Y8jp-0e8tkh-kKdeekSenyyDBtxBKTIwO4q6ZgJNJuJS4StDK7IrSoZKTq4BMtlQIo8IBbp8cMRsQcJl_1NodnW5M88VOTfB7mo0WkJ14ZvdaRpO1yeOHwUnRUyVLesOqsGt_0EF5dUlzsDW1pnF8JXs8wd3BxUPwEDvhBkUtl1kZdltkXc7Q6jWAh3UL3xow2Rcj0kriHOjRpbh9RK17NdIAB5408rHMHOwaa68Ws7SR5FzVTrFiw4pzEQAzrVKNHg5DxAhBjbwxXQRV3nVroOA-Wc5blblNJrHe126q7YgmzimkmlulHzS7xntkjQCGR6hjYZfFve5N3deMUiNr2u65kPlFn12fdkTu7QAR.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_05964a68200807f5016aea767e0efc87d1b44bc6f43156b1c9",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 104,
+    "completion_tokens": 84,
+    "total_tokens": 188,
+    "cost": 5.24e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.24e-05,
+      "upstream_inference_prompt_cost": 1.04e-05,
+      "upstream_inference_completions_cost": 4.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 45,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

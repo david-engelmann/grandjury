@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "move it closer",
+      "confidence": 0.42,
+      "probabilities": {
+        "move it closer": 0.61,
+        "keep it where it is": 0.32,
+        "add a second stop": 0.07
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 389,
+    "output_tokens": 49
+  }
+}

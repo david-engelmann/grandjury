@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "Wednesday",
+      "confidence": 0.52,
+      "probabilities": {
+        "Tuesday": 0.13,
+        "Wednesday": 0.68,
+        "Thursday": 0.19
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 369,
+    "output_tokens": 38
+  }
+}

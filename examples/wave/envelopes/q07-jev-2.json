@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "both email and print",
+      "confidence": 0.74,
+      "probabilities": {
+        "email only": 0.14,
+        "print only": 0.03,
+        "both email and print": 0.83
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 383,
+    "output_tokens": 46
+  }
+}

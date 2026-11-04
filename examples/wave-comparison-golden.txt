@@ -1,0 +1,297 @@
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, second wave, none
+movement, jev-1.13.0, not counted
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, first wave, open on Sundays
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, second wave, open on Sundays
+movement, openai/gpt-6-luna, held
+question, When should the community hall hold its spring clean?
+jury, jev-1.13.0
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, first wave, the first Saturday of April
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, second wave, the first Saturday of April
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  the first Saturday of April, 0, 0, 0.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 1, abstained 4, spoiled 0
+  the first Saturday of April, 1, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, second wave, the first Saturday of April
+movement, openai/gpt-6-luna, not counted
+question, Should the school bake sale take card payments?
+jury, jev-1.13.0
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, first wave, both cards and cash
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, second wave, both cards and cash
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, first wave, both cards and cash
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, second wave, both cards and cash
+movement, openai/gpt-6-luna, held
+question, Which night should the book club meet?
+jury, jev-1.13.0
+first wave, recorded 5, valid 4, abstained 1, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, first wave, Wednesday
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 5, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, second wave, Wednesday
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 0, 0, 0.0%
+  Thursday, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 0, 0, 0.0%
+  Thursday, 0, 0, 0.0%
+plurality, second wave, none
+movement, openai/gpt-6-luna, not counted
+question, Should the allotment gate be locked at dusk?
+jury, jev-1.13.0
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  lock it at dusk, 5, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, first wave, lock it at dusk
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  lock it at dusk, 5, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, second wave, lock it at dusk
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 2, abstained 3, spoiled 0
+  lock it at dusk, 2, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, first wave, lock it at dusk
+second wave, recorded 5, valid 2, abstained 3, spoiled 0
+  lock it at dusk, 2, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, second wave, lock it at dusk
+movement, openai/gpt-6-luna, held
+question, What should the pub quiz do with tied scores?
+jury, jev-1.13.0
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, first wave, a tiebreak question
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, second wave, a tiebreak question
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, first wave, a tiebreak question
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, second wave, a tiebreak question
+movement, openai/gpt-6-luna, held
+question, Should the parish newsletter go out by email instead of print?
+jury, jev-1.13.0
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, first wave, both email and print
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, second wave, both email and print
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, first wave, both email and print
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, second wave, both email and print
+movement, openai/gpt-6-luna, held
+question, When should the farmers market start in summer?
+jury, jev-1.13.0
+first wave, recorded 5, valid 1, abstained 4, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 1, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, first wave, eight in the morning
+second wave, recorded 5, valid 3, abstained 2, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 3, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, second wave, eight in the morning
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 2, abstained 3, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 2, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, first wave, eight in the morning
+second wave, recorded 5, valid 2, abstained 3, spoiled 0
+  seven in the morning, 1, 1/2, 50.0%
+  eight in the morning, 1, 1/2, 50.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, second wave, none
+movement, openai/gpt-6-luna, not counted
+question, Should the scout troop camp by the river or in the woods?
+jury, jev-1.13.0
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 0, 0, 0.0%
+plurality, second wave, none
+movement, jev-1.13.0, not counted
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, first wave, in the woods
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  by the river, 2, 2/5, 40.0%
+  in the woods, 3, 3/5, 60.0%
+plurality, second wave, in the woods
+movement, openai/gpt-6-luna, held
+question, What should the choir sing at the winter concert?
+jury, jev-1.13.0
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 0, 0, 0.0%
+  folk songs only, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 0, 0, 0.0%
+  folk songs only, 0, 0, 0.0%
+plurality, second wave, none
+movement, jev-1.13.0, not counted
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, first wave, a mix of carols and folk songs
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, second wave, a mix of carols and folk songs
+movement, openai/gpt-6-luna, held
+question, Should the bus stop move closer to the shops?
+jury, jev-1.13.0
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, second wave, none
+movement, jev-1.13.0, not counted
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, second wave, none
+movement, openai/gpt-6-luna, not counted
+question, How should the village fete handle rain?
+jury, jev-1.13.0
+first wave, recorded 5, valid 5, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 5, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, first wave, move into the hall
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 5, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, second wave, move into the hall
+movement, jev-1.13.0, held
+jury, openai/gpt-6-luna
+first wave, recorded 5, valid 4, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 4, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, first wave, move into the hall
+second wave, recorded 5, valid 5, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 5, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, second wave, move into the hall
+movement, openai/gpt-6-luna, held
+movements, 16 held, 0 moved, 8 not counted

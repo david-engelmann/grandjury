@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750665-8O6FH7WPLOQnrvGV1HNq",
+  "object": "chat.completion",
+  "created": 1793750665,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"the first Saturday of April\",\"confidence\":0.45,\"probabilities\":{\"the first Saturday of April\":0.45,\"the last Saturday of April\":0.4,\"a weekday evening\":0.15}}",
+        "refusal": null,
+        "reasoning": "**Creating JSON data**\n\nI'm thinking about producing JSON data, and I realize I need to select arbitrary values. I want the probabilities to sum correctly. To start, I’m considering choosing Saturday, which is in April, and it seems reasonable for my confidence level to be set at 0.45. I need to ensure that this all comes together into one cohesive JSON structure. It's a bit tricky, but I'm focused on getting it right!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Creating JSON data**\n\nI'm thinking about producing JSON data, and I realize I need to select arbitrary values. I want the probabilities to sum correctly. To start, I’m considering choosing Saturday, which is in April, and it seems reasonable for my confidence level to be set at 0.45. I need to ensure that this all comes together into one cohesive JSON structure. It's a bit tricky, but I'm focused on getting it right!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6naLG5LvbnY7_2u_mYwAIgwSkJlTWVSOrE303lfFZ4X36nyTg229QyXFaprYVng3bmoYbyVPu0wDVkJ9an7fzf23QiDj5-oFNCjiqvZBbMB2vS_8vUYLVLyx-hkmPtuYJqcoFXDzcQRgOxHB400IuJx1AYvK_HEXTzMO_R5Pb0bJY917Vb1od3WJH9ednTpYwgaDH_XsJ0QASL-_B0kAarZTtTWJEbhtSKF_yT6ZHkGDpiuwovx9_XCvmHvsXSt3598jFeyNvJ7X8RFBwGD1FkijQbpeXqkvdZ9h5XfwAnvm2fI1u-x7srGbKj-NEd5L3DUCNY6bFA37oY_VpeFqHKYHjAceAbWWuqot0x7LyGZ6Sk_bdedF9K_npB6DEZ16IQtvi3x-dINm8TUVqo4LP8nmeTmxFx9GOgMDje3apiP-uvT2PNZ7Ldc_34QJVhaVcA6gRDzzD-Kzk4SNIh8IBQm8wFX5ORDlI_dq1PL9sM6WzUdNDq8wq1tE5WgIaA4ifEF20foHIj5xWLoPsr7WE9uYkw2WLiz-jg5chfMESRBTP16hHMG7YUB93Mo7vx1gYJ-cwVvR1TAxH40_Ds0eLKFZEkGIzry_ls_nCDbXJipjh4-tut2l8rOgBfN_ECjrJHK_MQ1V1AOwHp1ASbJd3vNacEk-p1XuxGDA9f_5jVQ9fTNUFyXa7erazg3D6MDs-NWgpXWIP3BMgYVVatvhWPX70IPnlWZJM2Lh4fJJbDzYf-er7W-ef8dn6hoeRcjohCRyLWEyBDpV4H1tUicuEH8f-5NLmKY8zEr8DgdbURmghp4A-jkg-d319Cw7738gOQdMe-HebrHDLb6kJR-VxC2BMUrllpSYtlAHyCKmr9Tuhgreee-c_t2xE_aEtRJw40Phj-fd2yaJ4eZCYN9hUrDu4SOk17hv3JuEd23OGCfmTJYbLki_tHAmI_-vTWFG_TiQH74Jyl-k4-mp4PhYSfrDb0R9ZBY95B-0be0A7TUKHLd5yHmbuDo8-UqMtMRZ5C0kxT5-ilcx870dLmDFLofBrnOBScY9dL8OvnjJZfS0twBmPSmVcyZsIpCV3T6uzpFU12-Jo_MfaLegbfRhEP00XSc-n1gZtSleLLyb5UiuSN66elSIm-MM4r8Yzv9_uawmV9kV-bfuQDesEjfsK080WMMMm29_P7f3NgE8eRR8sG2-gpof_UiYzAeNXBTvu1j_juzSucQUrAMudKocddBhBdk2FjOyYmmlu0qvNeH2NUT6ryXrdMUGUm8jbiQzzgXVelCA8u-Z0rGe_ImK0kw41KoqSNp1kyoNtqDJpnUce3aKuX-ol-H8f15YZ3yLgmW73XPfJCnz_-unQMizNFcMX2YWKqjw27564NeduKZSUILvFE7qbcKDjMT-I4ep-sW77zfkwwztdU8Rj5350SQgVttAdCl0alSUeqW8mOCgpcx67JxDbtW8FqKvk0DMnr52xdq_9hMwyv7yd_zfcdjH0guOn7kxF_e1mSL1jUdw4_AgLDtnBvlHu680OUWhL0xpYvrkY_qerM8pssgzn1VJm-PyEGN6L2h51tcrjQ-tvzsubYPa14hvrrEk6We7EU-KjWG9FdG0XQQcA8pFeQ5J9gjEIScWps78i7nLCV2jUQrTYVmEw2vf-ZtFna5C76Q_RZc58rc5ktHaKWIa0xe30iLxYI8e0mcfFMIMs59H0Nziutq3PYgjEljDKSD4Wyqt40Q6CE3TCBiF9jAtcfRoNdj4Nu-OW33DFKkSxxz5gzibkExEH3SjWx2-9cVaiJzKksimwtMKkATF9OA3s9IFiD4Cywfwu41WTeq8ozKsn9WDB2Zzpe7cer-Cl7EZLifq76g7vTlwSpXSZIU8twYd41YZHLQNIR0Mi4hVmzUp08NRKLmOAekjDhvx5n04hEHEfQfgJ0HFgSjXAAWtaGERSWYUZatIQwk9ufI7TV9CD3pzJLm5aWT8DlgryifLZ7jF48oOFcsUOkHkXV-ZAzz7aMbFcdlhjFDw8JOEOHQRRPA4CkouSY2SdqqecWtZ2KGX2QlKht_uS1ljDn6fQplvRkhAHh6I_x-MWHbYorOcFim1TPLuwFkFDpepu1jBwGE3.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_076cadc52eddeba1016aea768a112087d180da5cd63ff0861d",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "completion_tokens": 91,
+    "total_tokens": 203,
+    "cost": 5.67e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.67e-05,
+      "upstream_inference_prompt_cost": 1.12e-05,
+      "upstream_inference_completions_cost": 4.55e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 39,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

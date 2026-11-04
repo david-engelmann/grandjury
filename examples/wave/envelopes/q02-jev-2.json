@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "the first Saturday of April",
+      "confidence": 0.53,
+      "probabilities": {
+        "the first Saturday of April": 0.69,
+        "the last Saturday of April": 0.24,
+        "a weekday evening": 0.07
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 391,
+    "output_tokens": 52
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "a mix of carols and folk songs",
+      "confidence": 0.34,
+      "probabilities": {
+        "carols only": 0.44,
+        "a mix of carols and folk songs": 0.56,
+        "folk songs only": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 393,
+    "output_tokens": 56
+  }
+}

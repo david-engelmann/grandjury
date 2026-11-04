@@ -1,0 +1,36 @@
+{
+  "jev-1.13.0": {
+    "calls_in_the_recorded_run": 60,
+    "attempts_that_never_left_the_machine": 0,
+    "envelopes_lost_and_seats_rerun": 0,
+    "calls_discarded": 0,
+    "route_verification_calls": 1,
+    "diagnostic_calls": 0,
+    "verification_calls_in_the_aborted_first_launch": 1,
+    "attempts_in_round": 62
+  },
+  "openai/gpt-6-luna": {
+    "calls_in_the_recorded_run": 60,
+    "attempts_that_never_left_the_machine": 0,
+    "envelopes_lost_and_seats_rerun": 0,
+    "calls_discarded": 0,
+    "route_verification_calls": 1,
+    "diagnostic_calls": 0,
+    "verification_calls_in_the_aborted_first_launch": 1,
+    "attempts_in_round": 62
+  },
+  "aborted_first_launch": {
+    "jev-1.13.0": {
+      "verification_calls": 1,
+      "poll_calls": "the launch made some poll calls beyond its verification calls, and the count for this route is not recoverable, because every envelope the launch returned was lost with the process",
+      "spend": "the route reports no dollar figure, and the token usage of the launch is unrecoverable and estimated nowhere"
+    },
+    "openai/gpt-6-luna": {
+      "verification_calls": 1,
+      "poll_calls": "about twenty five calls in all on this route counting its verification call, estimated from the measured spend at the recorded run's measured rate per call, and the count is not recoverable exactly",
+      "spend_dollars": "0.0013174",
+      "spend_measurement": "the spend is measured exactly by the key usage delta taken after the abort and before the recorded run began"
+    }
+  },
+  "lost_token_usage": "a first launch of the runner was aborted by the lane harness after its verification calls and some poll calls, and every envelope it returned was lost with the process, so the seats of the wave were called again in the recorded run and the token usage of the lost envelopes is unrecoverable and estimated nowhere"
+}

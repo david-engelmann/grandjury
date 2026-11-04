@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750716-zIqlVIq7gvlczUPoQf5Y",
+  "object": "chat.completion",
+  "created": 1793750716,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"eight in the morning\",\"confidence\":0.5,\"probabilities\":{\"seven in the morning\":0.3,\"eight in the morning\":0.5,\"nine in the morning\":0.2}}",
+        "refusal": null,
+        "reasoning": "**Choosing probabilities for 8 AM**\n\nI need to choose a reasonable time for 8 AM, ensuring that the probabilities add up to 1. That’s essential for accuracy! I think I’ll format this in JSON to keep everything organized and clear. My goal here is to make sure that the data is precise and easy to use afterward. It feels important to get this right! Let’s see how best to approach it while keeping everything structured properly.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Choosing probabilities for 8 AM**\n\nI need to choose a reasonable time for 8 AM, ensuring that the probabilities add up to 1. That’s essential for accuracy! I think I’ll format this in JSON to keep everything organized and clear. My goal here is to make sure that the data is precise and easy to use afterward. It feels important to get this right! Let’s see how best to approach it while keeping everything structured properly.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6na-JRvij3BF__B-6QV657bvcfFvWrhrY6tDc-hk9u_BKHx4ZUFq7X4kWyswV67wTqgalnSh8R_4mePVpoAF93d9q9RlV69VWM88nNJtS9gKl2sAznjvTkArruf1y-9HKmSjDgRHywB49E3X9H6yHGFwwbZo2bLp9LrdmRsHAAD0hik_eDVviMTAiFkFVxJ54kTQB_n76Vz8gsyvfSwgJ7r6J6brwXT_N9L21uYNyYYh-_l9rj6193w7lAYMO1WHg6ERv75pZBG9VtkssUECWRZXnVPvh0bJmJvJ2Ven7iWHp-gfr4yqBJQMpNbl6s4idL2OeoKKG9nhNjAAP25a0LxAj7KOl7d-NEVT2wz50rURm6XU64zuEFDtkoQYFn57NLq0-mNxkx18IyXdUc3At2PmmQNCSeLejSC5THnT2Q9Nf37vNkzVH4PdoPh0OE6bOKcLFm55A8ct_3nw8yNaJTVWUheY3zSZclNn3BPE4KWs46H-IxRtKTGGS5KsDRfT1wsC9sBLUB7hOBBXBrxMQy4h9C2OQgFJEnsWkD0SlLUcRLFvuXmV0LbpUSidNtR366Ll6wjkJpVgRa2ObogV69rQdT03EB835tFS4AmLPZ9-OpPaErKmd9YkeTf7jL4n4mVxwWBTBVKW0JPEGECvig9-XxtXgUkc-BNjJLQ5yX6imJ4Cu-UFD1NljQELtcVtIKd9EdFyFmpCw0ruSfWuSUhqP5CnedUiNRFFjzb1CohaeZEjwDy6_UQj8R5z8f58P7ja7KrZ4txDMEw141ZeztIHhKoA7fV0PbHTdfb6G8Koj9tr03GnWJr9nNcVKcTw_3dhhJmBqvWZkeYtzTImCQmSuZYzQ9b0S5bwTkF5-qcDuQ1srBFwKquJSewjLdW64xzE-E-ef93x8Rf2Cjdy6HsQneKul8qk8coVcR6DFEqpZQSr3R8dTx0TQXCyz9ZXlk8niljqndlU7V2Tl6gXW_CGIaL-F0mhBYjWh2V8a1qEmUPS1dEYukQminlX63L_ELP-QFstYyKP4OV9sKHEe_GXm4nBeX_e0SMYt8OMsiaJ-sErLKAahUmZG0tpgGdu2lD0g3NHhC6RoKrc4QUWrSczp8E6aDfUmC2DGHktvIh448iPxDHAB5vY14IzYrTfiBII1j1_dNrCY4fMOTTPp8Q0yHRfyVMw2KGptwz1AIo9JdGlkr7D6Cd4Y-DIZAOwP5peDq8jFNLguUkZrq7YXCMBFfVt0ONnWlN_pTKC_rIH-p6bYcoVVmU4SBnOZP6uuB3nuwlm2PXWMKhM4uCKPhRHJwpceHCgLVEgUUPmsGdcZyWcoxRIWVUz3skVam5NyXgseZfhbN_6M9Zw8pxuaFKKnBeh8_um_dWEmbfT0D4HXvMjMDh7ixRrCIj1PvSPtmpJ6a4n7Fk0bW_CY-wXiJOANzdZevfl9rF1kMk3LQUEBIjhm_OGA5WMFM6WlgovCs18dor-uU-F3pXsopsRAHOGqNNzCnUAiVjFgyDkDXz5TZ8MIBGyE3PGDYX545w80FRBC41YQrzwXlM5KJRFB_jI1giYOYft9zPAf2Q59kNa-DPxbdwlN-BFr6_ZTmLKmz7_o5FqntNucDCybtlzrr-jkE8vYBeXMvL2bvMmQJnunjxM75P_iqgJ_PcPJRTT2TlsF9Cukw6_Azz2mxUeYr0LwhtOnwZfyOfuSZXPAxvase13iKIvuYcEUzSYl_CbjSjs_G3N-1g9l8dW0YxcdmG_sVLTiZElQq7kJBUYqnYdGyarap1R6WJ_kX7NSvXqtEDDW4sWOkr2lSwMdX9zmw2rRQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_069a631c7bade3f2016aea76bd30a887d19217ff93846d7118",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 71,
+    "total_tokens": 181,
+    "cost": 4.65e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.65e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 3.55e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 21,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}
