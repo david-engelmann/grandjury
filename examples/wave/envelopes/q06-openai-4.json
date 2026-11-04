@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750700-sBMz23C6QzC4Jtn7CHMx",
+  "object": "chat.completion",
+  "created": 1793750700,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"a tiebreak question\",\"confidence\":0.58,\"probabilities\":{\"a tiebreak question\":0.58,\"share the prize\":0.27,\"replay the final round\":0.15}}",
+        "refusal": null,
+        "reasoning": "**Considering JSON output**\n\nI need to produce valid JSON that sums to one. It seems essential to choose a juror preference and also address a tiebreak question. I'll have to distribute confidence—maybe around 0.55—and ensure that the options are exact. It’s a bit tricky balancing all these elements, but I’m committed to getting it right! Let’s figure out the details to ensure clarity and correctness in the final output.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Considering JSON output**\n\nI need to produce valid JSON that sums to one. It seems essential to choose a juror preference and also address a tiebreak question. I'll have to distribute confidence—maybe around 0.55—and ensure that the options are exact. It’s a bit tricky balancing all these elements, but I’m committed to getting it right! Let’s figure out the details to ensure clarity and correctness in the final output.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6navlvEOEdbl-zI9nw8H2VRZp7dR4PFhlsBUQIgUhGYKGVJaI8E9XaXVlpJcGcrydjk-EOuqIcC7AiWfmniPbBc3Viej01EOMI2vH5Ads9mYss5EGNPFB-_gLcqkJQamqVnEjeH319SoeOyTjKWTf382Qq7yQRAD-5h3UZ45vRTUGcjjKdfT5eYSTRd-0CvKRWhjoksRiMgjteXdqO1LUxWSub6mQklwBjOsDY-Er--zUPPyDObT6LRHpTOWxCo7F6Sngs5sW3UBS3IAVKr9sTA7tknLRxuTkZZXIPa4R_a-pYZtTjFy8b_tVxEoWsVTAMNeunO3tqnw5OJJTIBy4KzDXm4H-xobu03txupmVLQycniBYXrAKxaLpm_b3nx4_PQ3gbcBl6RIFJ6woglqLZrX0fFyBdq271kdcnTMBJUuQf0uGp5jjq_suEXS4PORDi8f_ygzlr4e822AUmlE7LL1hFihxa2e72zLwrN10ARXux8RsV0WLaMBK8Wcu1MRhFe1_MRwrFawVcmFs8Kh93U2Wgv2Yq9NmBVOV9CBGxOACu7cYjBEJsWedFIb3F1wQd30nUu_rXJeO3dVai9Wqolm5oFzHlmL6ZzgDznSpLKWYc_-GFfkxVHFttoM-uEWW6yZNROOxKHc8jLekQXSUS2QvsYww12jjumI5pRvcZqKIz7EoXufMFC83BeD4fH1Exdbl8k9U2scsmLVmgsF_2IKRbmYfDLUDtcInx5IAdGsEgm--VK5xKZFypNaxsnXmKzkYlMHLqEETsekh6uuZd6iiHsX1eg7g5A1VAgr98DqkN8EtcVGiQtF67OPYPhuyyMILbbdknWDi5ZGW0dQwH8YKExLXovjCvhqsEKDdARP_CHuvxNuooDitYuylj9-04saEruHXtPLuDGpPztfr5keNiIaSuBsq0A8AsNeqyEwjtCPrMTUg-brd6bNYkh2xrXaSEZW_rRSd00Y5-lCkqQNzsCjzsvyVMUtIyGozycS3UVTJzDTXai-4yZvrhZuM0gRNlod0wYFiicDroQC3_xTop6FY7pwGFFuuHkVDtk3EHdMji5_CE6grpvowASnrOLbeMX_zao0B6YB0xb_qy9XgFq5mo41KWbsujCQUHF_fJ3sb_TWGl8KkpGUfC1J77mlCDRvx9YoqeZJauxhVank8DGEWkd0sNFIIpkZ3uJ9cUAXj-afhP8h0KW6t95fzyOYlz1uFsvsG6EzzMwkGnBlmYfg1IRoqqhCBpTf8kqLX1cGVZU7aNPoiHt2yWpdw9cmMtt0nK-Bn1WqBNiP-GIHfHBnXg83WyqqV1LCKU1W60qLdXz1nI0K0opoo3VBmjCOczulM_Xc6L7DQIuAI08ZadC1ZiwzCpZj0WqJHUMhbOAmZdLfuQc6VD0FIEMFLr3S4cAXSnrYqQTqUtzGIeDlrMPZEd74Xaq6NnVL-5JP5oyDg_xBniAq1UtaOfcRpGDUcE4ub53ThBM6UskJtMJzTPaVCI2Be3E-W7_ZhNFuLerD_Vm0xzMpg8gezuAlEWZXmCrA9iylPUiOs1qZFfxSDsWNa8eCehyWB-TV3L1BenVuwa8ajENGRKyXeI2ry71fJfW8lWf41jsrXFFOqDVZapLi77-KRVOo2-iwZpIbGbN9C6lJRdpyibQ4ZURiX0qaFoC9wIaRk_qNl1QDgLAcOYSP-iiPlF8ZIx-embC6mUY0yznuzrwzUxu0kSq-hUbPEH6l6ddSiTAGdMcnwbvHL3L7pggbu-uKvQw_8MJ9h-bHadO9ukMucTKOefiat4qoW-IA3KLUW98x6PWraXX4IEm4T8AknnhS5Pl4ZDRVSXg6hwwbyqR7N4a-2XiYwQssPcHAHEeSYIavCLoPtoYLPcXHehz1GBRDUgw_vnuUHjBQLgheNfZ7hJPFqgxPKlptfmAvPSyZB380cdZCrJA8zjT94D6IQdOLAi6nG1KGTaACTuamJCGML9EBzfJpNdTKRAygC6uaj9DeVGp8fAx7ZLzaMW4rB7zOTermIxefn5Dsj6y6kHCGdRNvJGbAQG0dkMovb_xK6lUzCgcbz1RboqpW600Wy-c7sylCzKe_l7s=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0325dd037bcb64f7016aea76adce1c87d1ba87ae82e1669623",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 111,
+    "completion_tokens": 94,
+    "total_tokens": 205,
+    "cost": 5.81e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.81e-05,
+      "upstream_inference_prompt_cost": 1.11e-05,
+      "upstream_inference_completions_cost": 4.7e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 42,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

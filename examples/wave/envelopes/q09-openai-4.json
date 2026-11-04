@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750728-LZlsglVCdcx9KL7Rs8M3",
+  "object": "chat.completion",
+  "created": 1793750728,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"by the river\",\"confidence\":0.5,\"probabilities\":{\"by the river\":0.5,\"in the woods\":0.5}}",
+        "refusal": null,
+        "reasoning": "**Evaluating choices for probabilities**\n\nI need to answer based on an arbitrary choice, ensuring the probabilities sum to 1. I think the structure should be in JSON format. Maybe I’m considering a choice between \"river\" and \"woods\" with no specific context. I could assign equal probabilities for each option. Confidence could be around 0.5, but there should be a singular decision made, perhaps suggesting that one juror should pick the final choice.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Evaluating choices for probabilities**\n\nI need to answer based on an arbitrary choice, ensuring the probabilities sum to 1. I think the structure should be in JSON format. Maybe I’m considering a choice between \"river\" and \"woods\" with no specific context. I could assign equal probabilities for each option. Confidence could be around 0.5, but there should be a singular decision made, perhaps suggesting that one juror should pick the final choice.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nbKqCHBHJ0QC2211txsAm3NP5hU8YqRBYe4GS5PzWAB1puLy_Y14fZGeeRICFTiSQkSrKbtWpZj6ef_t1oYV4YVCXEjLxLXIAotNXI9fqfBN3NjbGT-tSXGZEIRfinmynA5ydmJLjelZYUaNeBykmnAF2p3bQK74zSSztOj_Zu8EvpC44yWwpG-ukaG1t4AaAId2nAxKibehIdm8f0r2M5azIkGNL5fvTCEm9dbW5A9AsFv18JyUeFy9BfSUCFrjEuUUchwFYyTSjNm3mn2DGOj_vnHnQFW3qTsq2LH-B4wrbK-3odTC3NSv6YkDxtUVnHKb8o_E0FXsKB6QYN_bZa8hDWx2CFscwXfBx2bBfgIo5QRbhdMiUhk4O99YqHr17dntba7vlR_wvtd_7FVSsTzADvcy9cYd6ixks2IFK8kwuTHYGWhahZ8PolHeMWz-4CZ0feLmpOfFa-OhkJyURiC2_kOlpRy0enJdIfv45bOoMzxqecZow53bivoChBgazaJZJveN82G0BAoL4E4MmFDmLZfzDDbLgNgOyEKOi0h40zCONAa2E4dNB6YHkI1tsEFQtogLgCvo3FSyxO6N8i1rYlnqyF_RA9RROZJTciiwjYrBU0LPvkmFA5zIV6GP8jg6jHu7g8PQGtqYLpQXtzi363WfYb4ozjn-x_Q_0jpvDE2S-65169X2v9R9lNCmYSwN1MLTSEJcHpdBTJQFmM7vvfnr4Yjgc3o5DQlowxdoi673aip-wazddQF3OboJdQDtgMSVss7jyaggLSPgz2BKwp_odGE_H6BO4l8pxvWxUpBUIfRsCV09tSUS-e4lFhVRbApeKAPkJftQEOAHqT3OvrReotazGucXaqFer8VfjdilVsp48eO2P9tnTx792-o7kSQ4-y3yUk89IM5uLRrwkR69YcbQMMmUxbrU3ykaq8kE2scoQpzYGOCCizjGV7A2sNmZCt_AI6CmIRExxWU1nJ-1No1luImZCtwI-d0kYb3pMHDcLBaEL1lNVAxMQ_Apu__G6KTzwqsdLCfmrnzmg8T6OKjXde4U1b9AsOQeXiIQErvW6xNH04hYLjwXefCCvmvqTmT2ATPknGQQZGtJ3UGkemTZjKAr1cxtcatcgISncpVZns4UbdYHvFjAMo3WX586KlDXs3jJRfdH0vc_fYkC2xOQWOEddxtSaBMAQGYYBwfsdk0edCU_FVB4VKNBnuhW5BUSuxHlk9-0_BFFyAl1Iy6lpbbmZL-ZJDgO_NiCmfl3oseKplQI3CO8Suq9SD98e-tmgolJt9ABK3RZP898IX08UIa2MpLITiTG2TfHfFCnH4XV8BMcyfEKAgX5ZJqkX4hVFVwjKK7nJV1RETKXbrvg0usfVERX3ZEs5dtAGq_Vnfk3puqTOI9TWxNHhN8aNVKE4M3W2XRJ0yeF6xn-dn8M7ptMI57-EpZUUU0ptvj30qZN-36rLS51mF-HKpxMUlu0QL5gUkAOjUz4-rZwX7YM3SZF5q8RSEjcyGNFbIJmpYys7LG5eWHiOz5LO354cYj-PpGC3o2sXnuLtl81h7LFlnKjOdikp2-HAIXFDdwM2WxBzTrrmyKgboOfzJzQHaWTTgIAv5jjKxNtFgEmzfHVkc2fmwC8hixexRu8blOtzr4XdDgBGanivwTDElTzmUA61tUZugYMjLCGZ4ukF2QUHv39d_l74QIeIVDn7yhSfYHtKciPfyv4INOwCAkAw2j_TZwwfni-ps8zneatnC_a1S-VSK64tcwqqJ57rnB0TxduxJ3kUapZH8u6HgnHE8YNu6T27R1WPQHo4LwdJj-8vz6g1hi5drqXMuCLeTuAyIhtL1t4u7e5zvs4wj08pIsHzDLfiArnvplKdV1b6L2cp6tU8s8QW5D6CdxlkEZkNHiFJXF0R2aWc5IzOXEc-ctjRe5_wuZIjCO-hc1CEEmcZfD79xALbR4epN84so33U6g3cbH2M8rb-dFVGC1vz8zfp45dBiyZ7ZVp4crU6p-7KZTGDqcAPbyVUY9ZfLQ6ua6dzBDGNu0pkd4iZB_Eln2Hboyz0ucmSBzEqLUSeWWq2zuQGrCqW7k14hke_GnuNn3DOsmzprB13X-w8sw06cyk4N6BVIbRDg82A==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_07897d642b5a6077016aea76c9222c87d188b9d4a54df0a3d6",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 107,
+    "completion_tokens": 82,
+    "total_tokens": 189,
+    "cost": 5.17e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.17e-05,
+      "upstream_inference_prompt_cost": 1.07e-05,
+      "upstream_inference_completions_cost": 4.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 44,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

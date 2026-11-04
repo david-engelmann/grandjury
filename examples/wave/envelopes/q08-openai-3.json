@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750719-qkFYGLVn5tjVUb0EOjce",
+  "object": "chat.completion",
+  "created": 1793750719,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"eight in the morning\",\"confidence\":0.45,\"probabilities\":{\"seven in the morning\":0.3,\"eight in the morning\":0.45,\"nine in the morning\":0.25}}",
+        "refusal": null,
+        "reasoning": "**Choosing probabilities**\n\nI’m thinking we should answer with some arbitrary choices, and it’s crucial that the output is in JSON format and that the probabilities add up to 1. I wonder if choosing eight options is realistic. I could set the confidence level around 0.45, but I need to consider if those probabilities feel plausible overall. It’s a bit of a balancing act to ensure everything aligns just right!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Choosing probabilities**\n\nI’m thinking we should answer with some arbitrary choices, and it’s crucial that the output is in JSON format and that the probabilities add up to 1. I wonder if choosing eight options is realistic. I could set the confidence level around 0.45, but I need to consider if those probabilities feel plausible overall. It’s a bit of a balancing act to ensure everything aligns just right!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nbBaHJX6uNUHlutzCiQBFaara0hsvzeba1k5cgKuZZ_38gt41hWVLLWutkkNg-pqZknCvJukemgZDEj73DunqUhfNe4LSCA9xZJZHCx6388oiPuj7kWwlC2ee2aA8Fg9Q7JjA8MnIcABC3uYLMh1p-Wera5Xs7chAIgGLo90Ogm1GNdAc4SOGumHgNDX8y4VPRh0QciA1JC2OHlZXoXA6YoqeiSr1fjpTgSfiSDLXSmfEuIHOgrvffaeePCuqT7EW-RM_WqcGVUQitmd4CKddn1ONksmbYwjVTUmm7TdwEv21tqZ9boL-ZIafdjuB82zJtOZwQrEAE78FZVLzDK8iipcSn0txpnDcqw3oIk74WjgMcG099h7KiuTO6QG8sR1nhioKy4RuxbfaxOMB4xROXCvTDPSWzEbYX6mNbAbCKPj38HtqtJJUp6UXCNgWbnisGaTDGQdD_fzjYdfuZ44oW0izbE0JzDkwbOmFo-eZ4S3kWpntgUtlhw4beT2z3NvJDKak_zWhV5mjDiYtTi7RTc9SxXgWZYhVsUsYj5fuBy4c6VWEK8aJoxUfj8L4zf7PC16_pR14VmXR-TsU4IH0C4HqAUR-OwBgoS2TPEgecq19mo6YAwUEuHcBlGFgoaVxXFLdBbqCiHCvU2atxltqER-pFNOFvX1lasvpWvi1tGOl7u-jWq4YTztZ8az7-qEWO02Yv4Usb2757EKq2OVgK1M6nnw9vXWWLITGd7LVheciZ_ni3yaiTR5wQStNqTa8kBPknlCupZzGMli_S4zsIbsjYcYCGc1imRzDSbeTrDE8FeOyLveqlUhjOiS3UnK9H4aQvU3BJlS-HVBnnDKlnrKJfs4fZbxUZtDkLxOUTnA-8oJvnd86aKbnPsJ8L-7A5wU1JbRKzKdtt0ETbnORFNcS_IKC9wBXBuAnADxSnutRamHT4EWUDZUvA2Yhpi-6o8KJ0axH2YqwgzOF9EYHytOAyPgpiUlHLHQXOGzcoT5BLhayRIYFrbgcRAiJ2ykkBxV3EZxQOFaXb7kYOflHxtT_igVKzH6aMl9k_fVt4x2ea-GLRh3MI1khtwRnBAUFdAI4vHy13rGX3bgbMCtgRYKfZcav9r3ZAxXIPvqt96QNtxzhOxtPhHk65qabFIX_KqcQloA8x1Eej9oda69w0_9qbfW140CS46IgbSsWjDLUa9aW4q7V7zcwU0evB_ml-1f5_kMyh-3k3HwoXu--abPXEHHqGh8jc1KNgW407NLUQyNgTBfvAp6k-Wum_obZHcD4OS4cnI1AfGpSYZAXv3s-NMdRMz4ZnCMfbT2QxpGf8a6YyZgS0ZyQUgU98jlhdib6XGDGQ9TaurK6jy6sWO4sRZUEbGyc2YEs2dqzOiuuViA0VPVxPBFBA9XvWUfte0q1OlGgJ5vpDThnjlvAtJpF6xsS0u81SPsiNn71IKfwioiib77Rtj4q2XsuU2qYDzlfxpIgXxmnytkyycPYK4Q433pxwW9tFMZ_L7L8JrERaZnySLC3WXqEIDyXn57muew26Px6d5bi8-WmymtOtGBwIzdlq93btwiKwS77CjwQFEFwXegwlPuLFv4AAZSnIzKJS95amEpmCaRVD6AoMxQpL4SxJU_vU9ScPKjcu2BNiSUPS8RqNKzmvH6m2BBGkoA5rX5ne6PxgTRc-4zFP1RrmwPb2oN2jdn9IwIIwJzxwR1oySJ7m0JhdtWHNNDjUZDV8H46v_ho2d3wXTH6R0Ti_mRIWrhwfB0AzPHsQBJxHfE3kIXBlzkExpasOsb3fCCK0fMldPGR30gTy0UMCSU-rfDpXfRbx3FVShQtJdTJNWFE1xU0P-JbqJoNjo_R-XnTQTBtqQ6MI44d2-SEkniw9Yx_clfftMYh8bSZZIoCWPIjgQtDXe91ynuLfU8uijCQFtp6BFjPWiCSZg_JqMQMsz2YIvBS2FwS6uf50-AuA=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0340a1d4a1cd07a3016aea76bfe12487d1a9359fce57a135f2",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 80,
+    "total_tokens": 190,
+    "cost": 5.1e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.1e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 30,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

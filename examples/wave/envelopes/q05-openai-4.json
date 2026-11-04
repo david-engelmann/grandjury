@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750690-Tq1v2yEUc3jd6rq6ug87",
+  "object": "chat.completion",
+  "created": 1793750690,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"lock it at dusk\",\"confidence\":0.55,\"probabilities\":{\"lock it at dusk\":0.55,\"leave it unlocked\":0.15,\"lock it at nine\":0.3}}",
+        "refusal": null,
+        "reasoning": "**Evaluating poll response**\n\nI need to create an answer for a poll where the probabilities should sum to 1. I think about choosing a reasonable option, maybe considering safety at dusk, but there's some ambiguity there. It seems I need to include just one juror. I'll output this in JSON format with exact strings. My confidence level is maybe around .55 for this distribution, so I’ll aim to be precise in my response.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Evaluating poll response**\n\nI need to create an answer for a poll where the probabilities should sum to 1. I think about choosing a reasonable option, maybe considering safety at dusk, but there's some ambiguity there. It seems I need to include just one juror. I'll output this in JSON format with exact strings. My confidence level is maybe around .55 for this distribution, so I’ll aim to be precise in my response.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nalWEd7m1UpW0AAaH6OvMSaM_3Kcs2R_9R15ugcgv1-igmKYxSvgjllYnlL0oQmflovE59zRxStM3Lb76XzBsRi7GnDizKTjPUqQTTU_TOupv-TR3_jejkVHSzQka_oB2Df8W6uJPBC1Do0HNUobiJnQ0gvV6G6tTNE4JSQSqyNsHpHf9KB1Ul7yXRU8QQZAy4W4h8K_lueqcKLs0JutBZj8M_wn8xH4ZXsso_4E0b60fPqp8riYDLTKzCdm2f9IXiHtaGdopaLolLxnW9eqTs3udzJYz95pTcBd-jM3eRBIT4thVkr_2N6cLtElY4u2wnx5Yhr3YgVhCu62e4IQTVwkuHG1Mq8EYpq_5phPG6u1BrvnXt-x1xbvVhk-6qGKUS6ijNT1aY_JLeyxDZHzteqlvO6geyaB4MhWTqH196u1zDc61rIndqQjHe-ynd5Th4RpumafSZmASlTWq_egejcpYKCTezS__s4x9TPhpgVFpK_qqCRSqtVuKcknyPpkn32BOsG3pH1SVTG8LNAFjM0Q2TugkbpDhzYHjFdV2ifOiokEMh1uqMnLawFy-Ogd4jK2kNqN1YO1njIfRbH_vgm6x5KNXCmDLdjjB_ykwCrldpmUXiwJMwag0T0ZJlslcBxWZfWIXiOx-nPw1R9Jp83xezxjk-lSufXsUNOmKyEwrCMbYo9tZh-t5TuuQa4D6IXVrYjOIhM0B0p1bNgFFzA352t74EVXWcUTxUjT47kS4maiCa-NcR6zPgJRjTKvAc-zZFv1q6-PspgUjd8IY3XGOY8ZoQlMkcPTyyowilath8wElBRhZSmptnrBrhtVWL6keMOtvZRRWRk-rrtO0e4qawMIZwEcjdHhNfvIYzJXsCT-DNQ-aIFLin5kel670JJUT7nDC83wn4pyZAOU24Z4ahUlb1Z2pak52X8iq1znGaxoJabmDknmmVJz0hTVjsoUKOKPBQISD0NohkwAvW8ajcIveSuagOe7bnFeyKYT4kRygaU5eIZLnKgt4yRk65OB_iBGfdTuoPbS_wty3dBi8megVDJ2WP2bzw_M4iid6u1_noap-w3AcQN0LSLDffbfcA-M-Z0wR2Hw9ym9VJUgCNTbZ7xbG68zAyw-Zl67wcrF16aZPrcOLOikIuBfcO7dTKyO-wz62L2FMJPUQYUnwOja_Urh0hV94hF_D-0eFevE90EK1Pc-5nT0sFuBzLJ_FbvikIwnuAvTqxNGcXKYjcu02EOpexxkxvIe3EbkTGqU7FRRLPULLeq4hLFxWzEEo0u2QJqts3eFoNugddq1zdcAgq2wndZroHpKGd5V4lARrk4t8I2L6zUW4xgNzPXNWBnC_lGxjGXF3y9hT32aHEqMQJ3dBitbPkSoRLss8E7tjfnUTuo_SEEOXb4r9g-Kx_6qTIvl8GewZrqJvy6VKq62QpFkC_lsaOcbrQCC8C-J-MlYOrcP23I4CRxtzfF76C8jS6rTMpfIb5XUnATyOVpQ5D6WgHhWcKTm_O-VBouWqkp_tqnOwQUUNHZNLzoEJFbP0CHyp7qdkxkdw7oGpDOFjfxjgbcJVB1SMWJH5ZOD-B7mZXG8BF9b_uFSVlu2Y4pVzi7GPLXw1p7LeVfNN_rq20NY4bArYiwWrBXozLmFQehozBbGfJq7zlbK_XlL7A-cWexsekpVDkTwIQPuv7iyfLxKU8z_wSk3rO-FnOuhCz1hmJWD_HZaTUGq7jy9WkFnFTmdeAPLOXdXbFaRJXBWiFjNf89ofPejtfS2xar43d9VGL5eC4-bizjroueaY4V1xwaSSr3adH9JG3bDkXJDOOrfTe1g7JnkYRSiBzG8k3fcuLMgsLpY15wTkDrnvyMigU5BiOy2Mz9klYIOFguODL0RPBXH-_bxMo_YZeEneMa7DttMx1Z-MybIQQvRZNhGYpR9Cc8a1-t3gbNYRTHjA5hd35tpP1xkxdO--ycaa-oRF9_oVxh5g79NGNZ-tK5e7CfAXxn4Bv2qS9-zC-tvCB-Wuux5pEz6N2V_lIc_UO62d2zgVOOzIAZ70iijWppndKt4miSenQmwS4y70kBwDxm6nFY4TspI0ecVYJsaLC9gpNZMipaqHuOJ5DYvo_WCyqcWGRsQ3DhXCKio9_LoQJz9Qy6kU9QwCtzHec=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0b2fb2c7aa4d4436016aea76a3b08487d1a4a180b67021f390",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 94,
+    "total_tokens": 204,
+    "cost": 5.8e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.8e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 4.7e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 45,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

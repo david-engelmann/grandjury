@@ -10,12 +10,15 @@
 //! module reads one recorded answer envelope of each route as
 //! a poll response under GJ-5. The agreement reading compares
 //! the juries of several polls by the model that produced each
-//! response, under GJ-8. The command line surface lives in
-//! cli, the ported maintainer makers live in makers, and the
-//! codepoint scan lives in scan.
+//! response, under GJ-8. The wave comparison reading pairs two
+//! recorded waves and states the movement of each jury
+//! plurality between them, under GJ-10. The command line
+//! surface lives in cli, the ported maintainer makers live in
+//! makers, and the codepoint scan lives in scan.
 
 pub mod agreement;
 pub mod cli;
+pub mod compare;
 pub mod json;
 pub mod makers;
 pub mod polls;

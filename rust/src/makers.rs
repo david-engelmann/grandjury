@@ -1,13 +1,15 @@
 //! The offline makers, the library halves of the scripts
 //! under examples.
 //!
-//! The three makers are offline assemblies over recorded
+//! The makers are offline assemblies over recorded
 //! files. make_poll invents its synthetic poll by fixed
 //! arithmetic. make_pilot and make_full rebuild the recorded
 //! polls, their goldens, and their run records from the
 //! questions files and the recorded envelopes through the seat
-//! readers. The live calling half of a seat is a maintainer
-//! action through the connector routes and is not
+//! readers. The wave maker of GJ-9 rebuilds the second wave
+//! polls and their run record from the pilot questions file
+//! and the wave envelopes. The live calling half of a seat is
+//! a maintainer action through the connector routes and is not
 //! reimplemented here, as PORT-6 in CONTRACT.md states. Where
 //! the Python maker raises on an input past its readings, the
 //! port maker refuses with an error and writes nothing, and
@@ -486,6 +488,47 @@ pub fn full_build_poll(examples: &Path, index: usize, item: &JsonValue) -> Maker
 /// Build the run record of the full tree.
 pub fn full_build_run_record(examples: &Path, questions: &[JsonValue]) -> MakerResult<JsonValue> {
     build_run_record(&examples.join("full"), questions, true)
+}
+
+/// The files of the wave maker, as relative paths and
+/// contents. The wave polls the pilot question set a second
+/// time under GJ-9, so its questions load from the pilot tree
+/// while its polls and its run record build over the wave
+/// tree from the envelopes recorded there, under the absence
+/// counting of the full maker. The wave carries no example
+/// poll and no price table and no golden of one poll, so the
+/// maker writes the twelve polls and the run record and
+/// nothing else.
+pub fn wave_files(examples: &Path) -> MakerResult<Vec<(String, String)>> {
+    let questions = load_questions(&examples.join("pilot"))?;
+    let tree = examples.join("wave");
+    let mut polls: Vec<JsonValue> = Vec::new();
+    for (offset, item) in questions.iter().enumerate() {
+        polls.push(build_poll(&tree, offset + 1, item, true)?);
+    }
+    let mut files: Vec<(String, String)> = Vec::new();
+    for (offset, poll) in polls.iter().enumerate() {
+        files.push((
+            format!("wave/poll-{:02}.json", offset + 1),
+            format!("{}\n", dumps(poll, Some(2), false, false)),
+        ));
+    }
+    let record = build_run_record(&tree, &questions, true)?;
+    files.push((
+        "wave/run_record.json".to_string(),
+        format!("{}\n", dumps(&record, Some(2), false, false)),
+    ));
+    Ok(files)
+}
+
+/// Build one recorded poll of the wave tree.
+pub fn wave_build_poll(examples: &Path, index: usize, item: &JsonValue) -> MakerResult<JsonValue> {
+    build_poll(&examples.join("wave"), index, item, true)
+}
+
+/// Build the run record of the wave tree.
+pub fn wave_build_run_record(examples: &Path, questions: &[JsonValue]) -> MakerResult<JsonValue> {
+    build_run_record(&examples.join("wave"), questions, true)
 }
 
 // The synthetic maker, examples/make_poll.py carried whole.

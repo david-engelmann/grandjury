@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750689-ShEtT7frZRedKQK5nOmj",
+  "object": "chat.completion",
+  "created": 1793750689,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"lock it at dusk\",\"confidence\":0.45,\"probabilities\":{\"lock it at dusk\":0.45,\"leave it unlocked\":0.2,\"lock it at nine\":0.35}}",
+        "refusal": null,
+        "reasoning": "**Choosing probabilities**\n\nI need to choose options, although I don't have much context. I think I should ensure that the probabilities sum up correctly. It seems I’m looking for a sensible approach for security at dusk. Maybe there's some ambiguity around the juror poll? I’ll assign probabilities for the pick lock at dusk as .45, nine as .35, and unlocked as .2. I'll confirm that these choices are clearly stated.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Choosing probabilities**\n\nI need to choose options, although I don't have much context. I think I should ensure that the probabilities sum up correctly. It seems I’m looking for a sensible approach for security at dusk. Maybe there's some ambiguity around the juror poll? I’ll assign probabilities for the pick lock at dusk as .45, nine as .35, and unlocked as .2. I'll confirm that these choices are clearly stated.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nak2rCwyUV27XsJi1oYNr9lY2DRTaV6wrjMG-1QABm3rrViG3-wvmSO3EGVgpZbNZSfmpo9-S89-K2LLNttDlQiqB01J7Mz-RnS2B_AMKr5T0erTMTY7oVKD-5YHSQCaGv1sOWKzbPH_Z-kJmuDOgwQBEay09EJcRpOKVIUXx-Cg4jIe7Cv2cOY_B_8lPalDSkdtZLdtQNmJJL9pyHB_rpjV7Ow2YDs6atoY4U4iw2clW0DiluaqX2ggQy_VRHTleLIU7AW-b6hReu41DmbZUPMYw2Txbq0TdDiD0DLGCdsyO06iFsz0WXkau8i8pGDGpdIZxxQS048E18Ny5wiCk5TfACP1GHCRFXJxIznN8nUZ81kQhvuZSDS_KBHtGm5GbjnZqmfmrhkR-yYfoJQ7uVoj2sGBHPZ3BAUkkGKSEoqhmomEvzK5Hbi8ij1_rIyRnI7AClFwfTjZTCGVhUbIHNeHA6jYf5GiwyFnkMRypWDYUcFFEFM8-pb2Si19M-bELEZ3iU9aeOv_1Zvbdm8bGDcOLW7EC-_voeHQBMUb02CWQBGDGKlJUHgCWNdM2wZKG1HflvdPCPxQl1nGi8y9-tsMkJsTE_yoCYZrJtxvD-9Dq_OTnGGGaWDPyiNhZy0MYagdlGxAjaw7k-F1AUB0PQqFEtqY3puQtSe0ttDHfgmjnO82RD1RkZP7ZG4yVF8p0j2KuM3B_EVPILE0qUb4Ssm_I-RClhRH8eF7qTZzcOp7-okaKoKGZVz40ABbk58pLt0E-YqVDEtU4YVSS9_NwCAUozKlv7sRPk9_Jdjz3qzvl4YAYLUOSSa4_nV_3XoEZYI_qpKxciff3jwNH9GqlaTssysMurBDiUWDXD-UxIUp1FRL56q4JvAGSBek4fvddFxza8CuhzMV7G_tFn9hV84wS8V9Mfyz3EDz3YfSsKMelm7sw3GtHJR_u7cwDvxsXOy4Mur5xlMTQhTX_g2e4qha7-_Knsm3NWxyR_Kh0TRmgzjqHRL3h4PJ3HWhuDPwNl1lKeVON2xQO3AN8eOTFzXUtAoT_DLokoympnXxbGZuCH0OKO2Q8kOOvo9iy5BA0iT41bO9X5y9cCvSwBb_TfS6m04fv98-E9dyYtv_brmQcH3gNktBClUXrnhRHx-SY7v6t_uYTtE07Kn-XKlL7zGYvEhhDIiRnHo0jL-QrFqCX15DnWeU48mRsQXRnV3BTCzXHlO6Rkh406ySef_m_vWOxs292BiLAITG8fs-ANAsnogOWRBVZ-bEAA8vVJbtphGrW-lqlcHhzcIwWW22hp-uV3_2BK0HgBF4lJLZEvQkc63A2aKEgdTjN3SQ1MKZPNcog6rrhhKPAJQuFRWEHtq1WffdAasJcWcRG8aICUBCva-rmWF9sxE7z3TmcDsWC9rS2ZmvKFz1N1XTSk70snxGkBg0gQwdCTgRaEVk8BWAhd_VbhBbXPIgAYGlIQlbsQQnFYvZi_Zc8_S33uht9UpwPyGOvR0Rf8nEwYXUapGRYGPDzuHDVEgosDKvFX4ob9KgxiW6V8nJIfi66jh5RxN9VU7G3afFPpHUp4fCwy3bRgly2My7uIW7MDQeIaf64E4xAYK4Dhhqp-8xYIklUibogqcYyElPEIuPUYUYEdcR8oGU_gk4K8JawG59zvEF-RbsL_rAl-DCZ8HASDf8wu44APq1YWc91v2uRHXHrPtIDTXXSC2LMjifMzI34Ozsy4K2V4oCN689PcXwIZ1JwpHVIL2_WhTmlRYkw59XXLeymuobjXepw2kAia8GBgoLIRjA2cEgA6TYK5nbSTdgKGb1MjAAHtpnXc9kJyjg6Zto5zO7ZKTIlTvK-hZ7NhS-49o1pM51Va20pyG431MZFTSeQO-ByPu8TnYdiupsyvHfFbnerTzGNDN1rJGsR9grBHgY_kq57A9dH1ztj8vkcV8lvy4nERHdUPgHJN0OG-JPCajXnr8XUoEe4kzURN-lpsgp5q_yB3SVq4tjQoT8jeh1nYt_s8rXgcObsAdSGzrfgGAwaInLzMpYA-zQRy-FTAQgJX5LD8K8B8NGGXxXzFPiabBxFooctqBREU7DSRvcDYHIg4_42OojLE7UYvAho4vyOfRDtRQfhElaZ0WwDPwMbTkn5Z-d3XwQCUayi9QHXLfmE12m6F2m0K1zYRRKfprP2E6WSNhA__x147_FPOXzegg5M9hp_X3BWz0WAPMKyp12CmCSJJgaCpfhKI66cqP3IRGlopYH5Q94e5Dl4dVdg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0d0c6e51ed6b59a8016aea76a2c25c87d1a1dfd08c79fc0341",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 104,
+    "total_tokens": 214,
+    "cost": 6.3e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.3e-05,
+      "upstream_inference_prompt_cost": 1.1e-05,
+      "upstream_inference_completions_cost": 5.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 55,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "lock it at dusk",
+      "confidence": 0.85,
+      "probabilities": {
+        "lock it at dusk": 0.9,
+        "leave it unlocked": 0.09,
+        "lock it at nine": 0.01
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 388,
+    "output_tokens": 49
+  }
+}

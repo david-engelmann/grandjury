@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750709-cV7lMZe3MjLAYe0LUQAe",
+  "object": "chat.completion",
+  "created": 1793750709,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"both email and print\",\"confidence\":0.72,\"probabilities\":{\"email only\":0.16,\"print only\":0.08,\"both email and print\":0.76}}",
+        "refusal": null,
+        "reasoning": "**Deciding on poll options**\n\nI need to create a poll without much context. It seems sensible to accommodate different preferences. The question is whether the newsletter should go out by email, in print, or both. Choosing \"both\" seems likely to cover more bases. OK, so I should think about the distribution of probabilities as well. It all needs to fit into one JSON format for clarity. Let’s make sure it’s polished and clear!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Deciding on poll options**\n\nI need to create a poll without much context. It seems sensible to accommodate different preferences. The question is whether the newsletter should go out by email, in print, or both. Choosing \"both\" seems likely to cover more bases. OK, so I should think about the distribution of probabilities as well. It all needs to fit into one JSON format for clarity. Let’s make sure it’s polished and clear!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6na4FWxKhc4pSzJ6fyFcd4YYYzYcqlvd50-SA_GTwbrxXZI9_x59Q2zFS5Ga24MZh0lE8uQVeRNtQc859_6R_7M2TkpBWSwb8YZkEZXrLl0LXGZUv0KrYENvsXzjaTRfcHxdsIpCs8h4XYN4X51K3vPthYtvp_75HstQGJUR7Et_5XIuW5RytG59hB6tg-9FBcaIUezhbOr-LeYllU1Khgyz9qOEHCwvMhdvOxoFuy1im8xZrpWLvj65SzmCzO6pEJ8seH1FWUDtb6Y6PhHUJyBOT5QSKfAd0Apa3JDftvcAYLQPheilw3pmAaEbzvoiaUwkTWegU9Z3rdYbWwq39DGQMwgw1UdS-XMVvpdxK0ibZ4j4RgrMZDOscNUB_u25JqwW9PRc1Boj7UCSSoCf3zOOoUb5Madd-XRKyEesSe_2CKxaJFeEl9ajByR4uNLW40rps5pDvMxSrKqksXMjIV1kD19RCAYxspmcWzJdW1XSeGkPEWX_I2cRyaW2OXr-X9hw4YHFCRaidao7mVFGHSJ7yRA8a_U--j9nsM2imd10YY_2KG0zTkO9hIkF7KvRxEGaND7hScNC0g6wt3sVpYjkbKePhugE4b5BcuJhDcBXfpY8dVCayylSjoa3JANhyt24JmWY6cPrijqdR0NDfof9_i3fKOm-d6Pp8lGmpyw2xGUiWPqOFid-unCOaNEKhIzPTNip0NNry08cKbjGnXKocCq3jDhdCtx7bq3XEFdimXEXWbzH8Nsw7mfFbdUiMG0LDAHFgi4pxTWMc1o6hN23LgSNilBEdHV8pgn_wZay9yUI5D1vzBljujRT0LzxVjuZFLhOyV1PToGvTni_UsprWXsjwd2v1rh3L0ubHwhIj7o0ZP1pa4yv_vH_7phlaCyJDK9AcYqadCog1I1UZdCqG_PPx9j7vHApL1s5WO96KnLSFaJTFBSYSsiNtyjkEXvd6J-2mt8GYojkd5xrbu2uIGCGLy5DYU1yzm6qrImF729BaGxqN9snBOnXI5iQuBrlr_17_jGv5u8i2LfDXuJwklKLEuXcIq0MmGfh08Niwp6B5Z7L93u-b5USDB3nnJp75nJ5oZLHIspP7mWl5xh-GsYOvhb5Zgt5kqmpgnle1_EWIODeiPRs4kDkjRVTZ8I1rMdbxRcfhpngDIYxL4ZXhI7YCToJwBUu9QPwfx65ojanNIcIoXokZ88KWSZGeVSIiAqKy4a2msJnPgyEb0lP9SwcMsp-wwc_upksYICqczj3L5UjjGO50EjKIao51BdQwPucSgKF-eytAPLX3-piGgbSduVpHefTE0tJAnjpXVL4bhCo4NBF2RSFkZb58yHb4kgtoaMbFIaVB15UQx6mzzNvI5an-FEpGMsQ6IbzNVGgF-LNvakfBEErw8ca09W7uNM_Z_fyzR5ih_fsVS3oKGXMqiiGk8fUGzPyKjdM6hOKB6yXHdvnpFHK9HFbtfjNYaqA6TevtYvCl5kqZn60MKLoWEE23iBNQ-6YIQM7rmy7OR6It0_VGVjlgBe72KeHdbY-YbDwKpGaSsL9p2jbMh_VAaWr2MvbxfC0vO-r4axUV_bIP4qAEN8dT9OzrYKkcCiu2PGE37s1Nd1iSWI3pL6Xs1gQzKIgD0wP7WfDUUiTrPm9e619vP5xhv4hN9WzgBgdVVH71GEUtmKO3J7gjlpHlcPoO-Gg6bWNw-5Bb0J3aHTIQ2t3NbZlLBvb01utxrWjuA5STs68yIBaPb-9uc9JhEnX-j0yDR4tZnBUfUGM9TLkgLCJi3o-omBRxA35xU81KC795ASuXDME94iK7-s4CD_S0EW5gWdixGuXsVUHc6-EgY2A91lkJWHM0TFEMndi5rxAK2ejUdqK7cPuabxgR8s3nJaPSbbgBP_QQL7vk5p5ldm8zQVITkOXjKna7ezg3bAAfPwHKLbGOg88dDjil6Qaue1OkZwU1SRSrMhBv2EdwexixIW7YMF92eBHXiCKUf2aVy47zMjx7PeSH-jt0I3QqQepcraSXdjrL0udqAMBCf5nPUaKBc-_aQoew3cBcgIQymRkYxot-F9Cbu7JOwaVqPa6MHyFZu6t8gaM2ifkL_JRg4UbKNJhvAdeAUQUazpu0aEaeCuZmGy3DurmUESJkbmBv8Svufb28EAXZuxUI2vAyk_srXPn5F5VUDa7cjuu1ceY9pxZmDM9R_j0FbLuLBY0Kp5BOQneQv89K8DfZpriXA2KV1l8m8NoiaSYS3cQriXFyMtO6t8O3mfaNFSa-j9OrI654uAfB7s=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0b01bbbd9aacbb0c016aea76b6007c87d19828eb32364d1e24",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 109,
+    "completion_tokens": 100,
+    "total_tokens": 209,
+    "cost": 6.09e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.09e-05,
+      "upstream_inference_prompt_cost": 1.09e-05,
+      "upstream_inference_completions_cost": 5e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 54,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

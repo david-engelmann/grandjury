@@ -6,10 +6,13 @@
 //! such as LICENSE. Files inside ignored environment and build
 //! directories are skipped, the cargo target directory among
 //! them, and the recorded envelope directories under
-//! examples/pilot/envelopes and examples/full/envelopes stand
-//! exempt under the scan scope amendments in CONTRACT.md,
-//! because they are recorded data the routes returned and not
-//! prose this repo wrote. The reading mirrors the Python scan
+//! examples/pilot/envelopes and examples/full/envelopes and
+//! examples/wave/envelopes stand exempt under the scan scope
+//! amendments in CONTRACT.md, because they are recorded data
+//! the routes returned and not prose this repo wrote. The
+//! exemption covers the files under those directories, and a
+//! file standing at a directory path itself is not under it
+//! and is counted. The reading mirrors the Python scan
 //! script, so a tree reads the same counts under the library
 //! as it reads under the script. Text is read with undecodable
 //! bytes replaced, as the Python reading replaces them.
@@ -31,7 +34,11 @@ const SUFFIXES: [&str; 9] = [
     ".md", ".txt", ".py", ".json", ".toml", ".yml", ".yaml", ".rs", "",
 ];
 
-const ENVELOPE_TREES: [(&str, &str); 2] = [("pilot", "envelopes"), ("full", "envelopes")];
+const ENVELOPE_TREES: [(&str, &str); 3] = [
+    ("pilot", "envelopes"),
+    ("full", "envelopes"),
+    ("wave", "envelopes"),
+];
 
 /// Count the em dashes and the en dashes in the covered files
 /// of the tree at the given root, returning the pair of counts
@@ -65,7 +72,7 @@ pub fn scan_tree(root: &Path) -> (usize, usize) {
                 .components()
                 .map(|part| part.as_os_str().to_string_lossy().into_owned())
                 .collect();
-            if parts.len() >= 3
+            if parts.len() >= 4
                 && parts[0] == "examples"
                 && ENVELOPE_TREES
                     .iter()

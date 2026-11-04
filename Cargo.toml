@@ -69,6 +69,10 @@ path = "rust/tests/test_makers.rs"
 name = "test_binary_surface"
 path = "rust/tests/test_binary_surface.rs"
 
+[[test]]
+name = "test_wave"
+path = "rust/tests/test_wave.rs"
+
 [dependencies]
 num-bigint = "0.4"
 num-rational = "0.4"

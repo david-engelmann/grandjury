@@ -16,13 +16,36 @@ use crate::polls::{fraction_text, percent, Poll, Response};
 use crate::pytext::PText;
 
 /// The reading of one jury in a poll as data.
-struct JuryReading {
-    recorded: usize,
-    valid: usize,
-    abstained: usize,
-    spoiled: usize,
-    rows: Vec<(PText, usize, Ratio<BigInt>)>,
-    plurality: Option<PText>,
+pub(crate) struct JuryReading {
+    pub(crate) recorded: usize,
+    pub(crate) valid: usize,
+    pub(crate) abstained: usize,
+    pub(crate) spoiled: usize,
+    pub(crate) rows: Vec<(PText, usize, Ratio<BigInt>)>,
+    pub(crate) plurality: Option<PText>,
+}
+
+impl JuryReading {
+    /// The per answer rows of the reading in the GJ-8 form,
+    /// one line per offered answer, two spaces, the answer,
+    /// its count, its share as the exact fraction in lowest
+    /// terms, and its percentage. The agreement reading and
+    /// the wave comparison reading both print these rows,
+    /// and the form stands here in one place for both.
+    pub(crate) fn row_lines(&self) -> Vec<String> {
+        self.rows
+            .iter()
+            .map(|(answer, count, share)| {
+                format!(
+                    "  {}, {}, {}, {}%",
+                    answer.display(),
+                    count,
+                    fraction_text(share),
+                    percent(share)
+                )
+            })
+            .collect()
+    }
 }
 
 /// Return the reading of one jury in a poll as data.
@@ -35,7 +58,7 @@ struct JuryReading {
 /// valid count, and it stands only when the jury holds at
 /// least one valid response and one answer holds that count
 /// alone, under FIX-GJ-8.
-fn jury_reading(poll: &Poll, responses: &[&Response]) -> JuryReading {
+pub(crate) fn jury_reading(poll: &Poll, responses: &[&Response]) -> JuryReading {
     let mut counts: Vec<usize> = vec![0; poll.answers.len()];
     let mut abstained = 0usize;
     let mut spoiled = 0usize;
@@ -86,7 +109,7 @@ fn jury_reading(poll: &Poll, responses: &[&Response]) -> JuryReading {
 /// A jury is one model string standing in the responses, and
 /// the juries stand in the order their model strings first
 /// appear in the responses.
-fn poll_juries(poll: &Poll) -> Vec<(PText, Vec<&Response>)> {
+pub(crate) fn poll_juries(poll: &Poll) -> Vec<(PText, Vec<&Response>)> {
     let mut order: Vec<PText> = Vec::new();
     let mut grouped: Vec<Vec<&Response>> = Vec::new();
     for response in &poll.responses {
@@ -128,15 +151,7 @@ pub fn agreement_lines(polls: &[Poll]) -> Vec<String> {
                 reading.abstained,
                 reading.spoiled
             ));
-            for (answer, count, share) in &reading.rows {
-                lines.push(format!(
-                    "  {}, {}, {}, {}%",
-                    answer.display(),
-                    count,
-                    fraction_text(share),
-                    percent(share)
-                ));
-            }
+            lines.extend(reading.row_lines());
             let plurality = reading.plurality.clone();
             lines.push(format!(
                 "plurality, {}, {}",

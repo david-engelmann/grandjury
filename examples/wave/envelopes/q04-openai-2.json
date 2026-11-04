@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750680-hZG9nHRrUAIzfcLUwTJ6",
+  "object": "chat.completion",
+  "created": 1793750680,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"Wednesday\",\"confidence\":0.34,\"probabilities\":{\"Tuesday\":0.33,\"Wednesday\":0.34,\"Thursday\":0.33}}",
+        "refusal": null,
+        "reasoning": "**Choosing probabilities and validity**\n\nI need to choose an arbitrary outcome that seems likely to be equal. I want to ensure the JSON is valid and set for Wednesday with a sum of probabilities equal to one, targeting a confidence level of .34. There's also the option of selecting Tuesday instead, also aiming for that same .34 confidence. Let’s see how that plays out, as it might help clarify my decisions!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Choosing probabilities and validity**\n\nI need to choose an arbitrary outcome that seems likely to be equal. I want to ensure the JSON is valid and set for Wednesday with a sum of probabilities equal to one, targeting a confidence level of .34. There's also the option of selecting Tuesday instead, also aiming for that same .34 confidence. Let’s see how that plays out, as it might help clarify my decisions!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nabX90SOD_k7opUUjl9QR-Pn60qfaOJk_0N-DPnT1ADOf86ZiuaLfpGGqW1QhWTPUN_4GRRiQ_z3R9yd37yRGuQ0q6oYamBXbK4I78l8_Xooo2tw-ovllZjNJe19gXwLFVG6i2ElK5RIqOhw3q3eIzOJ5gEsE_BMlupnwQgMzIF6vQmU6OhdQ46T2L_H8nTGrG77eYm0gxAeUs_2ci7tX3dUZxWoruqnQQ29A6nVDod-_nW_5pDhYtkVbiu5Cj1B3K8PHSyL12EYBLf2JB0JxmaLvJVhrBUTSBVTgaFdpYapQ18G-9Cb-YUmCRA_OjCbKn-OSozVPeho7JSHWZAWe1ZIHOx_dxEQNWZs3FVTiNFk1bElButb4VXaRPHKRcslRDCj3VYEwOwMDwMfwvxxEHHNdPybLLTHNGA5x_8NOCnCUQbXBhprhm1cjpgw3E8y88hjk-MQGp2ZFZxyPii_08Fb8iH9R1xxGwGxoCnC7rggI4gLiVDOaqBUekbdO04u9PifzBOqIeLpENYACHkv1lnofYt3X1dpmQx64pSVNluTLbyeE_ylUJG2Lfk3CYuP9eSiKwslAxkyHQPAdXoy9KkYT0i1XTiKWME-4asb4KinpQ2ghpgs1Vo6MFkWyQm7w6JatP1yMXvpz-8dLK6-GIOH7cyWDmt5gKzEythsSzCXOLairV_Qcp-cB7byi2cwmUL7Jz90xl2wh60qClIS3nQl_eEtr4zhzDN28L_hGd8GIemWzTPuNnkgiPG-VD6LbxLejspAPSIWFNohRUsw_fsX4V7CjY6zFnfpl7mwe8qmGrjgRHoEURMHd8tUvgNzELRkunzheLfXBCCVJm1_di9YNXgSLyGqWru9kKLWh64N-5GKmqC2-bZr405pXOiTa_COTZ7hLPbBGiv7s1ucYFVW1QNkduqMFCVNgopSBcO2Z2W1pU5D9GfhH8QQy9n66hiiisG-N0U1Iyvn7Owf51nkCfOWSJSj6mya6tGZUEGdY_zxC5g-JLkrkfCDLLC6dW0KvrFrhCC4x2gOBoR64SpQKWU15ffIgIXA6-MPkIhHV38vSqMWi_0-TMpQgxuOWWLsXDYJpGVJrb2nLEAK_dRIGqGt05922lyu0-XQ5jJbyXrOSx0DBS2hqbSUcFbOUvwuIUjXzha8yBeTFggK-NNsk7uQDI2TV0VP5ffoSOvfOL26Qt3a_-UFM97qHgIjmt7PZ-9icIQv6Gy8lH-vzybmf_Cq2Qcya0j_80YYt_NzI5enRuVAClWioStwoPU599Ng0LDU9MrZa23Vof8S3GoVTekxMizxLBLawrTK877wUw5a6UPH2buQzKacvxHL5apC1iGtNJvW3gCRo5xV55Ssz4GvMEm64c6fUfheKV__BBle3B7ImNp3XLMdVGXVlWgSUhsRDNzqTvPUJ7Am0IHy73HVE4HXAsoi8h6SDjJm46Owg6PClpp_InqzD5X7ePlmX2WulbOO76Bu_YBnjUTRef15MDMfTvhEWvSgbsj9JRCNjVFlQhjkKuLqCtjcRVvbpklFC0Z94m_5mIeRJwahfnoEo7daqz08fyFwA6M_LPMNgGfp8PQ9OKWBAkwIOdc0XjpTH8l-r5UtSEmywXN1KY8jjWkbGg_Ix72T2bLT8Begu_nug2xrJKI-KPBR5WdGdrs-GH_OvdtZZqLehZm4_fyyZg9PGwFHWiHohDk_alXy40wdLqmg3PmrZwLNyyOorfNv8Sq6Zf5kmuxta4hGvyzdnOcjMlyM-s1WcX6pnctnCIQ6-7mKcyP-SWtyEMfdMlKlJNS31C3MQLwFvrPNzu7P3vpkBaXrf1o9alO5BjGEcIoOM7HtsiDlfFdIO7YW84R4cTC9FM7tgClk6GRC7vhWYINGRQBw_i0wogGsQYZ_zvEHt_OOVdHk0IYMs-t2akWSIE2dumR4fqPDJHZ66aw0wBqFfKxYQZ0C1cuuwhMLtjJOQ9JCcmH4W0NhvJ6GIvNkJWc61XA1G2lL9uilq0WR-J9FEAMqwG4XIMic_UAU5jWXHSuZ_RtZgyp_3I1_ni0Vnn9ppYhPhMky3Ugeg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_0240e8e10dc55149016aea7699b37887d1b1fbf24a364f22e2",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 77,
+    "total_tokens": 177,
+    "cost": 4.85e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.85e-05,
+      "upstream_inference_prompt_cost": 1e-05,
+      "upstream_inference_completions_cost": 3.85e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 39,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

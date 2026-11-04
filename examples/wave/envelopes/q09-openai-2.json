@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750728-zKpOBsOno6DOBpCSmyKv",
+  "object": "chat.completion",
+  "created": 1793750728,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"in the woods\",\"confidence\":0.55,\"probabilities\":{\"by the river\":0.45,\"in the woods\":0.55}}",
+        "refusal": null,
+        "reasoning": "**Considering safety and enjoyment**\n\nI need to produce valid JSON while balancing perspective. It seems I should choose something like woods for safety from river hazards, but remember that rivers can be enjoyable too. There's a need to give probabilities that sum to 1, with perhaps a confidence level around 0.55 for this choice. I have to ensure everything is exact as I do this. Let's see how I can structure that!",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Considering safety and enjoyment**\n\nI need to produce valid JSON while balancing perspective. It seems I should choose something like woods for safety from river hazards, but remember that rivers can be enjoyable too. There's a need to give probabilities that sum to 1, with perhaps a confidence level around 0.55 for this choice. I have to ensure everything is exact as I do this. Let's see how I can structure that!",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6nbK7UJlH5bbx3dnCiGVtbckT3h6w8WUHp5nnWIq-OQg4aeU2XD8gKsKbdvyPh5Mm2u9DyqLTuHSo_MZclyV7zC8fmKDk195qnAEmq18MV_NQ32occJhbXGt9zpLOp3CoTYWAQ2atzD12JjBcURSveYe2Tc_uV3YWBG3uHBVvQm1X8WaHubH4_e3Y4_AACi8HdExfJNp_F_UzBGD9WABb1vJLbWng7IFTBLPMTOOAN05fHNkhaHaAeimfDXYGgeTjhRnb-nWTUdLCkel5PueHTeiR0Ssng3v1tntgEYC5kWRvs2_DE16r7IjIBF83dzaNM3RpiU8oOweybjLjR3nsDdl7CXJlSLHeg0fHllwoAtMKyPZ460kuQOYpYDbTyEChyqD6V15270oTCsXp-1QNjDG7ST0dl3qx0TPJRuB3OrsoyzZ3-QZU9hxh881vPFCkPC_Tx8sN0W41vCcuNNJBR9_qH09SohuNY5W-1350eboQKPqsx7Q7jZshXsNsusaR7ZKA0QILW99CGVrT3yOTZoJTuKt-NjCCTs6IKOhjw7DsjuKpDeQ7ecrBu5T0dZ-Mb8KtA4cV1RyO-FNHqU0JP0mXi3tbVHlsYfwUg00UX9xWqVZ4O5oAU2OrPM3wuXTXraJpVlCV2uXqe5g3TDPEODssi0FhnaVr5npZUBN873Moma-K7_QDXeSd6_GXI-KMAEncFGnT0r2bl0iGTytw7y7ldZi4OojRRaFgIabB1K9Hmba3knPln9Khi0jgzxI9R-nvYqC_vqV4Q5FgBLuTY_3wVSyfORS_-ykF0qrqvC2GVU2hL7WIDJUe8MKyaNVFzL-kCdLYX5Y7gwJE_AJqZU9oeA5wlBMSpxkyIeAKW7Swf0AosB3Ih5N4bVx1CTtsyFMmCupjvntFVnpSopeERldU4nMoZ4pIUp56VYIIbFxNDD9kXSOBFJpkZTGFm3C4QFEVnlaSTD4EjFDu_x1ZslFBrdvxtkh5XYWDlggckDs9D1TGIgyFB82t8Wa6zVHDIU0jkaoHGRa13hRk_Rz1wLlBPM3g5Q9GAg18MI-hduSMWsqH7tj7-H7u3dJGlsS_laFpwQhcyvDibfn2F2kSEaSiqNpJtm0fi5WVUcaa3RGZzozPyenO3p5K4CZ-4q0w85mOOMbuZE1Tv3T0q_F2BFTZimCJ7uukMIk4xoV9Iq71fm8kGqCTywMGEiM4B-zpE2khU99N8iPsz1PfZCx29paftoSC7mjyQRsXpah4r-CDEUr9GeAr0O3A0D0FX12ErgFGe3p-fMlyQeNMatutm96XoatE3Ev6aE2BJ57YkETvXUOBmEVI_qosoVvkO5uoH0JOq15DUaECnO1Zbherp3IX5KabPuRl1WXbmRqFLo8JSctsHFLRnZPsihL_US9EzPKIq80GW7OvVe4wGNRnHNnJyKINe1gnPIk4gX34X3IGH-J0oiL2meD_sWsUWxv9tGx91Hh8wHxFHZP11jn1j9oGFi_a9gSEjLiTuRT7OQNgyBYt3GDos04DQoDGUKX2hSfHOsSibzLiTV6Jp1-cX4M9PsG5KR3U193fQPWCuwik4RkL60CX_unZduYhNRThvq2jDaDUD7eZDwK2epVGCpjDExSF6WE7SZwb8Qbww-mCSahQuQEF4UAdf2zRDZAHNtqh3QfVD17hI7Rl0jeXzoZL8ZXTMAMavB3wDllEmrUKlJFairusgFbnnFBFANhoq1wbhfEaGlwxBvgpBBvBtvy5gLWHXioj6IcjN1qrj7BKuEvBDeRUwE-LNxmNi9oSkFPIHr5a-DBGVFCMBjjmoW7CGEvi8tTh9zcjrNeREnpuNhNMlH0gUONHYkn53rdjfwC2-8QYsz3sUAKiQEn4_Wuy6cLwOpqAY4xPwFXBX0-eGL755tYltkXpJ49fpvG6CTRteb4hHFCVjxNSd0eHBl65A1KcX82nv5t_hTZwut3U8LgHtLwNBsClxsE1CI7LS8XYJa0Jk4VnZkX5O0HdCbe5o_pmcLlCdOKmBuNtJZscPZRO-Fm14Lm9RIu6UpZFtATFHiYHGf8r7BsBAswMIdynkSTtAH1SNCSConrJohuIVDnvov76SYx0gDg4oUDpHKXWFFkLoPM1xLFgvjTVpmQaaIwqsU8Bo92StW4dbOVU8M=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_04fa32b9ed1dfa27016aea76c8f82087d1b589b85825f0e792",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 107,
+    "completion_tokens": 83,
+    "total_tokens": 190,
+    "cost": 5.22e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.22e-05,
+      "upstream_inference_prompt_cost": 1.07e-05,
+      "upstream_inference_completions_cost": 4.15e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 45,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

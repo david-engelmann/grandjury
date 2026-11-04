@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "decision": {
+      "type": "choice",
+      "choice": "a tiebreak question",
+      "confidence": 0.97,
+      "probabilities": {
+        "a tiebreak question": 0.98,
+        "share the prize": 0.02,
+        "replay the final round": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 391,
+    "output_tokens": 52
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "gen-1793750674-o65mtEDs5DTHitgM7MWO",
+  "object": "chat.completion",
+  "created": 1793750674,
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "{\"choice\":\"both cards and cash\",\"confidence\":0.95,\"probabilities\":{\"cards only\":0.03,\"cash only\":0.02,\"both cards and cash\":0.95}}",
+        "refusal": null,
+        "reasoning": "**Ensuring output accuracy**\n\nI need to produce the output in JSON format, which sounds straightforward. I want to consider the probabilities of each choice and ensure they sum to one. It's important to use exact strings to avoid any mistakes. I guess I should double-check that everything lines up correctly. So let's make sure I'm doing a thorough job here! I really want to get this right for the user.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.summary",
+            "summary": "**Ensuring output accuracy**\n\nI need to produce the output in JSON format, which sounds straightforward. I want to consider the probabilities of each choice and ensure they sum to one. It's important to use exact strings to avoid any mistakes. I guess I should double-check that everything lines up correctly. So let's make sure I'm doing a thorough job here! I really want to get this right for the user.",
+            "format": "openai-responses-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.encrypted",
+            "data": "gAAAAABq6naU-0jX_xyJp_uNgGHbYG7czexW79qJmPVKxXc2hEwSpplVVZYoeKJ_6XLWr7PhUojwTvCgHJQxHnXMsK7pURk9uQR5KgHJEpH0lN6i8_jGR3n3xzPHeXvPi5Se_VZ9ZCyITOTvI6ZtYv-D1PnR3fW-ZwQjGs316wK7osnWy6_4zJOBMVEmZPNX_nCqngSfpXFj2HPXwWzb2tTQszWCiTkxCJ1mYxCRkiwmYUJx_eUo8aj1fbuutniueINPsETfWndwTfT_u3C95CTd3EG7lKJS1-lOzoHXsMe8k14ifvCyZslWeiIeHsXdwmMKs3YPjrHkk9OqImLlIgL5K-bJFil2lbcurhjhziaXnxeyqORc0rEXFbdT40zSJ2PzK7uhXG4sxnacusKLjtuYsp_i3KO7-HUYFZhbQTrZH2dFF2KyehjFUb8GIXxzU05sqjEAi2bDo6G4d99L83-OL5xk4TbhGGyOkGb5yZ3XEe3d1FeEPiDuYKqgsUOxquTKXj8tn39wxMumdtjQvLz-1yYYkELY6JpQ112TdS_5inXCIoMkFvc-lfEezibTVdbqj9XQUdMkzPhQzTclreFQqfiH21eyKH-GYcQCD4TJ84dBKKAp3HP7euOsKi236rG_MtmreEvEM1-fwVjrNcnWw5zdqHlMwIfYMFmhE6asY77m50_1oPX4_jGMiKS0v4LzFVhZqTyVU3Q57jhQZEb6QamG2q4saNof8E_dEi1glbSsVEAQmZTQERJx7QBRtMwa0r4NfpBX0OtoqlOjqB3rqCIvFrMIfYhoDWvaOfcM5GctmY9Qcbt-rhv1Ehr_mpTuITxjrd7gPVYt5_Sh5p43RDxnAsSV0JHnAyH1BCg1Yi8PwL_dMz8gK-6f0VNVrCP9xicPYZziQ3mzjX0l70qXJRmQ354P1VMl0YAdZTOFTjabSjhFNQH4XNYWgpNDHzpTeus9-adS70wxarpruwY1rYaoZFPO2xu9vwzEEclikuxavWtMzZBZlHFRyfL3bUf1OG61MfvqiPGicixk6WwLCsg-nN1zVIKCjws_Myblem6sgcsmZnhv_SL-jUflaBGMVJWjHmLfXYkzeKMww_p1L_xzwPOYd_7fvmcCp7Gnvc27wkeOFLBxI9-qS_T42AnbC0KnEEsNtkzwYAf3yGBLLqGq9HxZrKGC8psNzu_ofygS8GveGfwWWRW3KDzCvXJCzAc08m1fphlMW7X5UEXnonAjFwIHjx-xJTEKg2f7mhit4EKjBvfdE3BYC9hVfwbnqfDV41-Ibsc4CSmeX1s1kDo0JdidzZts1sNLKWIoMthtdcgHVfzupxixgb5vvcKiQ-r9hHHru2FUfCdSPADJsAtyn8aHSciCuq6JEgkGksuYHvxaBnv6jHkdfK1q4Ee4LtFMvB0iAU6hF6h_7nbegQLVmbRrH6V5PWnsD8ehYRvdFmrGYRD2ntG3AT2K7RdNZ1eLUsuDz06rTcqVNiIGvfgBJim7v1PAQkLRVYgA2mQAyDowFn8Oru4BNEmN-h3Ee40RgrdKzcWL87Hwej5dCQbhGf56xmdZJltisnqjKukT2v37WM8s53Ff6QGA8bHxMOOIwNsn2tVcNMPaAOBmEMPIqCnC45S3LMzfux2iBXO-jA3RH9ZVc53JM4SedjGq451tTmJh6sLPRbv4l0kmQIKYm0Bq5Os2BK_3GQgxBLRIMSiFfMHbHkQhES2D_IK7YessKZPcj9RazvpgddiOUZB-314jC9B2S3x20rn1vPcAsgCURDfxdp4cvYXXgFpTPacy0x6xrcs9fGKqcXFfn5mdVfH-nMpwGr-ANQA2PDmF_0JSDgoOEaK-dFzKKMgOpGpBtJmh4LeQGe5IVimF0OTQxweF8w==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+            "format": "openai-responses-v1",
+            "id": "rs_08b55042d8094287016aea769338ac87d1ac06bb9fac65aec4",
+            "index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 106,
+    "completion_tokens": 70,
+    "total_tokens": 176,
+    "cost": 4.56e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.56e-05,
+      "upstream_inference_prompt_cost": 1.06e-05,
+      "upstream_inference_completions_cost": 3.5e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 24,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

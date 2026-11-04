@@ -1,0 +1,74 @@
+{
+  "question": "Should the scout troop camp by the river or in the woods?",
+  "answers": [
+    "by the river",
+    "in the woods"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "in the woods",
+      "reason": "jev-1.13.0 chose in the woods with confidence 0.4 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "in the woods",
+      "reason": "jev-1.13.0 chose in the woods with confidence 0.3 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "in the woods",
+      "reason": "jev-1.13.0 chose in the woods with confidence 0.26 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "in the woods",
+      "reason": "jev-1.13.0 chose in the woods with confidence 0.34 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "in the woods",
+      "reason": "jev-1.13.0 chose in the woods with confidence 0.36 and abstained",
+      "abstained": true
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "in the woods",
+      "reason": "openai/gpt-6-luna chose in the woods with confidence 0.52"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "in the woods",
+      "reason": "openai/gpt-6-luna chose in the woods with confidence 0.55"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "in the woods",
+      "reason": "openai/gpt-6-luna chose in the woods with confidence 0.5"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "by the river",
+      "reason": "openai/gpt-6-luna chose by the river with confidence 0.5"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "by the river",
+      "reason": "openai/gpt-6-luna chose by the river with confidence 0.5"
+    }
+  ]
+}

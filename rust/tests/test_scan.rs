@@ -18,7 +18,10 @@
 //! directory pin are the pins the removal states for the
 //! scan, and they stand unchanged with the Python script
 //! gone, because the in crate reading they pin is the gate
-//! form the removal leaves behind.
+//! form the removal leaves behind. A Round 4 repair pin
+//! stands with them, a file standing at the wave envelope
+//! directory path itself failing the scan while the envelope
+//! files under it pass.
 
 mod shared;
 
@@ -142,6 +145,42 @@ fn a_dash_in_a_rust_file_fails_the_scan() {
         &scratch.path,
         "module.rs",
         &format!("// a comment {} here\n", EM_DASH),
+    );
+    assert_eq!(scan_tree(&scratch.path), (1, 0));
+}
+
+#[test]
+fn dashes_inside_the_wave_envelopes_pass_the_scan() {
+    let scratch = TempDir::new("scan-wave-envelopes");
+    plant(
+        &scratch.path,
+        "examples/wave/envelopes/q01-jev-1.json",
+        &format!(
+            "{{\"reading\": \"one {} two {} three\"}}\n",
+            EM_DASH, EN_DASH
+        ),
+    );
+    assert_eq!(scan_tree(&scratch.path), (0, 0));
+}
+
+#[test]
+fn a_dash_in_the_wave_directory_outside_envelopes_fails() {
+    let scratch = TempDir::new("scan-wave-outside");
+    plant(
+        &scratch.path,
+        "examples/wave/poll-01.json",
+        &format!("{{\"question\": \"one {} two\"}}\n", EM_DASH),
+    );
+    assert_eq!(scan_tree(&scratch.path), (1, 0));
+}
+
+#[test]
+fn a_dash_in_a_file_at_the_wave_envelope_directory_path_fails() {
+    let scratch = TempDir::new("scan-wave-envelope-path");
+    plant(
+        &scratch.path,
+        "examples/wave/envelopes",
+        &format!("one {} two\n", EM_DASH),
     );
     assert_eq!(scan_tree(&scratch.path), (1, 0));
 }

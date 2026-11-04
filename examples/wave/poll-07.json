@@ -1,0 +1,70 @@
+{
+  "question": "Should the parish newsletter go out by email instead of print?",
+  "answers": [
+    "email only",
+    "print only",
+    "both email and print"
+  ],
+  "responses": [
+    {
+      "juror": "jev-1",
+      "model": "jev-1.13.0",
+      "answer": "both email and print",
+      "reason": "jev-1.13.0 chose both email and print with confidence 0.76"
+    },
+    {
+      "juror": "jev-2",
+      "model": "jev-1.13.0",
+      "answer": "both email and print",
+      "reason": "jev-1.13.0 chose both email and print with confidence 0.74"
+    },
+    {
+      "juror": "jev-3",
+      "model": "jev-1.13.0",
+      "answer": "both email and print",
+      "reason": "jev-1.13.0 chose both email and print with confidence 0.76"
+    },
+    {
+      "juror": "jev-4",
+      "model": "jev-1.13.0",
+      "answer": "both email and print",
+      "reason": "jev-1.13.0 chose both email and print with confidence 0.73"
+    },
+    {
+      "juror": "jev-5",
+      "model": "jev-1.13.0",
+      "answer": "both email and print",
+      "reason": "jev-1.13.0 chose both email and print with confidence 0.72"
+    },
+    {
+      "juror": "openai-1",
+      "model": "openai/gpt-6-luna",
+      "answer": "both email and print",
+      "reason": "openai/gpt-6-luna chose both email and print with confidence 0.62"
+    },
+    {
+      "juror": "openai-2",
+      "model": "openai/gpt-6-luna",
+      "answer": "both email and print",
+      "reason": "openai/gpt-6-luna chose both email and print with confidence 0.78"
+    },
+    {
+      "juror": "openai-3",
+      "model": "openai/gpt-6-luna",
+      "answer": "both email and print",
+      "reason": "openai/gpt-6-luna chose both email and print with confidence 0.65"
+    },
+    {
+      "juror": "openai-4",
+      "model": "openai/gpt-6-luna",
+      "answer": "both email and print",
+      "reason": "openai/gpt-6-luna chose both email and print with confidence 0.72"
+    },
+    {
+      "juror": "openai-5",
+      "model": "openai/gpt-6-luna",
+      "answer": "both email and print",
+      "reason": "openai/gpt-6-luna chose both email and print with confidence 0.65"
+    }
+  ]
+}
