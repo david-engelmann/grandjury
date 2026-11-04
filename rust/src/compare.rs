@@ -10,30 +10,16 @@
 //! this module carries is GJ-10 in CONTRACT.md, in the Round
 //! 4 section.
 
-use crate::agreement::{jury_reading, poll_juries, JuryReading};
-use crate::polls::{Poll, Response};
+use crate::agreement::{jury_reading, poll_juries, responses_of, JuryReading};
+use crate::polls::Poll;
 use crate::pytext::PText;
-
-/// The responses of one jury of a poll, from the grouped
-/// juries of the poll, or no responses where the jury does
-/// not stand in the poll.
-fn responses_of<'a>(juries: &'a [(PText, Vec<&'a Response>)], model: &PText) -> Vec<&'a Response> {
-    juries
-        .iter()
-        .find(|(held, _)| held == model)
-        .map(|(_, responses)| responses.clone())
-        .unwrap_or_default()
-}
 
 /// Push the part of one jury block that one wave carries,
 /// the counts line in the order GJ-8 states, one line per
 /// offered answer of the poll in offered order, and the
 /// plurality line of the wave.
 fn push_wave_part(lines: &mut Vec<String>, wave: &str, reading: &JuryReading) {
-    lines.push(format!(
-        "{}, recorded {}, valid {}, abstained {}, spoiled {}",
-        wave, reading.recorded, reading.valid, reading.abstained, reading.spoiled
-    ));
+    lines.push(format!("{}, {}", wave, reading.counts_text()));
     lines.extend(reading.row_lines());
     lines.push(format!(
         "plurality, {}, {}",

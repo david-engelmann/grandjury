@@ -67,14 +67,15 @@ fn readme_reports_the_round_three_status() {
     let slice_line = "- Slice 4 has landed. It carries the full live poll over both decision model routes, forty synthetic questions with five seats per question per model and the raw envelopes and the run record under examples, and the agreement reading over the recorded responses with its command and its golden.";
     assert!(lines.contains(&slice_line));
     // Altered at the Round 4 slice for its named mechanical
-    // consequence, and restored at the Round 4 closure. This
-    // pin counts the slices standing in review across the
-    // whole README. Slice 5 stood in review while Round 4
-    // was built, so the count was one on the slice head, and
-    // the closure lands slice 5, so the count returns to
-    // zero here. The round four pin below holds the standing
-    // line and the slice line themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    // consequence, restored at the Round 4 closure, and
+    // altered again at the Round 5 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. Slice 6 stands in
+    // review while Round 5 is built, so the count is one
+    // until the Round 5 closure lands slice 6 and the count
+    // returns to zero. The round pins below hold the
+    // standing lines and the slice lines themselves.
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -91,6 +92,22 @@ fn readme_reports_the_round_four_status() {
 fn contract_carries_the_round_four_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-9", "GJ-10"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_five_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let slice_line = "- Slice 6 is built and in review. It carries the census reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question and jury by jury under their set labels, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+}
+
+#[test]
+fn contract_carries_the_round_five_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-11", "GJ-12"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }

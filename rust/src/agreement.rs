@@ -25,7 +25,33 @@ pub(crate) struct JuryReading {
     pub(crate) plurality: Option<PText>,
 }
 
+/// The counts tail of the GJ-8 lines as text, the word
+/// recorded and its count, then valid, abstained, and
+/// spoiled in the order GJ-8 states. The agreement jury
+/// line carries it, the wave parts of GJ-10 carry it, and
+/// the asking parts and totals lines of the census of
+/// GJ-11 carry it, and the form stands here in one place
+/// for every reading.
+pub(crate) fn counts_text(
+    recorded: usize,
+    valid: usize,
+    abstained: usize,
+    spoiled: usize,
+) -> String {
+    format!(
+        "recorded {}, valid {}, abstained {}, spoiled {}",
+        recorded, valid, abstained, spoiled
+    )
+}
+
 impl JuryReading {
+    /// The counts of the reading in the GJ-8 form, the tail
+    /// the shared counts form states from the four counts
+    /// of the reading.
+    pub(crate) fn counts_text(&self) -> String {
+        counts_text(self.recorded, self.valid, self.abstained, self.spoiled)
+    }
+
     /// The per answer rows of the reading in the GJ-8 form,
     /// one line per offered answer, two spaces, the answer,
     /// its count, its share as the exact fraction in lowest
@@ -104,6 +130,20 @@ pub(crate) fn jury_reading(poll: &Poll, responses: &[&Response]) -> JuryReading 
     }
 }
 
+/// The responses of one jury of a poll, from the grouped
+/// juries of the poll, or no responses where the jury does
+/// not stand in the poll.
+pub(crate) fn responses_of<'a>(
+    juries: &'a [(PText, Vec<&'a Response>)],
+    model: &PText,
+) -> Vec<&'a Response> {
+    juries
+        .iter()
+        .find(|(held, _)| held == model)
+        .map(|(_, responses)| responses.clone())
+        .unwrap_or_default()
+}
+
 /// Return the juries of a poll as model and responses pairs.
 ///
 /// A jury is one model string standing in the responses, and
@@ -144,12 +184,9 @@ pub fn agreement_lines(polls: &[Poll]) -> Vec<String> {
         for (model, responses) in &juries {
             let reading = jury_reading(poll, responses);
             lines.push(format!(
-                "jury, {}, recorded {}, valid {}, abstained {}, spoiled {}",
+                "jury, {}, {}",
                 model.display(),
-                reading.recorded,
-                reading.valid,
-                reading.abstained,
-                reading.spoiled
+                reading.counts_text()
             ));
             lines.extend(reading.row_lines());
             let plurality = reading.plurality.clone();

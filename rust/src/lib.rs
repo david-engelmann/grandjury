@@ -12,11 +12,15 @@
 //! the juries of several polls by the model that produced each
 //! response, under GJ-8. The wave comparison reading pairs two
 //! recorded waves and states the movement of each jury
-//! plurality between them, under GJ-10. The command line
-//! surface lives in cli, the ported maintainer makers live in
-//! makers, and the codepoint scan lives in scan.
+//! plurality between them, under GJ-10. The census reading
+//! reads across the recorded poll sets and states the
+//! plurality of each jury at each asking of each question and
+//! the totals of the whole record, under GJ-11. The command
+//! line surface lives in cli, the ported maintainer makers
+//! live in makers, and the codepoint scan lives in scan.
 
 pub mod agreement;
+pub mod census;
 pub mod cli;
 pub mod compare;
 pub mod json;
