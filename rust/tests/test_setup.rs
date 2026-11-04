@@ -30,7 +30,7 @@ fn agents_carries_the_canonical_marker() {
 #[test]
 fn readme_states_the_closed_round_count() {
     let text = root_text("README.md");
-    assert!(text.contains("Closed perfection rounds, 3 of 100"));
+    assert!(text.contains("Closed perfection rounds, 4 of 100"));
 }
 
 #[test]
@@ -67,20 +67,23 @@ fn readme_reports_the_round_three_status() {
     let slice_line = "- Slice 4 has landed. It carries the full live poll over both decision model routes, forty synthetic questions with five seats per question per model and the raw envelopes and the run record under examples, and the agreement reading over the recorded responses with its command and its golden.";
     assert!(lines.contains(&slice_line));
     // Altered at the Round 4 slice for its named mechanical
-    // consequence. This pin counted the slices standing in
-    // review across the whole README, and slice 5 stands in
-    // review while Round 4 is built, so the count is one
-    // until the Round 4 closure lands slice 5 and the count
-    // returns to zero. The round four pin below holds the
-    // slice line itself.
-    assert_eq!(text.matches("built and in review").count(), 1);
+    // consequence, and restored at the Round 4 closure. This
+    // pin counts the slices standing in review across the
+    // whole README. Slice 5 stood in review while Round 4
+    // was built, so the count was one on the slice head, and
+    // the closure lands slice 5, so the count returns to
+    // zero here. The round four pin below holds the standing
+    // line and the slice line themselves.
+    assert_eq!(text.matches("built and in review").count(), 0);
 }
 
 #[test]
-fn readme_reports_the_round_four_slice() {
+fn readme_reports_the_round_four_status() {
     let text = root_text("README.md");
     let lines = lines_of(&text);
-    let slice_line = "- Slice 5 is built and in review. It carries the second wave poll over both decision model routes, the twelve pilot questions asked again with five seats per question per model and the raw envelopes and the run record under examples, and the wave comparison reading over the pilot and wave polls with its command and its golden.";
+    let standing = "- Contract, GJ-9 and GJ-10 met. They stand in full form in CONTRACT.md with the Round 4 repair amendment, and Round 4 closed on the merged slice 5 after three reviews, a repair pass, and an approving re-review.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 5 has landed. It carries the second wave poll over both decision model routes, the twelve pilot questions asked again with five seats per question per model and the raw envelopes and the run record under examples, and the wave comparison reading over the pilot and wave polls with its command and its golden.";
     assert!(lines.contains(&slice_line));
 }
 
