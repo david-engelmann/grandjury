@@ -81,6 +81,10 @@ path = "rust/tests/test_census.rs"
 name = "test_ledger"
 path = "rust/tests/test_ledger.rs"
 
+[[test]]
+name = "test_dissent"
+path = "rust/tests/test_dissent.rs"
+
 [dependencies]
 num-bigint = "0.4"
 num-rational = "0.4"

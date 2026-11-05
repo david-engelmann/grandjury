@@ -71,14 +71,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 5 slice for the same
     // consequence, and restored at the Round 5 closure, and
     // altered again at the Round 6 slice for the same
-    // consequence, and restored at the Round 6 closure.
-    // This pin counts the slices standing in review across
-    // the whole README. Slice 7 stood in review while
-    // Round 6 was built, and the Round 6 closure landed
-    // slice 7, so the count stands at zero. The round pins
-    // below hold the standing lines and the slice lines
-    // themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    // consequence, and restored at the Round 6 closure, and
+    // altered again at the Round 7 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. Slice 8 stands in
+    // review while Round 7 is built, so the count stands
+    // at one. The round pins below hold the standing lines
+    // and the slice lines themselves.
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -132,6 +132,23 @@ fn readme_reports_the_round_six_status() {
 fn contract_carries_the_round_six_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-13", "GJ-14"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_seven_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let slice_line = "- Slice 8 is built and in review. It carries the dissent reading over the three recorded poll sets, the pilot and the full poll and the second wave read together asking by asking under their set labels, stating each jury plurality, the margin it stood by, and the respondents who stood against it, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 6 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_seven_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-15", "GJ-16"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }
