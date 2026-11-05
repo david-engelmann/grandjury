@@ -15,20 +15,28 @@
 //! plurality between them, under GJ-10. The census reading
 //! reads across the recorded poll sets and states the
 //! plurality of each jury at each asking of each question and
-//! the totals of the whole record, under GJ-11. The command
-//! line surface lives in cli, the ported maintainer makers
-//! live in makers, and the codepoint scan lives in scan.
+//! the totals of the whole record, under GJ-11. The juror
+//! ledger reading reads the whole record respondent by
+//! respondent and states the counts of each respondent, the
+//! movement of its own answers, and how often its answer
+//! stood with the plurality of its jury, under GJ-13. The
+//! forms the readings across the recorded sets share live
+//! in record. The command line surface lives in cli, the
+//! ported maintainer makers live in makers, and the
+//! codepoint scan lives in scan.
 
 pub mod agreement;
 pub mod census;
 pub mod cli;
 pub mod compare;
 pub mod json;
+pub mod ledger;
 pub mod makers;
 pub mod polls;
 pub mod pydecimal;
 pub mod pynum;
 pub mod pytext;
 pub mod pyunicode;
+pub mod record;
 pub mod scan;
 pub mod seats;

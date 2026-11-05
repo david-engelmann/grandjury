@@ -69,13 +69,15 @@ fn readme_reports_the_round_three_status() {
     // Altered at the Round 4 slice for its named mechanical
     // consequence, restored at the Round 4 closure, and
     // altered again at the Round 5 slice for the same
+    // consequence, and restored at the Round 5 closure, and
+    // altered again at the Round 6 slice for the same
     // consequence. This pin counts the slices standing in
-    // review across the whole README. Slice 6 stood in
-    // review while Round 5 was built, so the count was one
-    // until the Round 5 closure landed slice 6 and the count
-    // returned to zero. The round pins below hold the
+    // review across the whole README. Slice 7 stands in
+    // review while Round 6 is built, so the count stands at
+    // one until the Round 6 closure lands slice 7 and the
+    // count returns to zero. The round pins below hold the
     // standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -110,6 +112,23 @@ fn readme_reports_the_round_five_status() {
 fn contract_carries_the_round_five_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-11", "GJ-12"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_six_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let slice_line = "- Slice 7 is built and in review. It carries the juror ledger reading over the three recorded poll sets, the pilot and the full poll and the second wave read together respondent by respondent under their set labels, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 5 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_six_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-13", "GJ-14"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }

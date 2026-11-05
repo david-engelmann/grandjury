@@ -13,6 +13,7 @@
 use crate::agreement::{jury_reading, poll_juries, responses_of, JuryReading};
 use crate::polls::Poll;
 use crate::pytext::PText;
+use crate::record::{movement_of, MovementCounts};
 
 /// Push the part of one jury block that one wave carries,
 /// the counts line in the order GJ-8 states, one line per
@@ -58,9 +59,7 @@ pub fn compare_lines(first: &[Poll], second: &[Poll]) -> Result<Vec<String>, Str
         }
     }
     let mut lines: Vec<String> = Vec::new();
-    let mut held = 0usize;
-    let mut moved = 0usize;
-    let mut not_counted = 0usize;
+    let mut movement_counts = MovementCounts::default();
     for (first_poll, second_poll) in first.iter().zip(second.iter()) {
         lines.push(format!("question, {}", first_poll.question.display()));
         let first_juries = poll_juries(first_poll);
@@ -80,26 +79,19 @@ pub fn compare_lines(first: &[Poll], second: &[Poll]) -> Result<Vec<String>, Str
             let second_reading = jury_reading(second_poll, &responses_of(&second_juries, model));
             push_wave_part(&mut lines, "first wave", &first_reading);
             push_wave_part(&mut lines, "second wave", &second_reading);
-            let movement = match (&first_reading.plurality, &second_reading.plurality) {
-                (Some(first_answer), Some(second_answer)) if first_answer == second_answer => {
-                    held += 1;
-                    "held"
-                }
-                (Some(_), Some(_)) => {
-                    moved += 1;
-                    "moved"
-                }
-                _ => {
-                    not_counted += 1;
-                    "not counted"
-                }
-            };
-            lines.push(format!("movement, {}, {}", model.display(), movement));
+            let standing: Vec<PText> = [&first_reading.plurality, &second_reading.plurality]
+                .into_iter()
+                .filter_map(|plurality| plurality.clone())
+                .collect();
+            let movement = movement_of(&standing);
+            movement_counts.add(movement);
+            lines.push(format!(
+                "movement, {}, {}",
+                model.display(),
+                movement.word()
+            ));
         }
     }
-    lines.push(format!(
-        "movements, {} held, {} moved, {} not counted",
-        held, moved, not_counted
-    ));
+    lines.push(movement_counts.line());
     Ok(lines)
 }

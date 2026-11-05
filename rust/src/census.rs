@@ -11,41 +11,12 @@
 //! changed across askings. The obligation this module
 //! carries is GJ-11 in CONTRACT.md, in the Round 5 section.
 
-use crate::agreement::{counts_text, jury_reading, poll_juries, responses_of, JuryReading};
+use crate::agreement::{jury_reading, poll_juries, responses_of, JuryReading};
 use crate::polls::Poll;
 use crate::pytext::PText;
-
-/// The counts of one jury over some polls, in the order the
-/// jury lines of GJ-8 state them.
-#[derive(Default)]
-struct Counts {
-    recorded: usize,
-    valid: usize,
-    abstained: usize,
-    spoiled: usize,
-}
-
-impl Counts {
-    fn of(reading: &JuryReading) -> Counts {
-        Counts {
-            recorded: reading.recorded,
-            valid: reading.valid,
-            abstained: reading.abstained,
-            spoiled: reading.spoiled,
-        }
-    }
-
-    fn add(&mut self, reading: &JuryReading) {
-        self.recorded += reading.recorded;
-        self.valid += reading.valid;
-        self.abstained += reading.abstained;
-        self.spoiled += reading.spoiled;
-    }
-
-    fn text(&self) -> String {
-        counts_text(self.recorded, self.valid, self.abstained, self.spoiled)
-    }
-}
+use crate::record::{
+    collect_questions, movement_of, record_line, validate_sets, Counts, MovementCounts, Questions,
+};
 
 /// Push the part of one jury block that one asking carries,
 /// the counts line in the order GJ-8 states opening with
@@ -95,55 +66,15 @@ fn push_asking_part(lines: &mut Vec<String>, label: &PText, reading: &JuryReadin
 /// record stand, and the closing line counts the movement
 /// lines of the reading.
 pub fn census_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> {
-    for (index, (label, polls)) in sets.iter().enumerate() {
-        if label.is_empty() {
-            return Err("a set label is empty".to_string());
-        }
-        if label
-            .units()
-            .iter()
-            .any(|unit| *unit == 0x0A || *unit == 0x0D)
-        {
-            return Err("a set label holds a newline".to_string());
-        }
-        if sets[..index].iter().any(|(earlier, _)| earlier == label) {
-            return Err(format!("the set label {} stands twice", label.display()));
-        }
-        for (position, poll) in polls.iter().enumerate() {
-            if polls[..position]
-                .iter()
-                .any(|earlier| earlier.question == poll.question)
-            {
-                return Err(format!(
-                    "the set {} holds the question {} twice",
-                    label.display(),
-                    poll.question.display()
-                ));
-            }
-        }
-    }
+    validate_sets(sets)?;
 
-    // The questions of the reading, in the order they first
-    // appear across the sets, each with its askings as the
-    // index of the set and the poll of that set.
-    let mut questions: Vec<PText> = Vec::new();
-    let mut askings: Vec<Vec<(usize, &Poll)>> = Vec::new();
-    for (set_index, (_, polls)) in sets.iter().enumerate() {
-        for poll in polls {
-            match questions.iter().position(|held| *held == poll.question) {
-                Some(slot) => askings[slot].push((set_index, poll)),
-                None => {
-                    questions.push(poll.question.clone());
-                    askings.push(vec![(set_index, poll)]);
-                }
-            }
-        }
-    }
+    // The questions of the reading and their askings, as
+    // the shared collection of the record module gathers
+    // them.
+    let Questions { questions, askings } = collect_questions(sets);
 
     let mut lines: Vec<String> = Vec::new();
-    let mut held_count = 0usize;
-    let mut moved_count = 0usize;
-    let mut not_counted = 0usize;
+    let mut movement_counts = MovementCounts::default();
     let mut record = Counts::default();
     let mut jury_order: Vec<PText> = Vec::new();
     let mut jury_totals: Vec<Counts> = Vec::new();
@@ -154,14 +85,12 @@ pub fn census_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> 
         for poll in polls {
             for (model, responses) in &poll_juries(poll) {
                 let reading = jury_reading(poll, responses);
-                record.add(&reading);
+                record.add_reading(&reading);
                 match jury_order.iter().position(|held| held == model) {
-                    Some(slot) => jury_totals[slot].add(&reading),
+                    Some(slot) => jury_totals[slot].add_reading(&reading),
                     None => {
                         jury_order.push(model.clone());
-                        let mut counts = Counts::default();
-                        counts.add(&reading);
-                        jury_totals.push(counts);
+                        jury_totals.push(Counts::of(&reading));
                     }
                 }
             }
@@ -191,32 +120,23 @@ pub fn census_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> 
                     standing.push(answer.clone());
                 }
             }
-            let movement =
-                if standing.len() >= 2 && standing.iter().all(|answer| answer == &standing[0]) {
-                    held_count += 1;
-                    "held"
-                } else if standing.len() >= 2 {
-                    moved_count += 1;
-                    "moved"
-                } else {
-                    not_counted += 1;
-                    "not counted"
-                };
-            lines.push(format!("movement, {}, {}", model.display(), movement));
+            let movement = movement_of(&standing);
+            movement_counts.add(movement);
+            lines.push(format!(
+                "movement, {}, {}",
+                model.display(),
+                movement.word()
+            ));
         }
     }
 
-    lines.push(format!(
-        "record, polls {}, {}",
-        sets.iter().map(|(_, polls)| polls.len()).sum::<usize>(),
-        record.text()
+    lines.push(record_line(
+        sets.iter().map(|(_, polls)| polls.len()).sum(),
+        &record,
     ));
     for (model, counts) in jury_order.iter().zip(jury_totals.iter()) {
         lines.push(format!("jury, {}, {}", model.display(), counts.text()));
     }
-    lines.push(format!(
-        "movements, {} held, {} moved, {} not counted",
-        held_count, moved_count, not_counted
-    ));
+    lines.push(movement_counts.line());
     Ok(lines)
 }

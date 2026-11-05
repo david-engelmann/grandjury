@@ -1,0 +1,542 @@
+respondent block, jev-1
+set, pilot, recorded 12, valid 7, abstained 5, spoiled 0
+set, full, recorded 31, valid 19, abstained 12, spoiled 0
+set, wave, recorded 12, valid 7, abstained 5, spoiled 0
+respondent, jev-1, recorded 55, valid 33, abstained 22, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, none
+  wave, none
+movement, jev-1, not counted
+question, When should the community hall hold its spring clean?
+  pilot, the first Saturday of April
+  wave, the first Saturday of April
+movement, jev-1, held
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, jev-1, held
+question, Which night should the book club meet?
+  pilot, Wednesday
+  wave, Wednesday
+movement, jev-1, held
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, lock it at dusk
+movement, jev-1, held
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, jev-1, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, jev-1, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, none
+movement, jev-1, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, none
+  wave, none
+movement, jev-1, not counted
+question, What should the choir sing at the winter concert?
+  pilot, none
+  wave, none
+movement, jev-1, not counted
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, jev-1, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, jev-1, held
+agreement, 33 of 33, 1
+respondent block, jev-2
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+set, full, recorded 32, valid 17, abstained 15, spoiled 0
+set, wave, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, jev-2, recorded 56, valid 33, abstained 23, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, none
+  wave, none
+movement, jev-2, not counted
+question, When should the community hall hold its spring clean?
+  pilot, the first Saturday of April
+  wave, the first Saturday of April
+movement, jev-2, held
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, jev-2, held
+question, Which night should the book club meet?
+  pilot, Wednesday
+  wave, Wednesday
+movement, jev-2, held
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, lock it at dusk
+movement, jev-2, held
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, jev-2, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, jev-2, held
+question, When should the farmers market start in summer?
+  pilot, eight in the morning
+  wave, eight in the morning
+movement, jev-2, held
+question, Should the scout troop camp by the river or in the woods?
+  pilot, none
+  wave, none
+movement, jev-2, not counted
+question, What should the choir sing at the winter concert?
+  pilot, none
+  wave, none
+movement, jev-2, not counted
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, jev-2, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, jev-2, held
+agreement, 33 of 33, 1
+respondent block, jev-3
+set, pilot, recorded 12, valid 7, abstained 5, spoiled 0
+set, full, recorded 33, valid 18, abstained 15, spoiled 0
+set, wave, recorded 12, valid 7, abstained 5, spoiled 0
+respondent, jev-3, recorded 57, valid 32, abstained 25, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, none
+  wave, none
+movement, jev-3, not counted
+question, When should the community hall hold its spring clean?
+  pilot, the first Saturday of April
+  wave, the first Saturday of April
+movement, jev-3, held
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, jev-3, held
+question, Which night should the book club meet?
+  pilot, Wednesday
+  wave, Wednesday
+movement, jev-3, held
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, lock it at dusk
+movement, jev-3, held
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, jev-3, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, jev-3, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, none
+movement, jev-3, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, none
+  wave, none
+movement, jev-3, not counted
+question, What should the choir sing at the winter concert?
+  pilot, none
+  wave, none
+movement, jev-3, not counted
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, jev-3, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, jev-3, held
+agreement, 32 of 32, 1
+respondent block, jev-4
+set, pilot, recorded 12, valid 7, abstained 5, spoiled 0
+set, full, recorded 36, valid 19, abstained 17, spoiled 0
+set, wave, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, jev-4, recorded 60, valid 34, abstained 26, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, none
+  wave, none
+movement, jev-4, not counted
+question, When should the community hall hold its spring clean?
+  pilot, the first Saturday of April
+  wave, the first Saturday of April
+movement, jev-4, held
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, jev-4, held
+question, Which night should the book club meet?
+  pilot, Wednesday
+  wave, Wednesday
+movement, jev-4, held
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, lock it at dusk
+movement, jev-4, held
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, jev-4, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, jev-4, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, eight in the morning
+movement, jev-4, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, none
+  wave, none
+movement, jev-4, not counted
+question, What should the choir sing at the winter concert?
+  pilot, none
+  wave, none
+movement, jev-4, not counted
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, jev-4, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, jev-4, held
+agreement, 34 of 34, 1
+respondent block, jev-5
+set, pilot, recorded 12, valid 6, abstained 6, spoiled 0
+set, full, recorded 33, valid 19, abstained 14, spoiled 0
+set, wave, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, jev-5, recorded 57, valid 33, abstained 24, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, none
+  wave, none
+movement, jev-5, not counted
+question, When should the community hall hold its spring clean?
+  pilot, the first Saturday of April
+  wave, the first Saturday of April
+movement, jev-5, held
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, jev-5, held
+question, Which night should the book club meet?
+  pilot, none
+  wave, Wednesday
+movement, jev-5, not counted
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, lock it at dusk
+movement, jev-5, held
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, jev-5, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, jev-5, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, eight in the morning
+movement, jev-5, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, none
+  wave, none
+movement, jev-5, not counted
+question, What should the choir sing at the winter concert?
+  pilot, none
+  wave, none
+movement, jev-5, not counted
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, jev-5, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, jev-5, held
+agreement, 33 of 33, 1
+respondent block, openai-1
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+set, full, recorded 35, valid 22, abstained 13, spoiled 0
+set, wave, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-1, recorded 59, valid 38, abstained 21, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, open on Sundays
+  wave, open on Sundays
+movement, openai-1, held
+question, When should the community hall hold its spring clean?
+  pilot, none
+  wave, none
+movement, openai-1, not counted
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, openai-1, held
+question, Which night should the book club meet?
+  pilot, none
+  wave, none
+movement, openai-1, not counted
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, none
+movement, openai-1, not counted
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, openai-1, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, openai-1, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, eight in the morning
+movement, openai-1, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, in the woods
+  wave, in the woods
+movement, openai-1, held
+question, What should the choir sing at the winter concert?
+  pilot, a mix of carols and folk songs
+  wave, a mix of carols and folk songs
+movement, openai-1, held
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, openai-1, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, openai-1, held
+agreement, 36 of 37, 36/37
+respondent block, openai-2
+set, pilot, recorded 12, valid 6, abstained 6, spoiled 0
+set, full, recorded 34, valid 23, abstained 11, spoiled 0
+set, wave, recorded 12, valid 7, abstained 5, spoiled 0
+respondent, openai-2, recorded 58, valid 36, abstained 22, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, open on Sundays
+  wave, open on Sundays
+movement, openai-2, held
+question, When should the community hall hold its spring clean?
+  pilot, none
+  wave, none
+movement, openai-2, not counted
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, openai-2, held
+question, Which night should the book club meet?
+  pilot, none
+  wave, none
+movement, openai-2, not counted
+question, Should the allotment gate be locked at dusk?
+  pilot, none
+  wave, none
+movement, openai-2, not counted
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, openai-2, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, openai-2, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, none
+movement, openai-2, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, in the woods
+  wave, in the woods
+movement, openai-2, held
+question, What should the choir sing at the winter concert?
+  pilot, a mix of carols and folk songs
+  wave, a mix of carols and folk songs
+movement, openai-2, held
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, openai-2, not counted
+question, How should the village fete handle rain?
+  pilot, none
+  wave, move into the hall
+movement, openai-2, not counted
+agreement, 35 of 36, 35/36
+respondent block, openai-3
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+set, full, recorded 31, valid 19, abstained 12, spoiled 0
+set, wave, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-3, recorded 55, valid 35, abstained 20, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, open on Sundays
+  wave, open on Sundays
+movement, openai-3, held
+question, When should the community hall hold its spring clean?
+  pilot, none
+  wave, the first Saturday of April
+movement, openai-3, not counted
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, openai-3, held
+question, Which night should the book club meet?
+  pilot, none
+  wave, none
+movement, openai-3, not counted
+question, Should the allotment gate be locked at dusk?
+  pilot, none
+  wave, none
+movement, openai-3, not counted
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, openai-3, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, openai-3, held
+question, When should the farmers market start in summer?
+  pilot, eight in the morning
+  wave, none
+movement, openai-3, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, in the woods
+  wave, in the woods
+movement, openai-3, held
+question, What should the choir sing at the winter concert?
+  pilot, a mix of carols and folk songs
+  wave, a mix of carols and folk songs
+movement, openai-3, held
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, openai-3, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, openai-3, held
+agreement, 35 of 35, 1
+respondent block, openai-4
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+set, full, recorded 32, valid 19, abstained 13, spoiled 0
+set, wave, recorded 12, valid 9, abstained 3, spoiled 0
+respondent, openai-4, recorded 56, valid 36, abstained 20, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, open on Sundays
+  wave, open on Sundays
+movement, openai-4, held
+question, When should the community hall hold its spring clean?
+  pilot, none
+  wave, none
+movement, openai-4, not counted
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, openai-4, held
+question, Which night should the book club meet?
+  pilot, none
+  wave, none
+movement, openai-4, not counted
+question, Should the allotment gate be locked at dusk?
+  pilot, lock it at dusk
+  wave, lock it at dusk
+movement, openai-4, held
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, openai-4, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, openai-4, held
+question, When should the farmers market start in summer?
+  pilot, none
+  wave, seven in the morning
+movement, openai-4, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, in the woods
+  wave, by the river
+movement, openai-4, moved
+question, What should the choir sing at the winter concert?
+  pilot, a mix of carols and folk songs
+  wave, a mix of carols and folk songs
+movement, openai-4, held
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, openai-4, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, openai-4, held
+agreement, 34 of 35, 34/35
+respondent block, openai-5
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+set, full, recorded 30, valid 20, abstained 10, spoiled 0
+set, wave, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-5, recorded 54, valid 36, abstained 18, spoiled 0
+question, Should the village library open on Sunday mornings?
+  pilot, open on Sundays
+  wave, open on Sundays
+movement, openai-5, held
+question, When should the community hall hold its spring clean?
+  pilot, none
+  wave, none
+movement, openai-5, not counted
+question, Should the school bake sale take card payments?
+  pilot, both cards and cash
+  wave, both cards and cash
+movement, openai-5, held
+question, Which night should the book club meet?
+  pilot, none
+  wave, none
+movement, openai-5, not counted
+question, Should the allotment gate be locked at dusk?
+  pilot, none
+  wave, lock it at dusk
+movement, openai-5, not counted
+question, What should the pub quiz do with tied scores?
+  pilot, a tiebreak question
+  wave, a tiebreak question
+movement, openai-5, held
+question, Should the parish newsletter go out by email instead of print?
+  pilot, both email and print
+  wave, both email and print
+movement, openai-5, held
+question, When should the farmers market start in summer?
+  pilot, eight in the morning
+  wave, none
+movement, openai-5, not counted
+question, Should the scout troop camp by the river or in the woods?
+  pilot, in the woods
+  wave, by the river
+movement, openai-5, moved
+question, What should the choir sing at the winter concert?
+  pilot, a mix of carols and folk songs
+  wave, a mix of carols and folk songs
+movement, openai-5, held
+question, Should the bus stop move closer to the shops?
+  pilot, none
+  wave, none
+movement, openai-5, not counted
+question, How should the village fete handle rain?
+  pilot, move into the hall
+  wave, move into the hall
+movement, openai-5, held
+agreement, 34 of 36, 17/18
+record, polls 64, recorded 567, valid 346, abstained 221, spoiled 0
+movements, 68 held, 2 moved, 50 not counted
