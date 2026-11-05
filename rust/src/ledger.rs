@@ -21,16 +21,9 @@ use crate::agreement::{jury_reading, poll_juries, responses_of};
 use crate::polls::{fraction_text, Poll, Response};
 use crate::pytext::PText;
 use crate::record::{
-    collect_questions, movement_of, record_line, validate_sets, Counts, MovementCounts, Questions,
+    collect_questions, collect_respondents, is_valid, movement_of, record_line, validate_sets,
+    Counts, MovementCounts, Questions,
 };
-
-/// Whether a response is a valid answer of its poll,
-/// neither abstained nor spoiled, read through the jury
-/// reading of GJ-8 over the single response, the one home
-/// of the classification.
-fn is_valid(poll: &Poll, response: &Response) -> bool {
-    jury_reading(poll, &[response]).valid == 1
-}
 
 /// Return the juror ledger reading over a list of recorded
 /// poll sets as lines, or the defect the first failed rule
@@ -58,17 +51,9 @@ pub fn ledger_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> 
     validate_sets(sets)?;
 
     // The respondents of the record, in the order their
-    // juror strings first appear across it.
-    let mut respondents: Vec<PText> = Vec::new();
-    for (_, polls) in sets {
-        for poll in polls {
-            for response in &poll.responses {
-                if !respondents.contains(&response.juror) {
-                    respondents.push(response.juror.clone());
-                }
-            }
-        }
-    }
+    // juror strings first appear across it, as the shared
+    // collection of the record module gathers them.
+    let respondents = collect_respondents(sets);
 
     // The questions of the reading and their askings, as
     // GJ-11 states them for the census and the shared

@@ -20,6 +20,10 @@
 //! respondent and states the counts of each respondent, the
 //! movement of its own answers, and how often its answer
 //! stood with the plurality of its jury, under GJ-13. The
+//! dissent reading reads the whole record asking by
+//! asking and states the plurality of each jury, the
+//! margin it stood by, and the respondents who stood
+//! against it, under GJ-15. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -29,6 +33,7 @@ pub mod agreement;
 pub mod census;
 pub mod cli;
 pub mod compare;
+pub mod dissent;
 pub mod json;
 pub mod ledger;
 pub mod makers;

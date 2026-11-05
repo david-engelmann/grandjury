@@ -7,12 +7,15 @@
 //! counts, and close with the same record line and the
 //! same movement counts line, and the movement selection
 //! of those readings also stands in the wave comparison
-//! reading of GJ-10. Those forms stand here once, in one
-//! home, so the readings that share them cannot drift
-//! apart.
+//! reading of GJ-10. The dissent reading of GJ-15 stands
+//! on the same set rules, and the single response
+//! classification and the respondent collection the
+//! ledger and the dissent share stand here as well.
+//! Those forms stand here once, in one home, so the
+//! readings that share them cannot drift apart.
 
-use crate::agreement::{counts_text, JuryReading};
-use crate::polls::Poll;
+use crate::agreement::{counts_text, jury_reading, JuryReading};
+use crate::polls::{Poll, Response};
 use crate::pytext::PText;
 
 /// Check the sets of a reading across the recorded poll
@@ -77,6 +80,25 @@ pub(crate) fn collect_questions(sets: &[(PText, Vec<Poll>)]) -> Questions<'_> {
         }
     }
     Questions { questions, askings }
+}
+
+/// Gather the respondents of a reading across the
+/// recorded poll sets, each juror string in the order it
+/// first appears across the record, the order the blocks
+/// of the ledger stand in and the dissenter lines of the
+/// dissent stand in.
+pub(crate) fn collect_respondents(sets: &[(PText, Vec<Poll>)]) -> Vec<PText> {
+    let mut respondents: Vec<PText> = Vec::new();
+    for (_, polls) in sets {
+        for poll in polls {
+            for response in &poll.responses {
+                if !respondents.contains(&response.juror) {
+                    respondents.push(response.juror.clone());
+                }
+            }
+        }
+    }
+    respondents
 }
 
 /// The counts of one jury or one respondent over some
@@ -181,4 +203,13 @@ impl MovementCounts {
 /// and the counts of the whole record.
 pub(crate) fn record_line(polls: usize, counts: &Counts) -> String {
     format!("record, polls {}, {}", polls, counts.text())
+}
+
+/// Whether a response is a valid answer of its poll,
+/// neither abstained nor spoiled, read through the jury
+/// reading of GJ-8 over the single response, the one home
+/// of the classification the readings across the sets
+/// share.
+pub(crate) fn is_valid(poll: &Poll, response: &Response) -> bool {
+    jury_reading(poll, &[response]).valid == 1
 }
