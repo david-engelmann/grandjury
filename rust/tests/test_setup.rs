@@ -30,7 +30,7 @@ fn agents_carries_the_canonical_marker() {
 #[test]
 fn readme_states_the_closed_round_count() {
     let text = root_text("README.md");
-    assert!(text.contains("Closed perfection rounds, 5 of 100"));
+    assert!(text.contains("Closed perfection rounds, 6 of 100"));
 }
 
 #[test]
@@ -71,13 +71,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 5 slice for the same
     // consequence, and restored at the Round 5 closure, and
     // altered again at the Round 6 slice for the same
-    // consequence. This pin counts the slices standing in
-    // review across the whole README. Slice 7 stands in
-    // review while Round 6 is built, so the count stands at
-    // one until the Round 6 closure lands slice 7 and the
-    // count returns to zero. The round pins below hold the
-    // standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 1);
+    // consequence, and restored at the Round 6 closure.
+    // This pin counts the slices standing in review across
+    // the whole README. Slice 7 stood in review while
+    // Round 6 was built, and the Round 6 closure landed
+    // slice 7, so the count stands at zero. The round pins
+    // below hold the standing lines and the slice lines
+    // themselves.
+    assert_eq!(text.matches("built and in review").count(), 0);
 }
 
 #[test]
@@ -117,12 +118,14 @@ fn contract_carries_the_round_five_obligations() {
 }
 
 #[test]
-fn readme_reports_the_round_six_slice() {
+fn readme_reports_the_round_six_status() {
     let text = root_text("README.md");
     let lines = lines_of(&text);
-    let slice_line = "- Slice 7 is built and in review. It carries the juror ledger reading over the three recorded poll sets, the pilot and the full poll and the second wave read together respondent by respondent under their set labels, with its command and its golden.";
+    let standing = "- Contract, GJ-13 and GJ-14 met. They stand in full form in CONTRACT.md with the Round 6 repair amendment, and Round 6 closed on the merged slice 7 after three reviews, a repair pass, and an approving re-review.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 7 has landed. It carries the juror ledger reading over the three recorded poll sets, the pilot and the full poll and the second wave read together respondent by respondent under their set labels, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 5 of 100"));
+    assert!(text.contains("Closed perfection rounds, 6 of 100"));
 }
 
 #[test]
