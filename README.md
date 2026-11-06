@@ -1,14 +1,18 @@
 # grandjury
 
-Ten thousand tiny judges empanelled on any question, for pocket change.
+Grandjury is a Rust library and command line tool that reads recorded polls of decision models and prints readings over them.
 
 ## What this is
 
-Ask one big model a question and you get one confident answer. Grandjury asks the crowd instead. It polls ten thousand tiny cheap models on the same question and renders the verdict as a stadium filling in, a live histogram of the vote plus a wall of one-line reasons from individual jurors. The cost counter stays embarrassingly small the whole time. The point is the absurd scale itself, made visible. Majority, dissent, and the price of finding out, all on one screen.
+A poll holds one question, the set of answers offered, and one recorded response per juror, and each response holds the answer the juror chose and a one line reason. Grandjury reads poll files from disk and prints readings over them. Every command runs offline and makes no live call, and the same file always prints the same lines. The polls under examples were recorded in earlier rounds from two decision model routes under stated caps, and they stand committed as fixtures with their raw envelopes and their run records.
+
+Each file loads whole or not at all. A malformed poll yields no reading, and its loader names every malformed field it finds. A response naming an answer that was not offered is counted as spoiled and reported apart from the tally of the offered answers.
+
+The tally command prints the count and the share for every answer in one recorded poll. The stadium command prints the tally of one poll as a histogram together with a wall of the jurors' one line reasons. The cost command prints what a recorded poll would have cost live, priced from a stated price table and the response count. The agreement command prints the agreement reading over recorded polls, stating for each poll and each jury the share every answer drew, the jury's plurality answer, and whether the pluralities of the two juries agree. The compare command prints the wave comparison reading over two poll sets. The census command prints the census reading over one or more recorded poll sets named with labels, question by question and jury by jury. The ledger command prints the juror ledger reading over the same sets, respondent by respondent. The dissent command prints the dissent reading, each jury's plurality, the margin it stood by, and the respondents who stood against it. The swing command prints the swing reading, the plurality of each asking pooled over the whole poll, the margin it stood by, and the course of each question across its askings.
 
 ## Status
 
-Seeded in October 2026. Setup has landed and Rounds 1 to 5 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
+Seeded in October 2026. Setup has landed and Rounds 1 to 7 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
 
 ## Programme status
 
