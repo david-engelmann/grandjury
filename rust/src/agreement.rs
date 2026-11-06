@@ -72,6 +72,32 @@ impl JuryReading {
             })
             .collect()
     }
+
+    /// The margin of the plurality of the reading, the
+    /// count of the plurality answer minus the largest
+    /// count among the other offered answers, or no margin
+    /// where no plurality stands. The dissent reading of
+    /// GJ-15 states this figure for one jury at one asking
+    /// and the swing reading of GJ-18 states it for the
+    /// whole poll at one asking, and the figure stands
+    /// here in one place for both readings.
+    pub(crate) fn margin(&self) -> Option<usize> {
+        let plurality = self.plurality.as_ref()?;
+        let standing = self
+            .rows
+            .iter()
+            .find(|(answer, _, _)| answer == plurality)
+            .map(|(_, count, _)| *count)
+            .unwrap_or(0);
+        let largest_other = self
+            .rows
+            .iter()
+            .filter(|(answer, _, _)| answer != plurality)
+            .map(|(_, count, _)| *count)
+            .max()
+            .unwrap_or(0);
+        Some(standing - largest_other)
+    }
 }
 
 /// Return the reading of one jury in a poll as data.

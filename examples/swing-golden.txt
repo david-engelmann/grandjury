@@ -1,0 +1,169 @@
+question, Should the village library open on Sunday mornings?
+asking, pilot, open on Sundays, margin 5
+asking, wave, open on Sundays, margin 5
+course, held
+question, When should the community hall hold its spring clean?
+asking, pilot, the first Saturday of April, margin 5
+asking, wave, the first Saturday of April, margin 6
+course, held
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, margin 10
+asking, wave, both cards and cash, margin 10
+course, held
+question, Which night should the book club meet?
+asking, pilot, Wednesday, margin 4
+asking, wave, Wednesday, margin 5
+course, held
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, margin 7
+asking, wave, lock it at dusk, margin 7
+course, held
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, margin 10
+asking, wave, a tiebreak question, margin 10
+course, held
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, margin 10
+asking, wave, both email and print, margin 10
+course, held
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, margin 3
+asking, wave, eight in the morning, margin 3
+course, held
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, in the woods, margin 5
+asking, wave, in the woods, margin 1
+course, held
+question, What should the choir sing at the winter concert?
+asking, pilot, a mix of carols and folk songs, margin 5
+asking, wave, a mix of carols and folk songs, margin 5
+course, held
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, margin not counted
+asking, wave, none, margin not counted
+course, never decided
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, margin 9
+asking, wave, move into the hall, margin 10
+course, held
+question, Should the post office counter open an hour earlier on market days?
+asking, full, open an hour earlier, margin 1
+course, held
+question, Which soup should the lunch club serve on Fridays?
+asking, full, none, margin not counted
+course, never decided
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+asking, full, on Thursdays, margin 5
+course, held
+question, What should the gardening club plant along the fence this year?
+asking, full, none, margin not counted
+course, never decided
+question, Should the farm shop sell flowers as well as vegetables?
+asking, full, sell flowers too, margin 5
+course, held
+question, When should the repair cafe run each month?
+asking, full, none, margin not counted
+course, never decided
+question, Should the school playground open to families at weekends?
+asking, full, open it at weekends, margin 8
+course, held
+question, Which film should the cinema club show in December?
+asking, full, a classic musical, margin 5
+course, held
+question, Should the gym add a beginners class on Monday evenings?
+asking, full, add the class, margin 5
+course, held
+question, What colour should the hall kitchen be repainted?
+asking, full, cream, margin 5
+course, held
+question, Should the dog show move to the bigger field?
+asking, full, move it, margin 5
+course, held
+question, When should the youth club take its summer trip?
+asking, full, none, margin not counted
+course, never decided
+question, Should the toy library lend board games as well as toys?
+asking, full, lend games too, margin 10
+course, held
+question, What should the bakery bake for the harvest festival?
+asking, full, fruit pies, margin 5
+course, held
+question, Should the last bus leave an hour later on Friday nights?
+asking, full, leave later, margin 7
+course, held
+question, Which day should the jumble sale be held?
+asking, full, on Saturday, margin 10
+course, held
+question, Should the swimming pool offer early morning lane swimming?
+asking, full, offer it, margin 2
+course, held
+question, What should the art group show at the spring exhibition?
+asking, full, landscapes, margin 4
+course, held
+question, Should the village hall roof be repaired this year or next year?
+asking, full, this year, margin 6
+course, held
+question, When should the orchard group press the apples?
+asking, full, none, margin not counted
+course, never decided
+question, Where should the chess club meet?
+asking, full, in the community room, margin 6
+course, held
+question, Should the running club add a Sunday morning run?
+asking, full, add it, margin 3
+course, held
+question, What should the sewing circle make for the charity stall?
+asking, full, none, margin not counted
+course, never decided
+question, Should the primary school start a breakfast club?
+asking, full, start one, margin 5
+course, held
+question, Which tree should the parish plant on the green?
+asking, full, an oak, margin 4
+course, held
+question, Should the tennis club resurface the second court?
+asking, full, resurface it, margin 3
+course, held
+question, When should the history society hold its winter talk?
+asking, full, on a weekday evening, margin 2
+course, held
+question, Should the cafe serve breakfast all day?
+asking, full, all day, margin 3
+course, held
+question, What should the drama group perform at Christmas?
+asking, full, a pantomime, margin 6
+course, held
+question, Should the village buy a shared marquee for events?
+asking, full, hire one when needed, margin 10
+course, held
+question, Which path should the walking group take for the spring walk?
+asking, full, the woodland path, margin 6
+course, held
+question, Should the post box be emptied twice a day?
+asking, full, once a day as now, margin 10
+course, held
+question, What should the photography club shoot for its calendar?
+asking, full, gardens, margin 1
+course, held
+question, Should the playgroup meet four mornings a week instead of three?
+asking, full, keep three mornings, margin 10
+course, held
+question, When should the bonfire be lit on bonfire night?
+asking, full, at seven in the evening, margin 5
+course, held
+question, Should the museum open a small cafe?
+asking, full, open one, margin 5
+course, held
+question, What should the beekeeping group do with the honey harvest?
+asking, full, share it among members, margin 4
+course, held
+question, Which evening should the language class meet?
+asking, full, none, margin not counted
+course, never decided
+question, Should the car park behind the shops be free on Sundays?
+asking, full, free on Sundays, margin 10
+course, held
+question, What should the youth orchestra play at the summer concert?
+asking, full, classical favourites, margin 5
+course, held
+swings, 52 questions, 44 held, 0 swung, 8 never decided, 64 askings
