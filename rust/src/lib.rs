@@ -23,7 +23,12 @@
 //! dissent reading reads the whole record asking by
 //! asking and states the plurality of each jury, the
 //! margin it stood by, and the respondents who stood
-//! against it, under GJ-15. The
+//! against it, under GJ-15. The swing reading reads the
+//! whole record question by question and states the
+//! plurality of each asking pooled over the valid
+//! responses of the whole poll, the margin it stood by,
+//! and the course of each question across its askings,
+//! under GJ-17. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -45,3 +50,4 @@ pub mod pyunicode;
 pub mod record;
 pub mod scan;
 pub mod seats;
+pub mod swing;

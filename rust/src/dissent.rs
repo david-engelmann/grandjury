@@ -74,23 +74,12 @@ pub fn dissent_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String>
                 match &reading.plurality {
                     Some(plurality) => {
                         pluralities += 1;
-                        let standing = reading
-                            .rows
-                            .iter()
-                            .find(|(answer, _, _)| answer == plurality)
-                            .map(|(_, count, _)| *count)
-                            .unwrap_or(0);
-                        let largest_other = reading
-                            .rows
-                            .iter()
-                            .filter(|(answer, _, _)| answer != plurality)
-                            .map(|(_, count, _)| *count)
-                            .max()
-                            .unwrap_or(0);
                         lines.push(format!(
                             "margin, {}, {}",
                             label.display(),
-                            standing - largest_other
+                            reading
+                                .margin()
+                                .expect("the margin of a standing plurality")
                         ));
                         let dissenters: Vec<&PText> = responses
                             .iter()
