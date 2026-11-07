@@ -18,7 +18,7 @@
 use crate::agreement::{jury_reading, poll_juries};
 use crate::polls::Poll;
 use crate::pytext::PText;
-use crate::record::{collect_respondents, is_valid, validate_sets};
+use crate::record::{collect_respondents, dissenters_of, validate_sets};
 
 /// Return the dissent reading over a list of recorded
 /// poll sets as lines, or the defect the first failed
@@ -81,18 +81,9 @@ pub fn dissent_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String>
                                 .margin()
                                 .expect("the margin of a standing plurality")
                         ));
-                        let dissenters: Vec<&PText> = responses
-                            .iter()
-                            .filter(|response| {
-                                is_valid(poll, response) && response.answer != *plurality
-                            })
-                            .map(|response| &response.juror)
-                            .collect();
-                        for respondent in &respondents {
-                            if dissenters.contains(&respondent) {
-                                lines.push(format!("dissenter, {}", respondent.display()));
-                                counted += 1;
-                            }
+                        for juror in dissenters_of(poll, responses, plurality, &respondents) {
+                            lines.push(format!("dissenter, {}", juror.display()));
+                            counted += 1;
                         }
                     }
                     None => {

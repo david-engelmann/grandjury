@@ -1,6 +1,6 @@
 //! The grandjury command line surface, as a library function.
 //!
-//! Nine commands work on recorded polls. The dispatch mirrors
+//! Ten commands work on recorded polls. The dispatch mirrors
 //! the Python argparse surface of the same name, the help and
 //! usage text wraps at the width the Python surface wraps at
 //! under PORT-7, the arguments are carried as the code unit
@@ -17,6 +17,7 @@ use crate::census::census_lines;
 use crate::compare::compare_lines;
 use crate::dissent::dissent_lines;
 use crate::ledger::ledger_lines;
+use crate::minority::minority_lines;
 use crate::polls::{
     cost_lines, load_poll_file, load_prices_file, render_stadium, render_tally_lines, Poll,
 };
@@ -277,7 +278,7 @@ fn spec_max_invocation(spec: &ParserSpec) -> usize {
     max
 }
 
-const COMMANDS: [&str; 9] = [
+const COMMANDS: [&str; 10] = [
     "tally",
     "stadium",
     "cost",
@@ -287,11 +288,12 @@ const COMMANDS: [&str; 9] = [
     "ledger",
     "dissent",
     "swing",
+    "minority",
 ];
 
 fn top_spec() -> ParserSpec {
     let mut commands = action(
-        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing}",
+        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority}",
         None,
     );
     commands.subactions = vec![
@@ -319,15 +321,20 @@ fn top_spec() -> ParserSpec {
             "swing",
             Some("print the swing reading over recorded poll sets"),
         ),
+        action(
+            "minority",
+            Some("print the minority reading over recorded poll sets"),
+        ),
     ];
     let mut spec = ParserSpec {
         prog: "grandjury",
         description: Some("Poll tiny models and render the stadium vote."),
         opt_usage: "[-h]",
-        pos_usage: "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing} ...",
+        pos_usage:
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority} ...",
         opt_parts: vec!["[-h]"],
         pos_parts: vec![
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing}",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority}",
             "...",
         ],
         positionals: vec![commands],
@@ -395,6 +402,12 @@ fn sub_spec(command: &str) -> ParserSpec {
         ),
         "swing" => (
             "grandjury swing",
+            vec![action("label", None), action("directory", None)],
+            "label directory [label directory ...]",
+            vec!["label", "directory", "[label", "directory", "...]"],
+        ),
+        "minority" => (
+            "grandjury minority",
             vec![action("label", None), action("directory", None)],
             "label directory [label directory ...]",
             vec!["label", "directory", "[label", "directory", "...]"],
@@ -918,7 +931,7 @@ fn invalid_choice(spec: &ParserSpec, columns: usize, value: &PText) -> Outcome {
         spec,
         columns,
         &format!(
-            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing')",
+            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority')",
             py_repr(value)
         ),
     )
@@ -943,14 +956,15 @@ fn parse_subcommand(
         "cost" => &["poll_file", "prices_file"],
         "agreement" => &["poll_files"],
         "compare" => &["first_dir", "second_dir"],
-        "census" | "ledger" | "dissent" | "swing" => &["label", "directory"],
+        "census" | "ledger" | "dissent" | "swing" | "minority" => &["label", "directory"],
         _ => &["poll_file"],
     };
     let unlimited = command == "agreement"
         || command == "census"
         || command == "ledger"
         || command == "dissent"
-        || command == "swing";
+        || command == "swing"
+        || command == "minority";
     let mut values: Vec<PText> = Vec::new();
     let mut extras: Vec<PText> = top_extras;
     let mut positional_only = false;
@@ -1079,7 +1093,11 @@ fn run_subcommand(
             &format!("unrecognized arguments: {}", joined),
         );
     }
-    if (command == "census" || command == "ledger" || command == "dissent" || command == "swing")
+    if (command == "census"
+        || command == "ledger"
+        || command == "dissent"
+        || command == "swing"
+        || command == "minority")
         && values.len() % 2 == 1
     {
         // The census arguments stand as label and directory
@@ -1090,7 +1108,9 @@ fn run_subcommand(
         // refusal, as GJ-14 states, and the dissent takes
         // the same pairs and the same refusal, as GJ-16
         // states, and the swing takes the same pairs and
-        // the same refusal, as GJ-18 states.
+        // the same refusal, as GJ-18 states, and the
+        // minority takes the same pairs and the same
+        // refusal, as GJ-20 states.
         return usage_error(
             &sub_spec(command),
             columns,
@@ -1107,6 +1127,7 @@ fn run_subcommand(
         "ledger" => command_ledger(&values),
         "dissent" => command_dissent(&values),
         "swing" => command_swing(&values),
+        "minority" => command_minority(&values),
         _ => unreachable!("a known command"),
     }
 }
@@ -1376,6 +1397,42 @@ fn command_swing(values: &[PText]) -> Outcome {
         }
         Err(defect) => {
             lines.push("invalid swing".to_string());
+            lines.push(format!("defect {}", defect));
+            Outcome::plain(lines, 1)
+        }
+    }
+}
+
+/// The minority command. The arguments stand as set label and
+/// directory pairs exactly as the census command takes them,
+/// and the sets load in pair order through the same poll set
+/// loader, so the first set whose polls draw defects stands
+/// its defect lines in the outcome and no minority prints, the
+/// minority whole or nothing as GJ-20 states. A refusal of
+/// the minority reading itself prints the invalid minority
+/// line and its defect line, in the form of the invalid
+/// census surface.
+fn command_minority(values: &[PText]) -> Outcome {
+    let mut lines: Vec<String> = Vec::new();
+    let mut sets: Vec<(PText, Vec<Poll>)> = Vec::new();
+    // The dispatch refuses an odd argument count before this
+    // command runs, so the values stand in whole pairs and
+    // the remainder of the pairing is empty.
+    let (pairs, _) = values.as_chunks::<2>();
+    for pair in pairs {
+        let polls = match load_poll_set(&pair[1], &mut lines) {
+            Some(polls) => polls,
+            None => return Outcome::plain(lines, 1),
+        };
+        sets.push((pair[0].clone(), polls));
+    }
+    match minority_lines(&sets) {
+        Ok(reading) => {
+            lines.extend(reading);
+            Outcome::plain(lines, 0)
+        }
+        Err(defect) => {
+            lines.push("invalid minority".to_string());
             lines.push(format!("defect {}", defect));
             Outcome::plain(lines, 1)
         }

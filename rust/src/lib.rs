@@ -28,7 +28,11 @@
 //! plurality of each asking pooled over the valid
 //! responses of the whole poll, the margin it stood by,
 //! and the course of each question across its askings,
-//! under GJ-17. The
+//! under GJ-17. The minority reading reads the whole
+//! record question by question and states the plurality
+//! of each asking pooled over the whole poll, the margin
+//! it stood by, and the respondents whose valid answer
+//! was not the pooled plurality answer, under GJ-19. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -42,6 +46,7 @@ pub mod dissent;
 pub mod json;
 pub mod ledger;
 pub mod makers;
+pub mod minority;
 pub mod polls;
 pub mod pydecimal;
 pub mod pynum;

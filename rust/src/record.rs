@@ -213,3 +213,37 @@ pub(crate) fn record_line(polls: usize, counts: &Counts) -> String {
 pub(crate) fn is_valid(poll: &Poll, response: &Response) -> bool {
     jury_reading(poll, &[response]).valid == 1
 }
+
+/// The dissenters of one asking or one jury, the jurors
+/// whose valid answer was not the plurality answer, in
+/// the order the respondents first appear across the
+/// record.
+///
+/// The responses are the responses of the asking or of
+/// the jury, and the plurality is the standing plurality
+/// answer those responses are read against, the
+/// plurality of the jury under GJ-8 in the dissent
+/// reading and the pooled plurality of GJ-17 in the
+/// minority reading, and the helper is called only where
+/// a plurality stands, so where no plurality stands no
+/// dissenter stands. The selection the dissent reading
+/// of GJ-15 and the minority reading of GJ-19 share
+/// stands here once, so the two readings cannot drift
+/// apart in who a dissenter is or in the order the
+/// dissenter lines stand in.
+pub(crate) fn dissenters_of<'a>(
+    poll: &Poll,
+    responses: &[&Response],
+    plurality: &PText,
+    respondents: &'a [PText],
+) -> Vec<&'a PText> {
+    let dissenting: Vec<&PText> = responses
+        .iter()
+        .filter(|response| is_valid(poll, response) && response.answer != *plurality)
+        .map(|response| &response.juror)
+        .collect();
+    respondents
+        .iter()
+        .filter(|respondent| dissenting.contains(respondent))
+        .collect()
+}
