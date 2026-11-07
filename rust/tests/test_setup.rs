@@ -30,7 +30,7 @@ fn agents_carries_the_canonical_marker() {
 #[test]
 fn readme_states_the_closed_round_count() {
     let text = root_text("README.md");
-    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
 }
 
 #[test]
@@ -79,12 +79,13 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 9 slice for the same
     // consequence, and restored at the Round 9 closure, and
     // altered again at the Round 10 slice for the same
-    // consequence. This pin counts the slices standing in
-    // review across the whole README. Slice 11 stands in
-    // review while Round 10 is built, so the count stands
-    // at one. The round pins below hold the standing lines
+    // consequence, and restored at the Round 10 closure.
+    // This pin counts the slices standing in
+    // review across the whole README. No slice stands in
+    // review while Round 11 is unbuilt, so the count stands
+    // at zero. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 1);
+    assert_eq!(text.matches("built and in review").count(), 0);
 }
 
 #[test]
@@ -131,7 +132,7 @@ fn readme_reports_the_round_six_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 7 has landed. It carries the juror ledger reading over the three recorded poll sets, the pilot and the full poll and the second wave read together respondent by respondent under their set labels, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
 }
 
 #[test]
@@ -150,7 +151,7 @@ fn readme_reports_the_round_seven_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 8 has landed. It carries the dissent reading over the three recorded poll sets, the pilot and the full poll and the second wave read together asking by asking under their set labels, stating each jury plurality, the margin it stood by, and the respondents who stood against it, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
 }
 
 #[test]
@@ -169,7 +170,7 @@ fn readme_reports_the_round_eight_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 9 has landed. It carries the swing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the course of each question across its askings, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
 }
 
 #[test]
@@ -188,7 +189,7 @@ fn readme_reports_the_round_nine_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 10 has landed. It carries the minority reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the respondents whose valid answer was not the pooled plurality answer, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
 }
 
 #[test]
@@ -240,14 +241,14 @@ fn readme_first_screen_carries_the_badge_and_the_tally_reading() {
 }
 
 #[test]
-fn readme_reports_the_round_ten_slice() {
+fn readme_reports_the_round_ten_status() {
     let text = root_text("README.md");
     let lines = lines_of(&text);
-    let standing = "- Contract, GJ-21 and GJ-22 stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment. Their standing is not claimed here, as Round 10 has not closed.";
+    let standing = "- Contract, GJ-21 and GJ-22 met. They stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment, and Round 10 closed on the merged slice 11 after three reviews approving, the spec review's two conditions discharged on executed checks.";
     assert!(lines.contains(&standing));
-    let slice_line = "- Slice 11 is built and in review. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.";
+    let slice_line = "- Slice 11 has landed. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
 }
 
 #[test]
