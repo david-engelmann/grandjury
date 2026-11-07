@@ -20,7 +20,7 @@
 use crate::agreement::jury_reading;
 use crate::polls::{Poll, Response};
 use crate::pytext::PText;
-use crate::record::{collect_questions, validate_sets, Questions};
+use crate::record::{check_poll_text, collect_questions, validate_sets, Questions};
 
 /// Return the swing reading over a list of recorded
 /// poll sets as lines, or the defect the first failed
@@ -41,6 +41,9 @@ use crate::record::{collect_questions, validate_sets, Questions};
 /// of the reading, the course lines by their course, and
 /// the asking lines of the reading.
 pub fn swing_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> {
+    for (_, polls) in sets {
+        check_poll_text(polls)?;
+    }
     validate_sets(sets)?;
 
     // The questions of the reading and their askings, as

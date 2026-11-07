@@ -18,7 +18,7 @@
 use crate::agreement::{jury_reading, poll_juries};
 use crate::polls::Poll;
 use crate::pytext::PText;
-use crate::record::{collect_respondents, dissenters_of, validate_sets};
+use crate::record::{check_poll_text, collect_respondents, dissenters_of, validate_sets};
 
 /// Return the dissent reading over a list of recorded
 /// poll sets as lines, or the defect the first failed
@@ -40,6 +40,9 @@ use crate::record::{collect_respondents, dissenters_of, validate_sets};
 /// of the reading, the parts at which a plurality stood,
 /// and the dissenter lines of the reading.
 pub fn dissent_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> {
+    for (_, polls) in sets {
+        check_poll_text(polls)?;
+    }
     validate_sets(sets)?;
 
     // The respondents of the record, in the order their

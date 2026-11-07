@@ -22,7 +22,8 @@ use crate::agreement::jury_reading;
 use crate::polls::{Poll, Response};
 use crate::pytext::PText;
 use crate::record::{
-    collect_questions, collect_respondents, dissenters_of, validate_sets, Questions,
+    check_poll_text, collect_questions, collect_respondents, dissenters_of, validate_sets,
+    Questions,
 };
 
 /// Return the minority reading over a list of recorded
@@ -46,6 +47,9 @@ use crate::record::{
 /// reading, the asking blocks, the blocks at which a
 /// pooled plurality stood, and the dissenter lines.
 pub fn minority_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> {
+    for (_, polls) in sets {
+        check_poll_text(polls)?;
+    }
     validate_sets(sets)?;
 
     // The questions of the reading and their askings, as

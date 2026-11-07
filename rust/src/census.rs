@@ -15,7 +15,8 @@ use crate::agreement::{jury_reading, poll_juries, responses_of, JuryReading};
 use crate::polls::Poll;
 use crate::pytext::PText;
 use crate::record::{
-    collect_questions, movement_of, record_line, validate_sets, Counts, MovementCounts, Questions,
+    check_poll_text, collect_questions, movement_of, record_line, validate_sets, Counts,
+    MovementCounts, Questions,
 };
 
 /// Push the part of one jury block that one asking carries,
@@ -66,6 +67,9 @@ fn push_asking_part(lines: &mut Vec<String>, label: &PText, reading: &JuryReadin
 /// record stand, and the closing line counts the movement
 /// lines of the reading.
 pub fn census_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> {
+    for (_, polls) in sets {
+        check_poll_text(polls)?;
+    }
     validate_sets(sets)?;
 
     // The questions of the reading and their askings, as

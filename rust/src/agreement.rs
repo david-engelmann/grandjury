@@ -14,6 +14,7 @@ use num_rational::Ratio;
 
 use crate::polls::{fraction_text, percent, Poll, Response};
 use crate::pytext::PText;
+use crate::record::check_poll_text;
 
 /// The reading of one jury in a poll as data.
 pub(crate) struct JuryReading {
@@ -189,7 +190,10 @@ pub(crate) fn poll_juries(poll: &Poll) -> Vec<(PText, Vec<&Response>)> {
     order.into_iter().zip(grouped).collect()
 }
 
-/// Return the agreement reading of a list of polls as lines.
+/// Return the agreement reading of a list of polls as lines,
+/// or the refusal the poll text guard of the record module
+/// names for the first handed field holding a line break,
+/// as FIX-GJ-14 states.
 ///
 /// The reading holds one section per poll in the order the
 /// polls stand and a closing line. A section names the
@@ -199,7 +203,8 @@ pub(crate) fn poll_juries(poll: &Poll) -> Vec<(PText, Vec<&Response>)> {
 /// reads not counted in every other case. The closing line
 /// counts the agree sections over the sections that read agree
 /// or differ.
-pub fn agreement_lines(polls: &[Poll]) -> Vec<String> {
+pub fn agreement_lines(polls: &[Poll]) -> Result<Vec<String>, String> {
+    check_poll_text(polls)?;
     let mut lines: Vec<String> = Vec::new();
     let mut agreed = 0usize;
     let mut counted = 0usize;
@@ -239,5 +244,5 @@ pub fn agreement_lines(polls: &[Poll]) -> Vec<String> {
         }
     }
     lines.push(format!("agreements, {} of {}", agreed, counted));
-    lines
+    Ok(lines)
 }

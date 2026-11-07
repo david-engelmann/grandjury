@@ -1207,8 +1207,17 @@ fn command_agreement(files: &[PText]) -> Outcome {
             None => return Outcome::plain(lines, 1),
         }
     }
-    lines.extend(agreement_lines(&polls));
-    Outcome::plain(lines, 0)
+    match agreement_lines(&polls) {
+        Ok(reading) => {
+            lines.extend(reading);
+            Outcome::plain(lines, 0)
+        }
+        Err(defect) => {
+            lines.push("invalid agreement".to_string());
+            lines.push(format!("defect {}", defect));
+            Outcome::plain(lines, 1)
+        }
+    }
 }
 
 /// Load the poll set of one directory, the files named
