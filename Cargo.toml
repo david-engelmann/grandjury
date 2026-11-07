@@ -2,6 +2,7 @@
 name = "grandjury"
 version = "0.1.0"
 edition = "2021"
+description = "Grandjury is a Rust library and command line tool that aggregates recorded answers to a question and prints readings over them."
 
 [lib]
 path = "rust/src/lib.rs"
@@ -92,6 +93,10 @@ path = "rust/tests/test_swing.rs"
 [[test]]
 name = "test_minority"
 path = "rust/tests/test_minority.rs"
+
+[[test]]
+name = "test_fencing"
+path = "rust/tests/test_fencing.rs"
 
 [dependencies]
 num-bigint = "0.4"

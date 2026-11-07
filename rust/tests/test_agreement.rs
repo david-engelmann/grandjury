@@ -59,7 +59,7 @@ fn door_poll_json() -> grandjury::json::JsonValue {
 #[test]
 fn the_reading_of_one_poll_stands_line_for_line() {
     assert_eq!(
-        agreement_lines(&[door_poll()]),
+        agreement_lines(&[door_poll()]).expect("a reading"),
         vec![
             "question, Which door?",
             "jury, jev-a, recorded 5, valid 3, abstained 1, spoiled 1",
@@ -90,7 +90,7 @@ fn a_tie_at_the_top_leaves_no_plurality() {
             response("openai-2", "chat-b", "a", false),
         ],
     );
-    let lines = agreement_lines(&[tied]);
+    let lines = agreement_lines(&[tied]).expect("a reading");
     assert!(lines.contains(&"plurality, jev-a, none".to_string()));
     assert!(lines.contains(&"plurality, chat-b, a".to_string()));
     assert!(lines.contains(&"pluralities, not counted".to_string()));
@@ -111,7 +111,7 @@ fn a_tie_below_the_top_leaves_the_plurality_standing() {
             response("openai-1", "chat-b", "a", false),
         ],
     );
-    let lines = agreement_lines(&[tied_below]);
+    let lines = agreement_lines(&[tied_below]).expect("a reading");
     assert!(lines.contains(&"plurality, jev-a, a".to_string()));
 }
 
@@ -136,7 +136,7 @@ fn agree_and_differ_close_the_count() {
             response("openai-1", "chat-b", "a", false),
         ],
     );
-    let lines = agreement_lines(&[agree, differ, door_poll()]);
+    let lines = agreement_lines(&[agree, differ, door_poll()]).expect("a reading");
     assert_eq!(
         lines
             .iter()
@@ -172,7 +172,7 @@ fn a_jury_with_no_valid_responses_holds_no_plurality() {
             response("openai-1", "chat-b", "a", false),
         ],
     );
-    let lines = agreement_lines(&[silent]);
+    let lines = agreement_lines(&[silent]).expect("a reading");
     assert!(lines.contains(&"jury, jev-a, recorded 2, valid 0, abstained 2, spoiled 0".to_string()));
     assert!(lines.contains(&"  a, 0, 0, 0.0%".to_string()));
     assert!(lines.contains(&"  b, 0, 0, 0.0%".to_string()));
@@ -193,7 +193,7 @@ fn a_zero_valid_jury_in_a_one_answer_poll_holds_no_plurality() {
         ],
     );
     assert_eq!(
-        agreement_lines(&[one_answer]),
+        agreement_lines(&[one_answer]).expect("a reading"),
         vec![
             "question, Only one way?",
             "jury, jev-a, recorded 2, valid 0, abstained 2, spoiled 0",
@@ -218,7 +218,7 @@ fn two_zero_valid_juries_in_a_two_answer_poll_hold_no_plurality() {
             response("openai-1", "chat-b", "not offered", false),
         ],
     );
-    let lines = agreement_lines(&[hushed]);
+    let lines = agreement_lines(&[hushed]).expect("a reading");
     assert!(lines.contains(&"plurality, jev-a, none".to_string()));
     assert!(lines.contains(&"plurality, chat-b, none".to_string()));
     assert!(lines.contains(&"pluralities, not counted".to_string()));
@@ -238,7 +238,7 @@ fn spoiled_and_abstained_stand_outside_the_shares() {
             response("openai-1", "chat-b", "b", false),
         ],
     );
-    let lines = agreement_lines(&[mixed]);
+    let lines = agreement_lines(&[mixed]).expect("a reading");
     assert!(lines.contains(&"jury, jev-a, recorded 4, valid 2, abstained 1, spoiled 1".to_string()));
     assert!(lines.contains(&"  a, 2, 1, 100.0%".to_string()));
     assert!(lines.contains(&"  b, 0, 0, 0.0%".to_string()));
@@ -252,7 +252,7 @@ fn the_share_renders_lowest_terms_and_halves_up() {
     }
     responses.push(response("openai-1", "chat-b", "a", false));
     let sixteen = poll("Sixteenths?", vec!["a", "b"], responses);
-    let lines = agreement_lines(&[sixteen]);
+    let lines = agreement_lines(&[sixteen]).expect("a reading");
     assert!(lines.contains(&"  a, 1, 1/16, 6.3%".to_string()));
     assert!(lines.contains(&"  b, 15, 15/16, 93.8%".to_string()));
 }
@@ -267,7 +267,7 @@ fn juries_stand_in_first_appearance_order() {
             response("jev-1", "jev-a", "a", false),
         ],
     );
-    let lines = agreement_lines(&[reordered]);
+    let lines = agreement_lines(&[reordered]).expect("a reading");
     let chat_at = lines
         .iter()
         .position(|line| line.starts_with("jury, chat-b"))
@@ -291,7 +291,7 @@ fn three_juries_are_not_counted() {
             response("three-1", "model-three", "a", false),
         ],
     );
-    let lines = agreement_lines(&[crowd]);
+    let lines = agreement_lines(&[crowd]).expect("a reading");
     assert!(lines.contains(&"pluralities, not counted".to_string()));
     assert_eq!(lines.last().map(String::as_str), Some("agreements, 0 of 0"));
 }
@@ -303,7 +303,7 @@ fn one_jury_is_not_counted() {
         vec!["a", "b"],
         vec![response("jev-1", "jev-a", "a", false)],
     );
-    let lines = agreement_lines(&[solo]);
+    let lines = agreement_lines(&[solo]).expect("a reading");
     assert!(lines.contains(&"pluralities, not counted".to_string()));
     assert_eq!(lines.last().map(String::as_str), Some("agreements, 0 of 0"));
 }
@@ -312,7 +312,7 @@ fn one_jury_is_not_counted() {
 fn a_poll_with_no_responses_reads_not_counted() {
     let empty = poll("Nobody?", vec!["a", "b"], vec![]);
     assert_eq!(
-        agreement_lines(&[empty]),
+        agreement_lines(&[empty]).expect("a reading"),
         vec![
             "question, Nobody?",
             "pluralities, not counted",
@@ -385,7 +385,10 @@ fn the_agreement_golden_matches_the_function() {
         polls.push(loaded.expect("a poll"));
     }
     let golden = read_text(&examples().join("full-agreement-golden.txt"));
-    assert_eq!(agreement_lines(&polls).join("\n") + "\n", golden);
+    assert_eq!(
+        agreement_lines(&polls).expect("a reading").join("\n") + "\n",
+        golden
+    );
 }
 
 #[test]

@@ -77,13 +77,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 8 slice for the same
     // consequence, and restored at the Round 8 closure, and
     // altered again at the Round 9 slice for the same
-    // consequence, and restored at the Round 9 closure.
-    // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 10 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
+    // consequence, and restored at the Round 9 closure, and
+    // altered again at the Round 10 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. Slice 11 stands in
+    // review while Round 10 is built, so the count stands
+    // at one. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -196,6 +197,71 @@ fn contract_carries_the_round_nine_obligations() {
     for oid in ["GJ-19", "GJ-20"] {
         assert!(text.contains(oid), "{}", oid);
     }
+}
+
+#[test]
+fn readme_carries_the_one_line_description_in_both_carriers() {
+    let description = "Grandjury is a Rust library and command line tool that aggregates recorded answers to a question and prints readings over them.";
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    assert_eq!(lines.first(), Some(&"# grandjury"));
+    assert_eq!(lines.get(2), Some(&description));
+    let manifest = root_text("Cargo.toml");
+    let field = format!("description = \"{}\"", description);
+    assert!(lines_of(&manifest).contains(&field.as_str()));
+}
+
+#[test]
+fn readme_sections_stand_in_the_standard_order() {
+    let text = root_text("README.md");
+    let headings: Vec<&str> = lines_of(&text)
+        .into_iter()
+        .filter(|line| line.starts_with("## "))
+        .collect();
+    assert_eq!(
+        headings,
+        vec![
+            "## Install",
+            "## Quickstart",
+            "## Usage",
+            "## Status",
+            "## Programme status",
+            "## Licence",
+        ]
+    );
+}
+
+#[test]
+fn readme_first_screen_carries_the_badge_and_the_tally_reading() {
+    let text = root_text("README.md");
+    assert!(text.contains("[![ci](https://github.com/david-engelmann/grandjury/actions/workflows/ci.yml/badge.svg?branch=main)]"));
+    let block = "question, Should the night shift agent deploy on Fridays?\nresponses, 124\nvalid, 120\nspoiled, 4\ndeploy, 62, 51.7%\nhold, 36, 30.0%\ndeploy with a watcher, 22, 18.3%";
+    assert!(text.contains(block));
+}
+
+#[test]
+fn readme_reports_the_round_ten_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-21 and GJ-22 stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment. Their standing is not claimed here, as Round 10 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 11 is built and in review. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 9 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_ten_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-21", "GJ-22"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn contract_carries_the_round_ten_amendment() {
+    let text = root_text("CONTRACT.md");
+    assert!(text.contains("FIX-GJ-14"));
 }
 
 #[test]

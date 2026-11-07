@@ -21,8 +21,8 @@ use crate::agreement::{jury_reading, poll_juries, responses_of};
 use crate::polls::{fraction_text, Poll, Response};
 use crate::pytext::PText;
 use crate::record::{
-    collect_questions, collect_respondents, is_valid, movement_of, record_line, validate_sets,
-    Counts, MovementCounts, Questions,
+    check_poll_text, collect_questions, collect_respondents, is_valid, movement_of, record_line,
+    validate_sets, Counts, MovementCounts, Questions,
 };
 
 /// Return the juror ledger reading over a list of recorded
@@ -48,6 +48,9 @@ use crate::record::{
 /// the closing line count the movement lines of the
 /// reading.
 pub fn ledger_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, String> {
+    for (_, polls) in sets {
+        check_poll_text(polls)?;
+    }
     validate_sets(sets)?;
 
     // The respondents of the record, in the order their

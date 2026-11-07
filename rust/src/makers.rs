@@ -465,7 +465,9 @@ fn full_agreement_golden(polls: &[JsonValue]) -> MakerResult<String> {
     for poll in polls {
         built.push(golden_poll(poll)?);
     }
-    Ok(join_lines(&crate::agreement::agreement_lines(&built)))
+    Ok(join_lines(
+        &crate::agreement::agreement_lines(&built).map_err(MakerError)?,
+    ))
 }
 
 /// Build one recorded poll of the pilot tree, the function
