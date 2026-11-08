@@ -1,0 +1,229 @@
+model, jev-1.13.0
+question, Should the village library open on Sunday mornings?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, none, valid 0, with the plurality 0
+question, When should the community hall hold its spring clean?
+asking, pilot, the first Saturday of April, valid 5, with the plurality 5
+asking, wave, the first Saturday of April, valid 5, with the plurality 5
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, valid 5, with the plurality 5
+asking, wave, both cards and cash, valid 5, with the plurality 5
+question, Which night should the book club meet?
+asking, pilot, Wednesday, valid 4, with the plurality 4
+asking, wave, Wednesday, valid 5, with the plurality 5
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, valid 5, with the plurality 5
+asking, wave, lock it at dusk, valid 5, with the plurality 5
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, valid 5, with the plurality 5
+asking, wave, a tiebreak question, valid 5, with the plurality 5
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, valid 5, with the plurality 5
+asking, wave, both email and print, valid 5, with the plurality 5
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, valid 1, with the plurality 1
+asking, wave, eight in the morning, valid 3, with the plurality 3
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, none, valid 0, with the plurality 0
+question, What should the choir sing at the winter concert?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, none, valid 0, with the plurality 0
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, none, valid 0, with the plurality 0
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, valid 5, with the plurality 5
+asking, wave, move into the hall, valid 5, with the plurality 5
+question, Should the post office counter open an hour earlier on market days?
+asking, full, none, valid 0, with the plurality 0
+question, Which soup should the lunch club serve on Fridays?
+asking, full, none, valid 0, with the plurality 0
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+asking, full, none, valid 0, with the plurality 0
+question, What should the gardening club plant along the fence this year?
+asking, full, none, valid 0, with the plurality 0
+question, Should the farm shop sell flowers as well as vegetables?
+asking, full, none, valid 0, with the plurality 0
+question, When should the repair cafe run each month?
+asking, full, none, valid 0, with the plurality 0
+question, Should the school playground open to families at weekends?
+asking, full, open it at weekends, valid 3, with the plurality 3
+question, Which film should the cinema club show in December?
+asking, full, a classic musical, valid 5, with the plurality 5
+question, Should the gym add a beginners class on Monday evenings?
+asking, full, none, valid 0, with the plurality 0
+question, What colour should the hall kitchen be repainted?
+asking, full, cream, valid 5, with the plurality 5
+question, Should the dog show move to the bigger field?
+asking, full, none, valid 0, with the plurality 0
+question, When should the youth club take its summer trip?
+asking, full, none, valid 0, with the plurality 0
+question, Should the toy library lend board games as well as toys?
+asking, full, lend games too, valid 5, with the plurality 5
+question, What should the bakery bake for the harvest festival?
+asking, full, fruit pies, valid 5, with the plurality 5
+question, Should the last bus leave an hour later on Friday nights?
+asking, full, leave later, valid 2, with the plurality 2
+question, Which day should the jumble sale be held?
+asking, full, on Saturday, valid 5, with the plurality 5
+question, Should the swimming pool offer early morning lane swimming?
+asking, full, none, valid 0, with the plurality 0
+question, What should the art group show at the spring exhibition?
+asking, full, landscapes, valid 4, with the plurality 4
+question, Should the village hall roof be repaired this year or next year?
+asking, full, this year, valid 4, with the plurality 4
+question, Where should the chess club meet?
+asking, full, in the community room, valid 5, with the plurality 5
+question, Should the running club add a Sunday morning run?
+asking, full, none, valid 0, with the plurality 0
+question, What should the sewing circle make for the charity stall?
+asking, full, none, valid 0, with the plurality 0
+question, Which tree should the parish plant on the green?
+asking, full, an oak, valid 4, with the plurality 4
+question, Should the tennis club resurface the second court?
+asking, full, resurface it, valid 4, with the plurality 4
+question, When should the history society hold its winter talk?
+asking, full, on a weekday evening, valid 5, with the plurality 5
+question, Should the cafe serve breakfast all day?
+asking, full, none, valid 0, with the plurality 0
+question, What should the drama group perform at Christmas?
+asking, full, a pantomime, valid 1, with the plurality 1
+question, Should the village buy a shared marquee for events?
+asking, full, hire one when needed, valid 5, with the plurality 5
+question, Which path should the walking group take for the spring walk?
+asking, full, the woodland path, valid 5, with the plurality 5
+question, Should the post box be emptied twice a day?
+asking, full, once a day as now, valid 5, with the plurality 5
+question, What should the photography club shoot for its calendar?
+asking, full, gardens, valid 1, with the plurality 1
+question, Should the playgroup meet four mornings a week instead of three?
+asking, full, keep three mornings, valid 5, with the plurality 5
+question, When should the bonfire be lit on bonfire night?
+asking, full, none, valid 0, with the plurality 0
+question, Should the museum open a small cafe?
+asking, full, none, valid 0, with the plurality 0
+question, What should the beekeeping group do with the honey harvest?
+asking, full, share it among members, valid 4, with the plurality 4
+question, Which evening should the language class meet?
+asking, full, none, valid 0, with the plurality 0
+question, Should the car park behind the shops be free on Sundays?
+asking, full, free on Sundays, valid 5, with the plurality 5
+question, What should the youth orchestra play at the summer concert?
+asking, full, classical favourites, valid 5, with the plurality 5
+model, openai/gpt-6-luna
+question, Should the village library open on Sunday mornings?
+asking, pilot, open on Sundays, valid 5, with the plurality 5
+asking, wave, open on Sundays, valid 5, with the plurality 5
+question, When should the community hall hold its spring clean?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, the first Saturday of April, valid 1, with the plurality 1
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, valid 5, with the plurality 5
+asking, wave, both cards and cash, valid 5, with the plurality 5
+question, Which night should the book club meet?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, none, valid 0, with the plurality 0
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, valid 2, with the plurality 2
+asking, wave, lock it at dusk, valid 2, with the plurality 2
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, valid 5, with the plurality 5
+asking, wave, a tiebreak question, valid 5, with the plurality 5
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, valid 5, with the plurality 5
+asking, wave, both email and print, valid 5, with the plurality 5
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, valid 2, with the plurality 2
+asking, wave, none, valid 2, with the plurality 1
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, in the woods, valid 5, with the plurality 5
+asking, wave, in the woods, valid 5, with the plurality 3
+question, What should the choir sing at the winter concert?
+asking, pilot, a mix of carols and folk songs, valid 5, with the plurality 5
+asking, wave, a mix of carols and folk songs, valid 5, with the plurality 5
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, valid 0, with the plurality 0
+asking, wave, none, valid 0, with the plurality 0
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, valid 4, with the plurality 4
+asking, wave, move into the hall, valid 5, with the plurality 5
+question, Should the post office counter open an hour earlier on market days?
+asking, full, open an hour earlier, valid 3, with the plurality 2
+question, Which soup should the lunch club serve on Fridays?
+asking, full, none, valid 0, with the plurality 0
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+asking, full, on Thursdays, valid 5, with the plurality 5
+question, What should the gardening club plant along the fence this year?
+asking, full, none, valid 0, with the plurality 0
+question, Should the farm shop sell flowers as well as vegetables?
+asking, full, sell flowers too, valid 5, with the plurality 5
+question, When should the repair cafe run each month?
+asking, full, none, valid 0, with the plurality 0
+question, Should the school playground open to families at weekends?
+asking, full, open it at weekends, valid 5, with the plurality 5
+question, Which film should the cinema club show in December?
+asking, full, none, valid 0, with the plurality 0
+question, Should the gym add a beginners class on Monday evenings?
+asking, full, add the class, valid 5, with the plurality 5
+question, Should the dog show move to the bigger field?
+asking, full, move it, valid 5, with the plurality 5
+question, When should the youth club take its summer trip?
+asking, full, none, valid 0, with the plurality 0
+question, Should the toy library lend board games as well as toys?
+asking, full, lend games too, valid 5, with the plurality 5
+question, What should the bakery bake for the harvest festival?
+asking, full, none, valid 0, with the plurality 0
+question, Should the last bus leave an hour later on Friday nights?
+asking, full, leave later, valid 5, with the plurality 5
+question, Which day should the jumble sale be held?
+asking, full, on Saturday, valid 5, with the plurality 5
+question, Should the swimming pool offer early morning lane swimming?
+asking, full, offer it, valid 2, with the plurality 2
+question, What should the art group show at the spring exhibition?
+asking, full, none, valid 0, with the plurality 0
+question, Should the village hall roof be repaired this year or next year?
+asking, full, this year, valid 2, with the plurality 2
+question, When should the orchard group press the apples?
+asking, full, none, valid 0, with the plurality 0
+question, Where should the chess club meet?
+asking, full, in the community room, valid 1, with the plurality 1
+question, Should the running club add a Sunday morning run?
+asking, full, add it, valid 5, with the plurality 4
+question, What should the sewing circle make for the charity stall?
+asking, full, none, valid 0, with the plurality 0
+question, Should the primary school start a breakfast club?
+asking, full, start one, valid 5, with the plurality 5
+question, Which tree should the parish plant on the green?
+asking, full, none, valid 0, with the plurality 0
+question, Should the tennis club resurface the second court?
+asking, full, patch it for now, valid 3, with the plurality 1
+question, When should the history society hold its winter talk?
+asking, full, on a Saturday afternoon, valid 3, with the plurality 0
+question, Should the cafe serve breakfast all day?
+asking, full, all day, valid 3, with the plurality 3
+question, What should the drama group perform at Christmas?
+asking, full, a pantomime, valid 5, with the plurality 5
+question, Should the village buy a shared marquee for events?
+asking, full, hire one when needed, valid 5, with the plurality 5
+question, Which path should the walking group take for the spring walk?
+asking, full, the woodland path, valid 1, with the plurality 1
+question, Should the post box be emptied twice a day?
+asking, full, once a day as now, valid 5, with the plurality 5
+question, What should the photography club shoot for its calendar?
+asking, full, none, valid 0, with the plurality 0
+question, Should the playgroup meet four mornings a week instead of three?
+asking, full, keep three mornings, valid 5, with the plurality 5
+question, When should the bonfire be lit on bonfire night?
+asking, full, at seven in the evening, valid 5, with the plurality 5
+question, Should the museum open a small cafe?
+asking, full, open one, valid 5, with the plurality 5
+question, What should the beekeeping group do with the honey harvest?
+asking, full, none, valid 0, with the plurality 0
+question, Which evening should the language class meet?
+asking, full, none, valid 0, with the plurality 0
+question, Should the car park behind the shops be free on Sundays?
+asking, full, free on Sundays, valid 5, with the plurality 5
+question, What should the youth orchestra play at the summer concert?
+asking, full, none, valid 0, with the plurality 0
+benches, 2 models, 346 answers, 336 with the plurality

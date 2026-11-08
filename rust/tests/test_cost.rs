@@ -62,11 +62,14 @@ fn decimal(text: &str) -> PyDecimal {
 }
 
 /// The cost report lines of a poll and its table, unwrapped
-/// from the reading PORT-11 gives the counter, as a named
-/// mechanical consequence of the repair. The failure shape
-/// itself is pinned below against the reading directly.
+/// from the reading PORT-11 gives the counter and from the
+/// refusal channel FIX-GJ-15 gives it, as a named mechanical
+/// consequence of the two repairs. The failure shape itself
+/// is pinned below against the reading directly.
 fn cost_lines(poll: &Poll, table: &PriceTable) -> Vec<String> {
-    grandjury::polls::cost_lines(poll, table).expect("a cost report")
+    grandjury::polls::cost_lines(poll, table)
+        .expect("no refusal")
+        .expect("a cost report")
 }
 
 #[test]
@@ -449,12 +452,12 @@ fn a_span_past_two_million_places_still_sums() {
     ]));
     assert_eq!(
         grandjury::polls::cost_lines(&poll, &table),
-        Some(vec![
+        Ok(Some(vec![
             "question, q".to_string(),
             "responses, 5".to_string(),
             "priced, 5 responses, 3.000000 dollars".to_string(),
             "unpriced, 0 responses".to_string(),
-        ])
+        ]))
     );
 }
 
@@ -462,7 +465,10 @@ fn a_span_past_two_million_places_still_sums() {
 fn a_working_precision_past_the_context_bound_fails_the_reading() {
     let single = load_poll(&poll_of(vec![response_model("juror-1", "red", "m1")]));
     let single_table = load_prices(&prices_obj(vec![("m1", jstr("1e999999999999999999"))]));
-    assert_eq!(grandjury::polls::cost_lines(&single, &single_table), None);
+    assert_eq!(
+        grandjury::polls::cost_lines(&single, &single_table),
+        Ok(None)
+    );
     let pair = load_poll(&poll_of(vec![
         response_model("juror-1", "red", "m1"),
         response_model("juror-2", "red", "m2"),
@@ -471,7 +477,7 @@ fn a_working_precision_past_the_context_bound_fails_the_reading() {
         ("m1", jstr("1")),
         ("m2", jstr("1e-999999999999999997")),
     ]));
-    assert_eq!(grandjury::polls::cost_lines(&pair, &pair_table), None);
+    assert_eq!(grandjury::polls::cost_lines(&pair, &pair_table), Ok(None));
 }
 
 #[test]
@@ -499,7 +505,7 @@ fn a_span_at_or_just_inside_the_context_bound_fails_the_reading() {
         let table = load_prices(&prices_obj(vec![("m1", jstr("1")), ("m2", jstr(tiny))]));
         assert_eq!(
             grandjury::polls::cost_lines(&poll, &table),
-            None,
+            Ok(None),
             "{}",
             tiny
         );

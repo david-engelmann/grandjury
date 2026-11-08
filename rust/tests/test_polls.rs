@@ -576,7 +576,7 @@ fn the_tally_lines_render_the_hand_computed_poll() {
     let (poll, _) = load(&hand_poll());
     let poll = poll.expect("a poll");
     assert_eq!(
-        render_tally_lines(&poll),
+        render_tally_lines(&poll).expect("a tally"),
         vec![
             "question, Which door should the agent pick?",
             "responses, 6",
@@ -603,7 +603,7 @@ fn a_share_renders_as_a_percentage_with_one_decimal() {
         ]),
     );
     let (poll, _) = load(&data);
-    let lines = render_tally_lines(&poll.expect("a poll"));
+    let lines = render_tally_lines(&poll.expect("a poll")).expect("a tally");
     assert!(lines.contains(&"red, 1, 33.3%".to_string()));
     assert!(lines.contains(&"blue, 2, 66.7%".to_string()));
 }
@@ -618,7 +618,7 @@ fn a_percentage_half_rounds_up_not_to_even() {
     }
     set_field(&mut data, "responses", jarr(responses));
     let (poll, _) = load(&data);
-    let lines = render_tally_lines(&poll.expect("a poll"));
+    let lines = render_tally_lines(&poll.expect("a poll")).expect("a tally");
     assert!(lines.contains(&"red, 1, 6.3%".to_string()));
     assert!(lines.contains(&"blue, 15, 93.8%".to_string()));
 }
@@ -755,7 +755,7 @@ fn the_tally_lines_name_the_abstained_count_after_spoiled() {
     assert_eq!(defects, Vec::<String>::new());
     let poll = poll.expect("a poll");
     assert_eq!(
-        render_tally_lines(&poll),
+        render_tally_lines(&poll).expect("a tally"),
         vec![
             "question, Which door should the agent pick?",
             "responses, 3",
@@ -784,7 +784,7 @@ fn the_tally_lines_omit_the_abstained_line_when_none_abstained() {
     assert_eq!(defects, Vec::<String>::new());
     let poll = poll.expect("a poll");
     assert_eq!(
-        render_tally_lines(&poll),
+        render_tally_lines(&poll).expect("a tally"),
         vec![
             "question, Which door should the agent pick?",
             "responses, 2",

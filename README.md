@@ -324,6 +324,66 @@ margin, pilot, 9
 minorities, 12 questions, 12 askings, 11 pluralities, 0 dissenters
 ```
 
+The bench command prints the bench reading over one or more recorded poll sets named with labels, model by model, stating the model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking.
+
+```sh
+grandjury bench pilot examples/pilot
+```
+
+```text
+model, jev-1.13.0
+question, Should the village library open on Sunday mornings?
+asking, pilot, none, valid 0, with the plurality 0
+question, When should the community hall hold its spring clean?
+asking, pilot, the first Saturday of April, valid 5, with the plurality 5
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, valid 5, with the plurality 5
+question, Which night should the book club meet?
+asking, pilot, Wednesday, valid 4, with the plurality 4
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, valid 5, with the plurality 5
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, valid 5, with the plurality 5
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, valid 5, with the plurality 5
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, valid 1, with the plurality 1
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, none, valid 0, with the plurality 0
+question, What should the choir sing at the winter concert?
+asking, pilot, none, valid 0, with the plurality 0
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, valid 0, with the plurality 0
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, valid 5, with the plurality 5
+model, openai/gpt-6-luna
+question, Should the village library open on Sunday mornings?
+asking, pilot, open on Sundays, valid 5, with the plurality 5
+question, When should the community hall hold its spring clean?
+asking, pilot, none, valid 0, with the plurality 0
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, valid 5, with the plurality 5
+question, Which night should the book club meet?
+asking, pilot, none, valid 0, with the plurality 0
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, valid 2, with the plurality 2
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, valid 5, with the plurality 5
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, valid 5, with the plurality 5
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, valid 2, with the plurality 2
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, in the woods, valid 5, with the plurality 5
+question, What should the choir sing at the winter concert?
+asking, pilot, a mix of carols and folk songs, valid 5, with the plurality 5
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, valid 0, with the plurality 0
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, valid 4, with the plurality 4
+benches, 2 models, 73 answers, 73 with the plurality
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 10 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -341,7 +401,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 10 have closed, with al
 - Contract, GJ-17 and GJ-18 met. They stand in full form in CONTRACT.md, and Round 8 closed on the merged slice 9 after three reviews, all approving, with no repair pass.
 - Contract, GJ-19 and GJ-20 met. They stand in full form in CONTRACT.md, and Round 9 closed on the merged slice 10 after three reviews, a repair pass, and a discharging re-review.
 - Contract, GJ-21 and GJ-22 met. They stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment, and Round 10 closed on the merged slice 11 after three reviews approving, the spec review's two conditions discharged on executed checks.
+- Contract, GJ-23 and GJ-24 stand in full form in CONTRACT.md with the FIX-GJ-15 repair amendment. Their standing is not claimed here, as Round 11 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 12 is built and in review. It carries the bench reading over the three recorded poll sets, the pilot and the full poll and the second wave read together model by model under their set labels, stating each model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking, with its command and its golden, and the residual library fencing closure of FIX-GJ-15 over the tally, the stadium view, the cost reading, and the wave comparison reading, with its widened guard and its pins.
 - Slice 11 has landed. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.
 - Slice 10 has landed. It carries the minority reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the respondents whose valid answer was not the pooled plurality answer, with its command and its golden.
 - Slice 9 has landed. It carries the swing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the course of each question across its askings, with its command and its golden.

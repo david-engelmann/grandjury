@@ -48,7 +48,10 @@ fn the_stadium_golden_is_byte_identical() {
     assert_eq!(defects, Vec::<String>::new());
     let poll = poll.expect("a poll");
     let golden = read_text(&examples().join("stadium-golden.txt"));
-    assert_eq!(render_stadium(&poll).join("\n") + "\n", golden);
+    assert_eq!(
+        render_stadium(&poll).expect("a stadium view").join("\n") + "\n",
+        golden
+    );
 }
 
 #[test]
@@ -61,7 +64,11 @@ fn the_cost_golden_is_byte_identical() {
     let table = table.expect("a table");
     let golden = read_text(&examples().join("cost-golden.txt"));
     assert_eq!(
-        cost_lines(&poll, &table).expect("a cost report").join("\n") + "\n",
+        cost_lines(&poll, &table)
+            .expect("no refusal")
+            .expect("a cost report")
+            .join("\n")
+            + "\n",
         golden
     );
 }
@@ -95,7 +102,10 @@ fn the_pilot_stadium_golden_is_byte_identical() {
     assert_eq!(defects, Vec::<String>::new());
     let poll = poll.expect("a poll");
     let golden = read_text(&examples().join("pilot-stadium-golden.txt"));
-    assert_eq!(render_stadium(&poll).join("\n") + "\n", golden);
+    assert_eq!(
+        render_stadium(&poll).expect("a stadium view").join("\n") + "\n",
+        golden
+    );
 }
 
 #[test]
@@ -108,7 +118,11 @@ fn the_pilot_cost_golden_is_byte_identical() {
     let table = table.expect("a table");
     let golden = read_text(&examples().join("pilot-cost-golden.txt"));
     assert_eq!(
-        cost_lines(&poll, &table).expect("a cost report").join("\n") + "\n",
+        cost_lines(&poll, &table)
+            .expect("no refusal")
+            .expect("a cost report")
+            .join("\n")
+            + "\n",
         golden
     );
 }

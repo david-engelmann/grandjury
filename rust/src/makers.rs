@@ -387,11 +387,11 @@ pub fn pilot_files(examples: &Path) -> MakerResult<Vec<(String, String)>> {
     ));
     let table = load_table(examples, "pilot-prices.json")?;
     let example_poll = golden_poll(example)?;
-    files.push((
-        "pilot-stadium-golden.txt".to_string(),
-        join_lines(&render_stadium(&example_poll)),
-    ));
+    let stadium =
+        render_stadium(&example_poll).map_err(|_| refusal("a stadium view the reading renders"))?;
+    files.push(("pilot-stadium-golden.txt".to_string(), join_lines(&stadium)));
     let example_cost = cost_lines(&example_poll, &table)
+        .map_err(|_| refusal("a cost report the counter renders"))?
         .ok_or_else(|| refusal("a cost report the counter renders"))?;
     files.push((
         "pilot-cost-golden.txt".to_string(),
@@ -433,11 +433,11 @@ pub fn full_files(examples: &Path) -> MakerResult<Vec<(String, String)>> {
     ));
     let table = load_table(examples, "full-prices.json")?;
     let example_poll = golden_poll(example)?;
-    files.push((
-        "full-stadium-golden.txt".to_string(),
-        join_lines(&render_stadium(&example_poll)),
-    ));
+    let stadium =
+        render_stadium(&example_poll).map_err(|_| refusal("a stadium view the reading renders"))?;
+    files.push(("full-stadium-golden.txt".to_string(), join_lines(&stadium)));
     let example_cost = cost_lines(&example_poll, &table)
+        .map_err(|_| refusal("a cost report the counter renders"))?
         .ok_or_else(|| refusal("a cost report the counter renders"))?;
     files.push((
         "full-cost-golden.txt".to_string(),
@@ -646,7 +646,10 @@ pub fn synthetic_files() -> MakerResult<Vec<(String, String)>> {
     let table = table.ok_or_else(|| refusal("the synthetic prices that load clean"))?;
     let poll_struct = golden_poll(&poll)?;
     let cost = cost_lines(&poll_struct, &table)
+        .map_err(|_| refusal("a cost report the counter renders"))?
         .ok_or_else(|| refusal("a cost report the counter renders"))?;
+    let stadium =
+        render_stadium(&poll_struct).map_err(|_| refusal("a stadium view the reading renders"))?;
     Ok(vec![
         (
             "recorded_poll.json".to_string(),
@@ -656,10 +659,7 @@ pub fn synthetic_files() -> MakerResult<Vec<(String, String)>> {
             "prices.json".to_string(),
             format!("{}\n", dumps(&prices, Some(2), false, true)),
         ),
-        (
-            "stadium-golden.txt".to_string(),
-            join_lines(&render_stadium(&poll_struct)),
-        ),
+        ("stadium-golden.txt".to_string(), join_lines(&stadium)),
         ("cost-golden.txt".to_string(), join_lines(&cost)),
     ])
 }

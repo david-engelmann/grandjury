@@ -207,31 +207,53 @@ pub(crate) fn record_line(polls: usize, counts: &Counts) -> String {
 
 /// The refusal a reading over handed polls draws when a
 /// field it prints holds a line break, or nothing when no
-/// field it reads holds one, as FIX-GJ-14 states.
+/// field it reads holds one, as FIX-GJ-14 states and
+/// FIX-GJ-15 and FIX-GJ-16 widen.
 ///
-/// The guard reads the polls in the order they stand, the
-/// question of a poll first and then the juror of each
-/// response in response order, and the first field holding
-/// a break is the refusal it returns, named in the wording
-/// the loader names for that field, field question holds a
-/// newline for the question under FIX-GJ-6 and response
-/// and its index and field juror holds a newline for a
-/// juror under GJ-1. The readings across the recorded poll
-/// sets and the agreement reading consume the guard before
-/// they render, so a handed poll stands at the library
-/// surface under the same one line rule the loader states,
-/// and no defect of the set rules can name a value this
-/// guard would have refused. The guard reads no other
-/// field and holds no second copy of the break predicate,
-/// reading every field through holds_line_break.
+/// The guard reads the polls in the order they stand, in
+/// the order the loader reads a poll, the question of a
+/// poll first, then each offered answer in the order the
+/// answers stand, and then, for each response in response
+/// order, the juror and then the model and then the
+/// answer, the order the loader reads the fields of a
+/// response, and the first field holding a break is the
+/// refusal it returns, named in the wording the loader
+/// names for that field, field question holds a newline
+/// for the question under FIX-GJ-6, answer and its index
+/// holds a newline for an offered answer under GJ-1, and
+/// response and its index and field juror holds a newline
+/// for a juror and field model holds a newline for a
+/// model and field answer holds a newline for a response
+/// answer under GJ-1. The readings across the
+/// recorded poll sets and the agreement reading consume
+/// the guard before they render, and the tally, the
+/// stadium view, and the cost reading consume it at their
+/// entry and the wave comparison reading over both of its
+/// sets, as FIX-GJ-15 and FIX-GJ-16 state, so a handed poll stands at
+/// the library surface under the same one line rule the
+/// loader states, and no defect of the set rules can name
+/// a value this guard would have refused. The guard reads
+/// no other field and holds no second copy of the break
+/// predicate, reading every field through holds_line_break.
 pub(crate) fn check_poll_text(polls: &[Poll]) -> Result<(), String> {
     for poll in polls {
         if poll.question.holds_line_break() {
             return Err("field question holds a newline".to_string());
         }
+        for (index, answer) in poll.answers.iter().enumerate() {
+            if answer.holds_line_break() {
+                return Err(format!("answer {} holds a newline", index));
+            }
+        }
         for (index, response) in poll.responses.iter().enumerate() {
             if response.juror.holds_line_break() {
                 return Err(format!("response {} field juror holds a newline", index));
+            }
+            if response.model.holds_line_break() {
+                return Err(format!("response {} field model holds a newline", index));
+            }
+            if response.answer.holds_line_break() {
+                return Err(format!("response {} field answer holds a newline", index));
             }
         }
     }

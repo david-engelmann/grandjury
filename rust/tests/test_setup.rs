@@ -79,13 +79,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 9 slice for the same
     // consequence, and restored at the Round 9 closure, and
     // altered again at the Round 10 slice for the same
-    // consequence, and restored at the Round 10 closure.
-    // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 11 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
+    // consequence, and restored at the Round 10 closure, and
+    // altered again at the Round 11 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. Slice 12 stands in
+    // review while Round 11 is built, so the count stands
+    // at one. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -263,6 +264,31 @@ fn contract_carries_the_round_ten_obligations() {
 fn contract_carries_the_round_ten_amendment() {
     let text = root_text("CONTRACT.md");
     assert!(text.contains("FIX-GJ-14"));
+}
+
+#[test]
+fn readme_reports_the_round_eleven_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-23 and GJ-24 stand in full form in CONTRACT.md with the FIX-GJ-15 repair amendment. Their standing is not claimed here, as Round 11 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 12 is built and in review. It carries the bench reading over the three recorded poll sets, the pilot and the full poll and the second wave read together model by model under their set labels, stating each model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking, with its command and its golden, and the residual library fencing closure of FIX-GJ-15 over the tally, the stadium view, the cost reading, and the wave comparison reading, with its widened guard and its pins.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 10 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_eleven_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-23", "GJ-24"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn contract_carries_the_round_eleven_amendment() {
+    let text = root_text("CONTRACT.md");
+    assert!(text.contains("FIX-GJ-15"));
 }
 
 #[test]
