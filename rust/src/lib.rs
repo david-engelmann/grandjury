@@ -23,7 +23,12 @@
 //! dissent reading reads the whole record asking by
 //! asking and states the plurality of each jury, the
 //! margin it stood by, and the respondents who stood
-//! against it, under GJ-15. The swing reading reads the
+//! against it, under GJ-15. The bench reading reads the
+//! whole record model by model and states the plurality
+//! of each model at each asking pooled over the juror
+//! names it answered under, the count of its valid
+//! answers, and how many of them stood with the pooled
+//! plurality of the asking, under GJ-23. The swing reading reads the
 //! whole record question by question and states the
 //! plurality of each asking pooled over the valid
 //! responses of the whole poll, the margin it stood by,
@@ -39,6 +44,7 @@
 //! codepoint scan lives in scan.
 
 pub mod agreement;
+pub mod bench;
 pub mod census;
 pub mod cli;
 pub mod compare;

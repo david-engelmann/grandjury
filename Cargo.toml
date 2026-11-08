@@ -98,6 +98,10 @@ path = "rust/tests/test_minority.rs"
 name = "test_fencing"
 path = "rust/tests/test_fencing.rs"
 
+[[test]]
+name = "test_bench"
+path = "rust/tests/test_bench.rs"
+
 [dependencies]
 num-bigint = "0.4"
 num-rational = "0.4"

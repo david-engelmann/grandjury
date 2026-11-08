@@ -17,6 +17,7 @@ use num_rational::Ratio;
 use crate::json::{parse, JsonValue};
 use crate::pydecimal::{PyDecimal, Rounding};
 use crate::pytext::PText;
+use crate::record::check_poll_text;
 
 pub const MAX_BAR: usize = 40;
 
@@ -387,8 +388,12 @@ pub fn fraction_text(share: &Ratio<BigInt>) -> String {
     }
 }
 
-/// Return the tally of a valid poll as lines.
-pub fn render_tally_lines(poll: &Poll) -> Vec<String> {
+/// Return the tally of a valid poll as lines, or the
+/// refusal the poll text guard of the record module names
+/// for the first handed field holding a line break, as
+/// FIX-GJ-15 states.
+pub fn render_tally_lines(poll: &Poll) -> Result<Vec<String>, String> {
+    check_poll_text(std::slice::from_ref(poll))?;
     let tally = tally_poll(poll);
     let mut lines = vec![
         format!("question, {}", tally.question.display()),
@@ -407,17 +412,21 @@ pub fn render_tally_lines(poll: &Poll) -> Vec<String> {
             percent(share)
         ));
     }
-    lines
+    Ok(lines)
 }
 
-/// Return the stadium view of a valid poll as lines.
+/// Return the stadium view of a valid poll as lines, or
+/// the refusal the poll text guard of the record module
+/// names for the first handed field holding a line break,
+/// as FIX-GJ-15 states.
 ///
 /// The view is a pure function of the poll, so the same poll
 /// always renders byte identical lines. The wall of reasons
 /// groups the valid responses by the answer they chose, in
 /// offered order, and a spoiled section closes the view when
 /// spoiled responses exist.
-pub fn render_stadium(poll: &Poll) -> Vec<String> {
+pub fn render_stadium(poll: &Poll) -> Result<Vec<String>, String> {
+    check_poll_text(std::slice::from_ref(poll))?;
     let tally = tally_poll(poll);
     let mut lines = vec![
         format!("question, {}", tally.question.display()),
@@ -480,7 +489,7 @@ pub fn render_stadium(poll: &Poll) -> Vec<String> {
             ));
         }
     }
-    lines
+    Ok(lines)
 }
 
 /// A price table, mapping each model label to its price as an
@@ -714,8 +723,12 @@ fn reserve_coefficient_storage(digits: i64) -> Option<Vec<u8>> {
     Some(storage)
 }
 
-/// Return the cost report for a valid poll as lines, or None
-/// where the Python reading fails inside itself.
+/// Return the cost report for a valid poll as lines in an
+/// optional report, or the refusal the poll text guard of
+/// the record module names for the first handed field
+/// holding a line break, as FIX-GJ-15 states. The refusal
+/// stands apart from the absence the Python reading's own
+/// failure draws, which stands as it stood under PORT-11.
 ///
 /// Every recorded response is priced, spoiled responses
 /// included. A response whose model stands in the table adds
@@ -736,7 +749,8 @@ fn reserve_coefficient_storage(digits: i64) -> Option<Vec<u8>> {
 /// failed reservation returns None the same way, because the
 /// Python library refuses the allocation its sum demands in
 /// that region and fails the command before any line prints.
-pub fn cost_lines(poll: &Poll, prices: &PriceTable) -> Option<Vec<String>> {
+pub fn cost_lines(poll: &Poll, prices: &PriceTable) -> Result<Option<Vec<String>>, String> {
+    check_poll_text(std::slice::from_ref(poll))?;
     let mut priced_prices: Vec<PyDecimal> = Vec::new();
     let mut unpriced_counts: Vec<(PText, usize)> = Vec::new();
     for response in &poll.responses {
@@ -762,18 +776,24 @@ pub fn cost_lines(poll: &Poll, prices: &PriceTable) -> Option<Vec<String>> {
         working_precision(&priced_prices)
     };
     if precision > MAX_WORKING_PRECISION {
-        return None;
+        return Ok(None);
     }
     // The reservation stands while the sum runs, and its
     // failure is the materialization failure the PORT-11
     // amendment names, taken here before any addition runs.
-    let _coefficient_storage = reserve_coefficient_storage(precision)?;
+    let _coefficient_storage = match reserve_coefficient_storage(precision) {
+        Some(storage) => storage,
+        None => return Ok(None),
+    };
     let prec = usize::try_from(precision).unwrap_or(usize::MAX);
     let mut total = PyDecimal::zero();
     for price in &priced_prices {
         total = total.added_ctx(price, prec, Rounding::HalfEven);
     }
-    let rendered = total.quantized_six(prec)?;
+    let rendered = match total.quantized_six(prec) {
+        Some(rendered) => rendered,
+        None => return Ok(None),
+    };
     let mut lines = vec![
         format!("question, {}", poll.question.display()),
         format!("responses, {}", poll.responses.len()),
@@ -791,5 +811,5 @@ pub fn cost_lines(poll: &Poll, prices: &PriceTable) -> Option<Vec<String>> {
             count
         ));
     }
-    Some(lines)
+    Ok(Some(lines))
 }

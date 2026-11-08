@@ -13,7 +13,7 @@
 use crate::agreement::{jury_reading, poll_juries, responses_of, JuryReading};
 use crate::polls::Poll;
 use crate::pytext::PText;
-use crate::record::{movement_of, MovementCounts};
+use crate::record::{check_poll_text, movement_of, MovementCounts};
 
 /// Push the part of one jury block that one wave carries,
 /// the counts line in the order GJ-8 states, one line per
@@ -33,7 +33,12 @@ fn push_wave_part(lines: &mut Vec<String>, wave: &str, reading: &JuryReading) {
 }
 
 /// Return the wave comparison reading over two lists of
-/// polls as lines, or the defect the pairing refusal names.
+/// polls as lines, or the defect the pairing refusal names,
+/// or the refusal the poll text guard of the record module
+/// names for the first handed field holding a line break,
+/// as FIX-GJ-15 states. The guard stands over every poll
+/// of the first set and then every poll of the second set
+/// before the pairing rules are read.
 ///
 /// The two lists pair in order, and pair numbers count from
 /// one in step with the poll file numbers. The pairing fails
@@ -50,6 +55,8 @@ fn push_wave_part(lines: &mut Vec<String>, wave: &str, reading: &JuryReading) {
 /// in every other case. The closing line counts the movement
 /// lines over every question by jury pair of the reading.
 pub fn compare_lines(first: &[Poll], second: &[Poll]) -> Result<Vec<String>, String> {
+    check_poll_text(first)?;
+    check_poll_text(second)?;
     if first.len() != second.len() {
         return Err("the two poll sets hold different counts".to_string());
     }

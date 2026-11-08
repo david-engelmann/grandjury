@@ -158,7 +158,10 @@ fn the_pilot_goldens_regenerate_byte_identical() {
     let poll = poll.expect("a poll");
     let stadium = read_text(&examples().join("pilot-stadium-golden.txt"));
     assert_eq!(
-        grandjury::polls::render_stadium(&poll).join("\n") + "\n",
+        grandjury::polls::render_stadium(&poll)
+            .expect("a stadium view")
+            .join("\n")
+            + "\n",
         stadium
     );
     let (table, price_defects) = load_prices_file(&examples().join("pilot-prices.json"));
@@ -167,6 +170,7 @@ fn the_pilot_goldens_regenerate_byte_identical() {
     let cost = read_text(&examples().join("pilot-cost-golden.txt"));
     assert_eq!(
         grandjury::polls::cost_lines(&poll, &table)
+            .expect("no refusal")
             .expect("a cost report")
             .join("\n")
             + "\n",

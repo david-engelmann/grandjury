@@ -7,7 +7,7 @@
 mod shared;
 
 use grandjury::json::JsonValue;
-use grandjury::polls::{load_poll_text, render_stadium, Poll};
+use grandjury::polls::{load_poll_text, Poll};
 use shared::*;
 
 fn response(juror: &str, answer: &str, reason: &str) -> JsonValue {
@@ -43,6 +43,14 @@ fn poll_of(question: &str, answers: Vec<&str>, responses: Vec<JsonValue>) -> Jso
 
 fn bar(count: usize) -> String {
     "#".repeat(count)
+}
+
+/// The stadium lines of a poll, unwrapped from the refusal
+/// channel FIX-GJ-15 gives the reading, as a named mechanical
+/// consequence of the repair. The refusal itself is pinned in
+/// the fencing suite against the reading directly.
+fn render_stadium(poll: &Poll) -> Vec<String> {
+    grandjury::polls::render_stadium(poll).expect("a stadium view")
 }
 
 #[test]

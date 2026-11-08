@@ -259,10 +259,14 @@ fn the_full_goldens_match_the_renderings() {
     assert_eq!(price_defects, Vec::<String>::new());
     let table = table.expect("a table");
     let stadium = read_text(&examples().join("full-stadium-golden.txt"));
-    assert_eq!(render_stadium(&example).join("\n") + "\n", stadium);
+    assert_eq!(
+        render_stadium(&example).expect("a stadium view").join("\n") + "\n",
+        stadium
+    );
     let cost = read_text(&examples().join("full-cost-golden.txt"));
     assert_eq!(
         cost_lines(&example, &table)
+            .expect("no refusal")
             .expect("a cost report")
             .join("\n")
             + "\n",
