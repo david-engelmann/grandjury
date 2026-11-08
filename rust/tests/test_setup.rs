@@ -81,13 +81,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 10 slice for the same
     // consequence, and restored at the Round 10 closure, and
     // altered again at the Round 11 slice for the same
-    // consequence, and restored at the Round 11 closure.
-    // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 12 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
+    // consequence, and restored at the Round 11 closure, and
+    // altered again at the Round 12 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. Slice 13 stands in
+    // review while Round 12 is built, so the count stands
+    // at one. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -238,7 +239,7 @@ fn readme_sections_stand_in_the_standard_order() {
 fn readme_first_screen_carries_the_badge_and_the_tally_reading() {
     let text = root_text("README.md");
     assert!(text.contains("[![ci](https://github.com/david-engelmann/grandjury/actions/workflows/ci.yml/badge.svg?branch=main)]"));
-    let block = "question, Should the night shift agent deploy on Fridays?\nresponses, 124\nvalid, 120\nspoiled, 4\ndeploy, 62, 51.7%\nhold, 36, 30.0%\ndeploy with a watcher, 22, 18.3%";
+    let block = "question, Should the village library open on Sunday mornings?\nresponses, 100\nvalid, 50\nspoiled, 0\nabstained, 50\nopen on Sundays, 50, 100.0%\nstay closed on Sundays, 0, 0.0%";
     assert!(text.contains(block));
 }
 
@@ -293,10 +294,57 @@ fn contract_carries_the_round_eleven_amendment() {
 }
 
 #[test]
+fn readme_reports_the_round_twelve_slice() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-25 and GJ-26 stand in full form in CONTRACT.md with the FIX-GJ-17, FIX-GJ-18, and FIX-GJ-19 repair amendments. Their standing is not claimed here, as Round 12 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 13 is built and in review. It carries the pool reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking, with its command and its golden, and the formats appendix of FIX-GJ-17 stating the six formats of the repo at version 1 with its compatibility rule, and the reason closure of FIX-GJ-18 over the poll text guard, with its widened guard and its pins, and the resampled fixture of FIX-GJ-19, twelve polls drawn from the recorded pilot envelopes at fifty seats per model with the example poll standing as its first poll.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 11 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twelve_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-25", "GJ-26"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn contract_carries_the_round_twelve_amendment() {
+    let text = root_text("CONTRACT.md");
+    for aid in ["FIX-GJ-17", "FIX-GJ-18", "FIX-GJ-19"] {
+        assert!(text.contains(aid), "{}", aid);
+    }
+}
+
+#[test]
 fn readme_states_the_local_gate_with_the_cargo_gate() {
     let text = root_text("README.md");
-    let line = "- Local gate, cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan. CI runs the same commands.";
+    // The platform phrase stands in the line under
+    // FIX-GJ-17, which names the tested platform in the
+    // gate line, so this pin moved with that amendment as
+    // its named mechanical consequence.
+    let line = "- Local gate, cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan, standing tested on Linux. CI runs the same commands.";
     assert!(lines_of(&text).contains(&line));
+}
+
+#[test]
+fn contract_carries_the_formats_appendix_at_version_one() {
+    let text = root_text("CONTRACT.md");
+    assert!(text.contains("## Appendix, the formats at version 1"));
+    for heading in [
+        "### The recorded poll, version 1",
+        "### The price table, version 1",
+        "### The questions file, version 1",
+        "### The decision envelope, version 1",
+        "### The run record, version 1",
+        "### The incident input, version 1",
+    ] {
+        assert!(text.contains(heading), "{}", heading);
+    }
 }
 
 #[test]

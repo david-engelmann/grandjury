@@ -3,7 +3,9 @@
 //! the stadium view, the cost reading, and the wave
 //! comparison reading, and for FIX-GJ-16, the answer
 //! fencing closure over the offered answers and the
-//! answers of the responses.
+//! answers of the responses, and for FIX-GJ-18, the
+//! reason fencing closure over the reasons of the
+//! responses.
 //!
 //! Each pin hands a poll value to a reading directly, in
 //! the shapes the family 3 discharge of the Round 9 red
@@ -568,5 +570,97 @@ fn the_model_stands_before_the_answer_in_the_guard_order() {
         )],
     )]);
     let defect = Err("response 0 field model holds a newline".to_string());
+    assert_eq!(census_lines(&handed), defect);
+}
+
+// The FIX-GJ-18 pins, the reason fencing closure. Each
+// hands a poll whose response reason carries a break to
+// the readings the guard serves, in the shape the Round
+// 11 red team executed as its observation O-1, and holds
+// the reading to the refusal the amendment states. Three
+// of the pins fail on the guard as FIX-GJ-16 leaves it,
+// where the forged line stands in the preserved stream
+// of the observation, and they pass on the widened guard. The
+// order pin passes on that guard by design, because the
+// guard already draws the answer defect there, and it
+// discriminates the order of the answer and reason
+// checks once the reason read stands rather than the
+// presence of the read.
+
+fn response_with_reason(
+    juror: &str,
+    model: &str,
+    answer: &str,
+    reason: &str,
+    abstained: bool,
+) -> Response {
+    Response {
+        juror: pt(juror),
+        model: pt(model),
+        answer: pt(answer),
+        reason: pt(reason),
+        abstained,
+    }
+}
+
+#[test]
+fn a_reason_carrying_a_forged_line_draws_the_reason_defect_at_the_stadium_view() {
+    let handed_poll = poll(
+        "Plain question",
+        vec!["yes", "no"],
+        vec![response_with_reason(
+            "eve",
+            "m1",
+            "yes",
+            "because\nZZFORGEDZZ",
+            false,
+        )],
+    );
+    let defect = Err("response 0 field reason holds a newline".to_string());
+    assert_eq!(render_stadium(&handed_poll), defect);
+}
+
+#[test]
+fn an_abstained_reason_carrying_a_break_draws_the_reason_defect() {
+    let handed_poll = poll(
+        "Plain question",
+        vec!["yes", "no"],
+        vec![
+            response("adam", "m1", "yes"),
+            response_with_reason("eve", "m1", "no", "because\nZZFORGEDZZ", true),
+        ],
+    );
+    let defect = Err("response 1 field reason holds a newline".to_string());
+    assert_eq!(render_stadium(&handed_poll), defect);
+}
+
+#[test]
+fn the_answer_stands_before_the_reason_in_the_guard_order() {
+    let handed_poll = poll(
+        "Plain question",
+        vec!["yes", "no"],
+        vec![response_with_reason(
+            "eve",
+            "m1",
+            "unoffered\nZZFORGEDZZ",
+            "because\nZZFORGEDZZ",
+            false,
+        )],
+    );
+    let defect = Err("response 0 field answer holds a newline".to_string());
+    assert_eq!(render_stadium(&handed_poll), defect);
+}
+
+#[test]
+fn a_reason_break_in_an_earlier_response_stands_before_a_juror_break_in_a_later_one() {
+    let handed = sets(vec![poll(
+        "Plain question",
+        vec!["yes", "no"],
+        vec![
+            response_with_reason("eve", "m1", "yes", "because\nZZFORGEDZZ", false),
+            response("adam\nplurality, fake, yes", "m1", "no"),
+        ],
+    )]);
+    let defect = Err("response 0 field reason holds a newline".to_string());
     assert_eq!(census_lines(&handed), defect);
 }

@@ -1,5 +1,5 @@
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-priced, 120 responses, 0.033000 dollars
-unpriced, 4 responses
-unpriced model, tiny-c, 4 responses
+question, Should the village library open on Sunday mornings?
+responses, 100
+priced, 50 responses, 0.002600 dollars
+unpriced, 50 responses
+unpriced model, jev-1.13.0, 50 responses

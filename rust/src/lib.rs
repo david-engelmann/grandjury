@@ -38,6 +38,11 @@
 //! of each asking pooled over the whole poll, the margin
 //! it stood by, and the respondents whose valid answer
 //! was not the pooled plurality answer, under GJ-19. The
+//! pool reading reads the whole record question by
+//! question and states the pooled counts of each asking,
+//! the count and the share of every offered answer among
+//! its pooled valid responses, and its pooled plurality,
+//! under GJ-25. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -54,6 +59,7 @@ pub mod ledger;
 pub mod makers;
 pub mod minority;
 pub mod polls;
+pub mod pool;
 pub mod pydecimal;
 pub mod pynum;
 pub mod pytext;

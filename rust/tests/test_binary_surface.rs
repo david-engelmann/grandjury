@@ -10,10 +10,12 @@
 
 mod shared;
 
+#[cfg(target_os = "linux")]
 use std::process::{Command, Stdio};
 
 use shared::*;
 
+#[cfg(target_os = "linux")]
 fn binary() -> &'static str {
     env!("CARGO_BIN_EXE_grandjury")
 }
@@ -28,7 +30,15 @@ fn binary() -> &'static str {
 /// a sibling child holding it open kept the pipe alive,
 /// so the writer under test could finish its writes and
 /// leave by its own status instead of failing on them.
-#[cfg(unix)]
+///
+/// The helper, its caller, and the five tests that use
+/// them stand gated to Linux under FIX-GJ-17, because
+/// the closed stream bands of PORT-7 and PORT-13 are
+/// measured Linux behaviour and this helper links the
+/// Linux pipe2 call with the Linux O_CLOEXEC value, so
+/// the suite builds on the platforms it does not
+/// measure instead of failing in this target.
+#[cfg(target_os = "linux")]
 fn closed_pipe() -> Stdio {
     use std::os::unix::io::FromRawFd;
     extern "C" {
@@ -45,6 +55,7 @@ fn closed_pipe() -> Stdio {
     }
 }
 
+#[cfg(target_os = "linux")]
 fn exit_code_on_closed_stdout(args: &[&str], dir: &std::path::Path) -> i32 {
     let mut child = Command::new(binary())
         .args(args)
@@ -60,6 +71,7 @@ fn exit_code_on_closed_stdout(args: &[&str], dir: &std::path::Path) -> i32 {
         .expect("a status")
 }
 
+#[cfg(target_os = "linux")]
 fn write_poll(
     dir: &std::path::Path,
     name: &str,
@@ -81,6 +93,7 @@ fn write_poll(
 }
 
 #[test]
+#[cfg(target_os = "linux")]
 fn a_small_output_on_a_closed_stdout_exits_120() {
     let scratch = TempDir::new("pipes-small");
     let poll = write_poll(&scratch.path, "poll.json", "Q?", &["a", "b"], "r");
@@ -89,6 +102,7 @@ fn a_small_output_on_a_closed_stdout_exits_120() {
 }
 
 #[test]
+#[cfg(target_os = "linux")]
 fn a_stadium_wall_line_of_8191_bytes_on_a_closed_stdout_exits_1() {
     let scratch = TempDir::new("pipes-stadium-8191");
     // The wall line reads two spaces, the juror, a comma and
@@ -102,6 +116,7 @@ fn a_stadium_wall_line_of_8191_bytes_on_a_closed_stdout_exits_1() {
 }
 
 #[test]
+#[cfg(target_os = "linux")]
 fn a_stadium_wall_line_of_8192_bytes_on_a_closed_stdout_exits_120() {
     let scratch = TempDir::new("pipes-stadium-8192");
     let reason = "x".repeat(8186);
@@ -111,6 +126,7 @@ fn a_stadium_wall_line_of_8192_bytes_on_a_closed_stdout_exits_120() {
 }
 
 #[test]
+#[cfg(target_os = "linux")]
 fn a_tally_line_of_8191_bytes_on_a_closed_stdout_exits_1() {
     let scratch = TempDir::new("pipes-tally-8191");
     // The tally line reads the answer, a comma, the count,
@@ -124,6 +140,7 @@ fn a_tally_line_of_8191_bytes_on_a_closed_stdout_exits_1() {
 }
 
 #[test]
+#[cfg(target_os = "linux")]
 fn a_tally_line_of_8192_bytes_on_a_closed_stdout_exits_120() {
     let scratch = TempDir::new("pipes-tally-8192");
     let answer = "a".repeat(8181);

@@ -1,0 +1,359 @@
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, pilot, open on Sundays
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, wave, open on Sundays
+question, When should the community hall hold its spring clean?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, pilot, the first Saturday of April
+set, wave, recorded 10, valid 6, abstained 4, spoiled 0
+  the first Saturday of April, 6, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, wave, the first Saturday of April
+question, Should the school bake sale take card payments?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 10, 1, 100.0%
+plurality, pilot, both cards and cash
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 10, 1, 100.0%
+plurality, wave, both cards and cash
+question, Which night should the book club meet?
+set, pilot, recorded 10, valid 4, abstained 6, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, pilot, Wednesday
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 5, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, wave, Wednesday
+question, Should the allotment gate be locked at dusk?
+set, pilot, recorded 10, valid 7, abstained 3, spoiled 0
+  lock it at dusk, 7, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, pilot, lock it at dusk
+set, wave, recorded 10, valid 7, abstained 3, spoiled 0
+  lock it at dusk, 7, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, wave, lock it at dusk
+question, What should the pub quiz do with tied scores?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  a tiebreak question, 10, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, pilot, a tiebreak question
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+  a tiebreak question, 10, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, wave, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 10, 1, 100.0%
+plurality, pilot, both email and print
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 10, 1, 100.0%
+plurality, wave, both email and print
+question, When should the farmers market start in summer?
+set, pilot, recorded 10, valid 3, abstained 7, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 3, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, pilot, eight in the morning
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+  seven in the morning, 1, 1/5, 20.0%
+  eight in the morning, 4, 4/5, 80.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, wave, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, pilot, in the woods
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+  by the river, 2, 2/5, 40.0%
+  in the woods, 3, 3/5, 60.0%
+plurality, wave, in the woods
+question, What should the choir sing at the winter concert?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, pilot, a mix of carols and folk songs
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, wave, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+set, pilot, recorded 10, valid 0, abstained 10, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, pilot, none
+set, wave, recorded 10, valid 0, abstained 10, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, wave, none
+question, How should the village fete handle rain?
+set, pilot, recorded 10, valid 9, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 9, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, pilot, move into the hall
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 10, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, wave, move into the hall
+question, Should the post office counter open an hour earlier on market days?
+set, full, recorded 8, valid 3, abstained 5, spoiled 0
+  open an hour earlier, 2, 2/3, 66.7%
+  keep the current hours, 1, 1/3, 33.3%
+plurality, full, open an hour earlier
+question, Which soup should the lunch club serve on Fridays?
+set, full, recorded 7, valid 0, abstained 7, spoiled 0
+  tomato, 0, 0, 0.0%
+  leek and potato, 0, 0, 0.0%
+  carrot and lentil, 0, 0, 0.0%
+plurality, full, none
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+set, full, recorded 7, valid 5, abstained 2, spoiled 0
+  on Thursdays, 5, 1, 100.0%
+  on Fridays, 0, 0, 0.0%
+plurality, full, on Thursdays
+question, What should the gardening club plant along the fence this year?
+set, full, recorded 8, valid 0, abstained 8, spoiled 0
+  sunflowers, 0, 0, 0.0%
+  sweet peas, 0, 0, 0.0%
+  runner beans, 0, 0, 0.0%
+  lavender, 0, 0, 0.0%
+plurality, full, none
+question, Should the farm shop sell flowers as well as vegetables?
+set, full, recorded 9, valid 5, abstained 4, spoiled 0
+  sell flowers too, 5, 1, 100.0%
+  vegetables only, 0, 0, 0.0%
+plurality, full, sell flowers too
+question, When should the repair cafe run each month?
+set, full, recorded 6, valid 0, abstained 6, spoiled 0
+  the first Saturday, 0, 0, 0.0%
+  the second Saturday, 0, 0, 0.0%
+  the third Saturday, 0, 0, 0.0%
+  the last Saturday, 0, 0, 0.0%
+plurality, full, none
+question, Should the school playground open to families at weekends?
+set, full, recorded 8, valid 8, abstained 0, spoiled 0
+  open it at weekends, 8, 1, 100.0%
+  keep it closed, 0, 0, 0.0%
+plurality, full, open it at weekends
+question, Which film should the cinema club show in December?
+set, full, recorded 7, valid 5, abstained 2, spoiled 0
+  a comedy, 0, 0, 0.0%
+  a drama, 0, 0, 0.0%
+  a documentary, 0, 0, 0.0%
+  a classic musical, 5, 1, 100.0%
+plurality, full, a classic musical
+question, Should the gym add a beginners class on Monday evenings?
+set, full, recorded 9, valid 5, abstained 4, spoiled 0
+  add the class, 5, 1, 100.0%
+  keep the timetable as it is, 0, 0, 0.0%
+plurality, full, add the class
+question, What colour should the hall kitchen be repainted?
+set, full, recorded 5, valid 5, abstained 0, spoiled 0
+  cream, 5, 1, 100.0%
+  sage green, 0, 0, 0.0%
+  pale blue, 0, 0, 0.0%
+plurality, full, cream
+question, Should the dog show move to the bigger field?
+set, full, recorded 7, valid 5, abstained 2, spoiled 0
+  move it, 5, 1, 100.0%
+  keep it on the green, 0, 0, 0.0%
+plurality, full, move it
+question, When should the youth club take its summer trip?
+set, full, recorded 10, valid 0, abstained 10, spoiled 0
+  in late July, 0, 0, 0.0%
+  in mid August, 0, 0, 0.0%
+  in early September, 0, 0, 0.0%
+plurality, full, none
+question, Should the toy library lend board games as well as toys?
+set, full, recorded 10, valid 10, abstained 0, spoiled 0
+  lend games too, 10, 1, 100.0%
+  toys only, 0, 0, 0.0%
+plurality, full, lend games too
+question, What should the bakery bake for the harvest festival?
+set, full, recorded 9, valid 5, abstained 4, spoiled 0
+  a giant loaf, 0, 0, 0.0%
+  spiced buns, 0, 0, 0.0%
+  fruit pies, 5, 1, 100.0%
+  honey cakes, 0, 0, 0.0%
+plurality, full, fruit pies
+question, Should the last bus leave an hour later on Friday nights?
+set, full, recorded 7, valid 7, abstained 0, spoiled 0
+  leave later, 7, 1, 100.0%
+  keep the last bus as it is, 0, 0, 0.0%
+plurality, full, leave later
+question, Which day should the jumble sale be held?
+set, full, recorded 10, valid 10, abstained 0, spoiled 0
+  on Saturday, 10, 1, 100.0%
+  on Sunday, 0, 0, 0.0%
+plurality, full, on Saturday
+question, Should the swimming pool offer early morning lane swimming?
+set, full, recorded 7, valid 2, abstained 5, spoiled 0
+  offer it, 2, 1, 100.0%
+  keep the current timetable, 0, 0, 0.0%
+plurality, full, offer it
+question, What should the art group show at the spring exhibition?
+set, full, recorded 9, valid 4, abstained 5, spoiled 0
+  landscapes, 4, 1, 100.0%
+  portraits, 0, 0, 0.0%
+  still life, 0, 0, 0.0%
+plurality, full, landscapes
+question, Should the village hall roof be repaired this year or next year?
+set, full, recorded 6, valid 6, abstained 0, spoiled 0
+  this year, 6, 1, 100.0%
+  next year, 0, 0, 0.0%
+plurality, full, this year
+question, When should the orchard group press the apples?
+set, full, recorded 3, valid 0, abstained 3, spoiled 0
+  in late September, 0, 0, 0.0%
+  in mid October, 0, 0, 0.0%
+  in early November, 0, 0, 0.0%
+plurality, full, none
+question, Where should the chess club meet?
+set, full, recorded 6, valid 6, abstained 0, spoiled 0
+  in the cafe, 0, 0, 0.0%
+  in the pub, 0, 0, 0.0%
+  in the community room, 6, 1, 100.0%
+plurality, full, in the community room
+question, Should the running club add a Sunday morning run?
+set, full, recorded 6, valid 5, abstained 1, spoiled 0
+  add it, 4, 4/5, 80.0%
+  keep Saturdays only, 1, 1/5, 20.0%
+plurality, full, add it
+question, What should the sewing circle make for the charity stall?
+set, full, recorded 9, valid 0, abstained 9, spoiled 0
+  tote bags, 0, 0, 0.0%
+  aprons, 0, 0, 0.0%
+  cushion covers, 0, 0, 0.0%
+  quilts, 0, 0, 0.0%
+plurality, full, none
+question, Should the primary school start a breakfast club?
+set, full, recorded 5, valid 5, abstained 0, spoiled 0
+  start one, 5, 1, 100.0%
+  not this year, 0, 0, 0.0%
+plurality, full, start one
+question, Which tree should the parish plant on the green?
+set, full, recorded 8, valid 4, abstained 4, spoiled 0
+  an oak, 4, 1, 100.0%
+  a lime, 0, 0, 0.0%
+  a cherry, 0, 0, 0.0%
+plurality, full, an oak
+question, Should the tennis club resurface the second court?
+set, full, recorded 7, valid 7, abstained 0, spoiled 0
+  resurface it, 5, 5/7, 71.4%
+  patch it for now, 2, 2/7, 28.6%
+plurality, full, resurface it
+question, When should the history society hold its winter talk?
+set, full, recorded 10, valid 8, abstained 2, spoiled 0
+  on a weekday evening, 5, 5/8, 62.5%
+  on a Saturday afternoon, 3, 3/8, 37.5%
+  on a Sunday afternoon, 0, 0, 0.0%
+plurality, full, on a weekday evening
+question, Should the cafe serve breakfast all day?
+set, full, recorded 8, valid 3, abstained 5, spoiled 0
+  all day, 3, 1, 100.0%
+  mornings only, 0, 0, 0.0%
+plurality, full, all day
+question, What should the drama group perform at Christmas?
+set, full, recorded 6, valid 6, abstained 0, spoiled 0
+  a pantomime, 6, 1, 100.0%
+  a comedy play, 0, 0, 0.0%
+  a musical revue, 0, 0, 0.0%
+plurality, full, a pantomime
+question, Should the village buy a shared marquee for events?
+set, full, recorded 10, valid 10, abstained 0, spoiled 0
+  buy one, 0, 0, 0.0%
+  hire one when needed, 10, 1, 100.0%
+  do without, 0, 0, 0.0%
+plurality, full, hire one when needed
+question, Which path should the walking group take for the spring walk?
+set, full, recorded 10, valid 6, abstained 4, spoiled 0
+  the river path, 0, 0, 0.0%
+  the ridge path, 0, 0, 0.0%
+  the woodland path, 6, 1, 100.0%
+  the canal path, 0, 0, 0.0%
+plurality, full, the woodland path
+question, Should the post box be emptied twice a day?
+set, full, recorded 10, valid 10, abstained 0, spoiled 0
+  twice a day, 0, 0, 0.0%
+  once a day as now, 10, 1, 100.0%
+plurality, full, once a day as now
+question, What should the photography club shoot for its calendar?
+set, full, recorded 10, valid 1, abstained 9, spoiled 0
+  gardens, 1, 1, 100.0%
+  doors and gates, 0, 0, 0.0%
+  harvest scenes, 0, 0, 0.0%
+plurality, full, gardens
+question, Should the playgroup meet four mornings a week instead of three?
+set, full, recorded 10, valid 10, abstained 0, spoiled 0
+  four mornings, 0, 0, 0.0%
+  keep three mornings, 10, 1, 100.0%
+plurality, full, keep three mornings
+question, When should the bonfire be lit on bonfire night?
+set, full, recorded 10, valid 5, abstained 5, spoiled 0
+  at six in the evening, 0, 0, 0.0%
+  at seven in the evening, 5, 1, 100.0%
+  at eight in the evening, 0, 0, 0.0%
+plurality, full, at seven in the evening
+question, Should the museum open a small cafe?
+set, full, recorded 10, valid 5, abstained 5, spoiled 0
+  open one, 5, 1, 100.0%
+  keep the museum as it is, 0, 0, 0.0%
+plurality, full, open one
+question, What should the beekeeping group do with the honey harvest?
+set, full, recorded 10, valid 4, abstained 6, spoiled 0
+  sell it at the market, 0, 0, 0.0%
+  share it among members, 4, 1, 100.0%
+  give it to the school, 0, 0, 0.0%
+plurality, full, share it among members
+question, Which evening should the language class meet?
+set, full, recorded 10, valid 0, abstained 10, spoiled 0
+  Monday evening, 0, 0, 0.0%
+  Wednesday evening, 0, 0, 0.0%
+  Friday evening, 0, 0, 0.0%
+plurality, full, none
+question, Should the car park behind the shops be free on Sundays?
+set, full, recorded 10, valid 10, abstained 0, spoiled 0
+  free on Sundays, 10, 1, 100.0%
+  charge every day, 0, 0, 0.0%
+plurality, full, free on Sundays
+question, What should the youth orchestra play at the summer concert?
+set, full, recorded 10, valid 5, abstained 5, spoiled 0
+  film themes, 0, 0, 0.0%
+  folk tunes, 0, 0, 0.0%
+  classical favourites, 5, 1, 100.0%
+  jazz standards, 0, 0, 0.0%
+plurality, full, classical favourites
+pools, 52 questions, 64 askings, 346 valid, 55 pluralities

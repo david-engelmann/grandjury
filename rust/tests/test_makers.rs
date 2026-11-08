@@ -1,9 +1,11 @@
 //! Pins for the assembled file lists of the makers, PORT-6
 //! as amended by PORT-12.
 //!
-//! The assembly functions pilot_files, full_files, and
-//! synthetic_files are pinned byte for byte against the
-//! recorded trees under examples, the form PORT-6 states.
+//! The assembly functions pilot_files and full_files are
+//! pinned byte for byte against the recorded trees under
+//! examples, the form PORT-6 states. The synthetic
+//! assembly retired under FIX-GJ-19 with the files it
+//! made, so no pin for it stands here.
 //! The full maker probes then mutate a copied tree the three
 //! ways the port reviews probed, an envelope the rebuild
 //! drops, a standing poll file missing outright, and a
@@ -14,7 +16,7 @@ mod shared;
 
 use std::path::{Path, PathBuf};
 
-use grandjury::makers::{full_files, pilot_files, synthetic_files};
+use grandjury::makers::{full_files, pilot_files};
 use shared::*;
 
 fn assert_files_match_tree(files: &[(String, String)], root: &Path) {
@@ -58,22 +60,6 @@ fn the_full_files_match_the_recorded_tree_byte_for_byte() {
     let mut expected_names: Vec<&str> = expected.iter().map(|name| name.as_str()).collect();
     expected_names.sort();
     assert_eq!(names, expected_names);
-    assert_files_match_tree(&files, &examples());
-}
-
-#[test]
-fn the_synthetic_files_match_the_recorded_tree_byte_for_byte() {
-    let files = synthetic_files().expect("the synthetic files");
-    let names: Vec<&str> = files.iter().map(|(name, _)| name.as_str()).collect();
-    assert_eq!(
-        names,
-        vec![
-            "recorded_poll.json",
-            "prices.json",
-            "stadium-golden.txt",
-            "cost-golden.txt",
-        ]
-    );
     assert_files_match_tree(&files, &examples());
 }
 

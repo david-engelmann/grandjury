@@ -22,6 +22,7 @@ use crate::minority::minority_lines;
 use crate::polls::{
     cost_lines, load_poll_file, load_prices_file, render_stadium, render_tally_lines, Poll,
 };
+use crate::pool::pool_lines;
 use crate::pytext::PText;
 use crate::swing::swing_lines;
 
@@ -279,7 +280,7 @@ fn spec_max_invocation(spec: &ParserSpec) -> usize {
     max
 }
 
-const COMMANDS: [&str; 11] = [
+const COMMANDS: [&str; 12] = [
     "tally",
     "stadium",
     "cost",
@@ -291,11 +292,12 @@ const COMMANDS: [&str; 11] = [
     "swing",
     "minority",
     "bench",
+    "pool",
 ];
 
 fn top_spec() -> ParserSpec {
     let mut commands = action(
-        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench}",
+        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool}",
         None,
     );
     commands.subactions = vec![
@@ -331,16 +333,20 @@ fn top_spec() -> ParserSpec {
             "bench",
             Some("print the bench reading over recorded poll sets"),
         ),
+        action(
+            "pool",
+            Some("print the pool reading over recorded poll sets"),
+        ),
     ];
     let mut spec = ParserSpec {
         prog: "grandjury",
         description: Some("Poll tiny models and render the stadium vote."),
         opt_usage: "[-h]",
         pos_usage:
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench} ...",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool} ...",
         opt_parts: vec!["[-h]"],
         pos_parts: vec![
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench}",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool}",
             "...",
         ],
         positionals: vec![commands],
@@ -420,6 +426,12 @@ fn sub_spec(command: &str) -> ParserSpec {
         ),
         "bench" => (
             "grandjury bench",
+            vec![action("label", None), action("directory", None)],
+            "label directory [label directory ...]",
+            vec!["label", "directory", "[label", "directory", "...]"],
+        ),
+        "pool" => (
+            "grandjury pool",
             vec![action("label", None), action("directory", None)],
             "label directory [label directory ...]",
             vec!["label", "directory", "[label", "directory", "...]"],
@@ -943,7 +955,7 @@ fn invalid_choice(spec: &ParserSpec, columns: usize, value: &PText) -> Outcome {
         spec,
         columns,
         &format!(
-            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority', 'bench')",
+            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority', 'bench', 'pool')",
             py_repr(value)
         ),
     )
@@ -968,7 +980,9 @@ fn parse_subcommand(
         "cost" => &["poll_file", "prices_file"],
         "agreement" => &["poll_files"],
         "compare" => &["first_dir", "second_dir"],
-        "census" | "ledger" | "dissent" | "swing" | "minority" | "bench" => &["label", "directory"],
+        "census" | "ledger" | "dissent" | "swing" | "minority" | "bench" | "pool" => {
+            &["label", "directory"]
+        }
         _ => &["poll_file"],
     };
     let unlimited = command == "agreement"
@@ -977,7 +991,8 @@ fn parse_subcommand(
         || command == "dissent"
         || command == "swing"
         || command == "minority"
-        || command == "bench";
+        || command == "bench"
+        || command == "pool";
     let mut values: Vec<PText> = Vec::new();
     let mut extras: Vec<PText> = top_extras;
     let mut positional_only = false;
@@ -1111,7 +1126,8 @@ fn run_subcommand(
         || command == "dissent"
         || command == "swing"
         || command == "minority"
-        || command == "bench")
+        || command == "bench"
+        || command == "pool")
         && values.len() % 2 == 1
     {
         // The census arguments stand as label and directory
@@ -1125,7 +1141,9 @@ fn run_subcommand(
         // the same refusal, as GJ-18 states, and the
         // minority takes the same pairs and the same
         // refusal, as GJ-20 states, and the bench takes the
-        // same pairs and the same refusal, as GJ-24 states.
+        // same pairs and the same refusal, as GJ-24 states,
+        // and the pool takes the same pairs and the same
+        // refusal, as GJ-26 states.
         return usage_error(
             &sub_spec(command),
             columns,
@@ -1144,6 +1162,7 @@ fn run_subcommand(
         "swing" => command_swing(&values),
         "minority" => command_minority(&values),
         "bench" => command_bench(&values),
+        "pool" => command_pool(&values),
         _ => unreachable!("a known command"),
     }
 }
@@ -1517,6 +1536,42 @@ fn command_bench(values: &[PText]) -> Outcome {
         }
         Err(defect) => {
             lines.push("invalid bench".to_string());
+            lines.push(format!("defect {}", defect));
+            Outcome::plain(lines, 1)
+        }
+    }
+}
+
+/// The pool command. The arguments stand as set label and
+/// directory pairs exactly as the census command takes
+/// them, and the sets load in pair order through the same
+/// poll set loader, so the first set whose polls draw
+/// defects stands its defect lines in the outcome and no
+/// pool prints, the pool whole or nothing as GJ-26
+/// states. A refusal of the pool reading itself prints
+/// the invalid pool line and its defect line, in the form
+/// of the invalid census surface.
+fn command_pool(values: &[PText]) -> Outcome {
+    let mut lines: Vec<String> = Vec::new();
+    let mut sets: Vec<(PText, Vec<Poll>)> = Vec::new();
+    // The dispatch refuses an odd argument count before
+    // this command runs, so the values stand in whole
+    // pairs and the remainder of the pairing is empty.
+    let (pairs, _) = values.as_chunks::<2>();
+    for pair in pairs {
+        let polls = match load_poll_set(&pair[1], &mut lines) {
+            Some(polls) => polls,
+            None => return Outcome::plain(lines, 1),
+        };
+        sets.push((pair[0].clone(), polls));
+    }
+    match pool_lines(&sets) {
+        Ok(reading) => {
+            lines.extend(reading);
+            Outcome::plain(lines, 0)
+        }
+        Err(defect) => {
+            lines.push("invalid pool".to_string());
             lines.push(format!("defect {}", defect));
             Outcome::plain(lines, 1)
         }

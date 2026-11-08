@@ -7,16 +7,18 @@ A poll holds one question, the set of answers offered, and one recorded response
 [![ci](https://github.com/david-engelmann/grandjury/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/david-engelmann/grandjury/actions/workflows/ci.yml)
 
 ```text
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-valid, 120
-spoiled, 4
-deploy, 62, 51.7%
-hold, 36, 30.0%
-deploy with a watcher, 22, 18.3%
+question, Should the village library open on Sunday mornings?
+responses, 100
+valid, 50
+spoiled, 0
+abstained, 50
+open on Sundays, 50, 100.0%
+stay closed on Sundays, 0, 0.0%
 ```
 
 ## Install
+
+A Rust toolchain is the only prerequisite, and the crate builds on edition 2021. The suite stands tested at Rust 1.91.1, the toolchain the CI file pins.
 
 ```sh
 git clone https://github.com/david-engelmann/grandjury.git
@@ -33,13 +35,13 @@ grandjury tally examples/recorded_poll.json
 ```
 
 ```text
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-valid, 120
-spoiled, 4
-deploy, 62, 51.7%
-hold, 36, 30.0%
-deploy with a watcher, 22, 18.3%
+question, Should the village library open on Sunday mornings?
+responses, 100
+valid, 50
+spoiled, 0
+abstained, 50
+open on Sundays, 50, 100.0%
+stay closed on Sundays, 0, 0.0%
 ```
 
 ## Usage
@@ -53,34 +55,33 @@ grandjury tally examples/recorded_poll.json
 ```
 
 ```text
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-valid, 120
-spoiled, 4
-deploy, 62, 51.7%
-hold, 36, 30.0%
-deploy with a watcher, 22, 18.3%
+question, Should the village library open on Sunday mornings?
+responses, 100
+valid, 50
+spoiled, 0
+abstained, 50
+open on Sundays, 50, 100.0%
+stay closed on Sundays, 0, 0.0%
 ```
 
-The stadium command prints the tally of one poll as a histogram together with a wall of the jurors' one line reasons. The reading over the recorded poll runs to 134 lines and its full output stands at examples/stadium-golden.txt, so the first lines and the last lines stand below with the middle elided.
+The stadium command prints the tally of one poll as a histogram together with a wall of the jurors' one line reasons. The reading over the recorded poll runs to 108 lines and its full output stands at examples/stadium-golden.txt, so the first lines and the last lines stand below with the middle elided.
 
 ```sh
 grandjury stadium examples/recorded_poll.json
 ```
 
 ```text
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-deploy |########################################| 62, 51.7%
-hold |#######################| 36, 30.0%
-deploy with a watcher |##############| 22, 18.3%
+question, Should the village library open on Sunday mornings?
+responses, 100
+open on Sundays |########################################| 50, 100.0%
+stay closed on Sundays || 0, 0.0%
 wall of reasons
-deploy
-  juror-001, the queue is clear and the tests are green
+open on Sundays
+  openai-1, openai/gpt-6-luna chose open on Sundays with confidence 0.65
 ...
-  juror-041, ask a human first
-  juror-070, never deploy
-  juror-099, deploy at dawn
+  jev-48, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-49, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-50, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
 ```
 
 The cost command prints what a recorded poll would have cost live, priced from a stated price table and the response count.
@@ -90,11 +91,11 @@ grandjury cost examples/recorded_poll.json examples/prices.json
 ```
 
 ```text
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-priced, 120 responses, 0.033000 dollars
-unpriced, 4 responses
-unpriced model, tiny-c, 4 responses
+question, Should the village library open on Sunday mornings?
+responses, 100
+priced, 50 responses, 0.002600 dollars
+unpriced, 50 responses
+unpriced model, jev-1.13.0, 50 responses
 ```
 
 The agreement command prints the agreement reading over recorded polls, stating for each poll and each jury the share every answer drew, the jury's plurality answer, and whether the pluralities of the two juries agree.
@@ -384,6 +385,87 @@ asking, pilot, move into the hall, valid 4, with the plurality 4
 benches, 2 models, 73 answers, 73 with the plurality
 ```
 
+The pool command prints the pool reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking.
+
+```sh
+grandjury pool pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, pilot, open on Sundays
+question, When should the community hall hold its spring clean?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, pilot, the first Saturday of April
+question, Should the school bake sale take card payments?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 10, 1, 100.0%
+plurality, pilot, both cards and cash
+question, Which night should the book club meet?
+set, pilot, recorded 10, valid 4, abstained 6, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, pilot, Wednesday
+question, Should the allotment gate be locked at dusk?
+set, pilot, recorded 10, valid 7, abstained 3, spoiled 0
+  lock it at dusk, 7, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, pilot, lock it at dusk
+question, What should the pub quiz do with tied scores?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  a tiebreak question, 10, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, pilot, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 10, 1, 100.0%
+plurality, pilot, both email and print
+question, When should the farmers market start in summer?
+set, pilot, recorded 10, valid 3, abstained 7, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 3, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, pilot, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, pilot, in the woods
+question, What should the choir sing at the winter concert?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, pilot, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+set, pilot, recorded 10, valid 0, abstained 10, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, pilot, none
+question, How should the village fete handle rain?
+set, pilot, recorded 10, valid 9, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 9, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, pilot, move into the hall
+pools, 12 questions, 12 askings, 73 valid, 11 pluralities
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 11 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -402,7 +484,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 11 have closed, with al
 - Contract, GJ-19 and GJ-20 met. They stand in full form in CONTRACT.md, and Round 9 closed on the merged slice 10 after three reviews, a repair pass, and a discharging re-review.
 - Contract, GJ-21 and GJ-22 met. They stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment, and Round 10 closed on the merged slice 11 after three reviews approving, the spec review's two conditions discharged on executed checks.
 - Contract, GJ-23 and GJ-24 met. They stand in full form in CONTRACT.md with the FIX-GJ-15 and FIX-GJ-16 repair amendments, and Round 11 closed on the merged slice 12 after three reviews, the red team's rejection repaired under FIX-GJ-16, and a discharging re-review.
+- Contract, GJ-25 and GJ-26 stand in full form in CONTRACT.md with the FIX-GJ-17, FIX-GJ-18, and FIX-GJ-19 repair amendments. Their standing is not claimed here, as Round 12 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 13 is built and in review. It carries the pool reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking, with its command and its golden, and the formats appendix of FIX-GJ-17 stating the six formats of the repo at version 1 with its compatibility rule, and the reason closure of FIX-GJ-18 over the poll text guard, with its widened guard and its pins, and the resampled fixture of FIX-GJ-19, twelve polls drawn from the recorded pilot envelopes at fifty seats per model with the example poll standing as its first poll.
 - Slice 12 has landed. It carries the bench reading over the three recorded poll sets, the pilot and the full poll and the second wave read together model by model under their set labels, stating each model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking, with its command and its golden, and the residual library fencing closure of FIX-GJ-15 over the tally, the stadium view, the cost reading, and the wave comparison reading, with its widened guard and its pins.
 - Slice 11 has landed. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.
 - Slice 10 has landed. It carries the minority reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the respondents whose valid answer was not the pooled plurality answer, with its command and its golden.
@@ -414,7 +498,7 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 11 have closed, with al
 - Slice 4 has landed. It carries the full live poll over both decision model routes, forty synthetic questions with five seats per question per model and the raw envelopes and the run record under examples, and the agreement reading over the recorded responses with its command and its golden.
 - Slice 3 has landed. It carries the juror seat readers over the two decision model routes, the abstained response kind through the tally, the stadium, and the cost counter, and the recorded pilot over both models, twelve synthetic questions with five seats per question per model and the raw envelopes and the run record under examples.
 - Slice 2 has landed. It carries the recorded poll loader that names every malformed field, the tally computed from the responses themselves with spoiled responses counted apart, the stadium view with its histogram and wall of reasons, and the cost counter pricing recorded responses from a stated price table, with the tally, stadium, and cost commands, one synthetic example poll of 124 recorded responses and its golden renderings under examples.
-- Local gate, cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan. CI runs the same commands.
+- Local gate, cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan, standing tested on Linux. CI runs the same commands.
 
 ## Licence
 

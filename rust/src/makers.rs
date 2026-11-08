@@ -2,8 +2,7 @@
 //! under examples.
 //!
 //! The makers are offline assemblies over recorded
-//! files. make_poll invents its synthetic poll by fixed
-//! arithmetic. make_pilot and make_full rebuild the recorded
+//! files. make_pilot and make_full rebuild the recorded
 //! polls, their goldens, and their run records from the
 //! questions files and the recorded envelopes through the seat
 //! readers. The wave maker of GJ-9 rebuilds the second wave
@@ -533,133 +532,8 @@ pub fn wave_build_run_record(examples: &Path, questions: &[JsonValue]) -> MakerR
     build_run_record(&examples.join("wave"), questions, true)
 }
 
-// The synthetic maker, examples/make_poll.py carried whole.
-
-const SYNTHETIC_QUESTION: &str = "Should the night shift agent deploy on Fridays?";
-const SYNTHETIC_ANSWERS: [&str; 3] = ["deploy", "hold", "deploy with a watcher"];
-const SYNTHETIC_SPOILED: [&str; 3] = ["deploy at dawn", "ask a human first", "never deploy"];
-const SYNTHETIC_REASONS: [[&str; 6]; 3] = [
-    [
-        "the queue is clear and the tests are green",
-        "Friday traffic is the lightest of the week",
-        "the change is small and well fenced",
-        "waiting until Monday helps nobody",
-        "the rollback path was rehearsed twice",
-        "the diff touches nothing shared",
-    ],
-    [
-        "nobody is awake to watch the graphs",
-        "a Friday fault festers until Monday",
-        "the on call rotation is thin this week",
-        "the last Friday deploy cost a weekend",
-        "the change can wait two days safely",
-        "the review was rushed and it shows",
-    ],
-    [
-        "the watcher catches what the graphs miss",
-        "a named human beats a paging rule",
-        "the risk is real but watchable",
-        "deploy, but keep eyes on the error rate",
-        "the watcher can roll back in one step",
-        "attention is cheaper than a weekend",
-    ],
-];
-const SYNTHETIC_SPOILED_REASONS: [&str; 3] = [
-    "the question felt too narrow",
-    "answering from habit, not evidence",
-    "the offered answers missed the point",
-];
-
-/// Build the synthetic example poll by the fixed arithmetic
-/// of its maker.
-pub fn synthetic_poll() -> JsonValue {
-    let mut responses: Vec<JsonValue> = Vec::new();
-    let mut reason_counts = [0usize; 3];
-    let mut spoiled_count = 0usize;
-    for index in 0..124 {
-        let juror = format!("juror-{:03}", index + 1);
-        let model = if index % 31 == 13 {
-            "tiny-c"
-        } else if index % 2 == 0 {
-            "tiny-a"
-        } else {
-            "tiny-b"
-        };
-        let (answer, reason) = if index % 29 == 11 {
-            let answer = SYNTHETIC_SPOILED[spoiled_count % 3];
-            let reason = SYNTHETIC_SPOILED_REASONS[spoiled_count % 3];
-            spoiled_count += 1;
-            (answer, reason)
-        } else {
-            let slot = index % 10;
-            let answer_index = if slot < 5 {
-                0
-            } else if slot < 8 {
-                1
-            } else {
-                2
-            };
-            let answer = SYNTHETIC_ANSWERS[answer_index];
-            let reason = SYNTHETIC_REASONS[answer_index][reason_counts[answer_index] % 6];
-            reason_counts[answer_index] += 1;
-            (answer, reason)
-        };
-        responses.push(JsonValue::object(vec![
-            (pt("juror"), JsonValue::Str(pt(&juror))),
-            (pt("model"), JsonValue::Str(pt(model))),
-            (pt("answer"), JsonValue::Str(pt(answer))),
-            (pt("reason"), JsonValue::Str(pt(reason))),
-        ]));
-    }
-    JsonValue::object(vec![
-        (pt("question"), JsonValue::Str(pt(SYNTHETIC_QUESTION))),
-        (
-            pt("answers"),
-            JsonValue::Arr(
-                SYNTHETIC_ANSWERS
-                    .iter()
-                    .map(|answer| JsonValue::Str(pt(answer)))
-                    .collect(),
-            ),
-        ),
-        (pt("responses"), JsonValue::Arr(responses)),
-    ])
-}
-
-/// The files of the synthetic maker, as relative paths and
-/// contents, reproducing examples/make_poll.py whole. Its
-/// dumps stand under the ascii reading, as the Python script
-/// writes them without the raw reading named.
-pub fn synthetic_files() -> MakerResult<Vec<(String, String)>> {
-    let poll = synthetic_poll();
-    let prices = JsonValue::object(vec![(
-        pt("prices"),
-        JsonValue::object(vec![
-            (pt("tiny-a"), JsonValue::Str(pt("0.0002"))),
-            (pt("tiny-b"), JsonValue::Str(pt("0.00035"))),
-        ]),
-    )]);
-    let (table, defects) = load_prices_text(&dumps(&prices, None, false, true));
-    if !defects.is_empty() {
-        return Err(refusal("the synthetic prices that load clean"));
-    }
-    let table = table.ok_or_else(|| refusal("the synthetic prices that load clean"))?;
-    let poll_struct = golden_poll(&poll)?;
-    let cost = cost_lines(&poll_struct, &table)
-        .map_err(|_| refusal("a cost report the counter renders"))?
-        .ok_or_else(|| refusal("a cost report the counter renders"))?;
-    let stadium =
-        render_stadium(&poll_struct).map_err(|_| refusal("a stadium view the reading renders"))?;
-    Ok(vec![
-        (
-            "recorded_poll.json".to_string(),
-            format!("{}\n", dumps(&poll, Some(2), false, true)),
-        ),
-        (
-            "prices.json".to_string(),
-            format!("{}\n", dumps(&prices, Some(2), false, true)),
-        ),
-        ("stadium-golden.txt".to_string(), join_lines(&stadium)),
-        ("cost-golden.txt".to_string(), join_lines(&cost)),
-    ])
-}
+// The synthetic maker of the port, which invented the
+// example poll and the example price table by fixed
+// arithmetic and assembled the four files they stand in,
+// retired under FIX-GJ-19, which replaced every file it
+// made with the resampled fixture and its renderings.
