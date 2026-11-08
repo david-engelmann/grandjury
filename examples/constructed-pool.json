@@ -1,0 +1,40 @@
+{
+  "question": "Which gate should the night market use?",
+  "answers": [
+    "the north gate",
+    "the south gate"
+  ],
+  "responses": [
+    {
+      "juror": "juror-1",
+      "model": "model-a",
+      "answer": "the north gate",
+      "reason": "the north gate stands closer to the tram stop"
+    },
+    {
+      "juror": "juror-2",
+      "model": "model-a",
+      "answer": "the south gate",
+      "reason": "the south gate has the wider lane"
+    },
+    {
+      "juror": "juror-3",
+      "model": "model-b",
+      "answer": "the north gate",
+      "reason": "the north gate is lit all night"
+    },
+    {
+      "juror": "juror-4",
+      "model": "model-b",
+      "answer": "the south gate",
+      "reason": "the south gate opens onto the square"
+    },
+    {
+      "juror": "juror-5",
+      "model": "model-b",
+      "answer": "the north gate",
+      "reason": "model-b chose the north gate with confidence 0.31 and abstained",
+      "abstained": true
+    }
+  ]
+}

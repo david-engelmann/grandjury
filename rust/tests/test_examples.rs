@@ -1,11 +1,13 @@
 //! Pins for the recorded example poll and its golden
 //! renderings.
 //!
-//! Translated from tests/test_examples.py. The example is a
-//! synthetic poll of 124 recorded responses across three
-//! offered answers and three models, one of them unpriced,
-//! with four spoiled responses. The goldens are held byte
-//! identical against the renderings the code produces today.
+//! Translated from tests/test_examples.py. The example is
+//! the first poll of the resampled set of FIX-GJ-19, one
+//! hundred recorded responses across two offered answers
+//! and two models, one of them unpriced, with fifty
+//! abstained responses and no spoiled responses. The
+//! goldens are held byte identical against the renderings
+//! the code produces today.
 
 mod shared;
 
@@ -24,12 +26,13 @@ fn the_example_poll_loads_clean_at_its_stated_shape() {
     let (poll, defects) = load_poll_file(&examples().join("recorded_poll.json"));
     assert_eq!(defects, Vec::<String>::new());
     let poll = poll.expect("a poll");
-    assert_eq!(poll.answers.len(), 3);
-    assert_eq!(poll.responses.len(), 124);
-    assert_eq!(model_set(&poll), vec!["tiny-a", "tiny-b", "tiny-c"]);
+    assert_eq!(poll.answers.len(), 2);
+    assert_eq!(poll.responses.len(), 100);
+    assert_eq!(model_set(&poll), vec!["jev-1.13.0", "openai/gpt-6-luna"]);
     let tally = tally_poll(&poll);
-    assert_eq!(tally.valid, 120);
-    assert_eq!(tally.spoiled, 4);
+    assert_eq!(tally.valid, 50);
+    assert_eq!(tally.spoiled, 0);
+    assert_eq!(tally.abstained, 50);
 }
 
 #[test]
@@ -39,7 +42,7 @@ fn the_example_prices_load_clean() {
     let table = table.expect("a table");
     let mut models: Vec<String> = table.models().iter().map(|m| m.display()).collect();
     models.sort();
-    assert_eq!(models, vec!["tiny-a", "tiny-b"]);
+    assert_eq!(models, vec!["openai/gpt-6-luna"]);
 }
 
 #[test]

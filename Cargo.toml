@@ -102,6 +102,14 @@ path = "rust/tests/test_fencing.rs"
 name = "test_bench"
 path = "rust/tests/test_bench.rs"
 
+[[test]]
+name = "test_pool"
+path = "rust/tests/test_pool.rs"
+
+[[test]]
+name = "test_resample"
+path = "rust/tests/test_resample.rs"
+
 [dependencies]
 num-bigint = "0.4"
 num-rational = "0.4"

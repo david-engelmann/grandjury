@@ -1,134 +1,108 @@
-question, Should the night shift agent deploy on Fridays?
-responses, 124
-deploy |########################################| 62, 51.7%
-hold |#######################| 36, 30.0%
-deploy with a watcher |##############| 22, 18.3%
+question, Should the village library open on Sunday mornings?
+responses, 100
+open on Sundays |########################################| 50, 100.0%
+stay closed on Sundays || 0, 0.0%
 wall of reasons
-deploy
-  juror-001, the queue is clear and the tests are green
-  juror-002, Friday traffic is the lightest of the week
-  juror-003, the change is small and well fenced
-  juror-004, waiting until Monday helps nobody
-  juror-005, the rollback path was rehearsed twice
-  juror-011, the diff touches nothing shared
-  juror-013, the queue is clear and the tests are green
-  juror-014, Friday traffic is the lightest of the week
-  juror-015, the change is small and well fenced
-  juror-021, waiting until Monday helps nobody
-  juror-022, the rollback path was rehearsed twice
-  juror-023, the diff touches nothing shared
-  juror-024, the queue is clear and the tests are green
-  juror-025, Friday traffic is the lightest of the week
-  juror-031, the change is small and well fenced
-  juror-032, waiting until Monday helps nobody
-  juror-033, the rollback path was rehearsed twice
-  juror-034, the diff touches nothing shared
-  juror-035, the queue is clear and the tests are green
-  juror-042, Friday traffic is the lightest of the week
-  juror-043, the change is small and well fenced
-  juror-044, waiting until Monday helps nobody
-  juror-045, the rollback path was rehearsed twice
-  juror-051, the diff touches nothing shared
-  juror-052, the queue is clear and the tests are green
-  juror-053, Friday traffic is the lightest of the week
-  juror-054, the change is small and well fenced
-  juror-055, waiting until Monday helps nobody
-  juror-061, the rollback path was rehearsed twice
-  juror-062, the diff touches nothing shared
-  juror-063, the queue is clear and the tests are green
-  juror-064, Friday traffic is the lightest of the week
-  juror-065, the change is small and well fenced
-  juror-071, waiting until Monday helps nobody
-  juror-072, the rollback path was rehearsed twice
-  juror-073, the diff touches nothing shared
-  juror-074, the queue is clear and the tests are green
-  juror-075, Friday traffic is the lightest of the week
-  juror-081, the change is small and well fenced
-  juror-082, waiting until Monday helps nobody
-  juror-083, the rollback path was rehearsed twice
-  juror-084, the diff touches nothing shared
-  juror-085, the queue is clear and the tests are green
-  juror-091, Friday traffic is the lightest of the week
-  juror-092, the change is small and well fenced
-  juror-093, waiting until Monday helps nobody
-  juror-094, the rollback path was rehearsed twice
-  juror-095, the diff touches nothing shared
-  juror-101, the queue is clear and the tests are green
-  juror-102, Friday traffic is the lightest of the week
-  juror-103, the change is small and well fenced
-  juror-104, waiting until Monday helps nobody
-  juror-105, the rollback path was rehearsed twice
-  juror-111, the diff touches nothing shared
-  juror-112, the queue is clear and the tests are green
-  juror-113, Friday traffic is the lightest of the week
-  juror-114, the change is small and well fenced
-  juror-115, waiting until Monday helps nobody
-  juror-121, the rollback path was rehearsed twice
-  juror-122, the diff touches nothing shared
-  juror-123, the queue is clear and the tests are green
-  juror-124, Friday traffic is the lightest of the week
-hold
-  juror-006, nobody is awake to watch the graphs
-  juror-007, a Friday fault festers until Monday
-  juror-008, the on call rotation is thin this week
-  juror-016, the last Friday deploy cost a weekend
-  juror-017, the change can wait two days safely
-  juror-018, the review was rushed and it shows
-  juror-026, nobody is awake to watch the graphs
-  juror-027, a Friday fault festers until Monday
-  juror-028, the on call rotation is thin this week
-  juror-036, the last Friday deploy cost a weekend
-  juror-037, the change can wait two days safely
-  juror-038, the review was rushed and it shows
-  juror-046, nobody is awake to watch the graphs
-  juror-047, a Friday fault festers until Monday
-  juror-048, the on call rotation is thin this week
-  juror-056, the last Friday deploy cost a weekend
-  juror-057, the change can wait two days safely
-  juror-058, the review was rushed and it shows
-  juror-066, nobody is awake to watch the graphs
-  juror-067, a Friday fault festers until Monday
-  juror-068, the on call rotation is thin this week
-  juror-076, the last Friday deploy cost a weekend
-  juror-077, the change can wait two days safely
-  juror-078, the review was rushed and it shows
-  juror-086, nobody is awake to watch the graphs
-  juror-087, a Friday fault festers until Monday
-  juror-088, the on call rotation is thin this week
-  juror-096, the last Friday deploy cost a weekend
-  juror-097, the change can wait two days safely
-  juror-098, the review was rushed and it shows
-  juror-106, nobody is awake to watch the graphs
-  juror-107, a Friday fault festers until Monday
-  juror-108, the on call rotation is thin this week
-  juror-116, the last Friday deploy cost a weekend
-  juror-117, the change can wait two days safely
-  juror-118, the review was rushed and it shows
-deploy with a watcher
-  juror-009, the watcher catches what the graphs miss
-  juror-010, a named human beats a paging rule
-  juror-019, the risk is real but watchable
-  juror-020, deploy, but keep eyes on the error rate
-  juror-029, the watcher can roll back in one step
-  juror-030, attention is cheaper than a weekend
-  juror-039, the watcher catches what the graphs miss
-  juror-040, a named human beats a paging rule
-  juror-049, the risk is real but watchable
-  juror-050, deploy, but keep eyes on the error rate
-  juror-059, the watcher can roll back in one step
-  juror-060, attention is cheaper than a weekend
-  juror-069, the watcher catches what the graphs miss
-  juror-079, a named human beats a paging rule
-  juror-080, the risk is real but watchable
-  juror-089, deploy, but keep eyes on the error rate
-  juror-090, the watcher can roll back in one step
-  juror-100, attention is cheaper than a weekend
-  juror-109, the watcher catches what the graphs miss
-  juror-110, a named human beats a paging rule
-  juror-119, the risk is real but watchable
-  juror-120, deploy, but keep eyes on the error rate
-spoiled, 4
-  juror-012, deploy at dawn
-  juror-041, ask a human first
-  juror-070, never deploy
-  juror-099, deploy at dawn
+open on Sundays
+  openai-1, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-2, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-3, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-4, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-5, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-6, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-7, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-8, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-9, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-10, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-11, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-12, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-13, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-14, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-15, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-16, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-17, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-18, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-19, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-20, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-21, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-22, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-23, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-24, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-25, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-26, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-27, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-28, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-29, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-30, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-31, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-32, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-33, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-34, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-35, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-36, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-37, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-38, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-39, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-40, openai/gpt-6-luna chose open on Sundays with confidence 0.6
+  openai-41, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-42, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-43, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-44, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+  openai-45, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-46, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-47, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-48, openai/gpt-6-luna chose open on Sundays with confidence 0.7
+  openai-49, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+  openai-50, openai/gpt-6-luna chose open on Sundays with confidence 0.62
+stay closed on Sundays
+abstained, 50
+  jev-1, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-2, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-3, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-4, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-5, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-6, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-7, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-8, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-9, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-10, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-11, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-12, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-13, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-14, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-15, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-16, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-17, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-18, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-19, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-20, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-21, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-22, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-23, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-24, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-25, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-26, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-27, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-28, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-29, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-30, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-31, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-32, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-33, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-34, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-35, jev-1.13.0 chose open on Sundays with confidence 0.06 and abstained
+  jev-36, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-37, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-38, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-39, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-40, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-41, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-42, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-43, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-44, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+  jev-45, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-46, jev-1.13.0 chose open on Sundays with confidence 0.12 and abstained
+  jev-47, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-48, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-49, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-50, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
