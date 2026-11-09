@@ -466,6 +466,87 @@ plurality, pilot, move into the hall
 pools, 12 questions, 12 askings, 73 valid, 11 pluralities
 ```
 
+The aggregate command prints the aggregate reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question.
+
+```sh
+grandjury aggregate pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, open on Sundays
+question, When should the community hall hold its spring clean?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, the first Saturday of April
+question, Should the school bake sale take card payments?
+pool, recorded 10, valid 10, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 10, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+pool, recorded 10, valid 4, abstained 6, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, Wednesday
+question, Should the allotment gate be locked at dusk?
+pool, recorded 10, valid 7, abstained 3, spoiled 0
+  lock it at dusk, 7, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+pool, recorded 10, valid 10, abstained 0, spoiled 0
+  a tiebreak question, 10, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+pool, recorded 10, valid 10, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 10, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+pool, recorded 10, valid 3, abstained 7, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 3, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, in the woods
+question, What should the choir sing at the winter concert?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+pool, recorded 10, valid 0, abstained 10, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+pool, recorded 10, valid 9, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 9, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+aggregates, 12 questions, 12 askings, 73 valid, 11 pluralities
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 12 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -485,7 +566,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 12 have closed, with al
 - Contract, GJ-21 and GJ-22 met. They stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment, and Round 10 closed on the merged slice 11 after three reviews approving, the spec review's two conditions discharged on executed checks.
 - Contract, GJ-23 and GJ-24 met. They stand in full form in CONTRACT.md with the FIX-GJ-15 and FIX-GJ-16 repair amendments, and Round 11 closed on the merged slice 12 after three reviews, the red team's rejection repaired under FIX-GJ-16, and a discharging re-review.
 - Contract, GJ-25 and GJ-26 met. They stand in full form in CONTRACT.md with the FIX-GJ-17, FIX-GJ-18, and FIX-GJ-19 repair amendments, and Round 12 closed on the merged slice 13 after three reviews, one standards Minor on a test comment repaired.
+- Contract, GJ-27 and GJ-28 stand in full form in CONTRACT.md with the FIX-GJ-20 repair amendment. Their standing is not claimed here, as Round 13 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 14 is built and in review. It carries the aggregate reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question, with its command and its golden, and the glob import gate of FIX-GJ-20 over the binary surface tests, with its attribute line and its pin.
 - Slice 13 has landed. It carries the pool reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking, with its command and its golden, and the formats appendix of FIX-GJ-17 stating the six formats of the repo at version 1 with its compatibility rule, and the reason closure of FIX-GJ-18 over the poll text guard, with its widened guard and its pins, and the resampled fixture of FIX-GJ-19, twelve polls drawn from the recorded pilot envelopes at fifty seats per model with the example poll standing as its first poll.
 - Slice 12 has landed. It carries the bench reading over the three recorded poll sets, the pilot and the full poll and the second wave read together model by model under their set labels, stating each model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking, with its command and its golden, and the residual library fencing closure of FIX-GJ-15 over the tally, the stadium view, the cost reading, and the wave comparison reading, with its widened guard and its pins.
 - Slice 11 has landed. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.

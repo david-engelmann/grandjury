@@ -83,13 +83,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 11 slice for the same
     // consequence, and restored at the Round 11 closure, and
     // altered again at the Round 12 slice for the same
-    // consequence, and restored at the Round 12 closure.
-    // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 13 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
+    // consequence, and restored at the Round 12 closure, and
+    // altered again at the Round 13 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. Slice 14 stands in
+    // review while Round 13 is built, so the count stands
+    // at one. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -319,6 +320,54 @@ fn contract_carries_the_round_twelve_amendment() {
     for aid in ["FIX-GJ-17", "FIX-GJ-18", "FIX-GJ-19"] {
         assert!(text.contains(aid), "{}", aid);
     }
+}
+
+#[test]
+fn readme_reports_the_round_thirteen_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-27 and GJ-28 stand in full form in CONTRACT.md with the FIX-GJ-20 repair amendment. Their standing is not claimed here, as Round 13 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 14 is built and in review. It carries the aggregate reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question, with its command and its golden, and the glob import gate of FIX-GJ-20 over the binary surface tests, with its attribute line and its pin.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 12 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_thirteen_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-27", "GJ-28"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn contract_carries_the_round_thirteen_amendment() {
+    let text = root_text("CONTRACT.md");
+    assert!(text.contains("FIX-GJ-20"));
+}
+
+#[test]
+fn the_binary_surface_glob_import_stands_gated_to_linux() {
+    // The text pin FIX-GJ-20 states. The gate attribute
+    // line stands immediately above the glob import line
+    // in the binary surface tests, so the import draws in
+    // the shared module's items only on the target where
+    // a gated item uses them. The pin fails against the
+    // Round 12 tree by assertion on every platform, the
+    // import standing bare there. The five closed pipe
+    // pins in that target pass before the repair on this
+    // platform by design, the gate standing true here, and
+    // stand as the repair's scope guard rather than as
+    // discriminators.
+    let text = root_text("rust/tests/test_binary_surface.rs");
+    let lines = lines_of(&text);
+    let import_at = lines
+        .iter()
+        .position(|line| *line == "use shared::*;")
+        .expect("the glob import line");
+    assert!(import_at >= 1);
+    assert_eq!(lines[import_at - 1], "#[cfg(target_os = \"linux\")]");
 }
 
 #[test]

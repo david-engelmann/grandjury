@@ -42,12 +42,18 @@
 //! question and states the pooled counts of each asking,
 //! the count and the share of every offered answer among
 //! its pooled valid responses, and its pooled plurality,
-//! under GJ-25. The
+//! under GJ-25. The aggregate reading reads the whole
+//! record question by question and states for each
+//! question the counts of all its askings summed as one
+//! pool, the count and the share of every offered answer
+//! of the question among its pooled valid responses, and
+//! the pooled plurality of the question, under GJ-27. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
 //! codepoint scan lives in scan.
 
+pub mod aggregate;
 pub mod agreement;
 pub mod bench;
 pub mod census;
