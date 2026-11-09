@@ -359,10 +359,9 @@ fn assert_closing_relations(sets: &[(PText, Vec<Poll>)]) {
     let pool = pool_lines(sets).expect("the pool reading computes");
     let mut pool_counts: std::collections::HashMap<(String, String), usize> =
         std::collections::HashMap::new();
-    let mut pool_askings: std::collections::HashMap<
-        String,
-        Vec<((usize, usize, usize, usize), Vec<String>, String)>,
-    > = std::collections::HashMap::new();
+    type PoolAsking = ((usize, usize, usize, usize), Vec<String>, String);
+    let mut pool_askings: std::collections::HashMap<String, Vec<PoolAsking>> =
+        std::collections::HashMap::new();
     let mut current_question: Option<String> = None;
     let mut current_label: Option<String> = None;
     for line in &pool {
@@ -969,8 +968,8 @@ fn generated_sets_in_memory() -> Vec<(PText, Vec<Poll>)> {
     // wrapping at the end of the list.
     let mut plan: Vec<Vec<(usize, Vec<usize>)>> = vec![Vec::new(); 4];
     for (set_idx, slot) in plan.iter_mut().enumerate() {
-        for question_idx in 0..36 {
-            if !asking_sets_of[question_idx].contains(&set_idx) {
+        for (question_idx, asking_sets) in asking_sets_of.iter().enumerate() {
+            if !asking_sets.contains(&set_idx) {
                 continue;
             }
             let model_count = 2 + rng.draw(2) as usize;
