@@ -687,6 +687,162 @@ plurality, move into the hall
 canvasses, 12 questions, 24 juries, 17 pluralities, 17 with the plurality
 ```
 
+The roll command prints the roll reading over one or more recorded poll sets named with labels, jury by jury in the order the juries first appear across the sets, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section.
+
+```sh
+grandjury roll pilot examples/pilot
+```
+
+```text
+model, jev-1.13.0
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, none
+question, When should the community hall hold its spring clean?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, the first Saturday of April
+question, Should the school bake sale take card payments?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+jury, jev-1.13.0, recorded 5, valid 4, abstained 1, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, Wednesday
+question, Should the allotment gate be locked at dusk?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  lock it at dusk, 5, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+jury, jev-1.13.0, recorded 5, valid 1, abstained 4, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 1, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 0, 0, 0.0%
+plurality, none
+question, What should the choir sing at the winter concert?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 0, 0, 0.0%
+  folk songs only, 0, 0, 0.0%
+plurality, none
+question, Should the bus stop move closer to the shops?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 5, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+standing, 12 questions, 8 pluralities, 8 with the plurality
+model, openai/gpt-6-luna
+question, Should the village library open on Sunday mornings?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, open on Sundays
+question, When should the community hall hold its spring clean?
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  the first Saturday of April, 0, 0, 0.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, none
+question, Should the school bake sale take card payments?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 0, 0, 0.0%
+  Thursday, 0, 0, 0.0%
+plurality, none
+question, Should the allotment gate be locked at dusk?
+jury, openai/gpt-6-luna, recorded 5, valid 2, abstained 3, spoiled 0
+  lock it at dusk, 2, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+jury, openai/gpt-6-luna, recorded 5, valid 2, abstained 3, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 2, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, in the woods
+question, What should the choir sing at the winter concert?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+jury, openai/gpt-6-luna, recorded 5, valid 4, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 4, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+standing, 12 questions, 9 pluralities, 9 with the plurality
+rolls, 2 juries, 24 blocks, 17 pluralities, 17 with the plurality
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 14 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -708,7 +864,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 14 have closed, with al
 - Contract, GJ-25 and GJ-26 met. They stand in full form in CONTRACT.md with the FIX-GJ-17, FIX-GJ-18, and FIX-GJ-19 repair amendments, and Round 12 closed on the merged slice 13 after three reviews, one standards Minor on a test comment repaired.
 - Contract, GJ-27 and GJ-28 met. They stand in full form in CONTRACT.md with the FIX-GJ-20 repair amendment, and Round 13 closed on the merged slice 14 after three reviews, a repair pass over the aggregate tests, three approving delta reviews, and a hosted lint repair.
 - Contract, GJ-29 and GJ-30 met. They stand in full form in CONTRACT.md, and Round 14 closed on the merged slice 15 after three reviews, a repair pass over the canvass test header, and three approving delta reviews.
+- Contract, GJ-31 and GJ-32 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 15 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 16 is built and in review. It carries the roll reading over the three recorded poll sets, the pilot and the full poll and the second wave read together jury by jury, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section, with its command and its golden.
 - Slice 15 has landed. It carries the canvass reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, per jury, the counts of the jury summed over the askings of the question, the count standing behind every offered answer of the question with its share of the summed valid answers of the jury, and the plurality of the jury at the question, with its command and its golden.
 - Slice 14 has landed. It carries the aggregate reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question, with its command and its golden, and the glob import gate of FIX-GJ-20 over the binary surface tests, with its attribute line and its pin.
 - Slice 13 has landed. It carries the pool reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking, with its command and its golden, and the formats appendix of FIX-GJ-17 stating the six formats of the repo at version 1 with its compatibility rule, and the reason closure of FIX-GJ-18 over the poll text guard, with its widened guard and its pins, and the resampled fixture of FIX-GJ-19, twelve polls drawn from the recorded pilot envelopes at fifty seats per model with the example poll standing as its first poll.
