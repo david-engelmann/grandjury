@@ -18,7 +18,7 @@
 use num_bigint::BigInt;
 use num_rational::Ratio;
 
-use crate::agreement::{jury_reading, JuryReading};
+use crate::agreement::{jury_reading, plurality_of, JuryReading};
 use crate::polls::{Poll, Response};
 use crate::pytext::PText;
 use crate::record::{check_poll_text, collect_questions, validate_sets, Questions};
@@ -118,17 +118,7 @@ pub fn aggregate_lines(sets: &[(PText, Vec<Poll>)]) -> Result<Vec<String>, Strin
             };
             rows.push((answer.clone(), *count, share));
         }
-        let largest = summed.iter().copied().max().unwrap_or(0);
-        let holders = summed.iter().filter(|count| **count == largest).count();
-        let plurality = if valid > 0 && holders == 1 {
-            let slot = summed
-                .iter()
-                .position(|count| *count == largest)
-                .expect("a largest count");
-            Some(union[slot].clone())
-        } else {
-            None
-        };
+        let plurality = plurality_of(&summed, valid, &union);
         let reading = JuryReading {
             recorded,
             valid,

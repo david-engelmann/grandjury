@@ -843,6 +843,25 @@ standing, 12 questions, 9 pluralities, 9 with the plurality
 rolls, 2 juries, 24 blocks, 17 pluralities, 17 with the plurality
 ```
 
+The muster command prints the muster reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is.
+
+```sh
+grandjury muster pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+answer, open on Sundays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 10 responses, 1 juries, 1 pluralities
+answer, stay closed on Sundays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+musters, 52 questions, 143 answers, 278 juries, 65 pluralities
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 15 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -865,7 +884,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 15 have closed, with al
 - Contract, GJ-27 and GJ-28 met. They stand in full form in CONTRACT.md with the FIX-GJ-20 repair amendment, and Round 13 closed on the merged slice 14 after three reviews, a repair pass over the aggregate tests, three approving delta reviews, and a hosted lint repair.
 - Contract, GJ-29 and GJ-30 met. They stand in full form in CONTRACT.md, and Round 14 closed on the merged slice 15 after three reviews, a repair pass over the canvass test header, and three approving delta reviews.
 - Contract, GJ-31 and GJ-32 met. They stand in full form in CONTRACT.md, and Round 15 closed on the merged slice 16 after three reviews approving with findings and no repair owed, with the standards Minor on the duplicated counting helpers carried to a later round.
+- Contract, GJ-33 and GJ-34 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 16 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 17 is built and in review. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.
 - Slice 16 has landed. It carries the roll reading over the three recorded poll sets, the pilot and the full poll and the second wave read together jury by jury, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section, with its command and its golden.
 - Slice 15 has landed. It carries the canvass reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, per jury, the counts of the jury summed over the askings of the question, the count standing behind every offered answer of the question with its share of the summed valid answers of the jury, and the plurality of the jury at the question, with its command and its golden.
 - Slice 14 has landed. It carries the aggregate reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question, with its command and its golden, and the glob import gate of FIX-GJ-20 over the binary surface tests, with its attribute line and its pin.

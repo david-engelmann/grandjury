@@ -21,58 +21,12 @@
 use num_bigint::BigInt;
 use num_rational::Ratio;
 
-use crate::agreement::{jury_reading, poll_juries, responses_of, JuryReading};
+use crate::agreement::{
+    add_reading, jury_reading, plurality_of, poll_juries, responses_of, JuryReading,
+};
 use crate::polls::{Poll, Response};
 use crate::pytext::PText;
 use crate::record::{check_poll_text, collect_questions, validate_sets, Questions};
-
-/// The plurality of a pool of summed counts, the
-/// offered answer holding the largest count among the
-/// valid responses the counts sum, standing only when
-/// the pool holds at least one valid response and one
-/// answer holds that count alone. The canvass reads
-/// this rule twice over, once for the pool of one jury
-/// over one question under the application GJ-29
-/// states and once for the pool of a whole question
-/// under the application GJ-27 states, and the rule
-/// stands here once for both.
-fn plurality_of(counts: &[usize], valid: usize, union: &[PText]) -> Option<PText> {
-    let largest = counts.iter().copied().max().unwrap_or(0);
-    let holders = counts.iter().filter(|count| **count == largest).count();
-    if valid > 0 && holders == 1 {
-        let slot = counts
-            .iter()
-            .position(|count| *count == largest)
-            .expect("a largest count");
-        Some(union[slot].clone())
-    } else {
-        None
-    }
-}
-
-/// Sum the counts of one reading into a pool over the
-/// union answers of a question, the four counts of the
-/// reading added to the pool counts and the count of
-/// every answer of the reading added to the slot of
-/// that answer in the union, count by count.
-fn add_reading(
-    pool: &mut [usize],
-    counts: &mut (usize, usize, usize, usize),
-    union: &[PText],
-    reading: &JuryReading,
-) {
-    counts.0 += reading.recorded;
-    counts.1 += reading.valid;
-    counts.2 += reading.abstained;
-    counts.3 += reading.spoiled;
-    for (answer, count, _) in &reading.rows {
-        let slot = union
-            .iter()
-            .position(|held| held == answer)
-            .expect("an offered answer of the union");
-        pool[slot] += count;
-    }
-}
 
 /// Return the canvass reading over a list of recorded
 /// poll sets as lines, or the defect the first failed

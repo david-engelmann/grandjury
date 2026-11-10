@@ -390,3 +390,58 @@ fn the_roll_command_refuses_a_defective_poll_and_a_duplicate_label() {
         "invalid roll\ndefect the set label pilot stands twice\n"
     );
 }
+
+// The muster command pins of GJ-34. Each fails
+// against the Round 15 closure tree by assertion:
+// muster stands as no command in that tree, so every
+// run below draws the surface's unknown command
+// refusal at status two, where the pins require the
+// usage refusals and the reading refusal of the
+// sixteenth command.
+
+#[test]
+fn the_muster_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["muster"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_muster_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["muster", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_muster_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-muster-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("bad.json", &bad);
+    let (stdout, _, code) = run_cli(&[
+        "muster",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "marsh",
+        &path_arg(&scratch.path),
+    ]);
+    assert_eq!(code, 1);
+    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert!(!stdout.contains("musters"));
+    let (stdout, _, code) = run_cli(&[
+        "muster",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "pilot",
+        &path_arg(&examples().join("wave")),
+    ]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid muster\ndefect the set label pilot stands twice\n"
+    );
+}

@@ -1,0 +1,617 @@
+question, Should the village library open on Sunday mornings?
+answer, open on Sundays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 10 responses, 1 juries, 1 pluralities
+answer, stay closed on Sundays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, When should the community hall hold its spring clean?
+answer, the first Saturday of April
+  jev-1.13.0, 10, 1, 100.0%
+  openai/gpt-6-luna, 1, 1, 100.0%
+muster, 11 responses, 2 juries, 2 pluralities
+answer, the last Saturday of April
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a weekday evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the school bake sale take card payments?
+answer, cards only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, cash only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, both cards and cash
+  jev-1.13.0, 10, 1, 100.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 20 responses, 2 juries, 2 pluralities
+question, Which night should the book club meet?
+answer, Tuesday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, Wednesday
+  jev-1.13.0, 9, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 9 responses, 1 juries, 1 pluralities
+answer, Thursday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the allotment gate be locked at dusk?
+answer, lock it at dusk
+  jev-1.13.0, 10, 1, 100.0%
+  openai/gpt-6-luna, 4, 1, 100.0%
+muster, 14 responses, 2 juries, 2 pluralities
+answer, leave it unlocked
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, lock it at nine
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the pub quiz do with tied scores?
+answer, a tiebreak question
+  jev-1.13.0, 10, 1, 100.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 20 responses, 2 juries, 2 pluralities
+answer, share the prize
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, replay the final round
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the parish newsletter go out by email instead of print?
+answer, email only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, print only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, both email and print
+  jev-1.13.0, 10, 1, 100.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 20 responses, 2 juries, 2 pluralities
+question, When should the farmers market start in summer?
+answer, seven in the morning
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 1, 1/4, 25.0%
+muster, 1 responses, 1 juries, 0 pluralities
+answer, eight in the morning
+  jev-1.13.0, 4, 1, 100.0%
+  openai/gpt-6-luna, 3, 3/4, 75.0%
+muster, 7 responses, 2 juries, 2 pluralities
+answer, nine in the morning
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the scout troop camp by the river or in the woods?
+answer, by the river
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 2, 1/5, 20.0%
+muster, 2 responses, 1 juries, 0 pluralities
+answer, in the woods
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 8, 4/5, 80.0%
+muster, 8 responses, 1 juries, 1 pluralities
+question, What should the choir sing at the winter concert?
+answer, carols only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a mix of carols and folk songs
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 10 responses, 1 juries, 1 pluralities
+answer, folk songs only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the bus stop move closer to the shops?
+answer, move it closer
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, keep it where it is
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, add a second stop
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, How should the village fete handle rain?
+answer, carry on in the rain
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, move into the hall
+  jev-1.13.0, 10, 1, 100.0%
+  openai/gpt-6-luna, 9, 1, 100.0%
+muster, 19 responses, 2 juries, 2 pluralities
+answer, postpone by a week
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, cancel outright
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the post office counter open an hour earlier on market days?
+answer, open an hour earlier
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 2, 2/3, 66.7%
+muster, 2 responses, 1 juries, 1 pluralities
+answer, keep the current hours
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 1, 1/3, 33.3%
+muster, 1 responses, 1 juries, 0 pluralities
+question, Which soup should the lunch club serve on Fridays?
+answer, tomato
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, leek and potato
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, carrot and lentil
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+answer, on Thursdays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, on Fridays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the gardening club plant along the fence this year?
+answer, sunflowers
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, sweet peas
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, runner beans
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, lavender
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the farm shop sell flowers as well as vegetables?
+answer, sell flowers too
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, vegetables only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, When should the repair cafe run each month?
+answer, the first Saturday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, the second Saturday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, the third Saturday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, the last Saturday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the school playground open to families at weekends?
+answer, open it at weekends
+  jev-1.13.0, 3, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 8 responses, 2 juries, 2 pluralities
+answer, keep it closed
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Which film should the cinema club show in December?
+answer, a comedy
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a drama
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a documentary
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a classic musical
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 5 responses, 1 juries, 1 pluralities
+question, Should the gym add a beginners class on Monday evenings?
+answer, add the class
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, keep the timetable as it is
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What colour should the hall kitchen be repainted?
+answer, cream
+  jev-1.13.0, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, sage green
+  jev-1.13.0, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, pale blue
+  jev-1.13.0, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the dog show move to the bigger field?
+answer, move it
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, keep it on the green
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, When should the youth club take its summer trip?
+answer, in late July
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, in mid August
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, in early September
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the toy library lend board games as well as toys?
+answer, lend games too
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 10 responses, 2 juries, 2 pluralities
+answer, toys only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the bakery bake for the harvest festival?
+answer, a giant loaf
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, spiced buns
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, fruit pies
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, honey cakes
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the last bus leave an hour later on Friday nights?
+answer, leave later
+  jev-1.13.0, 2, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 7 responses, 2 juries, 2 pluralities
+answer, keep the last bus as it is
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Which day should the jumble sale be held?
+answer, on Saturday
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 10 responses, 2 juries, 2 pluralities
+answer, on Sunday
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the swimming pool offer early morning lane swimming?
+answer, offer it
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 2, 1, 100.0%
+muster, 2 responses, 1 juries, 1 pluralities
+answer, keep the current timetable
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the art group show at the spring exhibition?
+answer, landscapes
+  jev-1.13.0, 4, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 4 responses, 1 juries, 1 pluralities
+answer, portraits
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, still life
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the village hall roof be repaired this year or next year?
+answer, this year
+  jev-1.13.0, 4, 1, 100.0%
+  openai/gpt-6-luna, 2, 1, 100.0%
+muster, 6 responses, 2 juries, 2 pluralities
+answer, next year
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, When should the orchard group press the apples?
+answer, in late September
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, in mid October
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, in early November
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Where should the chess club meet?
+answer, in the cafe
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, in the pub
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, in the community room
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 1, 1, 100.0%
+muster, 6 responses, 2 juries, 2 pluralities
+question, Should the running club add a Sunday morning run?
+answer, add it
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 4, 4/5, 80.0%
+muster, 4 responses, 1 juries, 1 pluralities
+answer, keep Saturdays only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 1, 1/5, 20.0%
+muster, 1 responses, 1 juries, 0 pluralities
+question, What should the sewing circle make for the charity stall?
+answer, tote bags
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, aprons
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, cushion covers
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, quilts
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the primary school start a breakfast club?
+answer, start one
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, not this year
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Which tree should the parish plant on the green?
+answer, an oak
+  jev-1.13.0, 4, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 4 responses, 1 juries, 1 pluralities
+answer, a lime
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a cherry
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the tennis club resurface the second court?
+answer, resurface it
+  jev-1.13.0, 4, 1, 100.0%
+  openai/gpt-6-luna, 1, 1/3, 33.3%
+muster, 5 responses, 2 juries, 1 pluralities
+answer, patch it for now
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 2, 2/3, 66.7%
+muster, 2 responses, 1 juries, 1 pluralities
+question, When should the history society hold its winter talk?
+answer, on a weekday evening
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, on a Saturday afternoon
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 3, 1, 100.0%
+muster, 3 responses, 1 juries, 1 pluralities
+answer, on a Sunday afternoon
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the cafe serve breakfast all day?
+answer, all day
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 3, 1, 100.0%
+muster, 3 responses, 1 juries, 1 pluralities
+answer, mornings only
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the drama group perform at Christmas?
+answer, a pantomime
+  jev-1.13.0, 1, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 6 responses, 2 juries, 2 pluralities
+answer, a comedy play
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, a musical revue
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the village buy a shared marquee for events?
+answer, buy one
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, hire one when needed
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 10 responses, 2 juries, 2 pluralities
+answer, do without
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Which path should the walking group take for the spring walk?
+answer, the river path
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, the ridge path
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, the woodland path
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 1, 1, 100.0%
+muster, 6 responses, 2 juries, 2 pluralities
+answer, the canal path
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the post box be emptied twice a day?
+answer, twice a day
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, once a day as now
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 10 responses, 2 juries, 2 pluralities
+question, What should the photography club shoot for its calendar?
+answer, gardens
+  jev-1.13.0, 1, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 1 responses, 1 juries, 1 pluralities
+answer, doors and gates
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, harvest scenes
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the playgroup meet four mornings a week instead of three?
+answer, four mornings
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, keep three mornings
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 10 responses, 2 juries, 2 pluralities
+question, When should the bonfire be lit on bonfire night?
+answer, at six in the evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, at seven in the evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, at eight in the evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the museum open a small cafe?
+answer, open one
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, keep the museum as it is
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the beekeeping group do with the honey harvest?
+answer, sell it at the market
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, share it among members
+  jev-1.13.0, 4, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 4 responses, 1 juries, 1 pluralities
+answer, give it to the school
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Which evening should the language class meet?
+answer, Monday evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, Wednesday evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, Friday evening
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, Should the car park behind the shops be free on Sundays?
+answer, free on Sundays
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 5, 1, 100.0%
+muster, 10 responses, 2 juries, 2 pluralities
+answer, charge every day
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+question, What should the youth orchestra play at the summer concert?
+answer, film themes
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, folk tunes
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+answer, classical favourites
+  jev-1.13.0, 5, 1, 100.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 5 responses, 1 juries, 1 pluralities
+answer, jazz standards
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+musters, 52 questions, 143 answers, 278 juries, 65 pluralities
