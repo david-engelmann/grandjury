@@ -115,6 +115,10 @@ name = "test_canvass"
 path = "rust/tests/test_canvass.rs"
 
 [[test]]
+name = "test_roll"
+path = "rust/tests/test_roll.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 

@@ -54,7 +54,15 @@
 //! question, the count and the share of every offered
 //! answer of the question among the summed valid responses
 //! of the jury, and the plurality of the jury at the
-//! question, under GJ-29. The
+//! question, under GJ-29. The roll reading reads the
+//! whole record jury by jury and states for each jury
+//! the block of the jury at every question it stands at,
+//! the counts of the jury summed over the askings of the
+//! question, the count and the share of every offered
+//! answer of the question among the summed valid responses
+//! of the jury, and the plurality of the jury at the
+//! question, with the standing of the jury over the
+//! record closing its section, under GJ-31. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -79,6 +87,7 @@ pub mod pynum;
 pub mod pytext;
 pub mod pyunicode;
 pub mod record;
+pub mod roll;
 pub mod scan;
 pub mod seats;
 pub mod swing;

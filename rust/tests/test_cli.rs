@@ -335,3 +335,58 @@ fn the_canvass_command_refuses_a_defective_poll_and_a_duplicate_label() {
         "invalid canvass\ndefect the set label pilot stands twice\n"
     );
 }
+
+// The roll command pins of GJ-32. Each fails
+// against the Round 14 closure tree by assertion:
+// roll stands as no command in that tree, so every
+// run below draws the surface's unknown command
+// refusal at status two, where the pins require the
+// usage refusals and the reading refusal of the
+// fifteenth command.
+
+#[test]
+fn the_roll_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["roll"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_roll_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["roll", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_roll_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-roll-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("bad.json", &bad);
+    let (stdout, _, code) = run_cli(&[
+        "roll",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "marsh",
+        &path_arg(&scratch.path),
+    ]);
+    assert_eq!(code, 1);
+    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert!(!stdout.contains("rolls"));
+    let (stdout, _, code) = run_cli(&[
+        "roll",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "pilot",
+        &path_arg(&examples().join("wave")),
+    ]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid roll\ndefect the set label pilot stands twice\n"
+    );
+}

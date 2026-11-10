@@ -87,13 +87,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 13 slice for the same
     // consequence, and restored at the Round 13 closure, and
     // altered again at the Round 14 slice for the same
-    // consequence, and restored at the Round 14 closure.
+    // consequence, and restored at the Round 14 closure, and
+    // altered again at the Round 15 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 15 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
+    // review across the whole README. Slice 16 stands in
+    // review while Round 15 is built, so the count stands
+    // at one. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -365,6 +367,25 @@ fn readme_reports_the_round_fourteen_status() {
 fn contract_carries_the_round_fourteen_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-29", "GJ-30"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_fifteen_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-31 and GJ-32 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 15 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 16 is built and in review. It carries the roll reading over the three recorded poll sets, the pilot and the full poll and the second wave read together jury by jury, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 14 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_fifteen_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-31", "GJ-32"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }
