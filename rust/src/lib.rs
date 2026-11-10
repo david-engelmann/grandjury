@@ -48,6 +48,13 @@
 //! pool, the count and the share of every offered answer
 //! of the question among its pooled valid responses, and
 //! the pooled plurality of the question, under GJ-27. The
+//! canvass reading reads the whole record question by
+//! question and states for each question, per jury, the
+//! counts of the jury summed over the askings of the
+//! question, the count and the share of every offered
+//! answer of the question among the summed valid responses
+//! of the jury, and the plurality of the jury at the
+//! question, under GJ-29. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -56,6 +63,7 @@
 pub mod aggregate;
 pub mod agreement;
 pub mod bench;
+pub mod canvass;
 pub mod census;
 pub mod cli;
 pub mod compare;

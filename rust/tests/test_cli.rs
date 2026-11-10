@@ -280,3 +280,58 @@ fn an_unrecognized_option_after_the_agreement_run_strands_the_rest() {
         err
     );
 }
+
+// The canvass command pins of GJ-30. Each fails
+// against the Round 13 closure tree by assertion:
+// canvass stands as no command in that tree, so every
+// run below draws the surface's unknown command
+// refusal at status two, where the pins require the
+// usage refusals and the reading refusal of the
+// fourteenth command.
+
+#[test]
+fn the_canvass_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["canvass"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_canvass_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["canvass", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_canvass_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-canvass-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("bad.json", &bad);
+    let (stdout, _, code) = run_cli(&[
+        "canvass",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "marsh",
+        &path_arg(&scratch.path),
+    ]);
+    assert_eq!(code, 1);
+    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert!(!stdout.contains("canvasses"));
+    let (stdout, _, code) = run_cli(&[
+        "canvass",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "pilot",
+        &path_arg(&examples().join("wave")),
+    ]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid canvass\ndefect the set label pilot stands twice\n"
+    );
+}

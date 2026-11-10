@@ -111,6 +111,10 @@ name = "test_aggregate"
 path = "rust/tests/test_aggregate.rs"
 
 [[test]]
+name = "test_canvass"
+path = "rust/tests/test_canvass.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 
