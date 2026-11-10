@@ -123,6 +123,10 @@ name = "test_muster"
 path = "rust/tests/test_muster.rs"
 
 [[test]]
+name = "test_margin"
+path = "rust/tests/test_margin.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 

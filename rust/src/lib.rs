@@ -71,7 +71,12 @@
 //! that chose the answer, the count of the juries whose
 //! summed count of the answer stands at one or more,
 //! and the count of the juries whose block plurality
-//! the answer is, under GJ-33. The
+//! the answer is, under GJ-33. The margin reading
+//! reads the whole record question by question and
+//! states for each question the margin by which the
+//! pooled plurality of the question stands and the
+//! margin by which the summed plurality of each jury
+//! at the question stands, under GJ-35. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -88,6 +93,7 @@ pub mod dissent;
 pub mod json;
 pub mod ledger;
 pub mod makers;
+pub mod margin;
 pub mod minority;
 pub mod muster;
 pub mod polls;
