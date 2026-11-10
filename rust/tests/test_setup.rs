@@ -89,13 +89,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 14 slice for the same
     // consequence, and restored at the Round 14 closure, and
     // altered again at the Round 15 slice for the same
-    // consequence, and restored at the Round 15 closure.
+    // consequence, and restored at the Round 15 closure, and
+    // altered again at the Round 16 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 16 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
+    // review across the whole README. Slice 17 stands in
+    // review while Round 16 is built, so the count stands
+    // at one. The round pins below hold the standing lines
     // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -391,6 +393,25 @@ fn contract_carries_the_round_fifteen_obligations() {
 }
 
 #[test]
+fn readme_reports_the_round_sixteen_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-33 and GJ-34 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 16 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 17 is built and in review. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 15 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_sixteen_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-33", "GJ-34"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
 fn the_binary_surface_glob_import_stands_gated_to_linux() {
     // The text pin FIX-GJ-20 states. The gate attribute
     // line stands immediately above the glob import line
@@ -411,6 +432,111 @@ fn the_binary_surface_glob_import_stands_gated_to_linux() {
         .expect("the glob import line");
     assert!(import_at >= 1);
     assert_eq!(lines[import_at - 1], "#[cfg(target_os = \"linux\")]");
+}
+
+fn crate_sources() -> Vec<(String, String)> {
+    let mut found = Vec::new();
+    let mut stack = vec![repo_root().join("rust/src")];
+    while let Some(dir) = stack.pop() {
+        for entry in std::fs::read_dir(&dir).expect("the source tree") {
+            let entry = entry.expect("a source tree entry");
+            let path = entry.path();
+            if path.is_dir() {
+                stack.push(path);
+            } else if path.extension().is_some_and(|ext| ext == "rs") {
+                let name = path
+                    .strip_prefix(repo_root())
+                    .expect("a source under the root")
+                    .to_string_lossy()
+                    .into_owned();
+                found.push((name, read_text(&path)));
+            }
+        }
+    }
+    found
+}
+
+#[test]
+fn the_plurality_rule_stands_once_in_the_agreement_module() {
+    // The layout pin of the Round 16 fold, in the
+    // posture of the FIX-GJ-20 pin above. It holds
+    // layout, not semantics, and this comment states
+    // that limit plainly, as FIX-GJ-20 states its own.
+    // The pin fails at the Round 15 closure tree by
+    // assertion, plurality_of standing defined in
+    // canvass.rs and in roll.rs and the aggregate
+    // holding no call to it. It fails under the
+    // mutation that leaves a consumer copy standing
+    // while agreement gains its own, the fold half
+    // done, and under the mutation that leaves the
+    // aggregate's inline standing, its call assertion
+    // failing. No behavioural mutation moves it, and
+    // no behavioural pin discriminates the fold: the
+    // drift of the shared body's behaviour is held by
+    // the behavioural pins, pins 3, 19, and 20 of
+    // test_roll.rs first among them.
+    let sources = crate_sources();
+    let defining: Vec<&str> = sources
+        .iter()
+        .filter(|(_, text)| text.contains("fn plurality_of("))
+        .map(|(name, _)| name.as_str())
+        .collect();
+    assert_eq!(defining, vec!["rust/src/agreement.rs"]);
+    let aggregate = root_text("rust/src/aggregate.rs");
+    assert!(aggregate.contains("plurality_of(&summed, valid, &union)"));
+}
+
+#[test]
+fn add_reading_stands_once_as_a_free_function_in_the_agreement_module() {
+    // The second layout pin of the Round 16 fold, with
+    // the same stated limit as the pin above. It fails
+    // at the Round 15 closure tree by assertion, the
+    // free function standing defined in canvass.rs and
+    // in roll.rs, and it fails under the mutation that
+    // leaves either consumer's copy standing. The pin
+    // does not read rust/src/record.rs, whose Counts
+    // method of the same name is a different item, the
+    // four counts of one reading added into an
+    // accumulator and nothing more, and no reader is to
+    // mistake that method for a surviving copy.
+    assert!(root_text("rust/src/agreement.rs").contains("pub(crate) fn add_reading("));
+    for module in ["rust/src/canvass.rs", "rust/src/roll.rs"] {
+        assert!(!root_text(module).contains("fn add_reading("), "{}", module);
+    }
+}
+
+#[test]
+fn fix_gj_21_names_the_models_of_the_generated_roll() {
+    // The pin FIX-GJ-21 states. It fails at the Round
+    // 15 closure tree by assertion, the completed
+    // sentences standing nowhere in the contract and
+    // the ordinal forms standing in it, and it fails
+    // under the mutation that applies the completion
+    // to the shipped record paragraph of GJ-32 instead
+    // of the generated one, and under the mutation
+    // that names the models in the standing lines
+    // sentence alone. No behavioural pin can
+    // discriminate the repair, the statement it
+    // completes being prose over figures that do not
+    // move, and the amendment states that plainly
+    // rather than dress this pin as one.
+    let text = root_text("CONTRACT.md");
+    assert!(text.contains("twenty seven questions and twenty four pluralities and twenty with the plurality for model a, thirty four questions and twenty six pluralities and twenty one with the plurality for model b, and thirty questions and twenty three pluralities and nineteen with the plurality for model c"));
+    for sentence in [
+        "Forty one of the blocks are blocks of a jury that stands at fewer askings than its question holds, fifteen of them under model a and twelve under model b and fourteen under model c.",
+        "Eleven blocks hold a standing plurality that differs from the plurality of their question, three under model a and five under model b and three under model c.",
+        "Three blocks hold a plurality at some asking of their question and none pooled, their summed top counts tied, one under model b and two under model c.",
+        "Two blocks hold a plurality at a question whose pooled plurality stands at none, one under model a and one under model c.",
+    ] {
+        assert!(text.contains(sentence), "{}", sentence);
+    }
+    for form in [
+        "for the first model",
+        "under the first model",
+        "under the second model",
+    ] {
+        assert!(!text.contains(form), "{}", form);
+    }
 }
 
 #[test]

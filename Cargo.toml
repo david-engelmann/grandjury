@@ -119,6 +119,10 @@ name = "test_roll"
 path = "rust/tests/test_roll.rs"
 
 [[test]]
+name = "test_muster"
+path = "rust/tests/test_muster.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 

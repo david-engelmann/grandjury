@@ -63,6 +63,15 @@
 //! of the jury, and the plurality of the jury at the
 //! question, with the standing of the jury over the
 //! record closing its section, under GJ-31. The
+//! muster reading reads the whole record question by
+//! question and states for each question, under each
+//! offered answer of the question, the row of that
+//! answer in the block of every jury of the question,
+//! the count of the valid responses of the question
+//! that chose the answer, the count of the juries whose
+//! summed count of the answer stands at one or more,
+//! and the count of the juries whose block plurality
+//! the answer is, under GJ-33. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -80,6 +89,7 @@ pub mod json;
 pub mod ledger;
 pub mod makers;
 pub mod minority;
+pub mod muster;
 pub mod polls;
 pub mod pool;
 pub mod pydecimal;

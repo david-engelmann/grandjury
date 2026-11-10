@@ -1,6 +1,6 @@
 //! The grandjury command line surface, as a library function.
 //!
-//! Fifteen commands work on recorded polls. The dispatch mirrors
+//! Sixteen commands work on recorded polls. The dispatch mirrors
 //! the Python argparse surface of the same name, the help and
 //! usage text wraps at the width the Python surface wraps at
 //! under PORT-7, the arguments are carried as the code unit
@@ -21,6 +21,7 @@ use crate::compare::compare_lines;
 use crate::dissent::dissent_lines;
 use crate::ledger::ledger_lines;
 use crate::minority::minority_lines;
+use crate::muster::muster_lines;
 use crate::polls::{
     cost_lines, load_poll_file, load_prices_file, render_stadium, render_tally_lines, Poll,
 };
@@ -283,7 +284,7 @@ fn spec_max_invocation(spec: &ParserSpec) -> usize {
     max
 }
 
-const COMMANDS: [&str; 15] = [
+const COMMANDS: [&str; 16] = [
     "tally",
     "stadium",
     "cost",
@@ -299,11 +300,12 @@ const COMMANDS: [&str; 15] = [
     "aggregate",
     "canvass",
     "roll",
+    "muster",
 ];
 
 fn top_spec() -> ParserSpec {
     let mut commands = action(
-        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll}",
+        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster}",
         None,
     );
     commands.subactions = vec![
@@ -355,16 +357,20 @@ fn top_spec() -> ParserSpec {
             "roll",
             Some("print the roll reading over recorded poll sets"),
         ),
+        action(
+            "muster",
+            Some("print the muster reading over recorded poll sets"),
+        ),
     ];
     let mut spec = ParserSpec {
         prog: "grandjury",
         description: Some("Poll tiny models and render the stadium vote."),
         opt_usage: "[-h]",
         pos_usage:
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll} ...",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster} ...",
         opt_parts: vec!["[-h]"],
         pos_parts: vec![
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll}",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster}",
             "...",
         ],
         positionals: vec![commands],
@@ -468,6 +474,12 @@ fn sub_spec(command: &str) -> ParserSpec {
         ),
         "roll" => (
             "grandjury roll",
+            vec![action("label", None), action("directory", None)],
+            "label directory [label directory ...]",
+            vec!["label", "directory", "[label", "directory", "...]"],
+        ),
+        "muster" => (
+            "grandjury muster",
             vec![action("label", None), action("directory", None)],
             "label directory [label directory ...]",
             vec!["label", "directory", "[label", "directory", "...]"],
@@ -991,7 +1003,7 @@ fn invalid_choice(spec: &ParserSpec, columns: usize, value: &PText) -> Outcome {
         spec,
         columns,
         &format!(
-            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority', 'bench', 'pool', 'aggregate', 'canvass', 'roll')",
+            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority', 'bench', 'pool', 'aggregate', 'canvass', 'roll', 'muster')",
             py_repr(value)
         ),
     )
@@ -1017,7 +1029,7 @@ fn parse_subcommand(
         "agreement" => &["poll_files"],
         "compare" => &["first_dir", "second_dir"],
         "census" | "ledger" | "dissent" | "swing" | "minority" | "bench" | "pool" | "aggregate"
-        | "canvass" | "roll" => &["label", "directory"],
+        | "canvass" | "roll" | "muster" => &["label", "directory"],
         _ => &["poll_file"],
     };
     let unlimited = command == "agreement"
@@ -1030,7 +1042,8 @@ fn parse_subcommand(
         || command == "pool"
         || command == "aggregate"
         || command == "canvass"
-        || command == "roll";
+        || command == "roll"
+        || command == "muster";
     let mut values: Vec<PText> = Vec::new();
     let mut extras: Vec<PText> = top_extras;
     let mut positional_only = false;
@@ -1168,7 +1181,8 @@ fn run_subcommand(
         || command == "pool"
         || command == "aggregate"
         || command == "canvass"
-        || command == "roll")
+        || command == "roll"
+        || command == "muster")
         && values.len() % 2 == 1
     {
         // The census arguments stand as label and directory
@@ -1189,7 +1203,8 @@ fn run_subcommand(
         // states, and the canvass takes the same pairs and
         // the same refusal, as GJ-30 states, and the roll
         // takes the same pairs and the same refusal, as
-        // GJ-32 states.
+        // GJ-32 states, and the muster takes the same
+        // pairs and the same refusal, as GJ-34 states.
         return usage_error(
             &sub_spec(command),
             columns,
@@ -1212,6 +1227,7 @@ fn run_subcommand(
         "aggregate" => command_aggregate(&values),
         "canvass" => command_canvass(&values),
         "roll" => command_roll(&values),
+        "muster" => command_muster(&values),
         _ => unreachable!("a known command"),
     }
 }
@@ -1729,6 +1745,43 @@ fn command_roll(values: &[PText]) -> Outcome {
         }
         Err(defect) => {
             lines.push("invalid roll".to_string());
+            lines.push(format!("defect {}", defect));
+            Outcome::plain(lines, 1)
+        }
+    }
+}
+
+/// The muster command. The arguments stand as set label
+/// and directory pairs exactly as the census command
+/// takes them, and the sets load in pair order through
+/// the same poll set loader, so the first set whose
+/// polls draw defects stands its defect lines in the
+/// outcome and no muster prints, the muster whole or
+/// nothing as GJ-34 states. A refusal of the muster
+/// reading itself prints the invalid muster line and
+/// its defect line, in the form of the invalid census
+/// surface.
+fn command_muster(values: &[PText]) -> Outcome {
+    let mut lines: Vec<String> = Vec::new();
+    let mut sets: Vec<(PText, Vec<Poll>)> = Vec::new();
+    // The dispatch refuses an odd argument count before
+    // this command runs, so the values stand in whole
+    // pairs and the remainder of the pairing is empty.
+    let (pairs, _) = values.as_chunks::<2>();
+    for pair in pairs {
+        let polls = match load_poll_set(&pair[1], &mut lines) {
+            Some(polls) => polls,
+            None => return Outcome::plain(lines, 1),
+        };
+        sets.push((pair[0].clone(), polls));
+    }
+    match muster_lines(&sets) {
+        Ok(reading) => {
+            lines.extend(reading);
+            Outcome::plain(lines, 0)
+        }
+        Err(defect) => {
+            lines.push("invalid muster".to_string());
             lines.push(format!("defect {}", defect));
             Outcome::plain(lines, 1)
         }
