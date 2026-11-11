@@ -882,6 +882,24 @@ margin, 10
 margins, 52 questions, 101 blocks, 65 pluralities, 7 at one
 ```
 
+The accord command prints the accord reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer.
+
+```sh
+grandjury accord pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+accord, open on Sundays
+accords, 52 questions, 64 parts, 44 in accord, 8 divided
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 17 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -906,7 +924,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 17 have closed, with al
 - Contract, GJ-31 and GJ-32 met. They stand in full form in CONTRACT.md, and Round 15 closed on the merged slice 16 after three reviews approving with findings and no repair owed, with the standards Minor on the duplicated counting helpers carried to a later round.
 - Contract, GJ-33 and GJ-34 met. They stand in full form in CONTRACT.md, and Round 16 closed on the merged slice 17 after three reviews, with the standards Minor on the muster pin comments repaired in the slice.
 - Contract, GJ-35 and GJ-36 met. They stand in full form in CONTRACT.md, and Round 17 closed on the merged slice 18 after three reviews, with the standards Minor on the margin pin comment repaired in the slice.
+- Contract, GJ-37 and GJ-38 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 18 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 19 is built and in review. It carries the accord reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer, with its command and its golden.
 - Slice 18 has landed. It carries the margin reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the margin by which the pooled plurality of the question stands and the margin by which the summed plurality of each jury at the question stands, with its command and its golden.
 - Slice 17 has landed. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.
 - Slice 16 has landed. It carries the roll reading over the three recorded poll sets, the pilot and the full poll and the second wave read together jury by jury, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section, with its command and its golden.

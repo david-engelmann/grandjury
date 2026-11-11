@@ -500,3 +500,142 @@ fn the_margin_command_refuses_a_defective_poll_and_a_duplicate_label() {
         "invalid margin\ndefect the set label pilot stands twice\n"
     );
 }
+
+// The accord command pins of GJ-38. Each fails
+// against the Round 17 closure tree by assertion:
+// accord stands as no command in that tree, so every
+// run below draws the surface's unknown command
+// refusal at status two, where the pins require the
+// usage refusals and the reading refusal of the
+// eighteenth command, and the two decode posture pins
+// fail with the command's absence in the same
+// invocation, reported as part of this target's
+// failure set at the base, not as posture
+// discrimination.
+
+#[test]
+fn the_accord_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["accord"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_accord_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["accord", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_accord_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-accord-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("bad.json", &bad);
+    let (stdout, _, code) = run_cli(&[
+        "accord",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "marsh",
+        &path_arg(&scratch.path),
+    ]);
+    assert_eq!(code, 1);
+    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert!(!stdout.contains("accords"));
+    let (stdout, _, code) = run_cli(&[
+        "accord",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "pilot",
+        &path_arg(&examples().join("wave")),
+    ]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid accord\ndefect the set label pilot stands twice\n"
+    );
+}
+
+#[test]
+fn a_non_utf8_label_renders_in_replacement_form() {
+    // The label posture pin of GJ-38. The real surface
+    // over the pilot directory under a label whose
+    // bytes are the word bad, the byte 0xFF, and the
+    // word label, handed to the surface as the
+    // operating system hands it bytes, through the
+    // surface's own decode. The run exits at zero, the
+    // set lines carry the label in the replacement
+    // form the display renders for a surrogate, and
+    // the reading stands whole, byte for byte the
+    // reading the same label spelled with the
+    // replacement character itself prints. The pin
+    // fails under the mutation restating the decode to
+    // refuse an undecodable byte, under which the run
+    // refuses, and under the mutation restating the
+    // display form to drop surrogate units, under
+    // which the rendered label loses the replacement
+    // character.
+    use grandjury::cli::{decode_arg, run};
+    let directory = path_arg(&examples().join("pilot"));
+    let handed = vec![pt("accord"), decode_arg(b"bad\xfflabel"), pt(&directory)];
+    let outcome = run(&handed, 80);
+    assert_eq!(outcome.code, 0);
+    let stdout = String::from_utf8(outcome.stdout).expect("stdout text");
+    assert!(stdout.contains("set, bad\u{fffd}label, recorded "));
+    let spelled = vec![pt("accord"), pt("bad\u{fffd}label"), pt(&directory)];
+    let expected = run(&spelled, 80);
+    assert_eq!(expected.code, 0);
+    assert_eq!(
+        stdout,
+        String::from_utf8(expected.stdout).expect("stdout text")
+    );
+}
+
+#[test]
+#[cfg(target_os = "linux")]
+fn a_non_utf8_directory_is_read_by_its_own_bytes() {
+    // The directory posture pin of GJ-38. A directory
+    // whose name holds the byte 0xFF, holding a copy
+    // of a recorded poll, is read by its own bytes
+    // under the standing decode, the run exiting at
+    // zero with the poll's sections standing whole,
+    // byte for byte the reading a plainly named
+    // directory holding the same poll prints. The pin
+    // fails under the mutation building the path from
+    // the display form of the argument in place of its
+    // own bytes, under which the named directory does
+    // not exist and the run refuses.
+    use grandjury::cli::{decode_arg, run};
+    use std::os::unix::ffi::OsStrExt;
+    let scratch = TempDir::new("cli-accord-nonutf8");
+    let poll_bytes =
+        std::fs::read(examples().join("pilot").join("poll-01.json")).expect("a recorded poll");
+    let plain = scratch.path.join("plaindir");
+    std::fs::create_dir(&plain).expect("a plain directory");
+    std::fs::write(plain.join("poll-01.json"), &poll_bytes).expect("the poll copied");
+    let handed_name = std::ffi::OsStr::from_bytes(b"dir\xffname");
+    let handed_dir = scratch.path.join(handed_name);
+    std::fs::create_dir(&handed_dir).expect("a handed directory");
+    std::fs::write(handed_dir.join("poll-01.json"), &poll_bytes).expect("the poll copied");
+    let handed = vec![
+        pt("accord"),
+        pt("pilot"),
+        decode_arg(handed_dir.as_os_str().as_bytes()),
+    ];
+    let outcome = run(&handed, 80);
+    assert_eq!(outcome.code, 0);
+    let stdout = String::from_utf8(outcome.stdout).expect("stdout text");
+    assert!(stdout.contains("question, "));
+    assert!(stdout.contains("accords, "));
+    let spelled = vec![pt("accord"), pt("pilot"), pt(&path_arg(&plain))];
+    let expected = run(&spelled, 80);
+    assert_eq!(expected.code, 0);
+    assert_eq!(
+        stdout,
+        String::from_utf8(expected.stdout).expect("stdout text")
+    );
+}
