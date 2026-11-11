@@ -127,6 +127,10 @@ name = "test_margin"
 path = "rust/tests/test_margin.rs"
 
 [[test]]
+name = "test_accord"
+path = "rust/tests/test_accord.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 

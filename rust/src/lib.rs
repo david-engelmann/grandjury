@@ -76,12 +76,19 @@
 //! states for each question the margin by which the
 //! pooled plurality of the question stands and the
 //! margin by which the summed plurality of each jury
-//! at the question stands, under GJ-35. The
+//! at the question stands, under GJ-35. The accord reading
+//! reads the whole record question by question and
+//! states for each question the standing of each set
+//! that asked it, the counts and the pooled plurality
+//! and the margin of that set at the question, and
+//! whether the sets that hold a plurality at the
+//! question name one answer, under GJ-37. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
 //! codepoint scan lives in scan.
 
+pub mod accord;
 pub mod aggregate;
 pub mod agreement;
 pub mod bench;

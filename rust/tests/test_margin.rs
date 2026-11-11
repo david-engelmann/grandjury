@@ -948,9 +948,17 @@ fn a_question_whose_pooled_counts_tie_states_no_pooled_margin() {
     // one. The pooled counts tie at three and three,
     // so the pooled part states not counted while the
     // margins of the blocks stand, and both blocks
-    // stand counted at one. The pin fails under the
+    // stand counted at one. The pin stands under the
     // mutation reading a section's pooled plurality
-    // from its first asking alone.
+    // from its first asking alone, its record holding
+    // one poll, one asking of its question, so the
+    // first asking alone is the pooled reading and the
+    // mutant and the correct form state the same lines
+    // over it, the tie at three and three standing
+    // under both. Discrimination against that mutation
+    // is carried by the pins over the recorded sets,
+    // whose questions hold askings the first alone
+    // cannot sum, and by the generated family.
     let question = "Which gate should the night watch use?";
     let answers = &["the red gate", "the blue gate"];
     let mut responses = votes_of("the red gate", 2, "model a");
