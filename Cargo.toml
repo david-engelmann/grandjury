@@ -131,6 +131,10 @@ name = "test_accord"
 path = "rust/tests/test_accord.rs"
 
 [[test]]
+name = "test_standing"
+path = "rust/tests/test_standing.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 

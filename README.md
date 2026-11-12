@@ -900,6 +900,25 @@ accord, open on Sundays
 accords, 52 questions, 64 parts, 44 in accord, 8 divided
 ```
 
+The standing command prints the standing reading over one or more recorded poll sets named with labels, set by set in the order the sets stand in the input, stating for every set the counts of the set over the whole record, one part per question the set asked with its plurality and its margin, and the standing of the set over the record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question.
+
+```sh
+grandjury standing pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+set, pilot, recorded 120, valid 73, abstained 47, spoiled 0
+question, Should the village library open on Sunday mornings?
+plurality, open on Sundays
+margin, 5
+question, When should the community hall hold its spring clean?
+plurality, the first Saturday of April
+margin, 5
+question, Should the school bake sale take card payments?
+plurality, both cards and cash
+margin, 10
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 18 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -925,7 +944,9 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 18 have closed, with al
 - Contract, GJ-33 and GJ-34 met. They stand in full form in CONTRACT.md, and Round 16 closed on the merged slice 17 after three reviews, with the standards Minor on the muster pin comments repaired in the slice.
 - Contract, GJ-35 and GJ-36 met. They stand in full form in CONTRACT.md, and Round 17 closed on the merged slice 18 after three reviews, with the standards Minor on the margin pin comment repaired in the slice.
 - Contract, GJ-37 and GJ-38 met. They stand in full form in CONTRACT.md with the FIX-GJ-23 repair amendment, and Round 18 closed on the merged slice 19 after three reviews, the design's twice asking shape restated as the set rules refusal under FIX-GJ-23 with its pin restated in that form, and the round's eighteen unexecuted mutation runs and its base run carried to the Round 19 design warm-up.
+- Contract, GJ-39 and GJ-40 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 19 has not closed.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 20 is built and in review. It carries the standing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set the standing of the set over the whole record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question, with its command and its golden.
 - Slice 19 has landed. It carries the accord reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer, with its command and its golden.
 - Slice 18 has landed. It carries the margin reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the margin by which the pooled plurality of the question stands and the margin by which the summed plurality of each jury at the question stands, with its command and its golden.
 - Slice 17 has landed. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.
