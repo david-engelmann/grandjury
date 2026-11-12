@@ -32,9 +32,8 @@
 //! NF stands a plurality at a tied top count, and pins 7,
 //! 10, and 19 fail under it, pin 1 standing under it by
 //! design. NG gathers a part's union from the first set's
-//! askings alone, and pins 4, 12, 19, and 20 fail under it,
-//! the union change moving counts on parts whose askings
-//! differ from the first set's. NQ sums a set line's
+//! askings alone, and pin 12 fails under it, its catch
+//! over the fields shape. NQ sums a set line's
 //! counts over the first poll of the set alone, and pin 1
 //! fails under
 //! it. NR counts every question of the record in a
@@ -44,9 +43,8 @@
 //! shipped record standing beside it at 55 parts in
 //! accord against the 44 questions of the accord closing.
 //! NH reads the guard after the set rules and NI over the
-//! first section's set only; pin 13 stands against both
-//! by the guard postures carried from the accord warm-up,
-//! and pin 14 stands under all three guard variants as
+//! first section's set only; pin 13 stands under NH and
+//! fails under NI, and pin 14 stands under both, as
 //! the GJ-11 rules refuse the same fixture one step
 //! later. NJ removes the duplicate label check and NT
 //! moves the per set question loop ahead of the label
@@ -60,9 +58,11 @@
 //! statuses. NN restates the generated family with the
 //! Round 13 fault, and pin 18 fails under it. NO computes
 //! the closing line from the shipped record's figures,
-//! and pins 5 and 20 fail under it. NP restates the
-//! round's README status, and the setup pin of the
-//! examples and status step fails under it. Against the
+//! and pin 20 fails under it, pin 5 standing under it.
+//! NP restates the
+//! round's README status, and pin 24, the setup pin of
+//! the examples and status step, fails under it, pin 25
+//! standing under it. Against the
 //! Round 18 closure tree the twenty pins of this target
 //! fail at compile with the standing module absent, and
 //! the three command pins of the CLI target and the two
