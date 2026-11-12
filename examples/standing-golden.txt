@@ -1,0 +1,199 @@
+set, pilot, recorded 120, valid 73, abstained 47, spoiled 0
+question, Should the village library open on Sunday mornings?
+plurality, open on Sundays
+margin, 5
+question, When should the community hall hold its spring clean?
+plurality, the first Saturday of April
+margin, 5
+question, Should the school bake sale take card payments?
+plurality, both cards and cash
+margin, 10
+question, Which night should the book club meet?
+plurality, Wednesday
+margin, 4
+question, Should the allotment gate be locked at dusk?
+plurality, lock it at dusk
+margin, 7
+question, What should the pub quiz do with tied scores?
+plurality, a tiebreak question
+margin, 10
+question, Should the parish newsletter go out by email instead of print?
+plurality, both email and print
+margin, 10
+question, When should the farmers market start in summer?
+plurality, eight in the morning
+margin, 3
+question, Should the scout troop camp by the river or in the woods?
+plurality, in the woods
+margin, 5
+question, What should the choir sing at the winter concert?
+plurality, a mix of carols and folk songs
+margin, 5
+question, Should the bus stop move closer to the shops?
+plurality, none
+margin, not counted
+question, How should the village fete handle rain?
+plurality, move into the hall
+margin, 9
+standing, 12 questions, 11 with a plurality, 0 tied, 1 with no valid response, 11 in accord, 11 with the pool
+set, full, recorded 327, valid 195, abstained 132, spoiled 0
+question, Should the post office counter open an hour earlier on market days?
+plurality, open an hour earlier
+margin, 1
+question, Which soup should the lunch club serve on Fridays?
+plurality, none
+margin, not counted
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+plurality, on Thursdays
+margin, 5
+question, What should the gardening club plant along the fence this year?
+plurality, none
+margin, not counted
+question, Should the farm shop sell flowers as well as vegetables?
+plurality, sell flowers too
+margin, 5
+question, When should the repair cafe run each month?
+plurality, none
+margin, not counted
+question, Should the school playground open to families at weekends?
+plurality, open it at weekends
+margin, 8
+question, Which film should the cinema club show in December?
+plurality, a classic musical
+margin, 5
+question, Should the gym add a beginners class on Monday evenings?
+plurality, add the class
+margin, 5
+question, What colour should the hall kitchen be repainted?
+plurality, cream
+margin, 5
+question, Should the dog show move to the bigger field?
+plurality, move it
+margin, 5
+question, When should the youth club take its summer trip?
+plurality, none
+margin, not counted
+question, Should the toy library lend board games as well as toys?
+plurality, lend games too
+margin, 10
+question, What should the bakery bake for the harvest festival?
+plurality, fruit pies
+margin, 5
+question, Should the last bus leave an hour later on Friday nights?
+plurality, leave later
+margin, 7
+question, Which day should the jumble sale be held?
+plurality, on Saturday
+margin, 10
+question, Should the swimming pool offer early morning lane swimming?
+plurality, offer it
+margin, 2
+question, What should the art group show at the spring exhibition?
+plurality, landscapes
+margin, 4
+question, Should the village hall roof be repaired this year or next year?
+plurality, this year
+margin, 6
+question, When should the orchard group press the apples?
+plurality, none
+margin, not counted
+question, Where should the chess club meet?
+plurality, in the community room
+margin, 6
+question, Should the running club add a Sunday morning run?
+plurality, add it
+margin, 3
+question, What should the sewing circle make for the charity stall?
+plurality, none
+margin, not counted
+question, Should the primary school start a breakfast club?
+plurality, start one
+margin, 5
+question, Which tree should the parish plant on the green?
+plurality, an oak
+margin, 4
+question, Should the tennis club resurface the second court?
+plurality, resurface it
+margin, 3
+question, When should the history society hold its winter talk?
+plurality, on a weekday evening
+margin, 2
+question, Should the cafe serve breakfast all day?
+plurality, all day
+margin, 3
+question, What should the drama group perform at Christmas?
+plurality, a pantomime
+margin, 6
+question, Should the village buy a shared marquee for events?
+plurality, hire one when needed
+margin, 10
+question, Which path should the walking group take for the spring walk?
+plurality, the woodland path
+margin, 6
+question, Should the post box be emptied twice a day?
+plurality, once a day as now
+margin, 10
+question, What should the photography club shoot for its calendar?
+plurality, gardens
+margin, 1
+question, Should the playgroup meet four mornings a week instead of three?
+plurality, keep three mornings
+margin, 10
+question, When should the bonfire be lit on bonfire night?
+plurality, at seven in the evening
+margin, 5
+question, Should the museum open a small cafe?
+plurality, open one
+margin, 5
+question, What should the beekeeping group do with the honey harvest?
+plurality, share it among members
+margin, 4
+question, Which evening should the language class meet?
+plurality, none
+margin, not counted
+question, Should the car park behind the shops be free on Sundays?
+plurality, free on Sundays
+margin, 10
+question, What should the youth orchestra play at the summer concert?
+plurality, classical favourites
+margin, 5
+standing, 40 questions, 33 with a plurality, 0 tied, 7 with no valid response, 33 in accord, 33 with the pool
+set, wave, recorded 120, valid 78, abstained 42, spoiled 0
+question, Should the village library open on Sunday mornings?
+plurality, open on Sundays
+margin, 5
+question, When should the community hall hold its spring clean?
+plurality, the first Saturday of April
+margin, 6
+question, Should the school bake sale take card payments?
+plurality, both cards and cash
+margin, 10
+question, Which night should the book club meet?
+plurality, Wednesday
+margin, 5
+question, Should the allotment gate be locked at dusk?
+plurality, lock it at dusk
+margin, 7
+question, What should the pub quiz do with tied scores?
+plurality, a tiebreak question
+margin, 10
+question, Should the parish newsletter go out by email instead of print?
+plurality, both email and print
+margin, 10
+question, When should the farmers market start in summer?
+plurality, eight in the morning
+margin, 3
+question, Should the scout troop camp by the river or in the woods?
+plurality, in the woods
+margin, 1
+question, What should the choir sing at the winter concert?
+plurality, a mix of carols and folk songs
+margin, 5
+question, Should the bus stop move closer to the shops?
+plurality, none
+margin, not counted
+question, How should the village fete handle rain?
+plurality, move into the hall
+margin, 10
+standing, 12 questions, 11 with a plurality, 0 tied, 1 with no valid response, 11 in accord, 11 with the pool
+standings, 3 sets, 64 parts, 55 with a plurality, 0 tied, 9 with no valid response, 55 in accord, 55 with the pool

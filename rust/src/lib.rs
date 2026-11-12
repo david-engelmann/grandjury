@@ -82,7 +82,14 @@
 //! that asked it, the counts and the pooled plurality
 //! and the margin of that set at the question, and
 //! whether the sets that hold a plurality at the
-//! question name one answer, under GJ-37. The
+//! question name one answer, under GJ-37. The standing reading
+//! reads the whole record set by set and states for each set
+//! the standing of the set over the whole record, the questions
+//! it asked and at how many of them it held a plurality and at
+//! how many its top counts tied and at how many it held no
+//! valid response and at how many its plurality was the accord
+//! of the question and at how many it was the pooled plurality
+//! of the question, under GJ-39. The
 //! forms the readings across the recorded sets share live
 //! in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
@@ -113,4 +120,5 @@ pub mod record;
 pub mod roll;
 pub mod scan;
 pub mod seats;
+pub mod standing;
 pub mod swing;

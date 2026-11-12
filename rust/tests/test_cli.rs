@@ -560,6 +560,68 @@ fn the_accord_command_refuses_a_defective_poll_and_a_duplicate_label() {
     );
 }
 
+// The standing command pins of GJ-40. Each fails
+// against the Round 18 closure tree by assertion:
+// standing stands as no command in that tree, so every
+// run below draws the surface's unknown command
+// refusal at status two, where the pins require the
+// usage refusals and the reading refusal of the
+// nineteenth command. The defective poll and duplicate
+// label pin fails under the mutation running the tally
+// handler on the standing command's first value, the
+// tally handler stating the pilot set alone where the
+// pin requires the duplicate label refusal; the two
+// usage pins stand under that mutation by design, the
+// tally handler drawing the same usage refusals at the
+// same statuses.
+
+#[test]
+fn the_standing_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["standing"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_standing_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["standing", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_standing_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-standing-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("bad.json", &bad);
+    let (stdout, _, code) = run_cli(&[
+        "standing",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "marsh",
+        &path_arg(&scratch.path),
+    ]);
+    assert_eq!(code, 1);
+    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert!(!stdout.contains("standings"));
+    let (stdout, _, code) = run_cli(&[
+        "standing",
+        "pilot",
+        &path_arg(&examples().join("pilot")),
+        "pilot",
+        &path_arg(&examples().join("wave")),
+    ]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid standing\ndefect the set label pilot stands twice\n"
+    );
+}
+
 #[test]
 fn a_non_utf8_label_renders_in_replacement_form() {
     // The label posture pin of GJ-38. The real surface

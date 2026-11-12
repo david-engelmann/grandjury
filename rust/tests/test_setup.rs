@@ -95,13 +95,14 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 17 slice for the same
     // consequence, and restored at the Round 17 closure, and
     // altered again at the Round 18 slice for the same
-    // consequence, and restored at the Round 18 closure.
-    // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 19 is unbuilt, so the count stands
-    // at zero. The round pins below hold the standing lines
-    // and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    // consequence, and restored at the Round 18 closure, and
+    // altered again at the Round 19 slice for the same
+    // consequence. This pin counts the slices standing in
+    // review across the whole README. One slice stands in
+    // review while Round 19 stands built and unclosed, so
+    // the count stands at one. The round pins below hold
+    // the standing lines and the slice lines themselves.
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -449,6 +450,25 @@ fn readme_reports_the_round_eighteen_status() {
 fn contract_carries_the_round_eighteen_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-37", "GJ-38"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_nineteen_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-39 and GJ-40 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 19 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 20 is built and in review. It carries the standing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set the standing of the set over the whole record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 18 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_nineteen_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-39", "GJ-40"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }
