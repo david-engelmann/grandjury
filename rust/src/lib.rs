@@ -96,7 +96,13 @@
 //! question, and at how many of those questions the
 //! accord of the question names it and at how many
 //! the pooled plurality of the question names it,
-//! under GJ-41. The forms the readings across the
+//! under GJ-41. The pairing reading
+//! reads the whole record set pair by set pair and
+//! states for each pair of sets every question the
+//! pair shares, the part of each set at the question
+//! in the form of the accord, the pairing of the pair
+//! at the question, and the standing of the pair over
+//! the record, under GJ-43. The forms the readings across the
 //! recorded sets share live in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
 //! codepoint scan lives in scan.
@@ -117,6 +123,7 @@ pub mod makers;
 pub mod margin;
 pub mod minority;
 pub mod muster;
+pub mod pairs;
 pub mod polls;
 pub mod pool;
 pub mod pydecimal;

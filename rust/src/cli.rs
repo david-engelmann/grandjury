@@ -1,6 +1,6 @@
 //! The grandjury command line surface, as a library function.
 //!
-//! Twenty commands work on recorded polls. The dispatch mirrors
+//! Twenty one commands work on recorded polls. The dispatch mirrors
 //! the Python argparse surface of the same name, the help and
 //! usage text wraps at the width the Python surface wraps at
 //! under PORT-7, the arguments are carried as the code unit
@@ -25,6 +25,7 @@ use crate::ledger::ledger_lines;
 use crate::margin::margin_lines;
 use crate::minority::minority_lines;
 use crate::muster::muster_lines;
+use crate::pairs::pairs_lines;
 use crate::polls::{
     cost_lines, load_poll_file, load_prices_file, render_stadium, render_tally_lines, Poll,
 };
@@ -288,7 +289,7 @@ fn spec_max_invocation(spec: &ParserSpec) -> usize {
     max
 }
 
-const COMMANDS: [&str; 20] = [
+const COMMANDS: [&str; 21] = [
     "tally",
     "stadium",
     "cost",
@@ -309,11 +310,12 @@ const COMMANDS: [&str; 20] = [
     "accord",
     "standing",
     "answers",
+    "pairs",
 ];
 
 fn top_spec() -> ParserSpec {
     let mut commands = action(
-        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster,margin,accord,standing,answers}",
+        "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster,margin,accord,standing,answers,pairs}",
         None,
     );
     commands.subactions = vec![
@@ -385,16 +387,20 @@ fn top_spec() -> ParserSpec {
             "answers",
             Some("print the answers reading over recorded poll sets"),
         ),
+        action(
+            "pairs",
+            Some("print the pairing reading over recorded poll sets"),
+        ),
     ];
     let mut spec = ParserSpec {
         prog: "grandjury",
         description: Some("Poll tiny models and render the stadium vote."),
         opt_usage: "[-h]",
         pos_usage:
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster,margin,accord,standing,answers} ...",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster,margin,accord,standing,answers,pairs} ...",
         opt_parts: vec!["[-h]"],
         pos_parts: vec![
-            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster,margin,accord,standing,answers}",
+            "{tally,stadium,cost,agreement,compare,census,ledger,dissent,swing,minority,bench,pool,aggregate,canvass,roll,muster,margin,accord,standing,answers,pairs}",
             "...",
         ],
         positionals: vec![commands],
@@ -528,6 +534,12 @@ fn sub_spec(command: &str) -> ParserSpec {
         ),
         "answers" => (
             "grandjury answers",
+            vec![action("label", None), action("directory", None)],
+            "label directory [label directory ...]",
+            vec!["label", "directory", "[label", "directory", "...]"],
+        ),
+        "pairs" => (
+            "grandjury pairs",
             vec![action("label", None), action("directory", None)],
             "label directory [label directory ...]",
             vec!["label", "directory", "[label", "directory", "...]"],
@@ -1051,7 +1063,7 @@ fn invalid_choice(spec: &ParserSpec, columns: usize, value: &PText) -> Outcome {
         spec,
         columns,
         &format!(
-            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority', 'bench', 'pool', 'aggregate', 'canvass', 'roll', 'muster', 'margin', 'accord', 'standing', 'answers')",
+            "argument command: invalid choice: {} (choose from 'tally', 'stadium', 'cost', 'agreement', 'compare', 'census', 'ledger', 'dissent', 'swing', 'minority', 'bench', 'pool', 'aggregate', 'canvass', 'roll', 'muster', 'margin', 'accord', 'standing', 'answers', 'pairs')",
             py_repr(value)
         ),
     )
@@ -1077,9 +1089,8 @@ fn parse_subcommand(
         "agreement" => &["poll_files"],
         "compare" => &["first_dir", "second_dir"],
         "census" | "ledger" | "dissent" | "swing" | "minority" | "bench" | "pool" | "aggregate"
-        | "canvass" | "roll" | "muster" | "margin" | "accord" | "standing" | "answers" => {
-            &["label", "directory"]
-        }
+        | "canvass" | "roll" | "muster" | "margin" | "accord" | "standing" | "answers"
+        | "pairs" => &["label", "directory"],
         _ => &["poll_file"],
     };
     let unlimited = command == "agreement"
@@ -1097,7 +1108,8 @@ fn parse_subcommand(
         || command == "margin"
         || command == "accord"
         || command == "standing"
-        || command == "answers";
+        || command == "answers"
+        || command == "pairs";
     let mut values: Vec<PText> = Vec::new();
     let mut extras: Vec<PText> = top_extras;
     let mut positional_only = false;
@@ -1240,7 +1252,8 @@ fn run_subcommand(
         || command == "margin"
         || command == "accord"
         || command == "standing"
-        || command == "answers")
+        || command == "answers"
+        || command == "pairs")
         && values.len() % 2 == 1
     {
         // The census arguments stand as label and directory
@@ -1269,7 +1282,9 @@ fn run_subcommand(
         // GJ-38 states, and the standing takes the same
         // pairs and the same refusal, as GJ-40 states,
         // and the answers takes the same pairs and the
-        // same refusal, as GJ-42 states.
+        // same refusal, as GJ-42 states, and the pairs
+        // takes the same pairs and the same refusal, as
+        // GJ-44 states.
         return usage_error(
             &sub_spec(command),
             columns,
@@ -1297,6 +1312,7 @@ fn run_subcommand(
         "accord" => command_accord(&values),
         "standing" => command_standing(&values),
         "answers" => command_answers(&values),
+        "pairs" => command_pairs(&values),
         _ => unreachable!("a known command"),
     }
 }
@@ -1999,6 +2015,43 @@ fn command_answers(values: &[PText]) -> Outcome {
         }
         Err(defect) => {
             lines.push("invalid answers".to_string());
+            lines.push(format!("defect {}", defect));
+            Outcome::plain(lines, 1)
+        }
+    }
+}
+
+/// The pairs command. The arguments stand as set
+/// label and directory pairs exactly as the census
+/// command takes them, and the sets load in pair order
+/// through the same poll set loader, so the first set
+/// whose polls draw defects stands its defect lines in
+/// the outcome and no pairs print, the pairs
+/// whole or nothing as GJ-44 states. A refusal of the
+/// pairs reading itself prints the invalid pairs
+/// line and its defect line, in the form of the
+/// invalid census surface.
+fn command_pairs(values: &[PText]) -> Outcome {
+    let mut lines: Vec<String> = Vec::new();
+    let mut sets: Vec<(PText, Vec<Poll>)> = Vec::new();
+    // The dispatch refuses an odd argument count before
+    // this command runs, so the values stand in whole
+    // pairs and the remainder of the pairing is empty.
+    let (pairs, _) = values.as_chunks::<2>();
+    for pair in pairs {
+        let polls = match load_poll_set(&pair[1], &mut lines) {
+            Some(polls) => polls,
+            None => return Outcome::plain(lines, 1),
+        };
+        sets.push((pair[0].clone(), polls));
+    }
+    match pairs_lines(&sets) {
+        Ok(reading) => {
+            lines.extend(reading);
+            Outcome::plain(lines, 0)
+        }
+        Err(defect) => {
+            lines.push("invalid pairs".to_string());
             lines.push(format!("defect {}", defect));
             Outcome::plain(lines, 1)
         }
