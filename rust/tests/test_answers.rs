@@ -1159,3 +1159,23 @@ fn all_empty_record_states_the_answers_closing_line_alone() {
         expected(&["answers, 0 answers, 0 questions, 0 parts, 0 in accord, 0 with the pool",])
     );
 }
+
+// The doc citation pin of GJ-46. The answers
+// module's doc comment reads the set rules of GJ-2
+// where it read the set rules of GJ-11, the rest of
+// the sentence standing word for word as it stood.
+// The pin reads the module's own source text and
+// asserts the sentence stands in the GJ-2 form and
+// that no sentence of the module cites GJ-11 for the
+// set rules. Against QA, the doc sentence restated
+// back to the GJ-11 form in the module, the pin
+// fails by construction, the asserted text being the
+// mutated text. Against QB it stands, QB touching
+// no text this pin reads.
+
+#[test]
+fn the_answers_doc_comment_cites_the_set_rules_of_gj_2() {
+    let text = read_text(&repo_root().join("rust/src/answers.rs"));
+    assert!(text.contains("set rules of GJ-2 govern the sets"));
+    assert!(!text.contains("set rules of GJ-11"));
+}
