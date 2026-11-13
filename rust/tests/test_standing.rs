@@ -49,16 +49,30 @@
 //! later. NJ removes the duplicate label check and NT
 //! moves the per set question loop ahead of the label
 //! checks, and pin 15 fails under both. NK restates the
-//! closing word as verdict, and pins 1 and 16 fail under
-//! it. NL omits the command from the help, and pin 17
+//! closing word as verdict, and pins 1, 2, 4, 6, 7,
+//! 8, 9, 10, 11, 12, 16, 19, and 20 fail under it,
+//! the radius over the line comparing pins the
+//! design stated standing executed in Round 22
+//! under GJ-45. NL omits the command from the
+//! help, and pin 17
 //! fails under it. NM runs the tally handler on the
 //! standing command's first value, and pin 23 fails under
-//! it; pins 21 and 22 stand under it by design, the tally
-//! handler drawing the same usage refusals at the same
+//! it, and pins 1, 2, and 16 of this file fail
+//! under it as executed partings in Round 22, the
+//! golden and the direct computation driving the
+//! command the dispatch restates; pins 21 and 22
+//! stand under it by design, the tally handler
+//! drawing the same usage refusals at the same
 //! statuses. NN restates the generated family with the
-//! Round 13 fault, and pin 18 fails under it. NO computes
+//! Round 13 fault, and pins 18, 19, and 20 fail
+//! under it, the three generated pins together as
+//! the fault's executed form stands. NO computes
 //! the closing line from the shipped record's figures,
-//! and pin 20 fails under it, pin 5 standing under it.
+//! and pins 4, 6, 7, 8, 9, 10, 11, 12, 19, and 20
+//! fail under it in Round 22, pin 5 standing under
+//! it against its named place in the design, the
+//! shape pins falling on the closings their
+//! fixtures assert.
 //! NP restates the
 //! round's README status, and pin 24, the setup pin of
 //! the examples and status step, fails under it, pin 25
@@ -67,6 +81,10 @@
 //! fail at compile with the standing module absent, and
 //! the three command pins of the CLI target and the two
 //! status pins of the setup target fail by assertion.
+//! The set NH to NT stands executed in Round 22
+//! under GJ-45 on the repaired slice tree of this
+//! round, NG failing pin 12 alone there, as its
+//! settled posture states.
 
 mod shared;
 
