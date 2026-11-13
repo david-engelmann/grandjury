@@ -71,7 +71,7 @@ fn pooled_plurality(askings: &[&Poll]) -> (Vec<PText>, Option<PText>) {
 /// first failed rule names.
 ///
 /// Each set pairs one set label with its polls. The
-/// set rules of GJ-11 govern the sets unchanged, each
+/// set rules of GJ-2 govern the sets unchanged, each
 /// label checked before the questions of its set and
 /// the first failure the refusal, and a refusal
 /// returns no lines at all. One section stands per
