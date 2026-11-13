@@ -207,45 +207,6 @@ fn direct_plurality(counts: &[i64], valid: i64, union: &[PText]) -> Option<PText
     Some(union[index].clone())
 }
 
-/// The pooled union of a list of askings of one
-/// question and the plurality over it, counted from
-/// the responses themselves, the direct form of the
-/// part of GJ-37 and of the pooled plurality of
-/// GJ-28.
-fn direct_part(polls: &[&Poll]) -> (Vec<PText>, Option<PText>) {
-    let mut union: Vec<PText> = Vec::new();
-    for poll in polls {
-        for answer in &poll.answers {
-            if !union.contains(answer) {
-                union.push(answer.clone());
-            }
-        }
-    }
-    let mut counts = vec![0i64; union.len()];
-    let mut valid = 0i64;
-    for poll in polls {
-        for response in &poll.responses {
-            if response.abstained {
-                continue;
-            }
-            if let Some(slot) = poll
-                .answers
-                .iter()
-                .position(|answer| answer == &response.answer)
-            {
-                let union_slot = union
-                    .iter()
-                    .position(|answer| answer == &poll.answers[slot])
-                    .unwrap();
-                counts[union_slot] += 1;
-                valid += 1;
-            }
-        }
-    }
-    let plurality = direct_plurality(&counts, valid, &union);
-    (union, plurality)
-}
-
 /// The part of one set at one question counted
 /// from the responses themselves, its set line, its
 /// plurality line and its margin line in the form
