@@ -364,16 +364,20 @@ fn direct_answers_lines(sets: &[(PText, Vec<Poll>)]) -> Vec<String> {
     lines
 }
 
+type ParsedPart = (String, [i64; 3]);
+
+type ParsedSection = (String, Vec<ParsedPart>, [i64; 4]);
+
 /// The sections of an answers reading and its
 /// closing figures, parsed off the lines. A section
 /// carries its answer, its parts as question and
 /// held and in accord and with the pool figures,
 /// and its standing figures as questions and parts
 /// held and in accord and with the pool.
-fn parse_answers(lines: &[String]) -> (Vec<(String, Vec<(String, [i64; 3])>, [i64; 4])>, [i64; 5]) {
-    let mut sections: Vec<(String, Vec<(String, [i64; 3])>, [i64; 4])> = Vec::new();
+fn parse_answers(lines: &[String]) -> (Vec<ParsedSection>, [i64; 5]) {
+    let mut sections: Vec<ParsedSection> = Vec::new();
     let mut closing = [0i64; 5];
-    let mut current: Option<(String, Vec<(String, [i64; 3])>)> = None;
+    let mut current: Option<(String, Vec<ParsedPart>)> = None;
     for line in lines {
         if let Some(answer) = line.strip_prefix("answer, ") {
             current = Some((answer.to_string(), Vec::new()));
