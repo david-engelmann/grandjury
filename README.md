@@ -938,6 +938,28 @@ answer, the first Saturday of April
 question, When should the community hall hold its spring clean?
 ```
 
+The pairs command prints the pairing reading over one or more recorded poll sets named with labels, set pair by set pair in the order of their sets in the input, stating for every pair of sets one part per question the pair shares, the part of each set at the question in the form of the accord reading and the pairing of the pair at the question, and the standing of the pair over the record, the questions it shares and at how many of them its parts stood agreed and divided and one held and neither held.
+
+```sh
+grandjury pairs pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+pair, pilot
+pair, full
+standing, 0 shared, 0 agreed, 0 divided, 0 one holds, 0 neither holds
+pair, pilot
+pair, wave
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+pairing, agreed
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 20 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -969,6 +991,7 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 20 have closed, with al
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
 - Slice 20 has landed. It carries the standing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set the standing of the set over the whole record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question, with its command and its golden.
 - Slice 21 has landed. It carries the answers reading over the three recorded poll sets, the pilot and the full poll and the second wave read together answer by answer, stating for every answer each question at which it was offered, the count of parts holding it at that question and of those the counts standing in accord and with the pool, and the standing of the answer over the record, with its command and its golden.
+- Slice 22 is built and in review. It carries the pairing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set pair by set pair, stating for every pair of sets each question the pair shares, the part of each set at the question in the form of the accord and the pairing of the pair at the question, and the standing of the pair over the record, with its command and its golden.
 - Slice 19 has landed. It carries the accord reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer, with its command and its golden.
 - Slice 18 has landed. It carries the margin reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the margin by which the pooled plurality of the question stands and the margin by which the summed plurality of each jury at the question stands, with its command and its golden.
 - Slice 17 has landed. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.

@@ -1,0 +1,106 @@
+pair, pilot
+pair, full
+standing, 0 shared, 0 agreed, 0 divided, 0 one holds, 0 neither holds
+pair, pilot
+pair, wave
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+pairing, agreed
+question, When should the community hall hold its spring clean?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, the first Saturday of April
+margin, 5
+set, wave, recorded 10, valid 6, abstained 4, spoiled 0
+plurality, the first Saturday of April
+margin, 6
+pairing, agreed
+question, Should the school bake sale take card payments?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, both cards and cash
+margin, 10
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, both cards and cash
+margin, 10
+pairing, agreed
+question, Which night should the book club meet?
+set, pilot, recorded 10, valid 4, abstained 6, spoiled 0
+plurality, Wednesday
+margin, 4
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, Wednesday
+margin, 5
+pairing, agreed
+question, Should the allotment gate be locked at dusk?
+set, pilot, recorded 10, valid 7, abstained 3, spoiled 0
+plurality, lock it at dusk
+margin, 7
+set, wave, recorded 10, valid 7, abstained 3, spoiled 0
+plurality, lock it at dusk
+margin, 7
+pairing, agreed
+question, What should the pub quiz do with tied scores?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, a tiebreak question
+margin, 10
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, a tiebreak question
+margin, 10
+pairing, agreed
+question, Should the parish newsletter go out by email instead of print?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, both email and print
+margin, 10
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, both email and print
+margin, 10
+pairing, agreed
+question, When should the farmers market start in summer?
+set, pilot, recorded 10, valid 3, abstained 7, spoiled 0
+plurality, eight in the morning
+margin, 3
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, eight in the morning
+margin, 3
+pairing, agreed
+question, Should the scout troop camp by the river or in the woods?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, in the woods
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, in the woods
+margin, 1
+pairing, agreed
+question, What should the choir sing at the winter concert?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, a mix of carols and folk songs
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, a mix of carols and folk songs
+margin, 5
+pairing, agreed
+question, Should the bus stop move closer to the shops?
+set, pilot, recorded 10, valid 0, abstained 10, spoiled 0
+plurality, none
+margin, not counted
+set, wave, recorded 10, valid 0, abstained 10, spoiled 0
+plurality, none
+margin, not counted
+pairing, neither holds
+question, How should the village fete handle rain?
+set, pilot, recorded 10, valid 9, abstained 1, spoiled 0
+plurality, move into the hall
+margin, 9
+set, wave, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, move into the hall
+margin, 10
+pairing, agreed
+standing, 12 shared, 11 agreed, 0 divided, 0 one holds, 1 neither holds
+pair, full
+pair, wave
+standing, 0 shared, 0 agreed, 0 divided, 0 one holds, 0 neither holds
+pairs, 3 pairs, 12 shared, 11 agreed, 0 divided, 0 one holds, 1 neither holds
