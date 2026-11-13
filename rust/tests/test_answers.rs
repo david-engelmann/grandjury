@@ -24,25 +24,46 @@
 //! OT, its postures computed by the validated
 //! transcription of the design or imported from the
 //! Round 19 executions, and no posture is stated
-//! the computations do not carry. OA, an answer's
+//! the computations do not carry. The set stands
+//! executed whole in Round 22 under GJ-45, on this
+//! round's tree and on the pairing round's, and the
+//! entries below state the executed sets, each
+//! parting from the computed posture named in its
+//! entry. OA, an answer's
 //! held figure summed over every question in place
-//! of its own, fails pins 4, 12, 18, 19, and 20,
+//! of its own, fails pins 4, 5, 12, 18, 19, and 20,
 //! pin 12 by construction, and moves no shipped
-//! line. OB, the in accord and with the pool
-//! standings swapped, fails pins 4, 10, 18, 19,
-//! and 20, pin 10 by construction. OC, a tied
+//! line; pin 5 falls as an executed parting, the
+//! reconciliation pin reading the closing the
+//! mutation moves. OB, the in accord and with the pool
+//! standings swapped, fails pins 4, 5, 9, 10, 11,
+//! 18, 19, and 20, pin 10 by construction; pins 5,
+//! 9, and 11 fall as executed partings, the swap
+//! moving the per answer standings they read. OC,
+//! a tied
 //! part's answers at the top count counted as
-//! held, fails pins 4, 7, 18, 19, and 20, pin 7 by
-//! construction. OD, an answer offered only at
+//! held, fails pins 4, 5, 7, 10, 18, 19, and 20,
+//! pin 7 by construction; pins 5 and 10 fall as
+//! executed partings on the figures the held count
+//! moves. OD, an answer offered only at
 //! questions whose parts all stand empty omitted
-//! from the reading, fails pins 1, 2, and 8, pin 8
-//! by construction, and pins 3, 4, and 5 stand. OE,
+//! from the reading, fails pins 1, 2, 7, and 8,
+//! pin 8 by construction, and pins 3, 4, and 5
+//! stand; pin 7 falls as an executed parting, a
+//! tied part's pluralities standing all at none, so
+//! its question is omitted with the empty ones. OE,
 //! the held figure read off the first asking set's
-//! part alone, fails pins 1, 2, 4, 6, 18, 19, and
-//! 20, pin 6 by construction. OF, the accord read
+//! part alone, fails pins 1, 2, 3, 4, 5, 6, 9, 10,
+//! 11, 12, 18, 19, and 20, pin 6 by construction;
+//! pins 3, 5, 9, 10, 11, and 12 fall as executed
+//! partings on the held figures the first part
+//! alone supplies. OF, the accord read
 //! as the first named plurality in set order, fails
-//! pins 4, 9, 18, 19, and 20, pin 9 by
-//! construction. OG, the offerings gathered from
+//! pins 4, 5, 9, 11, 12, 18, 19, and 20, pin 9 by
+//! construction; pins 5, 11, and 12 fall as
+//! executed partings on the accord figure the
+//! first named answer supplies. OG, the offerings
+//! gathered from
 //! the first asking set's poll alone, fails pin 11
 //! alone and moves no line of either record. OH,
 //! the head order of answers_lines swapped, fails
@@ -58,32 +79,49 @@
 //! with the dispatch wired, fails pin 17 alone. OM,
 //! the dispatch restated to run the tally handler
 //! on its first value, fails pin 23 in
-//! rust/tests/test_cli.rs alone, and pins 21 and 22
-//! stand. ON, the generated family of this file
+//! rust/tests/test_cli.rs and pins 1 and 2 of this
+//! file, and pins 21 and 22 stand; the two pins of
+//! this file fall as an executed parting, the
+//! golden and the direct computation driving the
+//! command the dispatch restates. ON, the
+//! generated family of this file
 //! restated with the Round 13 fault, fails pin 18,
-//! and its radius over pins 4, 19, and 20 stands to
-//! be read from the executed set. OO, the closing
+//! and its radius stands read from the executed
+//! set in Round 22 at pins 4 and 19, pin 20
+//! standing. OO, the closing
 //! computed from the shipped record's figures,
-//! fails pins 4 and 20 over the generated record,
-//! and pin 5 stands, its generated leg reading the
-//! reconciliation off the section sums and not the
-//! closing line. Pin 18 asserts the generated
-//! closing as GJ-42 states it, so pin 18 fails
-//! under OO with pins 4 and 20, where the design's
-//! OO entry states it stands on the sections alone,
-//! and the difference stands flagged here for the
-//! reviews. OP, the README Round 20 status line
+//! fails pins 4, 6, 7, 8, 9, 10, 11, 12, 18, 19,
+//! and 20, and pin 5 stands, its generated leg
+//! reading the reconciliation off the section sums
+//! and not the closing line. Pin 18 asserts the
+//! generated closing as GJ-42 states it, so pin 18
+//! fails under OO with pins 4 and 20, where the
+//! design's OO entry states it stands on the
+//! sections alone; the difference flagged here
+//! stands settled by the Round 22 execution for the
+//! falling side, and the shape pins fall with them
+//! as executed partings on the closing their
+//! fixtures assert. OP, the README Round 20 status line
 //! restated, fails pin 24 in
 //! rust/tests/test_setup.rs alone, and pin 25
 //! stands. OQ, a section's standing line computed
 //! from the first offered question alone, fails
-//! pins 4, 12, 18, 19, and 20, pin 12 by
-//! construction. OR, a section's standing line
+//! pins 4, 5, 12, 18, 19, and 20, pin 12 by
+//! construction; pin 5 falls as an executed
+//! parting, the reconciliation pin reading the
+//! closing the mutation moves. OR, a section's
+//! standing line
 //! stating every question of the record, fails pins
-//! 1, 2, 4, 11, 18, and 19, and pin 20 stands. OS,
+//! 1, 2, 4, 11, 12, 18, 19, and 20; pins 12 and 20
+//! fall as executed partings, the offered figure
+//! moving the part lines of the one and the closing
+//! relations of the other. OS,
 //! the closing's in accord figure counting the
-//! parts standing in accord, fails pins 3, 4, 5,
-//! 18, 19, and 20. OT, the per set question loop of
+//! parts standing in accord, fails pins 1, 2, 3, 4,
+//! 5, 6, 10, 18, 19, and 20; pins 1, 2, 6, and 10
+//! fall as executed partings on the in accord
+//! figures the parts' sum moves. OT, the per set
+//! question loop of
 //! validate_sets moved ahead of the label checks,
 //! fails pin 15 on the mixed fixture.
 
