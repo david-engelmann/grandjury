@@ -676,27 +676,33 @@ fn accord_where_the_pool_falls_elsewhere_states_with_the_pool_at_zero() {
     let mut responses = votes_of("one", "the red gate", 2);
     responses.extend(votes_of("two", "the blue gate", 1));
     let alpha = poll(question, &answers, responses);
-    let mut responses = votes_of("one", "the blue gate", 2);
-    responses.extend(votes_of("two", "the green gate", 2));
-    responses.extend(votes_of("three", "the red gate", 1));
+    let mut responses = votes_of("one", "the red gate", 2);
+    responses.extend(votes_of("two", "the blue gate", 1));
     let beta = poll(question, &answers, responses);
-    let sets = vec![(pt("alpha"), vec![alpha]), (pt("beta"), vec![beta])];
+    let mut responses = votes_of("one", "the blue gate", 3);
+    responses.extend(votes_of("two", "the green gate", 3));
+    let gamma = poll(question, &answers, responses);
+    let sets = vec![
+        (pt("alpha"), vec![alpha]),
+        (pt("beta"), vec![beta]),
+        (pt("gamma"), vec![gamma]),
+    ];
     assert_eq!(
         answers_lines(&sets).unwrap(),
         expected(&[
             "answer, the red gate",
             "question, Which gate should the fair repaint first?",
-            "held, 1, in accord, 1, with the pool, 0",
-            "standing, 1 questions, 1 parts held, 1 in accord, 0 with the pool",
+            "held, 2, in accord, 2, with the pool, 0",
+            "standing, 1 questions, 2 parts held, 1 in accord, 0 with the pool",
             "answer, the blue gate",
             "question, Which gate should the fair repaint first?",
             "held, 0, in accord, 0, with the pool, 0",
-            "standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool",
+            "standing, 1 questions, 0 parts held, 0 in accord, 1 with the pool",
             "answer, the green gate",
             "question, Which gate should the fair repaint first?",
             "held, 0, in accord, 0, with the pool, 0",
             "standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool",
-            "answers, 3 answers, 3 questions, 1 parts, 1 in accord, 0 with the pool",
+            "answers, 3 answers, 3 questions, 2 parts, 1 in accord, 1 with the pool",
         ])
     );
 }
