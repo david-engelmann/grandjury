@@ -622,15 +622,15 @@ fn the_standing_command_refuses_a_defective_poll_and_a_duplicate_label() {
     );
 }
 
-// The answers command's surface, GJ-42. The two
-// usage pins stand against the Round 19 closure
-// tree by design, the refusal falling ahead of any
-// handler, and the defective poll pin fails
-// against that tree by assertion, the command
-// standing absent there. The defective poll pin
-// fails under OM alone, the dispatch restated to
-// run the tally handler on its first value, and
-// the two usage pins stand under it.
+// The answers command's surface, GJ-42. The three
+// answers pins fail against the Round 19 closure
+// tree by assertion, the command standing absent
+// there and its invalid choice refusal carrying
+// neither text the two usage pins assert. The
+// defective poll pin fails under OM alone, the
+// dispatch restated to run the tally handler on
+// its first value, and the two usage pins stand
+// under it.
 
 #[test]
 fn the_answers_command_refuses_no_arguments() {
@@ -649,10 +649,10 @@ fn the_answers_command_refuses_an_unpaired_label() {
 #[test]
 fn the_answers_command_refuses_a_defective_poll_and_a_duplicate_label() {
     let scratch = TempDir::new("cli-answers-defective");
-    let bad = jobj(&[
+    let bad = jobj(vec![
         ("question", jstr("A defective poll?")),
-        ("answers", jarr(&[jstr("only one")])),
-        ("responses", jarr(&[])),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
     ]);
     scratch.write_json("bad.json", &bad);
     let pilot = path_arg(&examples().join("pilot"));
