@@ -1,0 +1,573 @@
+answer, open on Sundays
+question, Should the village library open on Sunday mornings?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, stay closed on Sundays
+question, Should the village library open on Sunday mornings?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the first Saturday of April
+question, When should the community hall hold its spring clean?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, the last Saturday of April
+question, When should the community hall hold its spring clean?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a weekday evening
+question, When should the community hall hold its spring clean?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, cards only
+question, Should the school bake sale take card payments?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, cash only
+question, Should the school bake sale take card payments?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, both cards and cash
+question, Should the school bake sale take card payments?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, Tuesday
+question, Which night should the book club meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, Wednesday
+question, Which night should the book club meet?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, Thursday
+question, Which night should the book club meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, lock it at dusk
+question, Should the allotment gate be locked at dusk?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, leave it unlocked
+question, Should the allotment gate be locked at dusk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, lock it at nine
+question, Should the allotment gate be locked at dusk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a tiebreak question
+question, What should the pub quiz do with tied scores?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, share the prize
+question, What should the pub quiz do with tied scores?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, replay the final round
+question, What should the pub quiz do with tied scores?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, email only
+question, Should the parish newsletter go out by email instead of print?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, print only
+question, Should the parish newsletter go out by email instead of print?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, both email and print
+question, Should the parish newsletter go out by email instead of print?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, seven in the morning
+question, When should the farmers market start in summer?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, eight in the morning
+question, When should the farmers market start in summer?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, nine in the morning
+question, When should the farmers market start in summer?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, by the river
+question, Should the scout troop camp by the river or in the woods?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in the woods
+question, Should the scout troop camp by the river or in the woods?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, carols only
+question, What should the choir sing at the winter concert?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a mix of carols and folk songs
+question, What should the choir sing at the winter concert?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, folk songs only
+question, What should the choir sing at the winter concert?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, move it closer
+question, Should the bus stop move closer to the shops?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, keep it where it is
+question, Should the bus stop move closer to the shops?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, add a second stop
+question, Should the bus stop move closer to the shops?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, carry on in the rain
+question, How should the village fete handle rain?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, move into the hall
+question, How should the village fete handle rain?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, postpone by a week
+question, How should the village fete handle rain?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, cancel outright
+question, How should the village fete handle rain?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, open an hour earlier
+question, Should the post office counter open an hour earlier on market days?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep the current hours
+question, Should the post office counter open an hour earlier on market days?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, tomato
+question, Which soup should the lunch club serve on Fridays?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, leek and potato
+question, Which soup should the lunch club serve on Fridays?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, carrot and lentil
+question, Which soup should the lunch club serve on Fridays?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, on Thursdays
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, on Fridays
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, sunflowers
+question, What should the gardening club plant along the fence this year?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, sweet peas
+question, What should the gardening club plant along the fence this year?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, runner beans
+question, What should the gardening club plant along the fence this year?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, lavender
+question, What should the gardening club plant along the fence this year?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, sell flowers too
+question, Should the farm shop sell flowers as well as vegetables?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, vegetables only
+question, Should the farm shop sell flowers as well as vegetables?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the first Saturday
+question, When should the repair cafe run each month?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the second Saturday
+question, When should the repair cafe run each month?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the third Saturday
+question, When should the repair cafe run each month?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the last Saturday
+question, When should the repair cafe run each month?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, open it at weekends
+question, Should the school playground open to families at weekends?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep it closed
+question, Should the school playground open to families at weekends?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a comedy
+question, Which film should the cinema club show in December?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a drama
+question, Which film should the cinema club show in December?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a documentary
+question, Which film should the cinema club show in December?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a classic musical
+question, Which film should the cinema club show in December?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, add the class
+question, Should the gym add a beginners class on Monday evenings?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep the timetable as it is
+question, Should the gym add a beginners class on Monday evenings?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, cream
+question, What colour should the hall kitchen be repainted?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, sage green
+question, What colour should the hall kitchen be repainted?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, pale blue
+question, What colour should the hall kitchen be repainted?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, move it
+question, Should the dog show move to the bigger field?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep it on the green
+question, Should the dog show move to the bigger field?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in late July
+question, When should the youth club take its summer trip?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in mid August
+question, When should the youth club take its summer trip?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in early September
+question, When should the youth club take its summer trip?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, lend games too
+question, Should the toy library lend board games as well as toys?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, toys only
+question, Should the toy library lend board games as well as toys?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a giant loaf
+question, What should the bakery bake for the harvest festival?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, spiced buns
+question, What should the bakery bake for the harvest festival?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, fruit pies
+question, What should the bakery bake for the harvest festival?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, honey cakes
+question, What should the bakery bake for the harvest festival?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, leave later
+question, Should the last bus leave an hour later on Friday nights?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep the last bus as it is
+question, Should the last bus leave an hour later on Friday nights?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, on Saturday
+question, Which day should the jumble sale be held?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, on Sunday
+question, Which day should the jumble sale be held?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, offer it
+question, Should the swimming pool offer early morning lane swimming?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep the current timetable
+question, Should the swimming pool offer early morning lane swimming?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, landscapes
+question, What should the art group show at the spring exhibition?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, portraits
+question, What should the art group show at the spring exhibition?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, still life
+question, What should the art group show at the spring exhibition?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, this year
+question, Should the village hall roof be repaired this year or next year?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, next year
+question, Should the village hall roof be repaired this year or next year?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in late September
+question, When should the orchard group press the apples?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in mid October
+question, When should the orchard group press the apples?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in early November
+question, When should the orchard group press the apples?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in the cafe
+question, Where should the chess club meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in the pub
+question, Where should the chess club meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, in the community room
+question, Where should the chess club meet?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, add it
+question, Should the running club add a Sunday morning run?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep Saturdays only
+question, Should the running club add a Sunday morning run?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, tote bags
+question, What should the sewing circle make for the charity stall?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, aprons
+question, What should the sewing circle make for the charity stall?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, cushion covers
+question, What should the sewing circle make for the charity stall?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, quilts
+question, What should the sewing circle make for the charity stall?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, start one
+question, Should the primary school start a breakfast club?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, not this year
+question, Should the primary school start a breakfast club?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, an oak
+question, Which tree should the parish plant on the green?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, a lime
+question, Which tree should the parish plant on the green?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a cherry
+question, Which tree should the parish plant on the green?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, resurface it
+question, Should the tennis club resurface the second court?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, patch it for now
+question, Should the tennis club resurface the second court?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, on a weekday evening
+question, When should the history society hold its winter talk?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, on a Saturday afternoon
+question, When should the history society hold its winter talk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, on a Sunday afternoon
+question, When should the history society hold its winter talk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, all day
+question, Should the cafe serve breakfast all day?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, mornings only
+question, Should the cafe serve breakfast all day?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a pantomime
+question, What should the drama group perform at Christmas?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, a comedy play
+question, What should the drama group perform at Christmas?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, a musical revue
+question, What should the drama group perform at Christmas?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, buy one
+question, Should the village buy a shared marquee for events?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, hire one when needed
+question, Should the village buy a shared marquee for events?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, do without
+question, Should the village buy a shared marquee for events?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the river path
+question, Which path should the walking group take for the spring walk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the ridge path
+question, Which path should the walking group take for the spring walk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the woodland path
+question, Which path should the walking group take for the spring walk?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, the canal path
+question, Which path should the walking group take for the spring walk?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, twice a day
+question, Should the post box be emptied twice a day?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, once a day as now
+question, Should the post box be emptied twice a day?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, gardens
+question, What should the photography club shoot for its calendar?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, doors and gates
+question, What should the photography club shoot for its calendar?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, harvest scenes
+question, What should the photography club shoot for its calendar?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, four mornings
+question, Should the playgroup meet four mornings a week instead of three?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, keep three mornings
+question, Should the playgroup meet four mornings a week instead of three?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, at six in the evening
+question, When should the bonfire be lit on bonfire night?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, at seven in the evening
+question, When should the bonfire be lit on bonfire night?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, at eight in the evening
+question, When should the bonfire be lit on bonfire night?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, open one
+question, Should the museum open a small cafe?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, keep the museum as it is
+question, Should the museum open a small cafe?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, sell it at the market
+question, What should the beekeeping group do with the honey harvest?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, share it among members
+question, What should the beekeeping group do with the honey harvest?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, give it to the school
+question, What should the beekeeping group do with the honey harvest?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, Monday evening
+question, Which evening should the language class meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, Wednesday evening
+question, Which evening should the language class meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, Friday evening
+question, Which evening should the language class meet?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, free on Sundays
+question, Should the car park behind the shops be free on Sundays?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, charge every day
+question, Should the car park behind the shops be free on Sundays?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, film themes
+question, What should the youth orchestra play at the summer concert?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, folk tunes
+question, What should the youth orchestra play at the summer concert?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, classical favourites
+question, What should the youth orchestra play at the summer concert?
+held, 1, in accord, 1, with the pool, 1
+standing, 1 questions, 1 parts held, 1 in accord, 1 with the pool
+answer, jazz standards
+question, What should the youth orchestra play at the summer concert?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answers, 143 answers, 143 questions, 55 parts, 44 in accord, 44 with the pool

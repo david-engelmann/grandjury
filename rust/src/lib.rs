@@ -89,15 +89,22 @@
 //! how many its top counts tied and at how many it held no
 //! valid response and at how many its plurality was the accord
 //! of the question and at how many it was the pooled plurality
-//! of the question, under GJ-39. The
-//! forms the readings across the recorded sets share live
-//! in record. The command line surface lives in cli, the
+//! of the question, under GJ-39. The answers reading
+//! reads the whole record answer by answer and states
+//! for each answer every question at which it was
+//! offered, the count of the parts holding it at that
+//! question, and at how many of those questions the
+//! accord of the question names it and at how many
+//! the pooled plurality of the question names it,
+//! under GJ-41. The forms the readings across the
+//! recorded sets share live in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
 //! codepoint scan lives in scan.
 
 pub mod accord;
 pub mod aggregate;
 pub mod agreement;
+pub mod answers;
 pub mod bench;
 pub mod canvass;
 pub mod census;
