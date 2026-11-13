@@ -230,7 +230,10 @@ fn direct_part(polls: &[&Poll]) -> (Vec<PText>, Option<PText>) {
             if response.abstained {
                 continue;
             }
-            if let Some(slot) = poll.answers.iter().position(|answer| answer == &response.answer)
+            if let Some(slot) = poll
+                .answers
+                .iter()
+                .position(|answer| answer == &response.answer)
             {
                 let union_slot = union
                     .iter()
@@ -367,12 +370,7 @@ fn direct_answers_lines(sets: &[(PText, Vec<Poll>)]) -> Vec<String> {
 /// held and in accord and with the pool figures,
 /// and its standing figures as questions and parts
 /// held and in accord and with the pool.
-fn parse_answers(
-    lines: &[String],
-) -> (
-    Vec<(String, Vec<(String, [i64; 3])>, [i64; 4])>,
-    [i64; 5],
-) {
+fn parse_answers(lines: &[String]) -> (Vec<(String, Vec<(String, [i64; 3])>, [i64; 4])>, [i64; 5]) {
     let mut sections: Vec<(String, Vec<(String, [i64; 3])>, [i64; 4])> = Vec::new();
     let mut closing = [0i64; 5];
     let mut current: Option<(String, Vec<(String, [i64; 3])>)> = None;
@@ -431,10 +429,7 @@ fn assert_answers_sums(lines: &[String]) {
     let mut totals = [0i64; 4];
     for (_, parts, standing) in &sections {
         assert_eq!(standing[0], parts.len() as i64);
-        assert_eq!(
-            standing[1],
-            parts.iter().map(|part| part.1[0]).sum::<i64>()
-        );
+        assert_eq!(standing[1], parts.iter().map(|part| part.1[0]).sum::<i64>());
         for (slot, figure) in standing.iter().enumerate() {
             totals[slot] += figure;
         }
@@ -706,31 +701,33 @@ fn accord_where_the_pool_falls_elsewhere_states_with_the_pool_at_zero() {
 fn answer_offered_by_one_set_alone_stands_and_the_empty_set_moves_no_line() {
     let gates = "Which gate should the fair open first?";
     let fields = "Which field should the fair mow first?";
-    let mut gate_responses = votes_of("one", "the red gate", 2);
-    gate_responses.extend(votes_of("two", "the blue gate", 1));
-    let mut south_responses = votes_of("one", "the south field", 2);
-    south_responses.extend(votes_of("two", "the north field", 1));
-    let alpha = vec![
-        poll(gates, &["the red gate", "the blue gate"], gate_responses),
-        poll(
+    let build = |with_empty: bool| {
+        let mut gate_responses = votes_of("one", "the red gate", 2);
+        gate_responses.extend(votes_of("two", "the blue gate", 1));
+        let mut south_responses = votes_of("one", "the south field", 2);
+        south_responses.extend(votes_of("two", "the north field", 1));
+        let alpha = vec![
+            poll(gates, &["the red gate", "the blue gate"], gate_responses),
+            poll(
+                fields,
+                &["the north field", "the south field"],
+                south_responses,
+            ),
+        ];
+        let mut east_responses = votes_of("one", "the east field", 3);
+        east_responses.extend(votes_of("two", "the north field", 1));
+        let beta = vec![poll(
             fields,
-            &["the north field", "the south field"],
-            south_responses,
-        ),
-    ];
-    let mut east_responses = votes_of("one", "the east field", 3);
-    east_responses.extend(votes_of("two", "the north field", 1));
-    let beta = vec![poll(
-        fields,
-        &["the north field", "the east field"],
-        east_responses,
-    )];
-    let sets = vec![
-        (pt("alpha"), alpha.clone()),
-        (pt("beta"), beta.clone()),
-        (pt("empty"), Vec::new()),
-    ];
-    let lines = answers_lines(&sets).unwrap();
+            &["the north field", "the east field"],
+            east_responses,
+        )];
+        let mut sets = vec![(pt("alpha"), alpha), (pt("beta"), beta)];
+        if with_empty {
+            sets.push((pt("empty"), Vec::new()));
+        }
+        sets
+    };
+    let lines = answers_lines(&build(true)).unwrap();
     assert_eq!(
         lines,
         expected(&[
@@ -757,8 +754,7 @@ fn answer_offered_by_one_set_alone_stands_and_the_empty_set_moves_no_line() {
             "answers, 5 answers, 5 questions, 3 parts, 1 in accord, 2 with the pool",
         ])
     );
-    let without_empty = vec![(pt("alpha"), alpha), (pt("beta"), beta)];
-    assert_eq!(lines, answers_lines(&without_empty).unwrap());
+    assert_eq!(lines, answers_lines(&build(false)).unwrap());
 }
 
 #[test]
@@ -852,8 +848,21 @@ fn set_rules_refuse_the_empty_the_duplicate_and_the_mixed_fixtures() {
 #[test]
 fn no_line_of_the_reading_holds_a_refused_word() {
     let verdict_words = [
-        "verdict", "winner", "wins", "correct", "incorrect", "wrong", "best", "worst", "rank",
-        "ranking", "ranked", "beats", "champion", "loser", "loses",
+        "verdict",
+        "winner",
+        "wins",
+        "correct",
+        "incorrect",
+        "wrong",
+        "best",
+        "worst",
+        "rank",
+        "ranking",
+        "ranked",
+        "beats",
+        "champion",
+        "loser",
+        "loses",
     ];
     assert!(!verdict_words.contains(&"answers"));
     let golden = read_text(&examples().join("answers-golden.txt"));
@@ -957,7 +966,8 @@ fn generated_sets_in_memory() -> Vec<(PText, Vec<Poll>)> {
         }
         askings.push(chosen);
     }
-    let mut plan: Vec<Vec<(usize, Vec<usize>)>> = vec![Vec::new(), Vec::new(), Vec::new(), Vec::new()];
+    let mut plan: Vec<Vec<(usize, Vec<usize>)>> =
+        vec![Vec::new(), Vec::new(), Vec::new(), Vec::new()];
     for (set_index, slot) in plan.iter_mut().enumerate() {
         for (question_index, asking_sets) in askings.iter().enumerate() {
             if asking_sets.contains(&set_index) {
@@ -1048,16 +1058,19 @@ fn generated_family_holds_its_figures() {
     let spoiled = polls
         .iter()
         .flat_map(|held| {
-            held.responses
-                .iter()
-                .filter(move |response| !response.abstained && !held.answers.contains(&response.answer))
+            held.responses.iter().filter(move |response| {
+                !response.abstained && !held.answers.contains(&response.answer)
+            })
         })
         .count();
     assert_eq!(spoiled, 12);
     assert_eq!(responses.len() - 285 - spoiled, 423);
     for held in &polls {
-        let models: std::collections::HashSet<&PText> =
-            held.responses.iter().map(|response| &response.model).collect();
+        let models: std::collections::HashSet<&PText> = held
+            .responses
+            .iter()
+            .map(|response| &response.model)
+            .collect();
         assert_eq!(models.len(), 2);
     }
     let lines = answers_lines(&sets).unwrap();
