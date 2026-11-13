@@ -288,7 +288,7 @@ fn spec_max_invocation(spec: &ParserSpec) -> usize {
     max
 }
 
-const COMMANDS: [&str; 19] = [
+const COMMANDS: [&str; 20] = [
     "tally",
     "stadium",
     "cost",
