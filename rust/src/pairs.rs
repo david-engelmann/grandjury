@@ -102,7 +102,7 @@ fn part_lines(label: &PText, part_polls: &[&Poll]) -> (Vec<String>, Option<PText
 /// first failed rule names.
 ///
 /// Each set pairs one set label with its polls. The
-/// set rules of GJ-11 govern the sets unchanged,
+/// set rules of GJ-2 govern the sets unchanged,
 /// each label checked before the questions of its
 /// set and the first failure the refusal, and a
 /// refusal returns no lines at all. One section
