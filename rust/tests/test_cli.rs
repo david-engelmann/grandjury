@@ -597,7 +597,7 @@ fn the_standing_command_refuses_a_defective_poll_and_a_duplicate_label() {
         ("answers", jarr(vec![jstr("only one")])),
         ("responses", jarr(vec![])),
     ]);
-    scratch.write_json("bad.json", &bad);
+    scratch.write_json("poll-01.json", &bad);
     let (stdout, _, code) = run_cli(&[
         "standing",
         "pilot",
@@ -606,7 +606,10 @@ fn the_standing_command_refuses_a_defective_poll_and_a_duplicate_label() {
         &path_arg(&scratch.path),
     ]);
     assert_eq!(code, 1);
-    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert_eq!(
+        stdout,
+        "invalid poll\ndefect field answers holds fewer than two answers\n"
+    );
     assert!(!stdout.contains("standings"));
     let (stdout, _, code) = run_cli(&[
         "standing",
@@ -654,13 +657,16 @@ fn the_answers_command_refuses_a_defective_poll_and_a_duplicate_label() {
         ("answers", jarr(vec![jstr("only one")])),
         ("responses", jarr(vec![])),
     ]);
-    scratch.write_json("bad.json", &bad);
+    scratch.write_json("poll-01.json", &bad);
     let pilot = path_arg(&examples().join("pilot"));
     let wave = path_arg(&examples().join("wave"));
     let marsh = path_arg(&scratch.path);
     let (stdout, _, code) = run_cli(&["answers", "pilot", &pilot, "marsh", &marsh]);
     assert_eq!(code, 1);
-    assert!(stdout.starts_with("invalid poll\ndefect "));
+    assert_eq!(
+        stdout,
+        "invalid poll\ndefect field answers holds fewer than two answers\n"
+    );
     assert!(!stdout.contains("answers, 143 answers"));
     let (stdout, _, code) = run_cli(&["answers", "pilot", &pilot, "pilot", &wave]);
     assert_eq!(code, 1);
