@@ -27,26 +27,31 @@
 //! earlier rounds' executions, and no posture is
 //! stated the computations do not carry. PA, the
 //! pairing of a part read against the pooled
-//! plurality of its question, fails pins 4, 7, 18,
-//! 19, and 20, pin 7 by construction, and moves no
+//! plurality of its question, fails pins 4, 5, 7,
+//! 8, 10, 12, 18, 19, and 20, pin 7 by
+//! construction, and moves no
 //! shipped line. PB, the agreed and divided counts
 //! swapped in the pairing counting, fails pins 1,
-//! 2, 4, 6, 7, 18, 19, and 20, pins 6 and 7 by
+//! 2, 4, 5, 6, 7, 10, 12, 18, 19, and 20, pins 6
+//! and 7 by
 //! construction. PC, a tied part counted as holding
 //! the first answer at its tied top count, fails
-//! pins 4, 8, 18, 19, and 20, pin 8 by construction.
+//! pins 4, 5, 8, 18, 19, and 20, pin 8 by
+//! construction.
 //! PD, a part at which neither part holds omitted
-//! from its section, fails pins 1, 2, 4, 9, 18, 19,
-//! and 20, pin 9 by construction. PE, the shared
+//! from its section, fails pins 1, 2, 3, 4, 5, 9,
+//! 18, 19, and 20, pin 9 by construction. PE, the shared
 //! questions gathered from the first set's askings
 //! alone, fails pins 1, 2, 3, 4, 5, 11, 18, 19, and
 //! 20, pin 11 by construction. PF, the second set's
 //! part gathered from the first set's askings, fails
-//! pins 3, 4, 10, 18, 19, and 20, pin 10 by
+//! pins 1, 2, 3, 4, 5, 6, 7, 8,
+//! 10, 12, 18, 19, and 20, pin 10 by
 //! construction and pin 3 by the shipped margin
 //! movement. PG, the pairs stated with the later set
-//! first, fails pins 1, 2, and 19, and the figure
-//! pins and the relation pins stand. PH, the head
+//! first, fails pins 1, 2, 6, 7, 8, 9,
+//! 11, 12, and 19, and pins 3, 4, 5, 18, and 20
+//! stand. PH, the head
 //! order of pairs_lines swapped, fails no pin, and
 //! pins 13 and 14 stand. PI, the guard read over the
 //! first set's polls alone, fails pin 13 and pin 14
@@ -66,7 +71,8 @@
 //! and its radius over pins 4, 19, and 20 stands to
 //! be read from the executed set. PO, the closing
 //! computed from the shipped record's figures, fails
-//! pins 4, 18, 19, and 20 over the generated record,
+//! pins 4, 6, 7, 8, 9, 10, 11,
+//! 12, 18, 19, and 20 over the generated record,
 //! and pin 5 stands, its legs reading the section
 //! sums and the accord recount and not the printed
 //! closing. PP, the README Round 21 status line
@@ -80,12 +86,20 @@
 //! 1, 2, 4, 5, 11, 18, 19, and 20, pin 11 by
 //! construction of its share. PS, the closing's
 //! agreed figure counting the questions at which an
-//! accord stands, fails pins 1, 2, 4, 18, 19, and
-//! 20, and pins 3 and 5 stand, pin 5 by the
-//! construction its legs state. PT, the per set
+//! accord stands, fails pins 1, 2, 4, 10, 11,
+//! 18, 19, and 20, and pins 3 and 5 stand, pin 5
+//! by the construction its legs state, this set
+//! executed under the red team's strict variant
+//! and the faithful definition rerun standing
+//! unexecuted. PT, the per set
 //! question loop of validate_sets moved ahead of
 //! the label checks, fails pin 15 on the mixed
-//! fixture.
+//! fixture. The Round 21 red team's executions
+//! restated these lists, the executed sets
+//! standing as the postures of record and the
+//! unexecuted mutations, PJ, PT, PK, PL, PM, PP,
+//! PN, and the pin 26 mutation, standing as
+//! charged.
 
 mod shared;
 
