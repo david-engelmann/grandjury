@@ -1140,3 +1140,22 @@ fn generated_relations_hold_and_the_sections_sum() {
         figure_before(aggregate.last().unwrap(), "pluralities")
     );
 }
+
+// The all-empty pin of FIX-GJ-25. The answers
+// reading over a list whose sets all hold no polls
+// stands at its closing line alone at zero figures,
+// the form FIX-GJ-25 states for GJ-42. The pin
+// fails under the mutation that omits the closing
+// line of the answers reading where no section
+// stands, and no pin of the shipped or generated
+// records moves under that mutation, every other
+// reading of those records standing over sections.
+
+#[test]
+fn all_empty_record_states_the_answers_closing_line_alone() {
+    let sets = vec![(pt("alpha"), Vec::new()), (pt("beta"), Vec::new())];
+    assert_eq!(
+        answers_lines(&sets).unwrap(),
+        expected(&["answers, 0 answers, 0 questions, 0 parts, 0 in accord, 0 with the pool",])
+    );
+}

@@ -692,6 +692,47 @@ fn the_answers_command_refuses_a_defective_poll_and_a_duplicate_label() {
 }
 
 #[test]
+fn the_pairs_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["pairs"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_pairs_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["pairs", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_pairs_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-pairs-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("poll-01.json", &bad);
+    let pilot = path_arg(&examples().join("pilot"));
+    let wave = path_arg(&examples().join("wave"));
+    let marsh = path_arg(&scratch.path);
+    let (stdout, _, code) = run_cli(&["pairs", "pilot", &pilot, "marsh", &marsh]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid poll\ndefect field answers holds fewer than two answers\n"
+    );
+    assert!(!stdout.contains("pairs, 3 pairs"));
+    let (stdout, _, code) = run_cli(&["pairs", "pilot", &pilot, "pilot", &wave]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid pairs\ndefect the set label pilot stands twice\n"
+    );
+}
+
+#[test]
 fn a_non_utf8_label_renders_in_replacement_form() {
     // The label posture pin of GJ-38. The real surface
     // over the pilot directory under a label whose

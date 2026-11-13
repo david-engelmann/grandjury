@@ -139,6 +139,10 @@ name = "test_answers"
 path = "rust/tests/test_answers.rs"
 
 [[test]]
+name = "test_pairs"
+path = "rust/tests/test_pairs.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 

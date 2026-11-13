@@ -99,13 +99,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 19 slice for the same
     // consequence, and restored at the Round 19 closure, and
     // altered again at the Round 20 slice for the same
-    // consequence, and restored at the Round 20 closure.
+    // consequence, and restored at the Round 20 closure, and
+    // altered again at the Round 21 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 21 is unbuilt, so the count stands
-    // at zero. The round pins below hold
+    // review across the whole README. Slice 22 stands in
+    // review while the Round 21 slice stands open, so the
+    // count stands at one. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -491,6 +493,25 @@ fn readme_reports_the_round_twenty_status() {
 fn contract_carries_the_round_twenty_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-41", "GJ-42"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_twenty_one_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-43 and GJ-44 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 21 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 22 is built and in review. It carries the pairing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set pair by set pair, stating for every pair of sets each question the pair shares, the part of each set at the question in the form of the accord and the pairing of the pair at the question, and the standing of the pair over the record, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 20 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twenty_one_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-43", "GJ-44", "FIX-GJ-25"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }
