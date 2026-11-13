@@ -475,6 +475,25 @@ fn contract_carries_the_round_nineteen_obligations() {
 }
 
 #[test]
+fn readme_reports_the_round_twenty_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-41 and GJ-42 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 20 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 21 is built and in review. It carries the answers reading over the three recorded poll sets, the pilot and the full poll and the second wave read together answer by answer, stating for every answer each question at which it was offered, the count of parts holding it at that question and of those the counts standing in accord and with the pool, and the standing of the answer over the record, with its command and its golden.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 19 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twenty_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-41", "GJ-42"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
 fn the_binary_surface_glob_import_stands_gated_to_linux() {
     // The text pin FIX-GJ-20 states. The gate attribute
     // line stands immediately above the glob import line
