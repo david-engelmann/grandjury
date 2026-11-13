@@ -896,7 +896,7 @@ fn no_line_of_the_reading_holds_a_refused_word() {
 fn help_text_names_the_answers_command() {
     let (stdout, _, code) = run_cli(&["answers", "--help"]);
     assert_eq!(code, 0);
-    assert!(stdout.contains("usage: grandjury answers [-h] label directory [label directory...]"));
+    assert!(stdout.contains("usage: grandjury answers [-h] label directory [label directory ...]"));
     let (stdout, _, code) = run_cli(&["--help"]);
     assert_eq!(code, 0);
     assert!(stdout.contains("print the answers reading over recorded poll sets"));

@@ -97,13 +97,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 18 slice for the same
     // consequence, and restored at the Round 18 closure, and
     // altered again at the Round 19 slice for the same
-    // consequence, and restored at the Round 19 closure.
+    // consequence, and restored at the Round 19 closure, and
+    // altered again at the Round 20 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 20 is unbuilt, so the count stands
-    // at zero. The round pins below hold
+    // review across the whole README. Slice 21 stands in
+    // review while the Round 20 slice stands open, so the
+    // count stands at one. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
