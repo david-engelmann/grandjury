@@ -18,10 +18,8 @@
 //! module carries are GJ-41 and GJ-42 in
 //! CONTRACT.md, in the Round 20 section.
 
-use num_bigint::BigInt;
-
 use crate::agreement::{add_reading, jury_reading, plurality_of, poll_juries};
-use crate::polls::{Poll, Response};
+use crate::polls::Poll;
 use crate::pytext::PText;
 use crate::record::{check_poll_text, collect_questions, validate_sets};
 
@@ -54,13 +52,15 @@ fn pooled_plurality(askings: &[&Poll]) -> (Vec<PText>, Option<PText>) {
             }
         }
     }
-    let mut counts: Vec<BigInt> = vec![BigInt::from(0); union.len()];
-    let mut totals = (0, 0, 0, 0);
+    let mut counts: Vec<usize> = vec![0; union.len()];
+    let mut totals: (usize, usize, usize, usize) = (0, 0, 0, 0);
     for poll in askings {
         let juries = poll_juries(poll);
-        let responses: Vec<&Response> = juries.iter().flatten().collect();
-        let reading = jury_reading(poll, &responses);
-        add_reading(&mut counts, &mut totals, &union, &reading);
+        let all: Vec<_> = juries
+            .iter()
+            .flat_map(|(_, rs)| rs.iter().copied())
+            .collect();
+        add_reading(&mut counts, &mut totals, &union, &jury_reading(poll, &all));
     }
     let plurality = plurality_of(&counts, totals.1, &union);
     (union, plurality)
