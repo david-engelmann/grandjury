@@ -490,14 +490,14 @@ fn divided_shape_states_each_part_of_the_question() {
 fn whole_shape_states_the_part_standing_whole() {
     let question = "Which gate should the fair open first?";
     let answers = &["the red gate", "the blue gate"];
-    let sets = vec![(
-        pt("alpha"),
-        vec![poll(
-            question,
-            answers,
-            votes_of("alpha", "the red gate", 3),
-        )],
-    )];
+    let mut only = votes_of("alpha", "the red gate", 3);
+    only.push(response(
+        "alpha hand the red gate 4",
+        "model a",
+        None,
+        "no answer recorded",
+    ));
+    let sets = vec![(pt("alpha"), vec![poll(question, answers, only)])];
     assert_eq!(
         shares_lines(&sets).unwrap(),
         expected(&[
@@ -582,25 +582,27 @@ fn empty_and_whole_shape_states_the_none_and_the_whole() {
 }
 
 #[test]
-fn disjoint_shape_states_each_set_at_its_own_question() {
-    let first_question = "Which gate should the fair open first?";
-    let second_question = "Which field should the fair mow first?";
+fn lowest_terms_shape_states_each_share_reduced() {
+    let question = "Which gate should the fair open first?";
+    let answers = &["the red gate", "the blue gate"];
+    let mut first = votes_of("alpha", "the red gate", 6);
+    first.push(response(
+        "alpha hand the red gate 7",
+        "model a",
+        None,
+        "no answer recorded",
+    ));
+    first.push(response(
+        "alpha hand the red gate 8",
+        "model a",
+        None,
+        "no answer recorded",
+    ));
     let sets = vec![
-        (
-            pt("alpha"),
-            vec![poll(
-                first_question,
-                &["the red gate", "the blue gate"],
-                votes_of("alpha", "the red gate", 3),
-            )],
-        ),
+        (pt("alpha"), vec![poll(question, answers, first)]),
         (
             pt("beta"),
-            vec![poll(
-                second_question,
-                &["the north field", "the south field"],
-                votes_of("beta", "the north field", 2),
-            )],
+            vec![poll(question, answers, votes_of("beta", "the red gate", 4))],
         ),
     ];
     assert_eq!(
@@ -608,13 +610,13 @@ fn disjoint_shape_states_each_set_at_its_own_question() {
         expected(&[
             "set, alpha",
             "question, Which gate should the fair open first?",
-            "share, 3 of 3, 1",
-            "standing, 1 parts, 1 whole, 0 none, 0 not counted",
+            "share, 6 of 10, 3/5",
+            "standing, 1 parts, 0 whole, 0 none, 0 not counted",
             "set, beta",
-            "question, Which field should the fair mow first?",
-            "share, 2 of 2, 1",
-            "standing, 1 parts, 1 whole, 0 none, 0 not counted",
-            "shares, 2 sets, 2 parts, 2 whole, 0 none, 0 not counted",
+            "question, Which gate should the fair open first?",
+            "share, 4 of 10, 2/5",
+            "standing, 1 parts, 0 whole, 0 none, 0 not counted",
+            "shares, 2 sets, 2 parts, 0 whole, 0 none, 0 not counted",
         ])
     );
 }
