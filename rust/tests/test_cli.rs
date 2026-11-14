@@ -889,8 +889,11 @@ fn a_census_over_a_set_whose_first_poll_file_is_not_valid_utf8_exits_one() {
     let scratch = TempDir::new("cli-census-nonutf8");
     let set_dir = scratch.path.join("set");
     std::fs::create_dir(&set_dir).expect("a set directory");
-    std::fs::write(set_dir.join("poll-01.json"), b"\xff\xfe\x00\x80plain letters")
-        .expect("a written file");
+    std::fs::write(
+        set_dir.join("poll-01.json"),
+        b"\xff\xfe\x00\x80plain letters",
+    )
+    .expect("a written file");
     let (out, _, code) = run_cli(&["census", "marsh", &path_arg(&set_dir)]);
     assert_eq!(code, 1);
     assert_eq!(out, "invalid poll\ndefect file is not valid UTF-8\n");
