@@ -960,6 +960,28 @@ margin, 5
 pairing, agreed
 ```
 
+The shares command prints the shares reading over one or more recorded poll sets named with labels, set by set in input order, stating for every set one part per question the set asks, the share of the question's valid responses the set holds at it as an exact fraction, the part standing whole where the set holds every valid response of the question and none where it holds none of them and not counted where the question's valid count stands at zero, and the standing of the set over the record, its parts and at how many of them it stood whole and none and not counted.
+
+```sh
+grandjury shares pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+set, pilot
+question, Should the village library open on Sunday mornings?
+share, 5 of 10, 1/2
+question, When should the community hall hold its spring clean?
+share, 5 of 11, 5/11
+question, Should the school bake sale take card payments?
+share, 10 of 20, 1/2
+question, Which night should the book club meet?
+share, 4 of 9, 4/9
+question, Should the allotment gate be locked at dusk?
+share, 7 of 14, 1/2
+question, What should the pub quiz do with tied scores?
+share, 10 of 20, 1/2
+```
+
 ## Status
 
 Seeded in October 2026. Setup has landed and Rounds 1 to 22 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
@@ -989,6 +1011,8 @@ Seeded in October 2026. Setup has landed and Rounds 1 to 22 have closed, with al
 - Contract, GJ-41 and GJ-42 met. They stand in full form in CONTRACT.md, and Round 20 closed on the merged slice 21 after three reviews, with the red team approving on recomputation of the answers golden byte for byte, its two Major findings in the shape and defective poll pins repaired in the slice, and the defective poll genus completed whole across the file's seven pins.
 - Contract, GJ-43 and GJ-44 met. They stand in full form in CONTRACT.md with the FIX-GJ-25 repair amendment stating the all-empty form of the answers reading, and Round 21 closed on the merged slice 22 after three reviews, with the red team approving with findings on executed recomputation, the findings standing against the design record's discrimination lists and carried to the records pass, the slice's one doc comment Minor in the pairs module repaired in the slice, and the answers module's doc comment instance of the same genus left standing as a named item for a later round.
 - Contract, GJ-45 and GJ-46 met. They stand in full form in CONTRACT.md with the FIX-GJ-26 repair amendment restating the census sentence of GJ-46 in the comma form, and Round 22 closed on the merged slice 23 after three reviews, with the execution record of GJ-45 standing executed whole on its charged trees, the mutation sets NH to NT on the Round 19 slice tree and OA to OT on the Round 20 and Round 21 slice trees, the base runs of Rounds 19 and 20, and the cargo leg of NG failing pin 12 alone, the closure bar of GJ-45 standing satisfied on that record, with the spec review approving with findings at one Minor standing against the build record and three Observations, the standards review approving with findings at one Major cured in the slice under FIX-GJ-26, two Minors cured in the same repair or standing recorded, and two Observations, the red team approving with findings at two Observations, and CodeRabbit's one Minor dismissed with reason on the record, the slice standing at six paths against main and the five path sentence of the slice record standing corrected here.
+- Contract, GJ-47 and GJ-48 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 23 has not closed.
+- Slice 24 is built and in review. It carries the shares reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set each question it asks and the share of the question's valid responses the set holds at it, with its command and its golden.
 - The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
 - Slice 20 has landed. It carries the standing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set the standing of the set over the whole record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question, with its command and its golden.
 - Slice 21 has landed. It carries the answers reading over the three recorded poll sets, the pilot and the full poll and the second wave read together answer by answer, stating for every answer each question at which it was offered, the count of parts holding it at that question and of those the counts standing in accord and with the pool, and the standing of the answer over the record, with its command and its golden.

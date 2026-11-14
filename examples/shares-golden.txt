@@ -1,0 +1,135 @@
+set, pilot
+question, Should the village library open on Sunday mornings?
+share, 5 of 10, 1/2
+question, When should the community hall hold its spring clean?
+share, 5 of 11, 5/11
+question, Should the school bake sale take card payments?
+share, 10 of 20, 1/2
+question, Which night should the book club meet?
+share, 4 of 9, 4/9
+question, Should the allotment gate be locked at dusk?
+share, 7 of 14, 1/2
+question, What should the pub quiz do with tied scores?
+share, 10 of 20, 1/2
+question, Should the parish newsletter go out by email instead of print?
+share, 10 of 20, 1/2
+question, When should the farmers market start in summer?
+share, 3 of 8, 3/8
+question, Should the scout troop camp by the river or in the woods?
+share, 5 of 10, 1/2
+question, What should the choir sing at the winter concert?
+share, 5 of 10, 1/2
+question, Should the bus stop move closer to the shops?
+share, not counted
+question, How should the village fete handle rain?
+share, 9 of 19, 9/19
+standing, 12 parts, 0 whole, 0 none, 1 not counted
+set, full
+question, Should the post office counter open an hour earlier on market days?
+share, 3 of 3, 1
+question, Which soup should the lunch club serve on Fridays?
+share, not counted
+question, Should the cricket club mow the outfield on Thursdays or Fridays?
+share, 5 of 5, 1
+question, What should the gardening club plant along the fence this year?
+share, not counted
+question, Should the farm shop sell flowers as well as vegetables?
+share, 5 of 5, 1
+question, When should the repair cafe run each month?
+share, not counted
+question, Should the school playground open to families at weekends?
+share, 8 of 8, 1
+question, Which film should the cinema club show in December?
+share, 5 of 5, 1
+question, Should the gym add a beginners class on Monday evenings?
+share, 5 of 5, 1
+question, What colour should the hall kitchen be repainted?
+share, 5 of 5, 1
+question, Should the dog show move to the bigger field?
+share, 5 of 5, 1
+question, When should the youth club take its summer trip?
+share, not counted
+question, Should the toy library lend board games as well as toys?
+share, 10 of 10, 1
+question, What should the bakery bake for the harvest festival?
+share, 5 of 5, 1
+question, Should the last bus leave an hour later on Friday nights?
+share, 7 of 7, 1
+question, Which day should the jumble sale be held?
+share, 10 of 10, 1
+question, Should the swimming pool offer early morning lane swimming?
+share, 2 of 2, 1
+question, What should the art group show at the spring exhibition?
+share, 4 of 4, 1
+question, Should the village hall roof be repaired this year or next year?
+share, 6 of 6, 1
+question, When should the orchard group press the apples?
+share, not counted
+question, Where should the chess club meet?
+share, 6 of 6, 1
+question, Should the running club add a Sunday morning run?
+share, 5 of 5, 1
+question, What should the sewing circle make for the charity stall?
+share, not counted
+question, Should the primary school start a breakfast club?
+share, 5 of 5, 1
+question, Which tree should the parish plant on the green?
+share, 4 of 4, 1
+question, Should the tennis club resurface the second court?
+share, 7 of 7, 1
+question, When should the history society hold its winter talk?
+share, 8 of 8, 1
+question, Should the cafe serve breakfast all day?
+share, 3 of 3, 1
+question, What should the drama group perform at Christmas?
+share, 6 of 6, 1
+question, Should the village buy a shared marquee for events?
+share, 10 of 10, 1
+question, Which path should the walking group take for the spring walk?
+share, 6 of 6, 1
+question, Should the post box be emptied twice a day?
+share, 10 of 10, 1
+question, What should the photography club shoot for its calendar?
+share, 1 of 1, 1
+question, Should the playgroup meet four mornings a week instead of three?
+share, 10 of 10, 1
+question, When should the bonfire be lit on bonfire night?
+share, 5 of 5, 1
+question, Should the museum open a small cafe?
+share, 5 of 5, 1
+question, What should the beekeeping group do with the honey harvest?
+share, 4 of 4, 1
+question, Which evening should the language class meet?
+share, not counted
+question, Should the car park behind the shops be free on Sundays?
+share, 10 of 10, 1
+question, What should the youth orchestra play at the summer concert?
+share, 5 of 5, 1
+standing, 40 parts, 33 whole, 0 none, 7 not counted
+set, wave
+question, Should the village library open on Sunday mornings?
+share, 5 of 10, 1/2
+question, When should the community hall hold its spring clean?
+share, 6 of 11, 6/11
+question, Should the school bake sale take card payments?
+share, 10 of 20, 1/2
+question, Which night should the book club meet?
+share, 5 of 9, 5/9
+question, Should the allotment gate be locked at dusk?
+share, 7 of 14, 1/2
+question, What should the pub quiz do with tied scores?
+share, 10 of 20, 1/2
+question, Should the parish newsletter go out by email instead of print?
+share, 10 of 20, 1/2
+question, When should the farmers market start in summer?
+share, 5 of 8, 5/8
+question, Should the scout troop camp by the river or in the woods?
+share, 5 of 10, 1/2
+question, What should the choir sing at the winter concert?
+share, 5 of 10, 1/2
+question, Should the bus stop move closer to the shops?
+share, not counted
+question, How should the village fete handle rain?
+share, 10 of 19, 10/19
+standing, 12 parts, 0 whole, 0 none, 1 not counted
+shares, 3 sets, 64 parts, 33 whole, 0 none, 9 not counted
