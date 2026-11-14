@@ -511,3 +511,19 @@ fn a_span_at_or_just_inside_the_context_bound_fails_the_reading() {
         );
     }
 }
+
+// The decode refusal of GJ-49 at the price seat. The
+// pin falls under the mutation refolding the price
+// seat, under the mutation turning the checked
+// reading lossy, and under the mutation swapping the
+// two defect texts.
+
+#[test]
+fn a_price_file_that_is_not_valid_utf8_draws_the_decode_defect() {
+    let scratch = TempDir::new("cost-nonutf8");
+    let path = scratch.path.join("prices.json");
+    std::fs::write(&path, b"\xff\xfe\x00\x80plain letters").expect("a written file");
+    let (table, defects) = load_prices_file(&path);
+    assert!(table.is_none());
+    assert_eq!(defects, vec!["file is not valid UTF-8"]);
+}
