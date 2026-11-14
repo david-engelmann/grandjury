@@ -294,10 +294,20 @@ pub fn load_poll_text(text: &str) -> (Option<Poll>, Vec<String>) {
 }
 
 /// Read a poll from disk, with the same contract as text.
+///
+/// The two failures of the file reading stand parted under
+/// GJ-49, a file that does not stand or cannot be read
+/// drawing the one defect and a file whose bytes are not
+/// valid UTF-8 drawing the other.
 pub fn load_poll_file(path: &Path) -> (Option<Poll>, Vec<String>) {
-    let text = match read_text_file(path) {
-        Some(text) => text,
-        None => return (None, vec!["file cannot be read".to_string()]),
+    let text = match read_text_file_checked(path) {
+        Ok(text) => text,
+        Err(TextReadFailure::CannotBeRead) => {
+            return (None, vec!["file cannot be read".to_string()]);
+        }
+        Err(TextReadFailure::NotValidUtf8) => {
+            return (None, vec!["file is not valid UTF-8".to_string()]);
+        }
     };
     load_poll_text(&text)
 }
@@ -312,6 +322,26 @@ pub fn load_poll_file(path: &Path) -> (Option<Poll>, Vec<String>) {
 pub fn read_text_file(path: &Path) -> Option<String> {
     let bytes = std::fs::read(path).ok()?;
     String::from_utf8(bytes).ok()
+}
+
+/// The two failures of a file reading, parted, as GJ-49
+/// states them. A file that does not stand, or that stands
+/// and cannot be read, is the one failure, and a file that
+/// stands and reads as bytes that are not valid UTF-8 is
+/// the other.
+enum TextReadFailure {
+    CannotBeRead,
+    NotValidUtf8,
+}
+
+/// Read a file as UTF-8 text, reporting the two failures
+/// of the reading apart, the checked form of
+/// read_text_file. The two file loaders state the defect
+/// of the failure this reading reports, and
+/// read_text_file stands unchanged for its other callers.
+fn read_text_file_checked(path: &Path) -> Result<String, TextReadFailure> {
+    let bytes = std::fs::read(path).map_err(|_| TextReadFailure::CannotBeRead)?;
+    String::from_utf8(bytes).map_err(|_| TextReadFailure::NotValidUtf8)
 }
 
 /// The tally of a valid poll as data.
@@ -654,10 +684,18 @@ pub fn load_prices_text(text: &str) -> (Option<PriceTable>, Vec<String>) {
 }
 
 /// Read a price table from disk, with the same contract as text.
+///
+/// The two failures of the file reading stand parted under
+/// GJ-49, as they stand at the poll loader.
 pub fn load_prices_file(path: &Path) -> (Option<PriceTable>, Vec<String>) {
-    let text = match read_text_file(path) {
-        Some(text) => text,
-        None => return (None, vec!["file cannot be read".to_string()]),
+    let text = match read_text_file_checked(path) {
+        Ok(text) => text,
+        Err(TextReadFailure::CannotBeRead) => {
+            return (None, vec!["file cannot be read".to_string()]);
+        }
+        Err(TextReadFailure::NotValidUtf8) => {
+            return (None, vec!["file is not valid UTF-8".to_string()]);
+        }
     };
     load_prices_text(&text)
 }
