@@ -143,6 +143,10 @@ name = "test_pairs"
 path = "rust/tests/test_pairs.rs"
 
 [[test]]
+name = "test_shares"
+path = "rust/tests/test_shares.rs"
+
+[[test]]
 name = "test_resample"
 path = "rust/tests/test_resample.rs"
 
