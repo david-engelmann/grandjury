@@ -811,3 +811,54 @@ fn a_non_utf8_directory_is_read_by_its_own_bytes() {
         String::from_utf8(expected.stdout).expect("stdout text")
     );
 }
+
+// The shares command's surface, GJ-48. The three
+// shares pins fail against the Round 22 closure
+// tree by assertion, the command standing absent
+// there and its invalid choice refusal carrying
+// neither text the two usage pins assert. The
+// defective poll pin fails under the dispatch
+// mutation alone, the dispatch restated to run the
+// tally handler on its first value, and the two
+// usage pins stand under it.
+
+#[test]
+fn the_shares_command_refuses_no_arguments() {
+    let (_, stderr, code) = run_cli(&["shares"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: label, directory"));
+}
+
+#[test]
+fn the_shares_command_refuses_an_unpaired_label() {
+    let (_, stderr, code) = run_cli(&["shares", "pilot"]);
+    assert_eq!(code, 2);
+    assert!(stderr.contains("the following arguments are required: directory"));
+}
+
+#[test]
+fn the_shares_command_refuses_a_defective_poll_and_a_duplicate_label() {
+    let scratch = TempDir::new("cli-shares-defective");
+    let bad = jobj(vec![
+        ("question", jstr("A defective poll?")),
+        ("answers", jarr(vec![jstr("only one")])),
+        ("responses", jarr(vec![])),
+    ]);
+    scratch.write_json("poll-01.json", &bad);
+    let pilot = path_arg(&examples().join("pilot"));
+    let wave = path_arg(&examples().join("wave"));
+    let marsh = path_arg(&scratch.path);
+    let (stdout, _, code) = run_cli(&["shares", "pilot", &pilot, "marsh", &marsh]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid poll\ndefect field answers holds fewer than two answers\n"
+    );
+    assert!(!stdout.contains("shares, 3 sets"));
+    let (stdout, _, code) = run_cli(&["shares", "pilot", &pilot, "pilot", &wave]);
+    assert_eq!(code, 1);
+    assert_eq!(
+        stdout,
+        "invalid shares\ndefect the set label pilot stands twice\n"
+    );
+}
