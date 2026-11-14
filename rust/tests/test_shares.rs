@@ -103,6 +103,16 @@
 //! reading's, their falls above standing beside the
 //! sets as each sentence states.
 
+//! The empty section execution of GJ-50 stands
+//! executed on the Round 24 slice tree in its own
+//! fresh target directory. The mutation dropping the
+//! section of a set holding no polls, seated in
+//! shares_lines alone, fails pins 12 and 13, pin 12
+//! carrying the empty set beside its divided record
+//! and pin 13 carrying the empty forms, and no pin
+//! of any other target falls, the set read from
+//! assertion failures alone.
+
 mod shared;
 
 use shared::*;

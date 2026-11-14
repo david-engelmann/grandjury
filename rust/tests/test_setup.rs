@@ -105,13 +105,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 22 slice for the same
     // consequence, and restored at the Round 22 closure, and
     // altered again at the Round 23 slice for the same
-    // consequence, and restored at the Round 23 closure.
+    // consequence, and restored at the Round 23 closure, and
+    // altered again at the Round 24 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 24 is unbuilt, so the count stands
-    // at zero. The round pins below hold
+    // review across the whole README. Slice 25 stands in
+    // review while the Round 24 slice stands open, so the
+    // count stands at one. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -554,6 +556,25 @@ fn readme_reports_the_round_twenty_three_status() {
 fn contract_carries_the_round_twenty_three_obligations() {
     let text = root_text("CONTRACT.md");
     for oid in ["GJ-47", "GJ-48", "FIX-GJ-27"] {
+        assert!(text.contains(oid), "{}", oid);
+    }
+}
+
+#[test]
+fn readme_reports_the_round_twenty_four_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-49 and GJ-50 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 24 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 25 is built and in review. It carries the decode refusal at the loader seats, the two failures of the loaders' text reading parted so that a file whose bytes are not valid UTF-8 draws its own defect at the poll loader and at the price table loader, under the repair amendment FIX-GJ-24, and the execution of the empty section drop against the shares reading, adding no reading and no command.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 23 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twenty_four_obligations() {
+    let text = root_text("CONTRACT.md");
+    for oid in ["GJ-49", "GJ-50", "FIX-GJ-24"] {
         assert!(text.contains(oid), "{}", oid);
     }
 }

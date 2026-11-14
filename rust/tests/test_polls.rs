@@ -795,3 +795,31 @@ fn the_tally_lines_omit_the_abstained_line_when_none_abstained() {
         ]
     );
 }
+
+// The decode refusal of GJ-49 at the poll seat. The
+// two pins part the failures the loader's text reading
+// folded, a file whose bytes are not valid UTF-8
+// drawing the decode defect and a path that stands
+// drawing the read defect. The first pin falls under
+// the mutation refolding the poll seat, under the
+// mutation turning the checked reading lossy, and
+// under the mutation swapping the two defect texts,
+// and the second pin falls under the swap alone.
+
+#[test]
+fn a_file_that_is_not_valid_utf8_draws_the_decode_defect() {
+    let scratch = TempDir::new("polls-nonutf8");
+    let path = scratch.path.join("poll.json");
+    std::fs::write(&path, b"\xff\xfe\x00\x80plain letters").expect("a written file");
+    let (poll, defects) = load_poll_file(&path);
+    assert!(poll.is_none());
+    assert_eq!(defects, vec!["file is not valid UTF-8"]);
+}
+
+#[test]
+fn a_directory_standing_as_the_poll_file_draws_the_read_defect() {
+    let scratch = TempDir::new("polls-directory");
+    let (poll, defects) = load_poll_file(&scratch.path);
+    assert!(poll.is_none());
+    assert_eq!(defects, vec!["file cannot be read"]);
+}

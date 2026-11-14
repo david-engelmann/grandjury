@@ -862,3 +862,39 @@ fn the_shares_command_refuses_a_defective_poll_and_a_duplicate_label() {
         "invalid shares\ndefect the set label pilot stands twice\n"
     );
 }
+
+// The decode refusal of GJ-49 at the command
+// surfaces. The two pins drive the refusal through
+// the real surface, at the single file of the tally
+// command and at the first file of a set under the
+// census command, each standing at the two lines and
+// the exit status the folded defect's pins assert.
+// Both pins fall under the mutation refolding the
+// poll seat, under the mutation turning the checked
+// reading lossy, and under the mutation swapping the
+// two defect texts.
+
+#[test]
+fn a_tally_over_a_poll_file_that_is_not_valid_utf8_exits_one() {
+    let scratch = TempDir::new("cli-nonutf8");
+    let path = scratch.path.join("poll.json");
+    std::fs::write(&path, b"\xff\xfe\x00\x80plain letters").expect("a written file");
+    let (out, _, code) = run_cli(&["tally", &path_arg(&path)]);
+    assert_eq!(code, 1);
+    assert_eq!(out, "invalid poll\ndefect file is not valid UTF-8\n");
+}
+
+#[test]
+fn a_census_over_a_set_whose_first_poll_file_is_not_valid_utf8_exits_one() {
+    let scratch = TempDir::new("cli-census-nonutf8");
+    let set_dir = scratch.path.join("set");
+    std::fs::create_dir(&set_dir).expect("a set directory");
+    std::fs::write(
+        set_dir.join("poll-01.json"),
+        b"\xff\xfe\x00\x80plain letters",
+    )
+    .expect("a written file");
+    let (out, _, code) = run_cli(&["census", "marsh", &path_arg(&set_dir)]);
+    assert_eq!(code, 1);
+    assert_eq!(out, "invalid poll\ndefect file is not valid UTF-8\n");
+}
