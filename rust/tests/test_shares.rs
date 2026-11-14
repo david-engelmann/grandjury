@@ -23,57 +23,85 @@
 //!
 //! The discrimination of the pins is stated against
 //! the mutation set of the Round 23 design, QA to
-//! QH, its postures computed by the validated
-//! transcription of the design, and no posture is
-//! stated the computations do not carry. QA, the
-//! part counted from its recorded responses in
-//! place of its valid, fails pins 1, 2, 3, 4, 6, 7,
-//! 8, 9, 10, 11, and 19. QB, the share printed in
-//! its unreduced form, fails pins 1, 3, 7, 9, 10,
-//! and 11, and pin 4 stands, reading the printed
-//! grounds and comparing the fractions by value.
-//! QC, a part standing whole at half its question
-//! or more, fails pins 1, 2, 3, 6, 10, 11, and 19.
-//! QD, a question whose valid count stands at zero
-//! rendered as a share of none in place of not
-//! counted, fails pins 1, 2, 3, 4, and 8. QF, the
-//! sections stated in reverse input order, fails
-//! pins 1, 3, 6, 7, 8, 9, 10, 11, and 13, and pins
-//! 2, 12, and 19 stand, pin 2's pilot and wave
-//! standings standing identical, pin 12 asserting
-//! no place, and pin 19 reading the generated
-//! standings as a multiset. QG, the closing's whole
-//! and none figures swapped, fails pins 1, 2, 3, 7,
-//! and 19, and pin 4 stands, asserting the grounds
-//! and values of the share lines and not the
-//! closing. QH, the share line printed without its
-//! grounds, fails pins 1, 3, 4, 6, 7, 9, 10, and
-//! 11. The mutation the design names QE, a part
-//! taken from its first asking alone, stands
-//! uncharged, uncatchable by construction in the
-//! posture of the mutation ME of FIX-GJ-23, and no
-//! pin claims it. QI, the validate_sets call of the
-//! shares path dropped, fails pins 11 and 14, the
-//! set computed in the build's warm-up from the
-//! accord record, the dropped call's refusals
-//! standing asserted by the refusal pin and by the
-//! set rules pin together and by no other pin of
-//! the twenty. The dispatch restated to run the
-//! tally handler on its first value fails pin 23 in
-//! rust/tests/test_cli.rs alone, and pins 21 and 22
-//! stand. No charged mutation fells pin 5, which
-//! stands against a counting of the accord closing's
-//! parts by set in place of by asking, or pin 12,
-//! which stands against a build dropping the empty
-//! section, or pin 15, which stands against surface
-//! mutations of the guard, or pin 16, which stands
-//! against a golden swapped for another reading's,
-//! or pin 17, which stands against a word outside
-//! the vocabulary entering the reading's lines, or
-//! pin 18, which stands against a help text naming
-//! the wrong count of commands, or pin 20, which
-//! stands against a loader divergence between the
-//! written and the in-memory record.
+//! QH and QI, and stands restated whole at the
+//! round's repair, the contract restated under
+//! FIX-GJ-28, the tenth pin restated to the fixture
+//! its charge states and renamed for the lowest
+//! terms shape it asserts, the seventh pin's
+//! abstained response restored, and the six
+//! mutations the repair charged, QA, QB, QC, QF,
+//! QG, and QH, re-executed on the repaired tree,
+//! every set below standing as executed.
+//!
+//! QA, the part counted from its recorded responses
+//! in place of its valid, fails pins 1, 2, 3, 4, 6,
+//! 7, 8, 9, 10, and 19, the seventh pin falling on
+//! the abstained response the repair restored, its
+//! part counted from the four recorded responses of
+//! its set. QB, the share printed in its unreduced
+//! form, fails pins 1, 3, 7, 9, and 10, and pin 4
+//! stands, reading the printed grounds and comparing
+//! the fractions by value. QC, a part standing whole
+//! at half its question or more, fails pins 1, 2, 3,
+//! 6, 10, and 19, and pin 12 falls beside the set,
+//! its divided record's part at three quarters
+//! standing whole under the mutation and moving its
+//! closing. QD, a question whose valid count stands
+//! at zero rendered as a share of none in place of
+//! not counted, fails pins 1, 2, 3, 4, and 8, the
+//! set standing as executed at the build, no
+//! member's posture moving under the repairs. QF,
+//! the sections stated in reverse input order, fails
+//! pins 1, 3, 6, 8, 9, 10, and 13, and pins 4 and 12
+//! fall beside the set at a stronger grain than
+//! their assertions state, the fourth gathering its
+//! parts in the order the contract states its
+//! sections and the twelfth standing in a tail place
+//! its assertion does not name, and pin 2 stands,
+//! its standings carrying figures and not order, and
+//! pin 19 stands, reading the generated standings as
+//! a multiset. QG, the closing's whole and none
+//! figures swapped, fails pins 1, 2, 3, 7, and 19,
+//! and the tenth pin stands, its closing carrying
+//! zero whole and zero none, and pin 4 stands,
+//! asserting the grounds and values of the share
+//! lines and not the closing. QH, the share line
+//! printed without its grounds, fails pins 1, 3, 4,
+//! 6, 7, 9, and 10. Pin 16 falls beside QA, QB, QC,
+//! QD, QF, QG, and QH at the golden equality leg it
+//! shares with pin 1 and stands in no set above.
+//!
+//! The mutation the design names QE, a part taken
+//! from its first asking alone, stands uncharged,
+//! uncatchable by construction in the posture of the
+//! mutation ME of FIX-GJ-23, no admitted set asking
+//! a question twice in the refusal form FIX-GJ-27
+//! records, and no pin claims it. QI, the
+//! validate_sets call of the shares path dropped,
+//! fails pins 11 and 14, the set computed in the
+//! build's warm-up from the accord record and
+//! standing unmoved by the repairs, pin 11 falling
+//! under QI alone among the charged mutations, the
+//! dropped call's refusals standing asserted by the
+//! refusal pin and by the set rules pin together and
+//! by no other pin of the twenty. The dispatch
+//! restated to run the tally handler on its first
+//! value fails pin 23 in rust/tests/test_cli.rs
+//! alone, and pins 21 and 22 stand. No charged
+//! mutation fells pin 5, which stands against a
+//! counting of the accord closing's parts by set in
+//! place of by asking, or pin 15, which stands
+//! against surface mutations of the guard, or pin
+//! 17, which stands against a word outside the
+//! vocabulary entering the reading's lines, or pin
+//! 18, which stands against a help text naming the
+//! wrong count of commands, or pin 20, which stands
+//! against a loader divergence between the written
+//! and the in-memory record, and pin 12 stands
+//! against a build dropping the empty section and
+//! pin 16 against a golden swapped for another
+//! reading's, their falls above standing beside the
+//! sets as each sentence states.
 
 mod shared;
 
