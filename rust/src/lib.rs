@@ -102,7 +102,12 @@
 //! pair shares, the part of each set at the question
 //! in the form of the accord, the pairing of the pair
 //! at the question, and the standing of the pair over
-//! the record, under GJ-43. The forms the readings across the
+//! the record, under GJ-43. The shares reading
+//! reads the whole record set by set and
+//! states for each set every question it asks and
+//! the share of the question's valid responses the
+//! set holds at it as an exact fraction, and the
+//! standing of the set over the record, under GJ-47. The forms the readings across the
 //! recorded sets share live in record. The command line surface lives in cli, the
 //! ported maintainer makers live in makers, and the
 //! codepoint scan lives in scan.
@@ -134,5 +139,6 @@ pub mod record;
 pub mod roll;
 pub mod scan;
 pub mod seats;
+pub mod shares;
 pub mod standing;
 pub mod swing;
