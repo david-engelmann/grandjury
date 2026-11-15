@@ -107,13 +107,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 23 slice for the same
     // consequence, and restored at the Round 23 closure, and
     // altered again at the Round 24 slice for the same
-    // consequence, and restored at the Round 24 closure.
+    // consequence, and restored at the Round 24 closure, and
+    // altered again at the Round 25 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 25 is unbuilt, so the count stands
-    // at zero. The round pins below hold
+    // review across the whole README. Slice 26 stands in
+    // review while the Round 25 slice stands open, so the
+    // count stands at one. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -574,9 +576,64 @@ fn readme_reports_the_round_twenty_four_status() {
 #[test]
 fn contract_carries_the_round_twenty_four_obligations() {
     let text = root_text("CONTRACT.md");
-    for oid in ["GJ-49", "GJ-50", "FIX-GJ-24"] {
-        assert!(text.contains(oid), "{}", oid);
+    let gj49 = contract_section(
+        &text,
+        "### GJ-49 full form, the decode refusal at the loader seats",
+    );
+    assert!(gj49.contains("GJ-49. The decode refusal at the loader seats."));
+    let gj50 = contract_section(&text, "### GJ-50 full form, the empty section execution");
+    assert!(gj50.contains("GJ-50. The empty section execution."));
+    let fix24 = contract_section(
+        &text,
+        "### FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal",
+    );
+    assert!(fix24.contains("FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal."));
+}
+/// The contract section a heading opens, standing from
+/// its heading line to the next heading line of either
+/// level, as the anchored contract pins read it. A
+/// heading that does not stand in the contract reads
+/// as no section, and the pin asserting on it fails.
+fn contract_section(text: &str, heading: &str) -> String {
+    let lines = lines_of(text);
+    let Some(start) = lines.iter().position(|line| *line == heading) else {
+        return String::new();
+    };
+    let mut section = Vec::new();
+    for line in &lines[start..] {
+        if !section.is_empty() && (line.starts_with("## ") || line.starts_with("### ")) {
+            break;
+        }
+        section.push(*line);
     }
+    section.join("\n")
+}
+
+#[test]
+fn readme_reports_the_round_twenty_five_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-51 and GJ-52 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 25 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 26 is built and in review. It carries the polls module consolidation, the folded reading standing as the checked reading's Ok arm and the defect mapping standing in one helper the two file loaders share, and the directory misreport execution, and the repair amendment FIX-GJ-29 restating the second sentence of GJ-49 without its redundant word, and the anchoring cure at the contract carrying pins, adding no reading and no command.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 24 of 100"));
+}
+#[test]
+fn contract_carries_the_round_twenty_five_obligations() {
+    let text = root_text("CONTRACT.md");
+    let gj51 = contract_section(&text, "### GJ-51 full form, the polls module consolidation");
+    assert!(gj51.contains("GJ-51. The polls module consolidation."));
+    let gj52 = contract_section(
+        &text,
+        "### GJ-52 full form, the directory misreport execution",
+    );
+    assert!(gj52.contains("GJ-52. The directory misreport execution."));
+    let fix29 = contract_section(
+        &text,
+        "### FIX-GJ-29, amending GJ-49, the one redundant word",
+    );
+    assert!(fix29.contains("FIX-GJ-29, amending GJ-49, the one redundant word."));
 }
 
 #[test]
