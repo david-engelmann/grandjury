@@ -300,14 +300,9 @@ pub fn load_poll_text(text: &str) -> (Option<Poll>, Vec<String>) {
 /// drawing the one defect and a file whose bytes are not
 /// valid UTF-8 drawing the other.
 pub fn load_poll_file(path: &Path) -> (Option<Poll>, Vec<String>) {
-    let text = match read_text_file_checked(path) {
+    let text = match read_text_or_defect(path) {
         Ok(text) => text,
-        Err(TextReadFailure::CannotBeRead) => {
-            return (None, vec!["file cannot be read".to_string()]);
-        }
-        Err(TextReadFailure::NotValidUtf8) => {
-            return (None, vec!["file is not valid UTF-8".to_string()]);
-        }
+        Err(defect) => return (None, vec![defect]),
     };
     load_poll_text(&text)
 }
@@ -320,8 +315,7 @@ pub fn load_poll_file(path: &Path) -> (Option<Poll>, Vec<String>) {
 /// is refused by the JSON reading under every spelling, and
 /// the spellings agree as whitespace outside one.
 pub fn read_text_file(path: &Path) -> Option<String> {
-    let bytes = std::fs::read(path).ok()?;
-    String::from_utf8(bytes).ok()
+    read_text_file_checked(path).ok()
 }
 
 /// The two failures of a file reading, parted, as GJ-49
@@ -337,11 +331,27 @@ enum TextReadFailure {
 /// Read a file as UTF-8 text, reporting the two failures
 /// of the reading apart, the checked form of
 /// read_text_file. The two file loaders state the defect
-/// of the failure this reading reports, and
-/// read_text_file stands unchanged for its other callers.
+/// of the failure this reading reports, through the one
+/// helper that stands on it, and read_text_file stands
+/// as this reading's Ok arm for its other callers.
 fn read_text_file_checked(path: &Path) -> Result<String, TextReadFailure> {
     let bytes = std::fs::read(path).map_err(|_| TextReadFailure::CannotBeRead)?;
     String::from_utf8(bytes).map_err(|_| TextReadFailure::NotValidUtf8)
+}
+
+/// Read a file as UTF-8 text through the checked reading,
+/// or state the defect of the failure it reports, the
+/// read defect for a file that does not stand or cannot
+/// be read and the decode defect for a file whose bytes
+/// are not valid UTF-8. The two defect texts of GJ-49
+/// stand in this one place, and the two file loaders
+/// state the defect this helper returns and no other.
+fn read_text_or_defect(path: &Path) -> Result<String, String> {
+    match read_text_file_checked(path) {
+        Ok(text) => Ok(text),
+        Err(TextReadFailure::CannotBeRead) => Err("file cannot be read".to_string()),
+        Err(TextReadFailure::NotValidUtf8) => Err("file is not valid UTF-8".to_string()),
+    }
 }
 
 /// The tally of a valid poll as data.
@@ -688,14 +698,9 @@ pub fn load_prices_text(text: &str) -> (Option<PriceTable>, Vec<String>) {
 /// The two failures of the file reading stand parted under
 /// GJ-49, as they stand at the poll loader.
 pub fn load_prices_file(path: &Path) -> (Option<PriceTable>, Vec<String>) {
-    let text = match read_text_file_checked(path) {
+    let text = match read_text_or_defect(path) {
         Ok(text) => text,
-        Err(TextReadFailure::CannotBeRead) => {
-            return (None, vec!["file cannot be read".to_string()]);
-        }
-        Err(TextReadFailure::NotValidUtf8) => {
-            return (None, vec!["file is not valid UTF-8".to_string()]);
-        }
+        Err(defect) => return (None, vec![defect]),
     };
     load_prices_text(&text)
 }

@@ -796,15 +796,26 @@ fn the_tally_lines_omit_the_abstained_line_when_none_abstained() {
     );
 }
 
-// The decode refusal of GJ-49 at the poll seat. The
-// two pins part the failures the loader's text reading
-// folded, a file whose bytes are not valid UTF-8
-// drawing the decode defect and a path that stands
-// drawing the read defect. The first pin falls under
-// the mutation refolding the poll seat, under the
-// mutation turning the checked reading lossy, and
-// under the mutation swapping the two defect texts,
-// and the second pin falls under the swap alone.
+// The decode refusal of GJ-49 at the poll seat, over
+// the consolidation of GJ-51. The two pins part the
+// failures the loader's text reading folded, a file
+// whose bytes are not valid UTF-8 drawing the decode
+// defect and a path that stands drawing the read
+// defect. The first pin falls under the mutation
+// altering the decode defect text at the one helper
+// and under the mutation swapping the two defect
+// texts at the helper, and stands under the mutation
+// severing the delegation, under the directory
+// misreport, and under the mutation altering the
+// read defect text at the helper. The second pin
+// falls under the directory misreport, under the
+// swap, and under the read text mutation, and stands
+// under the decode text mutation and the delegation
+// mutation. The directory misreport stands executed
+// on the Round 25 slice tree in its own fresh target
+// directory under GJ-52, its failing set read from
+// assertion failures alone standing at the second
+// pin alone, as GJ-52 states it.
 
 #[test]
 fn a_file_that_is_not_valid_utf8_draws_the_decode_defect() {
