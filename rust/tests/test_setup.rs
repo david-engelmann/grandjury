@@ -30,7 +30,7 @@ fn agents_carries_the_canonical_marker() {
 #[test]
 fn readme_states_the_closed_round_count() {
     let text = root_text("README.md");
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -111,13 +111,13 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 25 slice for the same
     // consequence, and restored at the Round 25 closure, and
     // altered again at the Round 26 slice for the same
-    // consequence.
+    // consequence, and restored at the Round 26 closure.
     // This pin counts the slices standing in
-    // review across the whole README. Slice 27 stands in
-    // review while the Round 26 slice stands open, so the
-    // count stands at one. The round pins below hold
+    // review across the whole README. No slice stands in
+    // review while Round 27 is unbuilt, so the count stands
+    // at zero. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 1);
+    assert_eq!(text.matches("built and in review").count(), 0);
 }
 
 #[test]
@@ -164,7 +164,7 @@ fn readme_reports_the_round_six_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 7 has landed. It carries the juror ledger reading over the three recorded poll sets, the pilot and the full poll and the second wave read together respondent by respondent under their set labels, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -183,7 +183,7 @@ fn readme_reports_the_round_seven_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 8 has landed. It carries the dissent reading over the three recorded poll sets, the pilot and the full poll and the second wave read together asking by asking under their set labels, stating each jury plurality, the margin it stood by, and the respondents who stood against it, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -202,7 +202,7 @@ fn readme_reports_the_round_eight_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 9 has landed. It carries the swing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the course of each question across its askings, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -221,7 +221,7 @@ fn readme_reports_the_round_nine_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 10 has landed. It carries the minority reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the respondents whose valid answer was not the pooled plurality answer, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -280,7 +280,7 @@ fn readme_reports_the_round_ten_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 11 has landed. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -305,7 +305,7 @@ fn readme_reports_the_round_eleven_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 12 has landed. It carries the bench reading over the three recorded poll sets, the pilot and the full poll and the second wave read together model by model under their set labels, stating each model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking, with its command and its golden, and the residual library fencing closure of FIX-GJ-15 over the tally, the stadium view, the cost reading, and the wave comparison reading, with its widened guard and its pins.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -330,7 +330,7 @@ fn readme_reports_the_round_twelve_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 13 has landed. It carries the pool reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking, with its command and its golden, and the formats appendix of FIX-GJ-17 stating the six formats of the repo at version 1 with its compatibility rule, and the reason closure of FIX-GJ-18 over the poll text guard, with its widened guard and its pins, and the resampled fixture of FIX-GJ-19, twelve polls drawn from the recorded pilot envelopes at fifty seats per model with the example poll standing as its first poll.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -357,7 +357,7 @@ fn readme_reports_the_round_thirteen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 14 has landed. It carries the aggregate reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question, with its command and its golden, and the glob import gate of FIX-GJ-20 over the binary surface tests, with its attribute line and its pin.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -382,7 +382,7 @@ fn readme_reports_the_round_fourteen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 15 has landed. It carries the canvass reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, per jury, the counts of the jury summed over the askings of the question, the count standing behind every offered answer of the question with its share of the summed valid answers of the jury, and the plurality of the jury at the question, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -401,7 +401,7 @@ fn readme_reports_the_round_fifteen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 16 has landed. It carries the roll reading over the three recorded poll sets, the pilot and the full poll and the second wave read together jury by jury, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -420,7 +420,7 @@ fn readme_reports_the_round_sixteen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 17 has landed. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -439,7 +439,7 @@ fn readme_reports_the_round_seventeen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 18 has landed. It carries the margin reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the margin by which the pooled plurality of the question stands and the margin by which the summed plurality of each jury at the question stands, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -458,7 +458,7 @@ fn readme_reports_the_round_eighteen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 19 has landed. It carries the accord reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -477,7 +477,7 @@ fn readme_reports_the_round_nineteen_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 20 has landed. It carries the standing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set the standing of the set over the whole record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -496,7 +496,7 @@ fn readme_reports_the_round_twenty_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 21 has landed. It carries the answers reading over the three recorded poll sets, the pilot and the full poll and the second wave read together answer by answer, stating for every answer each question at which it was offered, the count of parts holding it at that question and of those the counts standing in accord and with the pool, and the standing of the answer over the record, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -515,7 +515,7 @@ fn readme_reports_the_round_twenty_one_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 22 has landed. It carries the pairing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set pair by set pair, stating for every pair of sets each question the pair shares, the part of each set at the question in the form of the accord and the pairing of the pair at the question, and the standing of the pair over the record, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -534,7 +534,7 @@ fn readme_reports_the_round_twenty_two_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 23 has landed. It carries the execution record of the two rounds before the pairing round, the mutation sets of Rounds 19 and 20 executed on the trees that carry their pins, the base runs of both rounds, and the cargo leg of NG, and it restates the doc comment of the answers module to the set rules of GJ-2, adding no reading and no command.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -553,7 +553,7 @@ fn readme_reports_the_round_twenty_three_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 24 has landed. It carries the shares reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set each question it asks and the share of the question's valid responses the set holds at it, with its command and its golden.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
@@ -572,7 +572,7 @@ fn readme_reports_the_round_twenty_four_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 25 has landed. It carries the decode refusal at the loader seats, the two failures of the loaders' text reading parted so that a file whose bytes are not valid UTF-8 draws its own defect at the poll loader and at the price table loader, under the repair amendment FIX-GJ-24, and the execution of the empty section drop against the shares reading, adding no reading and no command.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 // The whole obligation assertion cure of Round 26 stands
@@ -686,7 +686,7 @@ fn readme_reports_the_round_twenty_five_status() {
     assert!(lines.contains(&standing));
     let slice_line = "- Slice 26 has landed. It carries the polls module consolidation, the folded reading standing as the checked reading's Ok arm and the defect mapping standing in one helper the two file loaders share, and the directory misreport execution, and the repair amendment FIX-GJ-29 restating the second sentence of GJ-49 without its redundant word, and the anchoring cure at the contract carrying pins, adding no reading and no command.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 #[test]
 fn contract_carries_the_round_twenty_five_obligations() {
@@ -743,11 +743,11 @@ fn contract_carries_the_round_twenty_five_obligations() {
 fn readme_reports_the_round_twenty_six_status() {
     let text = root_text("README.md");
     let lines = lines_of(&text);
-    let standing = "- Contract, GJ-53 and GJ-54 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 26 has not closed.";
+    let standing = "- Contract, GJ-53 and GJ-54 met. They stand in full form in CONTRACT.md, GJ-53 standing as the whole obligation assertion cure and GJ-54 as the body cut execution beside it, and Round 26 closed on the merged slice 27 after three reviews, with the cure standing landed as charged, the pins of Rounds 24 and 25 restated to assert each of GJ-49 and GJ-50 and FIX-GJ-24 and GJ-51 and GJ-52 and FIX-GJ-29 whole inside its own section, and pin 71 standing in the whole text form over GJ-53 and GJ-54 from its birth, and the body cut execution of GJ-54 standing executed at design time at the eight seats and re-executed whole by the build name for name, each cut falling at the one contract carrying pin of its own round alone on the form, the cuts at GJ-49 and GJ-50 and FIX-GJ-24 at the Round 24 pin and the cuts at GJ-51 and GJ-52 and FIX-GJ-29 at the Round 25 pin and the cuts at GJ-53 and GJ-54 at the Round 26 pin, all six cuts of Rounds 24 and 25 standing unseen on the base tree at 816 passed and 0 failed, the radius control at GJ-48 standing whole at 818 and 0, and the relocation control at GJ-49 falling at the Round 24 pin alone, and the build's warm up overlay standing at 816 and 2, its falls at pins 70 and 71 alone and the restated pins 67 and 69 passing on the base tree by design, and the redundancy class of GJ-49 standing surveyed whole with no second seat, its doubled phrase surviving only inside FIX-GJ-29's own quotation, with the spec review approving with findings at one Observation, the pin names 67 and 69 and 70 and 71 standing by the design's count convention while the pins stand at file positions 55 and 57 and 58 and 59 among their target's seventy one pins, the standards review approving with findings at two Observations, the wrap of the records standing named at the call pair's grain where the committed text wraps one call of pin 71's pair, and the same pin numbering grain standing as the record leaves it, its own spot execution standing at the setup target green on the uncut head and falling at the Round 24 pin alone over its own GJ-49 body cut while the base tree's landed pin passes over the same cut, the red team approving with findings at one Minor, the whole obligation assertion standing as a containment claim over the span the first standing of a heading opens, and a contract whose GJ-49 paragraph stands cut in place passing the whole suite at 818 and 0 under its two executed constructions, the whole paragraph standing appended inside GJ-49's own section behind the cut paragraph, and the whole paragraph standing planted under a duplicate of GJ-49's heading line in the Round 24 preamble, no pin asserting that the paragraph stands whole in its place or that the whole text stands once or that the heading stands once, the Minor standing cured in the slice by the repair commit 095ad60a, the repair adding inside each of the three section bounding pins the assertion that each guarded heading stands once in the contract and the assertion that the section the heading opens carries the heading and the whole text and nothing else, and the record block over the Round 24 pin standing restated at its assertion description, the cure standing proven in both directions by execution, both constructions passing the unrepaired head whole at 818 and 0 and falling at the Round 24 pin alone on the repaired tree, and the body cuts at GJ-49 and GJ-53 re-executed on the repaired tree standing name for name at their own pins alone, the red team's sentence move and neighbour duplication legs falling at the Round 24 pin and its phrase exchange leg falling at the Round 24 and Round 25 pins and its relocation control in the other direction falling at the Round 24 pin, and CodeRabbit standing read in full and complete on the slice at zero inline comments and zero submitted reviews, its summary stating no actionable comments, and the slice standing at census 818, and no item of this round standing carried as executed that was not executed, and FIX-GJ-30 standing free and unspent.";
     assert!(lines.contains(&standing));
-    let slice_line = "- Slice 27 is built and in review. It carries the whole obligation assertion cure at the contract carrying pins, the pins of Rounds 24 and 25 restated to assert each obligation whole inside its own section and this round's own pin standing in the whole text form from its birth, and the body cut execution against those pins at the eight seats the cure reaches, adding no reading and no command.";
+    let slice_line = "- Slice 27 has landed. It carries the whole obligation assertion cure at the contract carrying pins, the pins of Rounds 24 and 25 restated to assert each obligation whole inside its own section and this round's own pin standing in the whole text form from its birth, and the body cut execution against those pins at the eight seats the cure reaches, adding no reading and no command.";
     assert!(lines.contains(&slice_line));
-    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
 #[test]
