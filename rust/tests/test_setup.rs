@@ -109,13 +109,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 24 slice for the same
     // consequence, and restored at the Round 24 closure, and
     // altered again at the Round 25 slice for the same
-    // consequence, and restored at the Round 25 closure.
+    // consequence, and restored at the Round 25 closure, and
+    // altered again at the Round 26 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 26 is unbuilt, so the count stands
-    // at zero. The round pins below hold
+    // review across the whole README. Slice 27 stands in
+    // review while the Round 26 slice stands open, so the
+    // count stands at one. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -573,21 +575,88 @@ fn readme_reports_the_round_twenty_four_status() {
     assert!(text.contains("Closed perfection rounds, 25 of 100"));
 }
 
+// The whole obligation assertion cure of Round 26 stands
+// at this pin and at the Round 25 pin beside it. Each
+// asserts its obligations whole inside the sections their
+// headings open, where the pins as landed asserted the
+// identifier and the opening words inside the section.
+// A repair inside the slice strengthens the same three
+// pins against the two constructions the slice's red
+// team executed beside the cure. Each pin asserts beside
+// the whole text that each heading it guards stands once
+// in the contract and that the section the heading opens
+// carries the heading and the whole text and nothing
+// else, so a paragraph cut in its place falls at its pin
+// though its whole text stands duplicated behind the cut
+// inside its own section, and though its whole text
+// stands under a second standing of its heading planted
+// ahead of its own.
+// The body cut stands executed on the Round 26 slice tree
+// in its own fresh target directory at each of the eight
+// seats the cure reaches, the obligation's heading and
+// opening words standing and its body standing cut away
+// at the second sentence. At the cuts of GJ-49 and GJ-50
+// and FIX-GJ-24 this pin falls alone, at the cuts of
+// GJ-51 and GJ-52 and FIX-GJ-29 the Round 25 pin falls
+// alone, and at the cuts of GJ-53 and GJ-54 the Round 26
+// pin falls alone, every set standing read from assertion
+// failures alone. On the Round 25 closure tree the same
+// six cuts of Rounds 24 and 25 pass whole at 816 and 0,
+// the pins as landed passing over the cut contracts,
+// which is the gap the cure closes. At the body cut of
+// GJ-48, a section no pin asserts whole, the slice suite
+// passes whole, and at the relocation of GJ-49's opening
+// sentence out of its section this pin falls alone. This
+// block asserts nothing.
 #[test]
 fn contract_carries_the_round_twenty_four_obligations() {
     let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
     let gj49 = contract_section(
         &text,
         "### GJ-49 full form, the decode refusal at the loader seats",
     );
-    assert!(gj49.contains("GJ-49. The decode refusal at the loader seats."));
+    assert!(gj49.contains("GJ-49. The decode refusal at the loader seats. The file loaders of GJ-1 and GJ-4, load_poll_file and load_prices_file in the polls module, part the two failures their text reading folds today. A file that does not stand, or that stands and cannot be read, draws the single defect named file cannot be read, as GJ-1 and GJ-4 state it today. A file that stands and reads as bytes that are not valid UTF-8 draws the single defect named file is not valid UTF-8, and no other defect stands beside it, and no poll and no price table stands from such a file. The parting stands at the reading of the file and before any parsing, so a file whose bytes are not valid UTF-8 draws the decode defect whatever its bytes would have parsed to, and a file whose bytes are valid UTF-8 draws no decode defect, its defects standing as the standing loaders state them. The polls module parts the two failures in its text reading for the two file loaders, and the standing folded reading read_text_file stands unchanged for its other callers, the makers module's required reading among them, whose refusal form is not a defect of GJ-1 and does not move in this round. Every command surface that loads a poll or a price table through the file loaders states the decode defect in the standing form of its surface, the line invalid poll or invalid price table standing over the line defect and the defect, and a set directory whose poll file holds bytes that are not valid UTF-8 draws the same two lines at the first such file, the set loading standing whole or nothing as GJ-12 states. The defect vocabulary of GJ-1 gains the one phrase, file is not valid UTF-8, and loses none. Test, rust/tests/test_polls.rs and rust/tests/test_cost.rs and rust/tests/test_cli.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-49 full form, the decode refusal at the loader seats")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj49,
+        "### GJ-49 full form, the decode refusal at the loader seats\n\nGJ-49. The decode refusal at the loader seats. The file loaders of GJ-1 and GJ-4, load_poll_file and load_prices_file in the polls module, part the two failures their text reading folds today. A file that does not stand, or that stands and cannot be read, draws the single defect named file cannot be read, as GJ-1 and GJ-4 state it today. A file that stands and reads as bytes that are not valid UTF-8 draws the single defect named file is not valid UTF-8, and no other defect stands beside it, and no poll and no price table stands from such a file. The parting stands at the reading of the file and before any parsing, so a file whose bytes are not valid UTF-8 draws the decode defect whatever its bytes would have parsed to, and a file whose bytes are valid UTF-8 draws no decode defect, its defects standing as the standing loaders state them. The polls module parts the two failures in its text reading for the two file loaders, and the standing folded reading read_text_file stands unchanged for its other callers, the makers module's required reading among them, whose refusal form is not a defect of GJ-1 and does not move in this round. Every command surface that loads a poll or a price table through the file loaders states the decode defect in the standing form of its surface, the line invalid poll or invalid price table standing over the line defect and the defect, and a set directory whose poll file holds bytes that are not valid UTF-8 draws the same two lines at the first such file, the set loading standing whole or nothing as GJ-12 states. The defect vocabulary of GJ-1 gains the one phrase, file is not valid UTF-8, and loses none. Test, rust/tests/test_polls.rs and rust/tests/test_cost.rs and rust/tests/test_cli.rs.\n"
+    );
     let gj50 = contract_section(&text, "### GJ-50 full form, the empty section execution");
-    assert!(gj50.contains("GJ-50. The empty section execution."));
+    assert!(gj50.contains("GJ-50. The empty section execution. The mutation the Round 23 record names against the twelfth pin of the shares target, a build of the shares reading that drops the section of a set holding no polls, stands executed on the Round 24 slice tree in its own fresh target directory, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 24 design stands at the twelfth and thirteenth pins of rust/tests/test_shares.rs, and every parting between the executed set and the computed set stands named in the execution record the slice carries in that target's header. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_shares.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-50 full form, the empty section execution")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj50,
+        "### GJ-50 full form, the empty section execution\n\nGJ-50. The empty section execution. The mutation the Round 23 record names against the twelfth pin of the shares target, a build of the shares reading that drops the section of a set holding no polls, stands executed on the Round 24 slice tree in its own fresh target directory, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 24 design stands at the twelfth and thirteenth pins of rust/tests/test_shares.rs, and every parting between the executed set and the computed set stands named in the execution record the slice carries in that target's header. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_shares.rs.\n"
+    );
     let fix24 = contract_section(
         &text,
         "### FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal",
     );
-    assert!(fix24.contains("FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal."));
+    assert!(fix24.contains("FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal. GJ-1 states the file defect in these words, A file that cannot be read returns the single defect named file cannot be read, and GJ-4 states the same defect for a file that cannot be read at the price table loader. The loader's text reading folds a failed read and a failed decode into one absence, so a poll file whose bytes are not valid UTF-8 draws the read defect today, a file that stands and cannot be read as text standing refused in the words of a file that does not stand, the folding standing in the doc comment of the text reading itself, which states it returns no text where the read fails or the bytes are not UTF-8. Under this amendment the two file loaders part the failures as GJ-49 states, a file that stands and reads as bytes that are not valid UTF-8 drawing the single defect named file is not valid UTF-8 at both seats, and the read defect standing unchanged for a file that does not stand or cannot be read. No other word of GJ-1 or GJ-4 moves under this amendment, and no figure and no golden moves, the shipped records standing valid UTF-8 whole. Its number is 24, standing reserved to this refusal in the words FIX-GJ-25 carries since Round 21, and it stands spent in this round. Test, rust/tests/test_polls.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal")
+            .count(),
+        1
+    );
+    assert_eq!(
+        fix24,
+        "### FIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal\n\nFIX-GJ-24, amending GJ-1 and GJ-4, the decode refusal. GJ-1 states the file defect in these words, A file that cannot be read returns the single defect named file cannot be read, and GJ-4 states the same defect for a file that cannot be read at the price table loader. The loader's text reading folds a failed read and a failed decode into one absence, so a poll file whose bytes are not valid UTF-8 draws the read defect today, a file that stands and cannot be read as text standing refused in the words of a file that does not stand, the folding standing in the doc comment of the text reading itself, which states it returns no text where the read fails or the bytes are not UTF-8. Under this amendment the two file loaders part the failures as GJ-49 states, a file that stands and reads as bytes that are not valid UTF-8 drawing the single defect named file is not valid UTF-8 at both seats, and the read defect standing unchanged for a file that does not stand or cannot be read. No other word of GJ-1 or GJ-4 moves under this amendment, and no figure and no golden moves, the shipped records standing valid UTF-8 whole. Its number is 24, standing reserved to this refusal in the words FIX-GJ-25 carries since Round 21, and it stands spent in this round. Test, rust/tests/test_polls.rs.\n"
+    );
 }
 /// The contract section a heading opens, standing from
 /// its heading line to the next heading line of either
@@ -622,18 +691,98 @@ fn readme_reports_the_round_twenty_five_status() {
 #[test]
 fn contract_carries_the_round_twenty_five_obligations() {
     let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
     let gj51 = contract_section(&text, "### GJ-51 full form, the polls module consolidation");
-    assert!(gj51.contains("GJ-51. The polls module consolidation."));
+    assert!(gj51.contains("GJ-51. The polls module consolidation. The polls module stands consolidated in the shape GJ-49's landing left duplicated. The folded reading read_text_file stands as the Ok arm of the checked reading read_text_file_checked, its result at every path standing identical to the result its own body returned, no text where the read fails and no text where the bytes are not valid UTF-8 and the text itself where both succeed, so its other callers, the makers module's required reading among them, stand served exactly as GJ-49 states them, their refusal form standing unmoved. The defect mapping of the two file loaders stands in one helper of the module, read_text_or_defect, which states the defect of the failure the checked reading reports, the read defect for a file that does not stand or cannot be read and the decode defect for a file whose bytes are not valid UTF-8, and load_poll_file and load_prices_file each state the defect the helper returns and no other, so the two defect texts of GJ-49 stand in one place in the crate and a restatement of either stands or falls at both loader seats together. No behaviour of any loader, reading, or command moves under the consolidation, no defect text moves, no figure and no golden moves, and the checked reading and its two failures stand as GJ-49 landed them. Test, rust/tests/test_polls.rs and rust/tests/test_cost.rs and rust/tests/test_cli.rs and rust/tests/test_makers.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-51 full form, the polls module consolidation")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj51,
+        "### GJ-51 full form, the polls module consolidation\n\nGJ-51. The polls module consolidation. The polls module stands consolidated in the shape GJ-49's landing left duplicated. The folded reading read_text_file stands as the Ok arm of the checked reading read_text_file_checked, its result at every path standing identical to the result its own body returned, no text where the read fails and no text where the bytes are not valid UTF-8 and the text itself where both succeed, so its other callers, the makers module's required reading among them, stand served exactly as GJ-49 states them, their refusal form standing unmoved. The defect mapping of the two file loaders stands in one helper of the module, read_text_or_defect, which states the defect of the failure the checked reading reports, the read defect for a file that does not stand or cannot be read and the decode defect for a file whose bytes are not valid UTF-8, and load_poll_file and load_prices_file each state the defect the helper returns and no other, so the two defect texts of GJ-49 stand in one place in the crate and a restatement of either stands or falls at both loader seats together. No behaviour of any loader, reading, or command moves under the consolidation, no defect text moves, no figure and no golden moves, and the checked reading and its two failures stand as GJ-49 landed them. Test, rust/tests/test_polls.rs and rust/tests/test_cost.rs and rust/tests/test_cli.rs and rust/tests/test_makers.rs.\n"
+    );
     let gj52 = contract_section(
         &text,
         "### GJ-52 full form, the directory misreport execution",
     );
-    assert!(gj52.contains("GJ-52. The directory misreport execution."));
+    assert!(gj52.contains("GJ-52. The directory misreport execution. The failure mode the Round 24 design record names against the fifty fifth pin of the polls target beyond its charged mutations, a checked reading that reports the failed read of a path that stands as the decode failure, stands executed on the Round 25 slice tree in its own fresh target directory, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 25 design stands at the fifty fifth pin of rust/tests/test_polls.rs alone, and every parting between the executed set and the computed set stands named in the execution record the slice carries in that target over the pins of GJ-49. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_polls.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-52 full form, the directory misreport execution")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj52,
+        "### GJ-52 full form, the directory misreport execution\n\nGJ-52. The directory misreport execution. The failure mode the Round 24 design record names against the fifty fifth pin of the polls target beyond its charged mutations, a checked reading that reports the failed read of a path that stands as the decode failure, stands executed on the Round 25 slice tree in its own fresh target directory, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 25 design stands at the fifty fifth pin of rust/tests/test_polls.rs alone, and every parting between the executed set and the computed set stands named in the execution record the slice carries in that target over the pins of GJ-49. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_polls.rs.\n"
+    );
     let fix29 = contract_section(
         &text,
         "### FIX-GJ-29, amending GJ-49, the one redundant word",
     );
-    assert!(fix29.contains("FIX-GJ-29, amending GJ-49, the one redundant word."));
+    assert!(fix29.contains("FIX-GJ-29, amending GJ-49, the one redundant word. The second sentence of the decode refusal's parting in GJ-49 states the standing file in these words, A file that stands and reads as bytes whose bytes are not valid UTF-8 draws the single defect named file is not valid UTF-8, the word bytes standing twice in one breath where FIX-GJ-24's own statement of the same file carries the clean form, a file that stands and reads as bytes that are not valid UTF-8 drawing the same defect. Under this amendment that sentence stands restated in GJ-49's own section in these words, A file that stands and reads as bytes that are not valid UTF-8 draws the single defect named file is not valid UTF-8, the phrase whose bytes standing replaced by that, a net removal of one word, and no other word of GJ-49 moves under this amendment, and no figure and no behaviour and no defect text moves, the sentence naming the decode defect in the words it named it. Its number is 29, standing free since the Round 24 section landed, and it stands spent in this round. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### FIX-GJ-29, amending GJ-49, the one redundant word")
+            .count(),
+        1
+    );
+    assert_eq!(
+        fix29,
+        "### FIX-GJ-29, amending GJ-49, the one redundant word\n\nFIX-GJ-29, amending GJ-49, the one redundant word. The second sentence of the decode refusal's parting in GJ-49 states the standing file in these words, A file that stands and reads as bytes whose bytes are not valid UTF-8 draws the single defect named file is not valid UTF-8, the word bytes standing twice in one breath where FIX-GJ-24's own statement of the same file carries the clean form, a file that stands and reads as bytes that are not valid UTF-8 drawing the same defect. Under this amendment that sentence stands restated in GJ-49's own section in these words, A file that stands and reads as bytes that are not valid UTF-8 draws the single defect named file is not valid UTF-8, the phrase whose bytes standing replaced by that, a net removal of one word, and no other word of GJ-49 moves under this amendment, and no figure and no behaviour and no defect text moves, the sentence naming the decode defect in the words it named it. Its number is 29, standing free since the Round 24 section landed, and it stands spent in this round. Test, rust/tests/test_setup.rs.\n"
+    );
+}
+
+#[test]
+fn readme_reports_the_round_twenty_six_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-53 and GJ-54 stand in full form in CONTRACT.md. Their standing is not claimed here, as Round 26 has not closed.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 27 is built and in review. It carries the whole obligation assertion cure at the contract carrying pins, the pins of Rounds 24 and 25 restated to assert each obligation whole inside its own section and this round's own pin standing in the whole text form from its birth, and the body cut execution against those pins at the eight seats the cure reaches, adding no reading and no command.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 25 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twenty_six_obligations() {
+    let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
+    let gj53 = contract_section(
+        &text,
+        "### GJ-53 full form, the whole obligation assertion cure",
+    );
+    assert!(gj53.contains("GJ-53. The whole obligation assertion cure. The contract carrying pins of Round 24 and Round 25 in rust/tests/test_setup.rs, contract_carries_the_round_twenty_four_obligations and contract_carries_the_round_twenty_five_obligations, stand restated so that each asserts its obligations whole inside the sections their headings open. Each pin takes its section in the anchored form the Round 25 slice landed and asserts that the section carries the obligation's whole text, the opening words and the body and the Test line standing together inside the section, where the pins as landed assert the identifier and the opening words inside the section and pass on a contract that carries the heading and the opening words with the obligation's body cut away. The cure reaches the six texts the two pins assert, GJ-49 and GJ-50 and FIX-GJ-24 under the Round 24 pin and GJ-51 and GJ-52 and FIX-GJ-29 under the Round 25 pin, and the contract carrying pin of this round asserts GJ-53 and GJ-54 in the same whole text form from its birth. No word of any obligation moves under the cure, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. The contract carrying pins of Rounds 1 to 23 stand in the presence form as they landed and do not move in this round. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-53 full form, the whole obligation assertion cure")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj53,
+        "### GJ-53 full form, the whole obligation assertion cure\n\nGJ-53. The whole obligation assertion cure. The contract carrying pins of Round 24 and Round 25 in rust/tests/test_setup.rs, contract_carries_the_round_twenty_four_obligations and contract_carries_the_round_twenty_five_obligations, stand restated so that each asserts its obligations whole inside the sections their headings open. Each pin takes its section in the anchored form the Round 25 slice landed and asserts that the section carries the obligation's whole text, the opening words and the body and the Test line standing together inside the section, where the pins as landed assert the identifier and the opening words inside the section and pass on a contract that carries the heading and the opening words with the obligation's body cut away. The cure reaches the six texts the two pins assert, GJ-49 and GJ-50 and FIX-GJ-24 under the Round 24 pin and GJ-51 and GJ-52 and FIX-GJ-29 under the Round 25 pin, and the contract carrying pin of this round asserts GJ-53 and GJ-54 in the same whole text form from its birth. No word of any obligation moves under the cure, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. The contract carrying pins of Rounds 1 to 23 stand in the presence form as they landed and do not move in this round. Test, rust/tests/test_setup.rs.\n"
+    );
+    let gj54 = contract_section(&text, "### GJ-54 full form, the body cut execution");
+    assert!(gj54.contains("GJ-54. The body cut execution. The failure mode the Round 25 standards review names against the contract carrying pins of Rounds 24 and 25, a contract carrying an obligation's heading and its opening words with the obligation's body cut away and passing both pins as landed, stands executed on the Round 26 slice tree in its own fresh target directory at each seat the cure of GJ-53 reaches, the six texts of Rounds 24 and 25 and the two obligations of this round, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 26 design stands at the one contract carrying pin of the cut obligation's own round at each seat, and every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins the cure restates. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-54 full form, the body cut execution")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj54,
+        "### GJ-54 full form, the body cut execution\n\nGJ-54. The body cut execution. The failure mode the Round 25 standards review names against the contract carrying pins of Rounds 24 and 25, a contract carrying an obligation's heading and its opening words with the obligation's body cut away and passing both pins as landed, stands executed on the Round 26 slice tree in its own fresh target directory at each seat the cure of GJ-53 reaches, the six texts of Rounds 24 and 25 and the two obligations of this round, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 26 design stands at the one contract carrying pin of the cut obligation's own round at each seat, and every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins the cure restates. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
+    );
 }
 
 #[test]
