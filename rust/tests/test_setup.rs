@@ -573,6 +573,28 @@ fn readme_reports_the_round_twenty_four_status() {
     assert!(text.contains("Closed perfection rounds, 25 of 100"));
 }
 
+// The whole obligation assertion cure of Round 26 stands
+// at this pin and at the Round 25 pin beside it. Each
+// asserts its obligations whole inside the sections their
+// headings open, where the pins as landed asserted the
+// identifier and the opening words inside the section.
+// The body cut stands executed on the Round 26 slice tree
+// in its own fresh target directory at each of the eight
+// seats the cure reaches, the obligation's heading and
+// opening words standing and its body standing cut away
+// at the second sentence. At the cuts of GJ-49 and GJ-50
+// and FIX-GJ-24 this pin falls alone, at the cuts of
+// GJ-51 and GJ-52 and FIX-GJ-29 the Round 25 pin falls
+// alone, and at the cuts of GJ-53 and GJ-54 the Round 26
+// pin falls alone, every set standing read from assertion
+// failures alone. On the Round 25 closure tree the same
+// six cuts of Rounds 24 and 25 pass whole at 816 and 0,
+// the pins as landed passing over the cut contracts,
+// which is the gap the cure closes. At the body cut of
+// GJ-48, a section no pin asserts whole, the slice suite
+// passes whole, and at the relocation of GJ-49's opening
+// sentence out of its section this pin falls alone. This
+// block asserts nothing.
 #[test]
 fn contract_carries_the_round_twenty_four_obligations() {
     let text = root_text("CONTRACT.md");
