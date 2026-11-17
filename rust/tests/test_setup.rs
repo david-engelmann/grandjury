@@ -2464,3 +2464,38 @@ fn contract_carries_the_rounds_one_to_three_texts() {
         "### FIX-GJ-10, amending GJ-7\n\nThe names a test file takes from one module stand in one place, in the import block at the head of the file, unless a comment at the import states the reason a name stands elsewhere. A reader who finds part of the names of a module at the head of a file and the rest inside one test cannot tell whether the split carries a reason, and an unstated split reads as an accident whether it is one or not. The test named test_the_full_goldens_match_the_renderings in tests/test_full.py imported cost_lines, load_prices_text, and render_stadium from grandjury.polls inside its own body while the head of the same file already imported load_poll_file and tally_poll from that module, and no circularity or optional dependency stood behind the split. The three names now stand in the head import with their fellows. No behaviour changes under this amendment.\n"
     );
 }
+
+// The assertion of the contract head matter of Round 28
+// stands completed at this pin. The pin asserts the
+// contract's opening whole, its title and its founding
+// paragraph and the blank lines between and after them and
+// the setup obligations heading opening the first section,
+// where the pins of the whole obligation assertion cure read
+// the contract through the shared helper contract_section,
+// which returns the section a heading opens, and no section
+// it returns can carry a text standing ahead of the first
+// heading. The head cut stands computed by the Round 28
+// design at each of the three seats GJ-57 reaches, the
+// founding paragraph cut away whole, the founding paragraph
+// falsified in its rule clause, and the title removed, each
+// computed to fall at this pin alone on the Round 28 slice
+// tree, and its execution stands charged to the warm up of
+// the build and carried unexecuted under the write fault. On
+// the Round 27 slice tree as merged no pin stands over the
+// head matter, and the same three cuts stand computed there
+// passing whole over every pin. This block asserts nothing.
+#[test]
+fn contract_opens_with_the_head_matter_whole() {
+    let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
+    assert_eq!(
+        lines[..5],
+        [
+            "# grandjury Contract",
+            "",
+            "This Contract is the executable spec for grandjury. Every obligation is checked by a named test or by a named check. The Contract is reported as met or not met in the README programme status.",
+            "",
+            "## Setup obligations",
+        ]
+    );
+}
