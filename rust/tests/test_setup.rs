@@ -2748,3 +2748,39 @@ GJ-62. The furniture byte cut execution. The failure mode standing at the byte f
 "
     );
 }
+
+// GJ-63 stands met as the assertion of the head form of
+// AGENTS.md and the workflow file and the manifest whole,
+// three pins born in the setup target over the three
+// furniture texts, each asserting that no byte order mark
+// stands at the head of its text. The three cuts of GJ-64
+// stand computed by the Round 31 design at each of the three
+// seats GJ-63 reaches, a byte order mark prepended to
+// AGENTS.md and a byte order mark prepended to the workflow
+// file and a byte order mark prepended to the manifest, each
+// computed to fall at the head pin of its text alone on the
+// Round 31 slice tree and to pass whole over every pin of
+// the Round 30 slice tree as merged, and their execution
+// stands charged to the warm up of the build and carried
+// unexecuted under the write fault. On the Round 30 slice
+// tree as merged no pin stands over the head form of the
+// three texts, and the same three cuts stand computed there
+// passing whole. The suite's census stands at 838. This
+// block asserts nothing.
+#[test]
+fn agents_carries_no_byte_order_mark() {
+    let text = root_text("AGENTS.md");
+    assert!(!text.starts_with('\u{feff}'));
+}
+
+#[test]
+fn ci_carries_no_byte_order_mark() {
+    let text = root_text(".github/workflows/ci.yml");
+    assert!(!text.starts_with('\u{feff}'));
+}
+
+#[test]
+fn manifest_carries_no_byte_order_mark() {
+    let text = root_text("Cargo.toml");
+    assert!(!text.starts_with('\u{feff}'));
+}
