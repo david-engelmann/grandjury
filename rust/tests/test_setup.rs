@@ -161,13 +161,15 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 25 slice for the same
     // consequence, and restored at the Round 25 closure, and
     // altered again at the Round 26 slice for the same
-    // consequence, and restored at the Round 26 closure.
+    // consequence, and restored at the Round 26 closure, and
+    // altered again at the Round 27 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. No slice stands in
-    // review while Round 27 is unbuilt, so the count stands
-    // at zero. The round pins below hold
+    // review across the whole README. One slice stands in
+    // review while Round 27 stands built and in review, so
+    // the count stands at one. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 0);
+    assert_eq!(text.matches("built and in review").count(), 1);
 }
 
 #[test]
@@ -1544,6 +1546,55 @@ fn contract_carries_the_round_twenty_six_obligations() {
     assert_eq!(
         gj54,
         "### GJ-54 full form, the body cut execution\n\nGJ-54. The body cut execution. The failure mode the Round 25 standards review names against the contract carrying pins of Rounds 24 and 25, a contract carrying an obligation's heading and its opening words with the obligation's body cut away and passing both pins as landed, stands executed on the Round 26 slice tree in its own fresh target directory at each seat the cure of GJ-53 reaches, the six texts of Rounds 24 and 25 and the two obligations of this round, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 26 design stands at the one contract carrying pin of the cut obligation's own round at each seat, and every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins the cure restates. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
+    );
+}
+#[test]
+fn readme_reports_the_round_twenty_seven_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-55 and GJ-56 met. They stand in full form in CONTRACT.md, GJ-55 standing as the completion of the whole obligation assertion cure and GJ-56 as the body cut execution beside it, and Round 27 stands in review on slice 28, with the cure standing as charged, every contract carrying pin that stood in the presence form standing restated to assert its texts whole inside the sections their headings open, the setup obligations pin over the setup section and GJ-1, the pins of Rounds 4 to 23 over the obligations and the repair amendments of their rounds, the port obligations pin over the fifteen port obligations and the amendment of PORT-11, and the formats appendix pin over the appendix and its six format sections, the repair amendments FIX-GJ-11 and FIX-GJ-12 and FIX-GJ-13 and FIX-GJ-16 and FIX-GJ-23 and FIX-GJ-28, that stood under no contract carrying pin as landed, joining the pins of their own rounds in the same act, and FIX-GJ-21 joining the Round 16 pin beside its standing sentence pin, and one new pin standing in the same form from its birth over GJ-2 to GJ-8 and FIX-GJ-1 to FIX-GJ-10, and the body cut execution of GJ-56 standing executed at design time at the ninety seven seats the cure reaches and re-executed whole by the build name for name, each cut falling at the one contract carrying pin that carries the cut text alone on the form, and the same cuts standing executed on the Round 26 closure tree at the fifteen spread seats the design names, passing unseen at fourteen of them and falling at the setup seat at the setup obligations pin as landed, its construction removing the middle setup items whole and with them the only standing of SETUP-2 in the contract, and FIX-GJ-30 standing free and unspent.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 28 stands built and in review. It carries the completion of the whole obligation assertion cure at the contract carrying pins, every pin that stood in the presence form standing restated to assert its texts whole inside their sections, the six repair amendments that stood under no contract carrying pin joining the pins of their own rounds and FIX-GJ-21 joining the Round 16 pin beside its sentence pin, one new pin carrying the texts of Rounds 1 to 3 in the same form from its birth, and the body cut execution against those pins at the ninety seven seats the cure reaches, adding no reading and no command.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twenty_seven_obligations() {
+    let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
+    let gj55 = contract_section(
+        &text,
+        "### GJ-55 full form, the whole obligation assertion cure completed",
+    );
+    assert!(gj55.contains("GJ-55. The whole obligation assertion cure completed. Every contract carrying pin in rust/tests/test_setup.rs that asserts the texts it carries by their identifiers over the whole contract stands restated so that each asserts its texts whole inside the sections their headings open, in the form the repair of Round 26 landed at the pins of Rounds 24 and 25, the section taken through the shared helper contract_section, the whole text asserted standing inside its section, each heading asserted standing once among the lines of the contract, and the section asserted carrying the heading and the whole text and nothing else. The restatement reaches the setup obligations pin over the setup section and GJ-1, the contract carrying pins of Rounds 4 to 23 over the obligations and repair amendments their rounds carry, the port obligations pin over the fifteen port obligations and the amendment of PORT-11, and the formats appendix pin over the appendix and its six format sections. The repair amendments FIX-GJ-11 and FIX-GJ-12 and FIX-GJ-13 and FIX-GJ-16 and FIX-GJ-23 and FIX-GJ-28, that stood under no contract carrying pin as landed, stand asserted whole under the pins of their own rounds in the same act, and FIX-GJ-21 stands asserted whole under the Round 16 pin beside its standing sentence pin, which stands as it landed. One new pin, contract_carries_the_rounds_one_to_three_texts, asserts GJ-2 to GJ-8 and FIX-GJ-1 to FIX-GJ-10 whole inside their sections in the same form from its birth, those texts standing under no contract carrying pin as landed. No word of any obligation moves under the cure, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line
+                == "### GJ-55 full form, the whole obligation assertion cure completed")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj55,
+        "### GJ-55 full form, the whole obligation assertion cure completed\n\nGJ-55. The whole obligation assertion cure completed. Every contract carrying pin in rust/tests/test_setup.rs that asserts the texts it carries by their identifiers over the whole contract stands restated so that each asserts its texts whole inside the sections their headings open, in the form the repair of Round 26 landed at the pins of Rounds 24 and 25, the section taken through the shared helper contract_section, the whole text asserted standing inside its section, each heading asserted standing once among the lines of the contract, and the section asserted carrying the heading and the whole text and nothing else. The restatement reaches the setup obligations pin over the setup section and GJ-1, the contract carrying pins of Rounds 4 to 23 over the obligations and repair amendments their rounds carry, the port obligations pin over the fifteen port obligations and the amendment of PORT-11, and the formats appendix pin over the appendix and its six format sections. The repair amendments FIX-GJ-11 and FIX-GJ-12 and FIX-GJ-13 and FIX-GJ-16 and FIX-GJ-23 and FIX-GJ-28, that stood under no contract carrying pin as landed, stand asserted whole under the pins of their own rounds in the same act, and FIX-GJ-21 stands asserted whole under the Round 16 pin beside its standing sentence pin, which stands as it landed. One new pin, contract_carries_the_rounds_one_to_three_texts, asserts GJ-2 to GJ-8 and FIX-GJ-1 to FIX-GJ-10 whole inside their sections in the same form from its birth, those texts standing under no contract carrying pin as landed. No word of any obligation moves under the cure, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. Test, rust/tests/test_setup.rs.\n"
+    );
+    let gj56 = contract_section(
+        &text,
+        "### GJ-56 full form, the body cut execution completed",
+    );
+    assert!(gj56.contains("GJ-56. The body cut execution completed. The failure mode the Round 25 standards review names against the contract carrying pins, a contract carrying an obligation's heading and its opening words with the obligation's body cut away and passing the pins as landed, stands executed on the Round 27 slice tree at each seat the cure of GJ-55 reaches, the ninety six sections the restated and new pins assert and the two obligations of the Round 22 section standing as two seats of its one section, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 27 design stands at the one contract carrying pin that carries the cut text at each seat, and every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins the cure restates. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-56 full form, the body cut execution completed")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj56,
+        "### GJ-56 full form, the body cut execution completed\n\nGJ-56. The body cut execution completed. The failure mode the Round 25 standards review names against the contract carrying pins, a contract carrying an obligation's heading and its opening words with the obligation's body cut away and passing the pins as landed, stands executed on the Round 27 slice tree at each seat the cure of GJ-55 reaches, the ninety six sections the restated and new pins assert and the two obligations of the Round 22 section standing as two seats of its one section, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 27 design stands at the one contract carrying pin that carries the cut text at each seat, and every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins the cure restates. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
     );
 }
 
