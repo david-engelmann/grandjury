@@ -163,13 +163,16 @@ fn readme_reports_the_round_three_status() {
     // altered again at the Round 26 slice for the same
     // consequence, and restored at the Round 26 closure, and
     // altered again at the Round 27 slice for the same
-    // consequence.
+    // consequence, and altered again at the Round 28 slice
+    // for the same consequence.
     // This pin counts the slices standing in
-    // review across the whole README. One slice stands in
-    // review while Round 27 stands built and in review, so
-    // the count stands at one. The round pins below hold
+    // review across the whole README. Two slices stand in
+    // review while Round 28 stands built and in review, so
+    // the count stands at two, the slice of Round 27
+    // standing in review beside it, its closure standing
+    // open under the rule of GJ-56. The round pins below hold
     // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 1);
+    assert_eq!(text.matches("built and in review").count(), 2);
 }
 
 #[test]
@@ -2497,5 +2500,50 @@ fn contract_opens_with_the_head_matter_whole() {
             "",
             "## Setup obligations",
         ]
+    );
+}
+#[test]
+fn readme_reports_the_round_twenty_eight_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-57 met and GJ-58 not yet met. They stand in full form in CONTRACT.md, GJ-57 standing as the assertion of the contract's head matter whole and GJ-58 as the head cut execution beside it, and Round 28 stands in review on slice 29, with the head matter standing asserted as charged, one pin born in the whole form in the setup target asserting the contract's opening whole, its title as the first line and its founding paragraph whole as the third and the blank lines between and after them and the setup obligations heading as the fifth line opening the first section, the one text of the contract the cure of GJ-55 could not reach, no section the shared helper returns carrying a text standing ahead of the first heading, and the head cut execution of GJ-58 standing computed by the Round 28 design at its three seats, the founding paragraph cut away whole and the founding paragraph falsified in its rule clause and the title removed, each computed to fall at the one pin GJ-57 lands alone on the slice tree and to pass whole over every pin of the Round 27 slice tree as merged, and its execution standing charged to the warm up of the build and carried unexecuted under the write fault, the round standing open under the rule of GJ-58 while that execution stands unexecuted, and Round 27 standing open under the rule of GJ-56 beside it, its own execution family standing carried whole to its execution lane, and FIX-GJ-30 standing free and unspent.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 29 stands built and in review. It carries the assertion of the contract's head matter whole, one pin born in the whole form over the contract's opening lines, the title and the founding paragraph and the blank lines and the first heading, and the head cut execution computed beside it at its three seats, adding no reading and no command.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_twenty_eight_obligations() {
+    let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
+    let gj57 = contract_section(
+        &text,
+        "### GJ-57 full form, the contract head matter asserted whole",
+    );
+    assert!(gj57.contains("GJ-57. The contract head matter asserted whole. The contract opens with a title and a founding paragraph standing before its first heading, the paragraph stating that every obligation is checked by a named test or by a named check and that the contract stands reported as met or not met in the README programme status, and as landed no pin asserts that opening, the cure of GJ-55 reaching the contract's texts through the shared helper contract_section, which returns the section a heading opens and returns an empty string where the heading does not stand, so no section the helper returns can carry a text standing ahead of the first heading. One pin in rust/tests/test_setup.rs, born in the whole form in this slice, asserts the opening whole, the title standing as the contract's first line, the founding paragraph standing whole as its third line, the blank lines standing between them and after them, and the setup obligations heading standing as the fifth line opening the contract's first section, so a contract whose founding paragraph stood cut away or falsified in its rule, or whose title stood removed, falls at that pin though every section below the head matter stood whole. No word of the head matter moves under this obligation, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-57 full form, the contract head matter asserted whole")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj57,
+        "### GJ-57 full form, the contract head matter asserted whole\n\nGJ-57. The contract head matter asserted whole. The contract opens with a title and a founding paragraph standing before its first heading, the paragraph stating that every obligation is checked by a named test or by a named check and that the contract stands reported as met or not met in the README programme status, and as landed no pin asserts that opening, the cure of GJ-55 reaching the contract's texts through the shared helper contract_section, which returns the section a heading opens and returns an empty string where the heading does not stand, so no section the helper returns can carry a text standing ahead of the first heading. One pin in rust/tests/test_setup.rs, born in the whole form in this slice, asserts the opening whole, the title standing as the contract's first line, the founding paragraph standing whole as its third line, the blank lines standing between them and after them, and the setup obligations heading standing as the fifth line opening the contract's first section, so a contract whose founding paragraph stood cut away or falsified in its rule, or whose title stood removed, falls at that pin though every section below the head matter stood whole. No word of the head matter moves under this obligation, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. Test, rust/tests/test_setup.rs.\n"
+    );
+    let gj58 = contract_section(&text, "### GJ-58 full form, the head cut execution");
+    assert!(gj58.contains("GJ-58. The head cut execution. The failure mode standing at the head matter as GJ-57 lands, a contract carrying every section whole with its founding paragraph cut away or falsified in its rule or its title removed, and passing every pin as landed, stands executed on the Round 28 slice tree in its own fresh target directory at each seat GJ-57 reaches, the founding paragraph cut away whole, the founding paragraph falsified in the clause that names the named test and the named check, and the title removed, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 28 design stands at the one pin GJ-57 lands at each seat, and on the Round 27 slice tree as merged the same three cuts pass whole over every pin, the gap GJ-57 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pin GJ-57 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-58 full form, the head cut execution")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj58,
+        "### GJ-58 full form, the head cut execution\n\nGJ-58. The head cut execution. The failure mode standing at the head matter as GJ-57 lands, a contract carrying every section whole with its founding paragraph cut away or falsified in its rule or its title removed, and passing every pin as landed, stands executed on the Round 28 slice tree in its own fresh target directory at each seat GJ-57 reaches, the founding paragraph cut away whole, the founding paragraph falsified in the clause that names the named test and the named check, and the title removed, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 28 design stands at the one pin GJ-57 lands at each seat, and on the Round 27 slice tree as merged the same three cuts pass whole over every pin, the gap GJ-57 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pin GJ-57 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
     );
 }
