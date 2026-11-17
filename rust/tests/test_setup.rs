@@ -166,16 +166,19 @@ fn readme_reports_the_round_three_status() {
     // consequence, and altered again at the Round 28 slice
     // for the same consequence, and altered again at the
     // Round 29 slice for the same consequence, and altered
-    // again at the Round 30 slice for the same consequence.
+    // again at the Round 30 slice for the same consequence,
+    // and altered again at the Round 31 slice for the same
+    // consequence.
     // This pin counts the slices standing in
-    // review across the whole README. Four slices stand
-    // in review while Round 30 stands built and in review,
-    // so the count stands at four, the slices of Round 27
-    // and Round 28 and Round 29 standing in review beside
-    // it, their closures standing open under the rules of
-    // GJ-56 and GJ-58 and GJ-60. The round pins below hold
-    // the standing lines and the slice lines themselves.
-    assert_eq!(text.matches("built and in review").count(), 4);
+    // review across the whole README. Five slices stand
+    // in review while Round 31 stands built and in review,
+    // so the count stands at five, the slices of Round 27
+    // and Round 28 and Round 29 and Round 30 standing in
+    // review beside it, their closures standing open under
+    // the rules of GJ-56 and GJ-58 and GJ-60 and GJ-62. The
+    // round pins below hold the standing lines and the
+    // slice lines themselves.
+    assert_eq!(text.matches("built and in review").count(), 5);
 }
 
 #[test]
@@ -2746,5 +2749,90 @@ GJ-61. The byte form of the furniture texts asserted. AGENTS.md and the workflow
 
 GJ-62. The furniture byte cut execution. The failure mode standing at the byte form as GJ-61 lands, a furniture text carrying every line whole with its line endings re-terminated or its closing line feed removed or doubled, and passing every pin as landed, stands executed on the Round 30 slice tree in its own fresh target directory at each seat GJ-61 reaches, AGENTS.md re-terminated whole and its closing line feed removed and its closing line feed doubled, the workflow file re-terminated whole and its closing line feed removed and its closing line feed doubled, and the manifest re-terminated whole and its closing line feed removed and its closing line feed doubled, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 30 design stands at the one pin GJ-61 lands for its text at each seat, and on the Round 29 slice tree as merged the same nine cuts pass whole over every pin, the gap GJ-61 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins GJ-61 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.
 "
+    );
+}
+
+// GJ-63 stands met as the assertion of the head form of
+// AGENTS.md and the workflow file and the manifest whole,
+// three pins born in the setup target over the three
+// furniture texts, each asserting that no byte order mark
+// stands at the head of its text. The three cuts of GJ-64
+// stand computed by the Round 31 design at each of the three
+// seats GJ-63 reaches, a byte order mark prepended to
+// AGENTS.md and a byte order mark prepended to the workflow
+// file and a byte order mark prepended to the manifest, each
+// computed to fall at the head pin of its text alone on the
+// Round 31 slice tree and to pass whole over every pin of
+// the Round 30 slice tree as merged, and their execution
+// stands charged to the warm up of the build and carried
+// unexecuted under the write fault. On the Round 30 slice
+// tree as merged no pin stands over the head form of the
+// three texts, and the same three cuts stand computed there
+// passing whole. The suite's census stands at 838. This
+// block asserts nothing.
+#[test]
+fn agents_carries_no_byte_order_mark() {
+    let text = root_text("AGENTS.md");
+    assert!(!text.starts_with('\u{feff}'));
+}
+
+#[test]
+fn ci_carries_no_byte_order_mark() {
+    let text = root_text(".github/workflows/ci.yml");
+    assert!(!text.starts_with('\u{feff}'));
+}
+
+#[test]
+fn manifest_carries_no_byte_order_mark() {
+    let text = root_text("Cargo.toml");
+    assert!(!text.starts_with('\u{feff}'));
+}
+#[test]
+fn readme_reports_the_round_thirty_one_status() {
+    let text = root_text("README.md");
+    let lines = lines_of(&text);
+    let standing = "- Contract, GJ-63 met and GJ-64 not yet met. They stand in full form in CONTRACT.md, GJ-63 standing as the assertion of the head form of AGENTS.md and the workflow file and the manifest whole and GJ-64 as the furniture head cut execution beside it, and Round 31 stands in review on slice 32, with the head form standing asserted as charged, three pins born in the setup target asserting over AGENTS.md and over the workflow file and over the manifest that no byte order mark stands at the head of any of them, the one form of those texts every pin as landed reads past, every pin that reads any of the three as data asserting within its lines or over a string its lines join or over the names its lines carry, and the byte pins of GJ-61 asserting the endings and the close of each text and no pin as landed asserting its head, and the furniture head cut execution of GJ-64 standing computed by the Round 31 design at its three seats, a byte order mark prepended to AGENTS.md and a byte order mark prepended to the workflow file and a byte order mark prepended to the manifest, each computed to fall at the one pin GJ-63 lands for its text alone on the slice tree and to pass whole over every pin of the Round 30 slice tree as merged, and its execution standing charged to the warm up of the build and carried unexecuted under the write fault, the round standing open under the rule of GJ-64 while that execution stands unexecuted, and Round 30 standing open under the rule of GJ-62 beside it, its furniture byte cut family standing carried to its closure's execution, and Round 29 standing open under the rule of GJ-60 beside that, its byte cut family standing carried to its closure's execution, and Round 28 standing open under the rule of GJ-58 beside that, its head cut family standing carried to its closure's execution, and Round 27 standing open under the rule of GJ-56 beside that, its execution family standing with its execution lane, and FIX-GJ-30 standing free and unspent.";
+    assert!(lines.contains(&standing));
+    let slice_line = "- Slice 32 stands built and in review. It carries the assertion of the head form of AGENTS.md and the workflow file and the manifest whole, three pins born in the setup target over the three furniture texts, each asserting that no byte order mark stands at the head of its text, and the furniture head cut execution computed beside it at its three seats, adding no reading and no command.";
+    assert!(lines.contains(&slice_line));
+    assert!(text.contains("Closed perfection rounds, 26 of 100"));
+}
+
+#[test]
+fn contract_carries_the_round_thirty_one_obligations() {
+    let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
+    let gj63 = contract_section(
+        &text,
+        "### GJ-63 full form, the head form of the furniture texts asserted",
+    );
+    assert!(gj63.contains("GJ-63. The head form of the furniture texts asserted. AGENTS.md and the workflow file and the manifest stand in one head form, no byte order mark standing at the head of any of them, each text opening on the first character of its first line, and as landed no pin asserts that form, every pin that reads any of the three as data asserting within its lines or over a string its lines join or over the names its lines carry, the agents pins asserting containments of single lines over the raw text, the workflow pins asserting over the live text the lines join with the comments stripped, and the manifest pins asserting a line standing among the manifest lines and the test names its lines carry against the test tree, and the byte pins of GJ-61 asserting over each text that no carriage return stands in it and that it ends with exactly one line feed, a mark at the head moving neither limb, and no pin as landed asserting the first line of any of the three, so a text carrying a mark at its head would yield the same lines and the same derived strings and the same names as the standing text and pass every pin as landed though its first line stood changed in its first character. Three pins in rust/tests/test_setup.rs, born in this slice, assert the head form whole, one over AGENTS.md and one over the workflow file and one over the manifest, each asserting that its text does not begin with a byte order mark, so a furniture text carrying a mark at its head falls at its pin though every line it carries stood whole and its endings and its close stood in the one byte form of GJ-61. No word and no line of any of the three texts moves under this obligation, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line
+                == "### GJ-63 full form, the head form of the furniture texts asserted")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj63,
+        "### GJ-63 full form, the head form of the furniture texts asserted\n\nGJ-63. The head form of the furniture texts asserted. AGENTS.md and the workflow file and the manifest stand in one head form, no byte order mark standing at the head of any of them, each text opening on the first character of its first line, and as landed no pin asserts that form, every pin that reads any of the three as data asserting within its lines or over a string its lines join or over the names its lines carry, the agents pins asserting containments of single lines over the raw text, the workflow pins asserting over the live text the lines join with the comments stripped, and the manifest pins asserting a line standing among the manifest lines and the test names its lines carry against the test tree, and the byte pins of GJ-61 asserting over each text that no carriage return stands in it and that it ends with exactly one line feed, a mark at the head moving neither limb, and no pin as landed asserting the first line of any of the three, so a text carrying a mark at its head would yield the same lines and the same derived strings and the same names as the standing text and pass every pin as landed though its first line stood changed in its first character. Three pins in rust/tests/test_setup.rs, born in this slice, assert the head form whole, one over AGENTS.md and one over the workflow file and one over the manifest, each asserting that its text does not begin with a byte order mark, so a furniture text carrying a mark at its head falls at its pin though every line it carries stood whole and its endings and its close stood in the one byte form of GJ-61. No word and no line of any of the three texts moves under this obligation, and no behaviour and no figure and no golden moves, the cure standing test only in the setup target. Test, rust/tests/test_setup.rs.\n"
+    );
+    let gj64 = contract_section(
+        &text,
+        "### GJ-64 full form, the furniture head cut execution",
+    );
+    assert!(gj64.contains("GJ-64. The furniture head cut execution. The failure mode standing at the head form as GJ-63 lands, a furniture text carrying every line whole and standing in the one byte form of GJ-61 and carrying a byte order mark at its head, and passing every pin as landed, stands executed on the Round 31 slice tree in its own fresh target directory at each seat GJ-63 reaches, a byte order mark prepended to AGENTS.md and a byte order mark prepended to the workflow file and a byte order mark prepended to the manifest, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 31 design stands at the one pin GJ-63 lands for its text at each seat, and on the Round 30 slice tree as merged the same three cuts pass whole over every pin, the gap GJ-63 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins GJ-63 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line == "### GJ-64 full form, the furniture head cut execution")
+            .count(),
+        1
+    );
+    assert_eq!(
+        gj64,
+        "### GJ-64 full form, the furniture head cut execution\n\nGJ-64. The furniture head cut execution. The failure mode standing at the head form as GJ-63 lands, a furniture text carrying every line whole and standing in the one byte form of GJ-61 and carrying a byte order mark at its head, and passing every pin as landed, stands executed on the Round 31 slice tree in its own fresh target directory at each seat GJ-63 reaches, a byte order mark prepended to AGENTS.md and a byte order mark prepended to the workflow file and a byte order mark prepended to the manifest, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 31 design stands at the one pin GJ-63 lands for its text at each seat, and on the Round 30 slice tree as merged the same three cuts pass whole over every pin, the gap GJ-63 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins GJ-63 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
     );
 }
