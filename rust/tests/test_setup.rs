@@ -1232,6 +1232,25 @@ fn readme_reports_the_round_twenty_two_status() {
     assert!(text.contains("Closed perfection rounds, 26 of 100"));
 }
 
+// The whole obligation assertion cure of Round 27
+// completes at this pin in the repair of the slice. The
+// section of FIX-GJ-26, amending GJ-46, stands under the
+// repair amendment heading of this round beside the
+// obligations section this pin carries, and as landed it
+// stood asserted whole by no pin, the one seat the survey
+// of the cure missed, no pin's assertion reading its
+// section, so a body cut at that section passed over every
+// pin of the setup target. This pin takes the section
+// whole beside its obligations section in the whole form,
+// the whole text asserted standing inside its section, its
+// heading asserted standing once among the lines of the
+// contract, and the section asserted carrying the heading
+// and the whole text and nothing else, so a paragraph cut
+// in its place falls at this pin though its whole text
+// stands duplicated behind the cut inside its own section,
+// and though its whole text stands under a second standing
+// of its heading planted ahead of its own. This block
+// asserts nothing.
 #[test]
 fn contract_carries_the_round_twenty_two_obligations() {
     let text = root_text("CONTRACT.md");
@@ -1248,6 +1267,23 @@ fn contract_carries_the_round_twenty_two_obligations() {
     assert_eq!(
         round22_section,
         "## Round 22 obligations, full form\n\nThis section states the obligations of the twenty second slice. The slice adds no reading and no command. It carries the execution record of the two rounds before the pairing round, the mutation sets of Rounds 19 and 20 executed on the trees that carry their pins with the base runs of both rounds and the cargo leg of NG, recorded as an obligation of the contract, and it restates the doc comment of the answers module to cite the set rules of GJ-2 where it cited the set rules of GJ-11, the one parting seat of its genus, cured at the width the Round 21 closure left it named at. The slice carries no repair amendment, FIX-GJ-26 standing free and unspent in this round. The Round 1 to Round 21 sections and the port sections above stand unchanged except where this section amends them by name, and where the two disagree, this section governs.\n\nGJ-45. The execution record. The mutation sets of the two rounds before the pairing round stand executed on the trees that carry their pins, and their failing sets stand recorded against the postures their rounds recorded. The set NH to NT of Round 19 stands executed on the repaired Round 19 slice tree. The set OA to OT of Round 20 stands executed on the Round 20 slice tree, and the same set stands executed on the Round 21 slice tree, its failing sets among the pairing pins read against the cross-table the Round 21 design stated in its section 8. The base run of Round 19 stands run, its round's test files overlaid on the Round 18 closure tree, and the base run of Round 20 stands run, its round's test files overlaid on the Round 19 closure tree. The cargo leg of NG stands executed on the repaired Round 19 slice tree, against the settled posture that NG fails pin 12 alone. A failing set under this obligation is read from assertion failures alone, and a failure of the environment, a fixture write refused or a directory unmade, stands recorded beside the set it interrupted and never inside it. Every parting between an executed set and the posture its record states stands named in the record pin by pin, with the mechanism the execution shows, and a parting against a pin header stands cured by restating the header to the executed set in the slice that records it. The record states no posture it did not execute, and the round that carries this obligation does not close while any execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n\nGJ-46. The set rules citation of the answers module. The doc comment of the answers module in rust/src/answers.rs stands restated in the citation of its governing obligation, reading the set rules of GJ-2 where it read the set rules of GJ-11, in the sentence the pairs module's doc comment carries since its Round 21 cure, the rest of the sentence standing word for word as it stood. The restatement is the whole width of its genus on the merged tree, and this section states the census that bounds it, the contract cites the set rules of GJ-11 at thirteen sites and the set rules of GJ-2 at two, GJ-41 and GJ-43, seven module doc comments cite a seat for the set rules, six naming GJ-11 and one, the pairs module, naming GJ-2, and of the six, five agree with the citations of their own readings' inputs obligations, the accord, the margin, the standing, the bench, and the record module that implements the rules themselves, leaving the answers module the one parting seat. The set rules themselves do not move, standing stated in GJ-11 and implemented once in the record module, and no behaviour of the answers reading or of any reading moves under this restatement, the answers closing standing at 143 answers, 143 questions, 55 parts, 44 in accord, 44 with the pool before it and after it. Test, rust/tests/test_answers.rs.\n"
+    );
+    let fix26 = contract_section(
+        &text,
+        "### FIX-GJ-26, amending GJ-46, the census sentence restated in the comma form",
+    );
+    assert!(fix26.contains("FIX-GJ-26, amending GJ-46, the census sentence restated in the comma form. The census sentence of GJ-46 as landed states the bounds of its restatement with a colon and with semicolons standing as the separators of its clauses, where the prose of this contract stands in the comma form, its whole text carrying no colon and no semicolon in any other sentence. Under this amendment the sentence stands restated in place where it stands, in these words, \"The restatement is the whole width of its genus on the merged tree, and this section states the census that bounds it, the contract cites the set rules of GJ-11 at thirteen sites and the set rules of GJ-2 at two, GJ-41 and GJ-43, seven module doc comments cite a seat for the set rules, six naming GJ-11 and one, the pairs module, naming GJ-2, and of the six, five agree with the citations of their own readings' inputs obligations, the accord, the margin, the standing, the bench, and the record module that implements the rules themselves, leaving the answers module the one parting seat.\" No figure of the sentence moves in the restatement, and no other word of GJ-46 moves, and GJ-45 stands untouched, and no behaviour of any reading moves, the cure being one of prose form alone, taken at the standards review of the round. Its number is 26, the number the Round 22 section states as standing free and unspent for the round's repair amendment. Test, rust/tests/test_answers.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line
+                == "### FIX-GJ-26, amending GJ-46, the census sentence restated in the comma form")
+            .count(),
+        1
+    );
+    assert_eq!(
+        fix26,
+        "### FIX-GJ-26, amending GJ-46, the census sentence restated in the comma form\n\nFIX-GJ-26, amending GJ-46, the census sentence restated in the comma form. The census sentence of GJ-46 as landed states the bounds of its restatement with a colon and with semicolons standing as the separators of its clauses, where the prose of this contract stands in the comma form, its whole text carrying no colon and no semicolon in any other sentence. Under this amendment the sentence stands restated in place where it stands, in these words, \"The restatement is the whole width of its genus on the merged tree, and this section states the census that bounds it, the contract cites the set rules of GJ-11 at thirteen sites and the set rules of GJ-2 at two, GJ-41 and GJ-43, seven module doc comments cite a seat for the set rules, six naming GJ-11 and one, the pairs module, naming GJ-2, and of the six, five agree with the citations of their own readings' inputs obligations, the accord, the margin, the standing, the bench, and the record module that implements the rules themselves, leaving the answers module the one parting seat.\" No figure of the sentence moves in the restatement, and no other word of GJ-46 moves, and GJ-45 stands untouched, and no behaviour of any reading moves, the cure being one of prose form alone, taken at the standards review of the round. Its number is 26, the number the Round 22 section states as standing free and unspent for the round's repair amendment. Test, rust/tests/test_answers.rs.\n"
     );
 }
 
