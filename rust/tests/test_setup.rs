@@ -2642,3 +2642,53 @@ fn contract_carries_the_round_twenty_nine_obligations() {
         "### GJ-60 full form, the byte cut execution\n\nGJ-60. The byte cut execution. The failure mode standing at the byte form as GJ-59 lands, a standing text carrying every line whole with its line endings re-terminated or its closing line feed removed, and passing every pin as landed, stands executed on the Round 29 slice tree in its own fresh target directory at each seat GJ-59 reaches, the contract's head span re-terminated, the contract re-terminated whole, the contract's closing line feed removed, the README re-terminated whole, and the README's closing line feed removed, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 29 design stands at the one pin GJ-59 lands for its text at four of the five seats, and at the fifth seat, the README re-terminated whole, the computation stands corrected, the design having priced the README pins as lines and phrase alone and not enumerated the one pin that reads that text in raw form, readme_first_screen_carries_the_badge_and_the_tally_reading asserting a block of seven of its lines as a raw containment over the text, so the set at that seat stands at that pin and the README byte pin together on the Round 29 slice tree, at 826 passed and 2 failed, and on the Round 28 slice tree as merged four of the five cuts pass whole over every pin and the fifth falls at the first screen pin alone, at 823 passed and 1 failed, the gap GJ-59 closes standing proven in both directions at the four seats and at the fifth with its sets corrected as this sentence states them. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins GJ-59 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
     );
 }
+
+// The assertion of the byte form of Round 30 stands
+// completed at these pins. The pins assert the byte form of
+// AGENTS.md and of the workflow file and of the manifest
+// whole, no carriage return standing in any of them and each
+// standing closed by exactly one line feed, where every pin
+// as landed reads the three texts within their lines or over
+// the strings their lines join or over the names their lines
+// carry, the agents pins asserting containments of single
+// lines over the raw text, the workflow pins asserting over
+// the live text the lines join with the comments stripped,
+// and the manifest pins asserting over the manifest lines
+// and the test names they carry, so no asserted line and no
+// derived string and no carried name can carry the byte form
+// of the text it stands in. The furniture byte cut stands
+// computed by the Round 30 design at each of the nine seats
+// GJ-61 reaches, AGENTS.md re-terminated whole and its
+// closing line feed removed and its closing line feed
+// doubled, the workflow file re-terminated whole and its
+// closing line feed removed and its closing line feed
+// doubled, and the manifest re-terminated whole and its
+// closing line feed removed and its closing line feed
+// doubled, each computed to fall at the byte pin of its text
+// alone on the Round 30 slice tree and to pass whole over
+// every pin of the Round 29 slice tree as merged, and its
+// execution stands charged to the warm up of the build and
+// carried unexecuted under the write fault. On the Round 29
+// slice tree as merged no pin stands over the byte form of
+// the three texts, and the same nine cuts stand computed
+// there passing whole. This block asserts nothing.
+#[test]
+fn agents_stands_in_the_one_byte_form() {
+    let text = root_text("AGENTS.md");
+    assert!(!text.contains('\r'));
+    assert!(text.ends_with('\n') && !text.ends_with("\n\n"));
+}
+
+#[test]
+fn ci_stands_in_the_one_byte_form() {
+    let text = root_text(".github/workflows/ci.yml");
+    assert!(!text.contains('\r'));
+    assert!(text.ends_with('\n') && !text.ends_with("\n\n"));
+}
+
+#[test]
+fn manifest_stands_in_the_one_byte_form() {
+    let text = root_text("Cargo.toml");
+    assert!(!text.contains('\r'));
+    assert!(text.ends_with('\n') && !text.ends_with("\n\n"));
+}
