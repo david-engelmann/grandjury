@@ -2547,3 +2547,39 @@ fn contract_carries_the_round_twenty_eight_obligations() {
         "### GJ-58 full form, the head cut execution\n\nGJ-58. The head cut execution. The failure mode standing at the head matter as GJ-57 lands, a contract carrying every section whole with its founding paragraph cut away or falsified in its rule or its title removed, and passing every pin as landed, stands executed on the Round 28 slice tree in its own fresh target directory at each seat GJ-57 reaches, the founding paragraph cut away whole, the founding paragraph falsified in the clause that names the named test and the named check, and the title removed, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 28 design stands at the one pin GJ-57 lands at each seat, and on the Round 27 slice tree as merged the same three cuts pass whole over every pin, the gap GJ-57 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pin GJ-57 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
     );
 }
+
+// The assertion of the byte form of Round 29 stands
+// completed at these pins. The pins assert the byte form of
+// the contract and of the README whole, no carriage return
+// standing in either text and each text standing closed by
+// exactly one line feed, where every pin as landed reads
+// either text through the shared lines machinery, which
+// strips a carriage return standing at a line's end and
+// yields the same lines whether the text ends with a line
+// feed or without one, so no section the helper returns and
+// no line any pin asserts can carry the byte form of the
+// text it stands in. The byte cut stands computed by the
+// Round 29 design at each of the five seats GJ-59 reaches,
+// the contract's head span re-terminated, the contract re-
+// terminated whole, the contract's closing line feed
+// removed, the README re-terminated whole, and the README's
+// closing line feed removed, each computed to fall at the
+// byte pin of its text alone on the Round 29 slice tree, and
+// its execution stands charged to the warm up of the build
+// and carried unexecuted under the write fault. On the Round
+// 28 slice tree as merged no pin stands over the byte form,
+// and the same five cuts stand computed there passing whole
+// over every pin. This block asserts nothing.
+#[test]
+fn contract_stands_in_the_one_byte_form() {
+    let text = root_text("CONTRACT.md");
+    assert!(!text.contains('\r'));
+    assert!(text.ends_with('\n') && !text.ends_with("\n\n"));
+}
+
+#[test]
+fn readme_stands_in_the_one_byte_form() {
+    let text = root_text("README.md");
+    assert!(!text.contains('\r'));
+    assert!(text.ends_with('\n') && !text.ends_with("\n\n"));
+}
