@@ -856,3 +856,61 @@ pub fn cost_lines(poll: &Poll, prices: &PriceTable) -> Result<Option<Vec<String>
     }
     Ok(Some(lines))
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn the_price_grammar_refuses_a_leading_plus() {
+        let refused = [
+            "+0.1", "+1", "+0", "+.5", "+1.5", "+1e3", "+1.5e-2", "+.5e+2", "+", "++1",
+        ];
+        for shape in refused {
+            assert!(
+                !price_grammar_matches(&PText::from_text(shape)),
+                "the grammar refuses {shape}"
+            );
+        }
+    }
+
+    #[test]
+    fn the_price_grammar_admits_the_shipped_shapes() {
+        let admitted = [
+            "0.1",
+            "1",
+            "0",
+            ".5",
+            "1.5",
+            "-0.1",
+            "-.5",
+            "-1",
+            "1e3",
+            "1E3",
+            "1e+3",
+            "1e-3",
+            "123.456e-7",
+            "007",
+        ];
+        for shape in admitted {
+            assert!(
+                price_grammar_matches(&PText::from_text(shape)),
+                "the grammar admits {shape}"
+            );
+        }
+    }
+
+    #[test]
+    fn the_price_grammar_refuses_its_neighbour_shapes() {
+        let refused = [
+            "", "-", ".", "1.", "e3", "1e", "1e+", "1e-", " 1", "1 ", "1_000", "NaN", "Infinity",
+            "0x1", "1.2.3", "--1",
+        ];
+        for shape in refused {
+            assert!(
+                !price_grammar_matches(&PText::from_text(shape)),
+                "the grammar refuses {shape}"
+            );
+        }
+    }
+}

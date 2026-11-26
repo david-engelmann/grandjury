@@ -474,6 +474,78 @@ fn a_chat_decision_below_one_half_records_an_abstention() {
 }
 
 #[test]
+fn a_chat_envelope_reads_the_first_of_two_choices() {
+    let mut envelope = chat(&chat_content("blue", 0.75));
+    set_field(
+        &mut envelope,
+        "choices",
+        jarr(vec![
+            jobj(vec![(
+                "message",
+                jobj(vec![("content", jstr(&chat_content("blue", 0.75)))]),
+            )]),
+            jobj(vec![(
+                "message",
+                jobj(vec![("content", jstr(&chat_content("red", 0.25)))]),
+            )]),
+        ]),
+    );
+    assert_response(
+        &read_chat(&envelope),
+        expected(
+            "openai-1",
+            "chat-test",
+            "blue",
+            "chat-test chose blue with confidence 0.75",
+            false,
+        ),
+    );
+}
+
+#[test]
+fn a_chat_envelope_ignores_a_later_choice_holding_no_message() {
+    let mut envelope = chat(&chat_content("blue", 0.75));
+    set_field(
+        &mut envelope,
+        "choices",
+        jarr(vec![
+            jobj(vec![(
+                "message",
+                jobj(vec![("content", jstr(&chat_content("blue", 0.75)))]),
+            )]),
+            jobj(vec![]),
+        ]),
+    );
+    assert_response(
+        &read_chat(&envelope),
+        expected(
+            "openai-1",
+            "chat-test",
+            "blue",
+            "chat-test chose blue with confidence 0.75",
+            false,
+        ),
+    );
+}
+
+#[test]
+fn a_chat_envelope_whose_first_choice_holds_no_message_fails_whole() {
+    let mut envelope = chat(&chat_content("blue", 0.75));
+    set_field(
+        &mut envelope,
+        "choices",
+        jarr(vec![
+            jobj(vec![]),
+            jobj(vec![(
+                "message",
+                jobj(vec![("content", jstr(&chat_content("blue", 0.75)))]),
+            )]),
+        ]),
+    );
+    assert!(read_chat(&envelope).is_none());
+}
+
+#[test]
 fn a_chat_envelope_without_choices_fails() {
     let mut envelope = chat(&chat_content("blue", 0.75));
     drop_field(&mut envelope, "choices");
