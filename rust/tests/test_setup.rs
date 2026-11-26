@@ -2836,3 +2836,26 @@ fn contract_carries_the_round_thirty_one_obligations() {
         "### GJ-64 full form, the furniture head cut execution\n\nGJ-64. The furniture head cut execution. The failure mode standing at the head form as GJ-63 lands, a furniture text carrying every line whole and standing in the one byte form of GJ-61 and carrying a byte order mark at its head, and passing every pin as landed, stands executed on the Round 31 slice tree in its own fresh target directory at each seat GJ-63 reaches, a byte order mark prepended to AGENTS.md and a byte order mark prepended to the workflow file and a byte order mark prepended to the manifest, and its failing set stands read from assertion failures alone, a failure of the environment standing beside the set and never inside it. The set as computed by the Round 31 design stands at the one pin GJ-63 lands for its text at each seat, and on the Round 30 slice tree as merged the same three cuts pass whole over every pin, the gap GJ-63 closes standing proven in both directions. Every parting between the executed set and the computed set stands named in the execution record the slice carries in the setup target over the pins GJ-63 lands. The record states no posture it did not execute, and the round that carries this obligation does not close while the execution it charges stands unexecuted. Test, rust/tests/test_setup.rs.\n"
     );
 }
+
+#[test]
+fn contract_carries_the_round_twenty_seven_hunt_repair() {
+    let text = root_text("CONTRACT.md");
+    let lines = lines_of(&text);
+    let fix31 = contract_section(
+        &text,
+        "### FIX-GJ-31, amending GJ-5, the first entry of the chat choices pinned",
+    );
+    assert!(fix31.contains("FIX-GJ-31, amending GJ-5, the first entry of the chat choices pinned. The execution of GJ-56 journaled one of its hunt seats passing the whole suite, the chat seat reader of GJ-5 taking the last entry of the choices set in place of the first at rust/src/seats.rs, the seat standing as a Blocker in the campaign record. GJ-5 states the chat envelope as a choices field whose first entry holds the message whose content holds the decision, and every chat fixture the suite carries holds at most one choice, so the first entry and the last entry are the same entry in every standing test and no pin reached the choice between them. Three pins in rust/tests/test_seats.rs, born in this repair, hold the first entry rule at its core and at its edges. A chat envelope carrying two choices records the response the first choice's decision states, a later choice holding no message stands ignored beside a readable first choice, and a first choice holding no message fails the call whole though a later choice stands readable, so a reader taking the last entry of the set falls at each of the three. The amendment stands asserted whole by the contract carrying pin of this repair in rust/tests/test_setup.rs. No behaviour of the reader moves under this amendment and no figure and no golden moves, the pins standing as the record of the gap the hunt found. Test, rust/tests/test_seats.rs and rust/tests/test_setup.rs."));
+    assert_eq!(
+        lines
+            .iter()
+            .filter(|line| **line
+                == "### FIX-GJ-31, amending GJ-5, the first entry of the chat choices pinned")
+            .count(),
+        1
+    );
+    assert_eq!(
+        fix31,
+        "### FIX-GJ-31, amending GJ-5, the first entry of the chat choices pinned\n\nFIX-GJ-31, amending GJ-5, the first entry of the chat choices pinned. The execution of GJ-56 journaled one of its hunt seats passing the whole suite, the chat seat reader of GJ-5 taking the last entry of the choices set in place of the first at rust/src/seats.rs, the seat standing as a Blocker in the campaign record. GJ-5 states the chat envelope as a choices field whose first entry holds the message whose content holds the decision, and every chat fixture the suite carries holds at most one choice, so the first entry and the last entry are the same entry in every standing test and no pin reached the choice between them. Three pins in rust/tests/test_seats.rs, born in this repair, hold the first entry rule at its core and at its edges. A chat envelope carrying two choices records the response the first choice's decision states, a later choice holding no message stands ignored beside a readable first choice, and a first choice holding no message fails the call whole though a later choice stands readable, so a reader taking the last entry of the set falls at each of the three. The amendment stands asserted whole by the contract carrying pin of this repair in rust/tests/test_setup.rs. No behaviour of the reader moves under this amendment and no figure and no golden moves, the pins standing as the record of the gap the hunt found. Test, rust/tests/test_seats.rs and rust/tests/test_setup.rs.\n"
+    );
+}
