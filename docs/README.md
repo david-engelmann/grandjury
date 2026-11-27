@@ -26,4 +26,4 @@ Multi-model jury polling, sub-0.5 confidence abstention, flat per-response spend
 - **Pure offline execution.** `grandjury` makes zero network calls, spawns no background daemons, and mutates none of the poll files or wave directories handed to it.
 - **Exact rational shares and decimal spend.** Vote shares, lowest-terms fractions, half-up percentages, and flat per-response dollar totals compute over `BigInt`, `BigRational`, and exact decimal arithmetic.
 - **Whole-input defect reporting.** Malformed polls and price tables accumulate every reachable schema violation in a single pass before printing any reading.
-- **Terminal injection fencing.** Questions, offered answers, juror names, model labels, and reasons reject embedded newlines across both CLI loaders and library guards.
+- **Single-line output fencing.** Questions, offered answers, juror names, model labels, chosen answers, and reasons reject unpaired UTF-16 surrogates and line breaks (`\n` and `\r`) across loaders and library guards, though untrusted text displayed in a terminal should still pass through a pager or sanitizer.

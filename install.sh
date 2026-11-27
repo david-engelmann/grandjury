@@ -157,8 +157,10 @@ fetch "${BASE_URL}/SHA256SUMS" "${WORK_DIR}/SHA256SUMS"
 verify_sha256 "${WORK_DIR}/${ARCHIVE}" "${WORK_DIR}/SHA256SUMS"
 
 tar -xzf "${WORK_DIR}/${ARCHIVE}" -C "$WORK_DIR"
-mkdir -p "$INSTALL_DIR"
-install -m 0755 "${WORK_DIR}/${STEM}/${BIN}" "${INSTALL_DIR}/${BIN}"
+CANDIDATE="${WORK_DIR}/${STEM}/${BIN}"
+chmod 0755 "$CANDIDATE"
+"${CANDIDATE}" --help >/dev/null
 
-"${INSTALL_DIR}/${BIN}" --help >/dev/null
+mkdir -p "$INSTALL_DIR"
+install -m 0755 "$CANDIDATE" "${INSTALL_DIR}/${BIN}"
 echo "installed ${BIN} (${TAG}) to ${INSTALL_DIR}/${BIN}"

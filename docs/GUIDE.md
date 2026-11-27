@@ -8,7 +8,10 @@ Grandjury aggregates recorded multi-model answers to discrete questions, separat
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/david-engelmann/grandjury/main/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
 ```
+
+Pass `--to <DIR>` to install somewhere other than `$HOME/.local/bin`, and ensure the destination directory stands on `PATH`.
 
 ### Cargo Binstall
 
@@ -28,7 +31,7 @@ cargo install --path . --bin grandjury --locked
 
 ## 60-Second Walkthrough
 
-Run the four poll-file commands on `examples/recorded_poll.json` and `examples/prices.json`, compare two 12-question waves (`examples/pilot` vs `examples/wave`), and run multi-set consensus, dissent, accord, and share readings across all three shipped waves.
+From the root of a `grandjury` repository checkout (`git clone https://github.com/david-engelmann/grandjury.git && cd grandjury`), run the four poll-file commands on `examples/recorded_poll.json` and `examples/prices.json`, compare two 12-question waves (`examples/pilot` vs `examples/wave`), and run multi-set consensus, dissent, accord, and share readings across all three shipped waves.
 
 ```sh
 grandjury tally examples/recorded_poll.json
@@ -39,6 +42,7 @@ grandjury compare examples/pilot examples/wave
 grandjury swing pilot examples/pilot full examples/full wave examples/wave
 grandjury dissent pilot examples/pilot full examples/full wave examples/wave
 grandjury accord pilot examples/pilot full examples/full wave examples/wave
+grandjury shares pilot examples/pilot full examples/full wave examples/wave
 ```
 
 ## Reading Grandjury Output Formats

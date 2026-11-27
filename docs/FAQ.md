@@ -21,5 +21,6 @@ Under `FIX-GJ-8`, a plurality requires a strict single leader (`top_count > seco
 ## What do the exit codes mean?
 
 - **`0`** Valid poll(s) loaded and reading printed cleanly.
-- **`1`** Malformed poll, non-UTF-8 file (`GJ-49`), malformed price table, or pairing/set constraint refused with `invalid <surface>` and defect lines on `stdout` (or `cost` precision overflow under `PORT-11`).
+- **`1`** Malformed poll, non-UTF-8 file (`GJ-49`), malformed price table, or pairing/set constraint refused with `invalid <surface>` and defect lines on `stdout`, `cost` precision overflow under `PORT-11`, or a closed `stdout` pipe on large output (`>= 8192` bytes).
 - **`2`** Missing or odd `<label> <dir>` pairs, unrecognized flags, or unknown subcommand on `stderr`.
+- **`120`** Failed `stderr` stream write, or a closed `stdout` pipe on short output (`<= 4096` bytes).

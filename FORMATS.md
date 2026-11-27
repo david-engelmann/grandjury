@@ -87,7 +87,25 @@ examples/pilot/
 
 ## 4. Questions file (`grandjury::makers`)
 
-Offline campaign makers (`pilot`, `full`, and `wave` in `rust/src/makers.rs`) read a questions list (`examples/pilot/questions.json` and `examples/full/questions.json`, `GJ-6`, `GJ-7`, `FIX-GJ-17`) holding objects with `question` and `answers` so recorded envelopes rebuild into deterministic `poll-NN.json` files.
+Offline campaign makers (`pilot`, `full`, and `wave` in `rust/src/makers.rs`) read a questions list (`examples/pilot/questions.json` and `examples/full/questions.json`, `GJ-6`, `GJ-7`, `FIX-GJ-17`) formatted as a top-level JSON array of question objects so recorded envelopes rebuild into deterministic `poll-NN.json` files.
+
+| Field | Type | Required | Rule |
+| --- | --- | --- | --- |
+| `[]` | array of objects | required | Ordered list of campaign questions (`poll-01.json` corresponds to index `0`) |
+| `[].question` | string | required | Non-empty single-line question string without unpaired surrogates |
+| `[].answers` | array of strings | required | At least two distinct non-empty single-line offered answer strings without unpaired surrogates |
+
+```json
+[
+  {
+    "question": "Should the village library open on Sunday mornings?",
+    "answers": [
+      "open on Sundays",
+      "stay closed on Sundays"
+    ]
+  }
+]
+```
 
 ## 5. Juror decision envelopes (`grandjury::seats`)
 
@@ -99,4 +117,70 @@ Offline campaign makers (`pilot`, `full`, and `wave` in `rust/src/makers.rs`) re
 
 ## 6. Run record and incident files (`run_record.json` and `incident.json`)
 
-Offline makers (`rust/src/makers.rs`) also rebuild `run_record.json` (`GJ-6`, `GJ-7`, `GJ-9`, `FIX-GJ-4`, `FIX-GJ-11`, `FIX-GJ-17`), summarizing per-route attempted calls, recorded responses, abstentions, failed calls, token totals extracted from envelope `usage` blocks, decimal spend, and any verbatim `incident.json` accounting object.
+Offline makers (`rust/src/makers.rs`) rebuild `run_record.json` (`GJ-6`, `GJ-7`, `GJ-9`, `FIX-GJ-4`, `FIX-GJ-11`, `FIX-GJ-17`) alongside a stated `incident.json` object carried verbatim into `"incident"`.
+
+| Field | Type | Required | Rule |
+| --- | --- | --- | --- |
+| `questions` | integer | required | Count of questions in the campaign (`12` for `pilot`/`wave`, `40` for `full`) |
+| `seats_per_question_per_model` | integer | required | Seat count per question per route (`5`) |
+| `models` | object | required | Map from `model` string to per-route recorded-run summary |
+| `models.<model>.route` | string | required | Route identifier (`"jev"` or `"chat"`) |
+| `models.<model>.calls_attempted` | integer | required | Calls attempted in the recorded run |
+| `models.<model>.calls_recorded` | integer | required | Envelopes yielding a valid or abstained poll response |
+| `models.<model>.failed_calls` | integer | required | Missing or unparseable envelopes in the recorded run |
+| `models.<model>.abstained` | integer | required | Recorded responses carrying `"abstained": true` |
+| `models.<model>.input_tokens` | integer | required | Sum of `usage.input_tokens` (`jev`) or `usage.prompt_tokens` (`chat`) |
+| `models.<model>.output_tokens` | integer | required | Sum of `usage.output_tokens` (`jev`) or `usage.completion_tokens` (`chat`) |
+| `models.<model>.cost_dollars` | string | conditional | Exact decimal string summed over `usage.cost` on the `"chat"` route |
+| `incident` | object | required | Verbatim contents of `incident.json` recording round-wide call accounting |
+
+Inside `incident.json` (`FIX-GJ-4`, `FIX-GJ-11`), each model entry carries `calls_in_the_recorded_run`, `attempts_that_never_left_the_machine`, `envelopes_lost_and_seats_rerun`, `calls_discarded`, `route_verification_calls`, `diagnostic_calls`, optional `verification_calls_in_the_aborted_first_launch` when an aborted launch occurred (`FIX-GJ-11`), and `attempts_in_round` (equal to the sum of the counted fields), alongside top-level `lost_token_usage` (string) and optional `aborted_first_launch` per-route accounting.
+
+```json
+{
+  "questions": 1,
+  "seats_per_question_per_model": 5,
+  "models": {
+    "jev-1.13.0": {
+      "route": "jev",
+      "calls_attempted": 5,
+      "calls_recorded": 5,
+      "failed_calls": 0,
+      "abstained": 1,
+      "input_tokens": 1920,
+      "output_tokens": 240
+    },
+    "openai/gpt-6-luna": {
+      "route": "chat",
+      "calls_attempted": 5,
+      "calls_recorded": 5,
+      "failed_calls": 0,
+      "abstained": 1,
+      "input_tokens": 540,
+      "output_tokens": 410,
+      "cost_dollars": "0.0002600"
+    }
+  },
+  "incident": {
+    "jev-1.13.0": {
+      "calls_in_the_recorded_run": 5,
+      "attempts_that_never_left_the_machine": 0,
+      "envelopes_lost_and_seats_rerun": 0,
+      "calls_discarded": 0,
+      "route_verification_calls": 1,
+      "diagnostic_calls": 0,
+      "attempts_in_round": 6
+    },
+    "openai/gpt-6-luna": {
+      "calls_in_the_recorded_run": 5,
+      "attempts_that_never_left_the_machine": 0,
+      "envelopes_lost_and_seats_rerun": 0,
+      "calls_discarded": 0,
+      "route_verification_calls": 1,
+      "diagnostic_calls": 0,
+      "attempts_in_round": 6
+    },
+    "lost_token_usage": "unrecoverable and estimated nowhere"
+  }
+}
+```

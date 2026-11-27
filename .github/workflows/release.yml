@@ -12,9 +12,7 @@ on:
         default: "v0.1.0"
 
 permissions:
-  contents: write
-  id-token: write
-  attestations: write
+  contents: read
 
 jobs:
   build:
@@ -67,19 +65,28 @@ jobs:
         shell: pwsh
         run: |
           $bin = "target/${{ matrix.target }}/release/grandjury.exe"
-          & $bin --help | Out-Null; if ($LASTEXITCODE -ne 0) { exit 1 }
+          & $bin --help | Out-Null; if ($LASTEXITCODE -ne 0) { exit 1 }; exit 0
       - name: Package archive (Unix)
         if: matrix.archive == 'tar.gz'
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+          MATRIX_TARGET: ${{ matrix.target }}
         run: |
           set -euo pipefail
-          TAG="${{ github.ref_name }}"
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            TAG="${{ inputs.tag }}"
+          TAG="$REF_NAME"
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            TAG="$INPUT_TAG"
           fi
-          STEM="grandjury-${TAG}-${{ matrix.target }}"
+          if [[ ! "$TAG" =~ ^[0-9A-Za-z._-]+$ ]]; then
+            echo "error invalid release tag label $TAG" >&2
+            exit 1
+          fi
+          STEM="grandjury-${TAG}-${MATRIX_TARGET}"
           mkdir -p "dist/${STEM}"
-          cp "target/${{ matrix.target }}/release/grandjury" "dist/${STEM}/grandjury"
+          cp "target/${MATRIX_TARGET}/release/grandjury" "dist/${STEM}/grandjury"
           chmod 0755 "dist/${STEM}/grandjury"
           cp README.md LICENSE CHANGELOG.md "dist/${STEM}/"
           tar -C dist -czf "dist/${STEM}.tar.gz" "${STEM}"
@@ -87,14 +94,23 @@ jobs:
       - name: Package archive (Windows)
         if: matrix.archive == 'zip'
         shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+          MATRIX_TARGET: ${{ matrix.target }}
         run: |
-          $tag = "${{ github.ref_name }}"
-          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
-            $tag = "${{ inputs.tag }}"
+          $tag = "$env:REF_NAME"
+          if ("$env:EVENT_NAME" -eq "workflow_dispatch") {
+            $tag = "$env:INPUT_TAG"
           }
-          $stem = "grandjury-$tag-${{ matrix.target }}"
+          if ($tag -notmatch '^[0-9A-Za-z._-]+$') {
+            Write-Error "error invalid release tag label $tag"
+            exit 1
+          }
+          $stem = "grandjury-$tag-$env:MATRIX_TARGET"
           New-Item -ItemType Directory -Force -Path "dist/$stem" | Out-Null
-          Copy-Item "target/${{ matrix.target }}/release/grandjury.exe" "dist/$stem/grandjury.exe"
+          Copy-Item "target/$env:MATRIX_TARGET/release/grandjury.exe" "dist/$stem/grandjury.exe"
           Copy-Item README.md, LICENSE, CHANGELOG.md "dist/$stem/"
           Compress-Archive -Path "dist/$stem" -DestinationPath "dist/$stem.zip" -Force
           Remove-Item -Recurse -Force "dist/$stem"
@@ -107,8 +123,12 @@ jobs:
   publish:
     name: publish
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
     steps:
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
