@@ -1,0 +1,113 @@
+name: clean-install
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: installer (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # master
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+        with:
+          key: clean-install-${{ runner.os }}
+      - name: Verify crates.io package archive
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo package --locked
+          CRATE_FILE="target/package/grandjury-0.1.0.crate"
+          test -f "$CRATE_FILE"
+          SIZE_BYTES="$(wc -c < "$CRATE_FILE" | tr -d ' ')"
+          echo "packaged $CRATE_FILE ($SIZE_BYTES bytes)"
+          test "$SIZE_BYTES" -lt 204800
+          if tar -tzf "$CRATE_FILE" | grep -E '(codepoint_scan|^[^/]+/book/|^[^/]+/docs/)' >/dev/null; then
+            echo "error unexpected internal or handbook files in crate archive" >&2
+            exit 1
+          fi
+      - name: Build release binary and test install.sh end to end
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo build --release --locked --bin grandjury
+          WORK_DIR="$(mktemp -d)"
+          trap 'rm -rf "$WORK_DIR"' EXIT
+          OS_NAME="$(uname -s)"
+          ARCH_NAME="$(uname -m)"
+          if [ "$OS_NAME" = "Linux" ]; then
+            if [ "$ARCH_NAME" = "aarch64" ] || [ "$ARCH_NAME" = "arm64" ]; then
+              TARGET="aarch64-unknown-linux-gnu"
+            else
+              TARGET="x86_64-unknown-linux-gnu"
+            fi
+          else
+            if [ "$ARCH_NAME" = "arm64" ] || [ "$ARCH_NAME" = "aarch64" ]; then
+              TARGET="aarch64-apple-darwin"
+            else
+              TARGET="x86_64-apple-darwin"
+            fi
+          fi
+          STEM="grandjury-v0.1.0-${TARGET}"
+          REL_DIR="$WORK_DIR/releases"
+          SHIM_DIR="$WORK_DIR/shim"
+          DEST_DIR="$WORK_DIR/installed"
+          mkdir -p "$REL_DIR/$STEM" "$SHIM_DIR" "$DEST_DIR"
+          cp "target/release/grandjury" "$REL_DIR/$STEM/grandjury"
+          chmod 0755 "$REL_DIR/$STEM/grandjury"
+          cp README.md LICENSE CHANGELOG.md "$REL_DIR/$STEM/"
+          tar -C "$REL_DIR" -czf "$REL_DIR/${STEM}.tar.gz" "$STEM"
+          if command -v sha256sum >/dev/null 2>&1; then
+            (cd "$REL_DIR" && sha256sum "${STEM}.tar.gz" > SHA256SUMS)
+          else
+            (cd "$REL_DIR" && shasum -a 256 "${STEM}.tar.gz" > SHA256SUMS)
+          fi
+          cat > "$SHIM_DIR/curl" <<EOF
+          #!/usr/bin/env bash
+          set -euo pipefail
+          OUT=""
+          URL=""
+          while [ "\$#" -gt 0 ]; do
+            case "\$1" in
+              -o) OUT="\$2"; shift 2 ;;
+              --proto|--tlsv1.2|-fsSL)
+                if [ "\$1" = "--proto" ]; then shift 2; else shift 1; fi
+                ;;
+              http*) URL="\$1"; shift 1 ;;
+              *) shift 1 ;;
+            esac
+          done
+          FILE_NAME="\$(basename "\$URL")"
+          cp "$REL_DIR/\$FILE_NAME" "\$OUT"
+          EOF
+          chmod 0755 "$SHIM_DIR/curl"
+          sh ./install.sh --help >/dev/null
+          PATH="$SHIM_DIR:$PATH" sh ./install.sh --version v0.1.0 --to "$DEST_DIR"
+          INSTALLED="$DEST_DIR/grandjury"
+          test -x "$INSTALLED"
+          "$INSTALLED" tally examples/recorded_poll.json > "$WORK_DIR/out.txt"; grep -q "question," "$WORK_DIR/out.txt"
+          cp "$REL_DIR/SHA256SUMS" "$REL_DIR/SHA256SUMS.good"
+          printf '0000000000000000000000000000000000000000000000000000000000000000  %s.tar.gz\n' "$STEM" > "$REL_DIR/SHA256SUMS"
+          if PATH="$SHIM_DIR:$PATH" sh ./install.sh --version v0.1.0 --to "$WORK_DIR/bad" >/dev/null 2>&1; then
+            echo "error tampered SHA256SUMS unexpectedly succeeded" >&2
+            exit 1
+          fi
+          test ! -e "$WORK_DIR/bad/grandjury"
+          mv "$REL_DIR/SHA256SUMS.good" "$REL_DIR/SHA256SUMS"

@@ -1,0 +1,63 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: mdbook
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install mdBook v0.4.40
+        shell: bash
+        run: |
+          set -euo pipefail
+          ARCHIVE="mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz"
+          curl --proto '=https' --tlsv1.2 -fsSL "https://github.com/rust-lang/mdBook/releases/download/v0.4.40/${ARCHIVE}" -o "${ARCHIVE}"
+          echo "9ef07fd288ba58ff3b99d1c94e6d414d431c9a61fdb20348e5beb74b823d546b  ${ARCHIVE}" | sha256sum -c -
+          tar -xzf "${ARCHIVE}" mdbook
+          chmod 0755 mdbook
+          rm -f "${ARCHIVE}"
+      - name: Build operator handbook
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./mdbook build book
+          for page in index.html introduction.html guide.html architecture.html formats.html comparison.html performance.html faq.html; do
+            test -f "target/book/${page}"
+          done
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: target/book
+
+  deploy:
+    name: deploy-pages
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

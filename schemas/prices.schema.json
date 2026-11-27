@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/david-engelmann/grandjury/main/schemas/prices.schema.json",
+  "title": "Grandjury Price Table (v1)",
+  "description": "Version 1 flat per-response decimal price map read by grandjury cost.",
+  "type": "object",
+  "required": [
+    "prices"
+  ],
+  "properties": {
+    "prices": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[^\\r\\n]*$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^(([0-9]+(\\.[0-9]+)?|\\.[0-9]+)|-(0+(\\.0+)?|\\.0+))([eE][+-]?[0-9]+)?$"
+      }
+    }
+  }
+}

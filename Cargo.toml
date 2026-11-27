@@ -16,6 +16,7 @@ exclude = [
   "CONTRACT.md",
   "ROADMAP.md",
   ".github/**",
+  "book/**",
   "docs/**",
   "examples/**",
   "rust/src/bin/**",

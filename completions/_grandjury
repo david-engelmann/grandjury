@@ -1,0 +1,35 @@
+#compdef grandjury
+
+_grandjury() {
+  local -a subcommands
+  subcommands=(
+    'tally'
+    'stadium'
+    'cost'
+    'agreement'
+    'compare'
+    'census'
+    'ledger'
+    'dissent'
+    'swing'
+    'minority'
+    'bench'
+    'pool'
+    'aggregate'
+    'canvass'
+    'roll'
+    'muster'
+    'margin'
+    'accord'
+    'standing'
+    'answers'
+    'pairs'
+    'shares'
+  )
+  _arguments -C \
+    '(- *)'{-h,--help}'[Print help information]' \
+    '1:command:compadd -a subcommands' \
+    '*:input file:_files'
+}
+
+_grandjury "$@"

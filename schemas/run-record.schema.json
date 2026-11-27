@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/david-engelmann/grandjury/main/schemas/run-record.schema.json",
+  "title": "Grandjury Campaign Run Record (v1)",
+  "description": "Version 1 recorded-run and round-incident accounting record rebuilt by offline makers.",
+  "type": "object",
+  "required": [
+    "questions",
+    "seats_per_question_per_model",
+    "models",
+    "incident"
+  ],
+  "properties": {
+    "questions": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "seats_per_question_per_model": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "route",
+          "calls_attempted",
+          "calls_recorded",
+          "failed_calls",
+          "abstained",
+          "input_tokens",
+          "output_tokens"
+        ],
+        "properties": {
+          "route": {
+            "type": "string",
+            "enum": [
+              "jev",
+              "chat"
+            ]
+          },
+          "calls_attempted": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "calls_recorded": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "failed_calls": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "abstained": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "input_tokens": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "output_tokens": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "cost_dollars": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "incident": {
+      "type": "object"
+    }
+  }
+}

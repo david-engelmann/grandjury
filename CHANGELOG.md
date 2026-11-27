@@ -6,9 +6,11 @@ All notable product and packaging changes to `grandjury` stand recorded in this 
 
 ### Added
 
-- Prebuilt release workflow covering Linux, macOS, and Windows archives alongside a `SHA256SUMS` verification installer (`install.sh`) for Linux and macOS.
-- Crate packaging and `cargo-binstall` metadata in `Cargo.toml`, excluding the internal `codepoint_scan` gate binary from published crates, plus `deny.toml` license and advisory checks.
-- Documentation suite under `docs/` covering the operator guide, pipeline architecture, multi-agent orchestration recipes, and frequently asked questions, paired with dark and light vector diagrams under `docs/media/`.
+- Prebuilt five-target release workflow (`release.yml`) bundling shell completions and JSON Schemas into Linux, macOS, and Windows archives alongside a `SHA256SUMS` verification installer (`install.sh`).
+- Crate packaging and `cargo-binstall` metadata in `Cargo.toml`, excluding internal gate binaries and handbook build sources so published `.crate` archives stay compact, plus `deny.toml` license and advisory checks.
+- Draft 2020-12 JSON Schemas under `schemas/` and static tab-completion scripts under `completions/` for `bash`, `zsh`, `fish`, and `PowerShell`.
+- Searchable `mdBook` operator handbook under `book/` paired with GitHub Pages CI (`docs.yml`), clean-room installer verification (`clean-install.yml`), and three-OS matrix validation (`cross-platform.yml`).
+- Documentation and visual media suite under `docs/` and `docs/media/` covering the operator guide, pipeline architecture, Spectacle Line comparison, measured Apple Silicon release benchmarks, social preview cards, animated CLI showcase, and pinned-compatible storefront README draft.
 
 ## 0.1.0
 

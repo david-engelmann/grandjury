@@ -10,14 +10,22 @@
 
 Multi-model jury polling, sub-0.5 confidence abstention, flat per-response spend, and twenty-two consensus readings.
 
+<p align="center">
+  <img alt="grandjury terminal demo" src="media/money-shot.gif" width="840">
+</p>
+
 ## Documentation Map
 
 | Document | What it covers |
 | --- | --- |
 | [GUIDE.md](GUIDE.md) | Installation, 60-second walkthrough, categorized command matrix, and multi-agent pipeline recipes |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Four-stage processing pipeline, module map, exact arithmetic guarantees, and input fencing |
-| [FAQ.md](FAQ.md) | Scope boundaries against sibling Spectacle tools, exit codes, determinism, and common troubleshooting |
-| [../FORMATS.md](../FORMATS.md) | Complete version 1 JSON and text input schemas, field rules, and minimal examples |
+| [COMPARISON.md](COMPARISON.md) | Spectacle Line 5-tool boundary matrix and comparison against cloud eval SaaS and scripts |
+| [PERFORMANCE.md](PERFORMANCE.md) | Measured release binary size, sub-100ms benchmark latencies, and parser memory bounds |
+| [FAQ.md](FAQ.md) | Scope boundaries, exit codes (`0`, `1`, `2`, `120`), determinism, and troubleshooting |
+| [../FORMATS.md](../FORMATS.md) | Normative version 1 JSON and text input schemas, field rules, and minimal examples |
+| [../schemas/](../schemas/) | Draft 2020-12 JSON Schema definitions (`*.schema.json`) for IDE autocomplete and CI validation |
+| [../completions/](../completions/) | Ready-to-source `bash`, `zsh`, `fish`, and `PowerShell` tab-completion scripts |
 | [../CONTRACT.md](../CONTRACT.md) | Normative behavioural specification and numbered round obligations |
 | [../CHANGELOG.md](../CHANGELOG.md) | Release history and packaging milestones |
 

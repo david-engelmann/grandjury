@@ -8,4 +8,11 @@
 *.yaml text eol=lf
 *.cff text eol=lf
 *.sh text eol=lf
+*.bash text eol=lf
+*.fish text eol=lf
+*.ps1 text eol=lf
+*.css text eol=lf
 *.svg text eol=lf
+completions/_* text eol=lf
+*.png binary
+*.gif binary

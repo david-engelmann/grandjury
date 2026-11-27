@@ -52,20 +52,26 @@ jobs:
         with:
           key: ${{ matrix.target }}
       - name: Build release binary
-        run: cargo build --release --locked --target ${{ matrix.target }} --bin grandjury
+        env:
+          MATRIX_TARGET: ${{ matrix.target }}
+        run: cargo build --release --locked --target "$MATRIX_TARGET" --bin grandjury
       - name: Smoke check binary (Unix)
         if: runner.os != 'Windows' && !matrix.cross
         shell: bash
+        env:
+          MATRIX_TARGET: ${{ matrix.target }}
         run: |
           set -euo pipefail
-          BIN="target/${{ matrix.target }}/release/grandjury"
-          "$BIN" --help >/dev/null
+          BIN="target/${MATRIX_TARGET}/release/grandjury"
+          OUT_FILE="${RUNNER_TEMP}/smoke.txt"; "$BIN" tally examples/recorded_poll.json > "$OUT_FILE"; grep -q "question," "$OUT_FILE"; rm -f "$OUT_FILE"
       - name: Smoke check binary (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
+        env:
+          MATRIX_TARGET: ${{ matrix.target }}
         run: |
-          $bin = "target/${{ matrix.target }}/release/grandjury.exe"
-          & $bin --help | Out-Null; if ($LASTEXITCODE -ne 0) { exit 1 }; exit 0
+          $bin = "target/$env:MATRIX_TARGET/release/grandjury.exe"
+          $out = & $bin tally examples/recorded_poll.json; if ($LASTEXITCODE -ne 0) { exit 1 }; if (-not ($out -join "`n").Contains("question,")) { exit 1 }; exit 0
       - name: Package archive (Unix)
         if: matrix.archive == 'tar.gz'
         shell: bash
@@ -88,7 +94,8 @@ jobs:
           mkdir -p "dist/${STEM}"
           cp "target/${MATRIX_TARGET}/release/grandjury" "dist/${STEM}/grandjury"
           chmod 0755 "dist/${STEM}/grandjury"
-          cp README.md LICENSE CHANGELOG.md "dist/${STEM}/"
+          cp README.md LICENSE CHANGELOG.md FORMATS.md "dist/${STEM}/"
+          cp -R completions schemas "dist/${STEM}/"
           tar -C dist -czf "dist/${STEM}.tar.gz" "${STEM}"
           rm -rf "dist/${STEM}"
       - name: Package archive (Windows)
@@ -111,7 +118,8 @@ jobs:
           $stem = "grandjury-$tag-$env:MATRIX_TARGET"
           New-Item -ItemType Directory -Force -Path "dist/$stem" | Out-Null
           Copy-Item "target/$env:MATRIX_TARGET/release/grandjury.exe" "dist/$stem/grandjury.exe"
-          Copy-Item README.md, LICENSE, CHANGELOG.md "dist/$stem/"
+          Copy-Item README.md, LICENSE, CHANGELOG.md, FORMATS.md "dist/$stem/"
+          Copy-Item -Recurse completions, schemas "dist/$stem/"
           Compress-Archive -Path "dist/$stem" -DestinationPath "dist/$stem.zip" -Force
           Remove-Item -Recurse -Force "dist/$stem"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

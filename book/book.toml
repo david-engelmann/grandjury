@@ -1,0 +1,16 @@
+[book]
+title = "Grandjury Handbook"
+authors = ["David Engelmann"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "../target/book"
+create-missing = false
+
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/david-engelmann/grandjury"
+additional-css = ["theme/custom.css"]
+no-section-label = true
