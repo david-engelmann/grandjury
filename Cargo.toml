@@ -3,8 +3,36 @@ name = "grandjury"
 version = "0.1.0"
 edition = "2021"
 description = "Grandjury is a Rust library and command line tool that aggregates recorded answers to a question and prints readings over them."
+license = "MIT"
+repository = "https://github.com/david-engelmann/grandjury"
+homepage = "https://github.com/david-engelmann/grandjury"
+documentation = "https://docs.rs/grandjury"
+readme = "README.md"
+keywords = ["cli", "consensus", "voting", "evaluation", "llm"]
+categories = ["command-line-utilities", "science"]
+default-run = "grandjury"
+exclude = [
+  "AGENTS.md",
+  "CONTRACT.md",
+  "ROADMAP.md",
+  ".github/**",
+  "docs/**",
+  "examples/**",
+  "rust/src/bin/**",
+  "rust/tests/**",
+]
+
+[package.metadata.binstall]
+pkg-url = "{ repo }/releases/download/v{ version }/grandjury-v{ version }-{ target }.tar.gz"
+bin-dir = "grandjury-v{ version }-{ target }/{ bin }{ binary-ext }"
+pkg-fmt = "tgz"
+
+[package.metadata.binstall.overrides.x86_64-pc-windows-msvc]
+pkg-url = "{ repo }/releases/download/v{ version }/grandjury-v{ version }-{ target }.zip"
+pkg-fmt = "zip"
 
 [lib]
+name = "grandjury"
 path = "rust/src/lib.rs"
 
 [[bin]]

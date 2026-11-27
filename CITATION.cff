@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use Grandjury in research or engineering benchmarks, please cite this software."
+type: software
+title: "Grandjury"
+abstract: "Grandjury is a Rust library and command line tool that aggregates recorded multi model jury votes, abstentions, dissent, and API spend across poll waves."
+authors:
+  - family-names: "Engelmann"
+    given-names: "David"
+version: "0.1.0"
+license: "MIT"
+repository-code: "https://github.com/david-engelmann/grandjury"
+url: "https://github.com/david-engelmann/grandjury"
+keywords:
+  - "cli"
+  - "consensus"
+  - "voting"
+  - "evaluation"
+  - "llm"

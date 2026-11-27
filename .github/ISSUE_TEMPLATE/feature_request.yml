@@ -1,0 +1,19 @@
+name: Feature request
+description: Propose a new reading, CLI flag, or integration surface for grandjury
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Use case
+      description: Describe the workflow or multi-agent pipeline need this feature solves
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed CLI or library behavior
+      description: Sketch the expected command invocation, inputs, exit statuses, and deterministic output shape
+    validations:
+      required: true
