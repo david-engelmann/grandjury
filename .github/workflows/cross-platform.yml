@@ -1,0 +1,57 @@
+name: cross-platform
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matrix:
+    name: build-and-smoke (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # master
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+        with:
+          key: cross-${{ runner.os }}
+      - name: Build release binaries
+        run: cargo build --release --locked --bin grandjury --bin codepoint_scan
+      - name: Run codepoint scan
+        run: cargo run --release --locked --bin codepoint_scan
+      - name: Run test suite (Linux)
+        if: runner.os == 'Linux'
+        run: cargo test --locked
+      - name: Run test suite (macOS)
+        if: runner.os == 'macOS'
+        run: cargo test --locked
+      - name: Run test suite (Windows)
+        if: runner.os == 'Windows'
+        run: cargo test --lib --locked
+      - name: Smoke check release binary (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN="target/release/grandjury"
+          OUT_FILE="${RUNNER_TEMP}/smoke.txt"; "$BIN" tally examples/recorded_poll.json > "$OUT_FILE"; grep -q "question," "$OUT_FILE"; rm -f "$OUT_FILE"
+      - name: Smoke check release binary (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $bin = "target/release/grandjury.exe"
+          $out = & $bin tally examples/recorded_poll.json; if ($LASTEXITCODE -ne 0) { exit 1 }; if (-not ($out -join "`n").Contains("question,")) { exit 1 }; exit 0

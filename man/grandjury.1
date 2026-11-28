@@ -1,0 +1,72 @@
+.TH GRANDJURY 1 "2026-11-27" "grandjury 0.1.0" "Spectacle Line Manual"
+.SH NAME
+grandjury \- multi-model discrete jury poll aggregator, spend counter, and wave consensus reader
+.SH SYNOPSIS
+\fBgrandjury\fR \fB-h\fR | \fB--help\fR
+.br
+\fBgrandjury\fR \fICOMMAND\fR \fIARGS\fR ...
+.SH DESCRIPTION
+\fBgrandjury\fR aggregates recorded juror responses to finite-choice questions across model families. It enforces duplicate-juror and spoiled-ballot rules, converts sub-0.5 confidence guesses into explicit abstentions, renders exact rational vote tallies and stadium bars, computes base-10 decimal API spend, and prints nineteen multi-poll and multi-wave agreement, consensus, dissent, and swing readings across twenty-two commands.
+.SH COMMANDS
+.TP
+\fBtally <poll.json>\fR
+Print total, valid, spoiled, and abstained counts plus exact answer vote shares.
+.TP
+\fBstadium <poll.json>\fR
+Render ASCII vote bars followed by the wall of juror reasons.
+.TP
+\fBcost <poll.json> <prices.json>\fR
+Compute exact base-10 decimal response spend by model and overall.
+.TP
+\fBagreement <poll.json> [<poll2.json> ...]\fR
+Measure within-model juror agreement across one or more poll files.
+.TP
+\fBcompare <first_dir> <second_dir>\fR
+Compare plurality stability (held, moved, not counted) across two poll waves.
+.TP
+\fBcensus | ledger | dissent | swing | minority | bench | pool | aggregate | canvass | roll | muster | margin | accord | standing | answers | pairs | shares <label> <dir> ...\fR
+Run the seventeen multi-wave campaign consensus, dissent, turnout, margin, and share readings.
+.SH EXIT STATUS
+.TP
+\fB0\fR
+Help text printed, or valid poll or wave set loaded and reading printed (including when stdout closes during final flush with 4097 to 8191 bytes buffered under PORT-13).
+.TP
+\fB1\fR
+Malformed poll, non-UTF-8 file, malformed price table, or set constraint refused with defect lines on stdout, cost precision overflow, or closed stdout write when 8192 or more bytes sit buffered.
+.TP
+\fB2\fR
+Missing or odd <label> <dir> pairs, unrecognized option, or unknown subcommand on stderr.
+.TP
+\fB120\fR
+Failed stderr stream write, or closed stdout write when 4096 or fewer bytes sit buffered.
+.SH EXAMPLES
+From a repository checkout containing the shipped synthetic fixtures under
+.I examples/
+.PP
+Tally a recorded poll
+.nf
+.RS 4
+grandjury tally examples/recorded_poll.json
+.RE
+.fi
+.PP
+Compute exact per-model poll cost
+.nf
+.RS 4
+grandjury cost examples/recorded_poll.json examples/prices.json
+.RE
+.fi
+.PP
+Compare two poll waves
+.nf
+.RS 4
+grandjury compare examples/pilot examples/wave
+.RE
+.fi
+.SH SEE ALSO
+Project documentation and Draft 2020-12 JSON Schemas at
+.I https://github.com/david-engelmann/grandjury
+and the online operator handbook at
+.I https://david-engelmann.github.io/grandjury/
+.SH AUTHORS
+David Engelmann. Released under the MIT License.

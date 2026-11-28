@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/david-engelmann/grandjury/main/schemas/poll.schema.json",
+  "title": "Grandjury Recorded Poll (v1)",
+  "description": "Version 1 discrete-choice juror poll read by tally, stadium, cost, agreement, and set commands.",
+  "type": "object",
+  "required": [
+    "question",
+    "answers",
+    "responses"
+  ],
+  "properties": {
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "[\\r\\n]"
+      }
+    },
+    "answers": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "not": {
+          "pattern": "[\\r\\n]"
+        }
+      }
+    },
+    "responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "juror",
+          "model",
+          "answer",
+          "reason"
+        ],
+        "properties": {
+          "juror": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
+          },
+          "answer": {
+            "type": "string",
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
+          },
+          "abstained": {
+            "const": true
+          }
+        }
+      }
+    }
+  }
+}

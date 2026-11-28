@@ -1,0 +1,161 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag label for dry-run archive packaging (for example v0.1.0)"
+        required: false
+        default: "v0.1.0"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: archive (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
+            archive: tar.gz
+            cross: false
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-24.04-arm
+            archive: tar.gz
+            cross: false
+          - target: x86_64-apple-darwin
+            os: macos-latest
+            archive: tar.gz
+            cross: true
+          - target: aarch64-apple-darwin
+            os: macos-latest
+            archive: tar.gz
+            cross: false
+          - target: x86_64-pc-windows-msvc
+            os: windows-latest
+            archive: zip
+            cross: false
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # master
+        with:
+          toolchain: stable
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+        with:
+          key: ${{ matrix.target }}
+      - name: Build release binary
+        shell: bash
+        env:
+          MATRIX_TARGET: ${{ matrix.target }}
+        run: cargo build --release --locked --target "$MATRIX_TARGET" --bin grandjury
+      - name: Smoke check binary (Unix)
+        if: runner.os != 'Windows' && !matrix.cross
+        shell: bash
+        env:
+          MATRIX_TARGET: ${{ matrix.target }}
+        run: |
+          set -euo pipefail
+          BIN="target/${MATRIX_TARGET}/release/grandjury"
+          OUT_FILE="${RUNNER_TEMP}/smoke.txt"; "$BIN" tally examples/recorded_poll.json > "$OUT_FILE"; grep -q "question," "$OUT_FILE"; rm -f "$OUT_FILE"
+      - name: Smoke check binary (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env:
+          MATRIX_TARGET: ${{ matrix.target }}
+        run: |
+          $bin = "target/$env:MATRIX_TARGET/release/grandjury.exe"
+          $out = & $bin tally examples/recorded_poll.json; if ($LASTEXITCODE -ne 0) { exit 1 }; if (-not ($out -join "`n").Contains("question,")) { exit 1 }; exit 0
+      - name: Package archive (Unix)
+        if: matrix.archive == 'tar.gz'
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+          MATRIX_TARGET: ${{ matrix.target }}
+        run: |
+          set -euo pipefail
+          TAG="$REF_NAME"
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            TAG="$INPUT_TAG"
+          fi
+          if [[ ! "$TAG" =~ ^[0-9A-Za-z._-]+$ ]]; then
+            echo "error invalid release tag label $TAG" >&2
+            exit 1
+          fi
+          STEM="grandjury-${TAG}-${MATRIX_TARGET}"
+          mkdir -p "dist/${STEM}"
+          cp "target/${MATRIX_TARGET}/release/grandjury" "dist/${STEM}/grandjury"
+          chmod 0755 "dist/${STEM}/grandjury"
+          cp README.md LICENSE CHANGELOG.md FORMATS.md "dist/${STEM}/"
+          cp -R completions schemas man "dist/${STEM}/"
+          tar -C dist -czf "dist/${STEM}.tar.gz" "${STEM}"
+          rm -rf "dist/${STEM}"
+      - name: Package archive (Windows)
+        if: matrix.archive == 'zip'
+        shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+          MATRIX_TARGET: ${{ matrix.target }}
+        run: |
+          $tag = "$env:REF_NAME"
+          if ("$env:EVENT_NAME" -eq "workflow_dispatch") {
+            $tag = "$env:INPUT_TAG"
+          }
+          if ($tag -notmatch '^[0-9A-Za-z._-]+$') {
+            Write-Error "error invalid release tag label $tag"
+            exit 1
+          }
+          $stem = "grandjury-$tag-$env:MATRIX_TARGET"
+          New-Item -ItemType Directory -Force -Path "dist/$stem" | Out-Null
+          Copy-Item "target/$env:MATRIX_TARGET/release/grandjury.exe" "dist/$stem/grandjury.exe"
+          Copy-Item README.md, LICENSE, CHANGELOG.md, FORMATS.md "dist/$stem/"
+          Copy-Item -Recurse completions, schemas, man "dist/$stem/"
+          Compress-Archive -Path "dist/$stem" -DestinationPath "dist/$stem.zip" -Force
+          Remove-Item -Recurse -Force "dist/$stem"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-${{ matrix.target }}
+          path: dist/*
+          if-no-files-found: error
+
+  publish:
+    name: publish
+    needs: build
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Generate SHA256SUMS
+        run: |
+          cd artifacts
+          sha256sum grandjury-* > SHA256SUMS
+          cat SHA256SUMS
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
+        with:
+          subject-path: "artifacts/grandjury-*"
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
+        with:
+          generate_release_notes: true
+          files: |
+            artifacts/grandjury-*
+            artifacts/SHA256SUMS

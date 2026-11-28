@@ -1,0 +1,26 @@
+/* Warm carbon & amber accent styling for Spectacle mdBook handbooks */
+:root {
+  --content-max-width: 920px;
+}
+.ayu, .coal, .navy {
+  --bg: #0f0e0c;
+  --fg: #f2eee6;
+  --sidebar-bg: #161512;
+  --sidebar-fg: #d6d0c4;
+  --sidebar-active: #f59e0b;
+  --links: #f59e0b;
+  --quote-bg: #1c1a16;
+  --quote-border: #f59e0b;
+  --table-border-color: #2e2b25;
+  --table-header-bg: #1f1d19;
+  --table-alternate-bg: #161512;
+}
+.light, .rust {
+  --links: #c25e00;
+  --sidebar-active: #c25e00;
+}
+main img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

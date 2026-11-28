@@ -1,0 +1,1119 @@
+# grandjury
+
+Grandjury is a Rust library and command line tool that aggregates recorded answers to a question and prints readings over them.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/media/grandjury-lockup-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/media/grandjury-lockup-light.svg">
+    <img alt="grandjury" src="docs/media/grandjury-lockup-light.svg" width="360">
+  </picture>
+</p>
+
+<p align="center">
+  <a href="docs/README.md">Docs</a> ·
+  <a href="docs/GUIDE.md">Guide</a> ·
+  <a href="docs/COOKBOOK.md">Cookbook</a> ·
+  <a href="docs/ARCHITECTURE.md">Architecture</a> ·
+  <a href="FORMATS.md">Formats</a> · <a href="docs/COMPARISON.md">Comparison</a> ·
+  <a href="docs/PERFORMANCE.md">Performance</a> ·
+  <a href="docs/FAQ.md">FAQ</a> ·
+  <a href="schemas/">Schemas</a>
+</p>
+
+[![ci](https://github.com/david-engelmann/grandjury/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/david-engelmann/grandjury/actions/workflows/ci.yml) [![cross-platform](https://github.com/david-engelmann/grandjury/actions/workflows/cross-platform.yml/badge.svg)](https://github.com/david-engelmann/grandjury/actions/workflows/cross-platform.yml) [![docs](https://github.com/david-engelmann/grandjury/actions/workflows/docs.yml/badge.svg)](https://github.com/david-engelmann/grandjury/actions/workflows/docs.yml) [![MIT license](https://img.shields.io/badge/license-MIT-c25e00.svg)](LICENSE)
+
+A poll holds one question, the set of answers offered, and one recorded response per juror, and each response holds the answer the juror chose and a one line reason. Grandjury reads poll files and poll set directories from disk and prints twenty two deterministic readings over them, processing `95,877` juror ballots per second from a `928 KiB` standalone binary. Every command runs offline and makes no live call, and the same file always prints the same lines.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/media/grandjury-hero-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/media/grandjury-hero-light.svg">
+    <img alt="grandjury hero overview" src="docs/media/grandjury-hero-light.svg" width="880">
+  </picture>
+</p>
+
+```text
+question, Should the village library open on Sunday mornings?
+responses, 100
+valid, 50
+spoiled, 0
+abstained, 50
+open on Sundays, 50, 100.0%
+stay closed on Sundays, 0, 0.0%
+```
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/media/spectacle-arc-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/media/spectacle-arc-light.svg">
+    <img alt="Spectacle Line ecosystem map" src="docs/media/spectacle-arc-light.svg" width="880">
+  </picture>
+</p>
+
+## Install
+
+Install a prebuilt release binary on Linux or macOS with SHA-256 verification, install via `cargo binstall`, or build from source on Rust `1.88.0` or newer.
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/david-engelmann/grandjury/main/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+```sh
+cargo binstall grandjury
+```
+
+A Rust toolchain is the only prerequisite, and the crate builds on edition 2021. The suite stands tested at Rust 1.91.1, the toolchain the CI file pins.
+
+```sh
+git clone https://github.com/david-engelmann/grandjury.git
+cd grandjury
+cargo install --path . --bin grandjury --locked
+```
+
+## Quickstart
+
+Run the tally command over the recorded poll example from the root of the clone.
+
+```sh
+grandjury tally examples/recorded_poll.json
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+responses, 100
+valid, 50
+spoiled, 0
+abstained, 50
+open on Sundays, 50, 100.0%
+stay closed on Sundays, 0, 0.0%
+```
+
+## Usage
+
+Each file loads whole or not at all. A malformed poll yields no reading, and its loader names every malformed field it finds. A response naming an answer that was not offered is counted as spoiled and reported apart from the tally of the offered answers. The polls under examples were recorded in earlier rounds from two decision model routes under stated caps, and they stand committed as fixtures with their raw envelopes and their run records.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/media/grandjury-architecture-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/media/grandjury-architecture-light.svg">
+    <img alt="grandjury architecture" src="docs/media/grandjury-architecture-light.svg" width="880">
+  </picture>
+</p>
+
+| Family | Commands | Arguments | Purpose |
+| --- | --- | --- | --- |
+| Single poll (4) | `tally`, `stadium`, `cost`, `agreement` | `<poll.json>` (`+ <prices.json>` on `cost`) | Vote shares, `#` bar charts with walls of reasons, exact response spend, and per-model jury agreement |
+| Two-wave diff (1) | `compare` | `<first_dir> <second_dir>` | Pairwise plurality stability (`held`, `moved`, `not counted`) across two poll waves |
+| Multi-set campaign (17) | `census`, `ledger`, `dissent`, `swing`, `minority`, `bench`, `pool`, `aggregate`, `canvass`, `roll`, `muster`, `margin`, `accord`, `standing`, `answers`, `pairs`, `shares` | `<label> <dir> ...` | Cross-wave consensus, dissenters, swing courses, turnouts, margins, accord, and set shares |
+
+The tally command prints the count and the share for every answer in one recorded poll.
+
+```sh
+grandjury tally examples/recorded_poll.json
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+responses, 100
+valid, 50
+spoiled, 0
+abstained, 50
+open on Sundays, 50, 100.0%
+stay closed on Sundays, 0, 0.0%
+```
+
+The stadium command prints the tally of one poll as a histogram together with a wall of the jurors' one line reasons. The reading over the recorded poll runs to 108 lines and its full output stands at examples/stadium-golden.txt, so the first lines and the last lines stand below with the middle elided.
+
+```sh
+grandjury stadium examples/recorded_poll.json
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+responses, 100
+open on Sundays |########################################| 50, 100.0%
+stay closed on Sundays || 0, 0.0%
+wall of reasons
+open on Sundays
+  openai-1, openai/gpt-6-luna chose open on Sundays with confidence 0.65
+...
+  jev-48, jev-1.13.0 chose open on Sundays with confidence 0.08 and abstained
+  jev-49, jev-1.13.0 chose open on Sundays with confidence 0.02 and abstained
+  jev-50, jev-1.13.0 chose stay closed on Sundays with confidence 0.02 and abstained
+```
+
+The cost command prints what a recorded poll would have cost live, priced from a stated price table and the response count.
+
+```sh
+grandjury cost examples/recorded_poll.json examples/prices.json
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+responses, 100
+priced, 50 responses, 0.002600 dollars
+unpriced, 50 responses
+unpriced model, jev-1.13.0, 50 responses
+```
+
+The agreement command prints the agreement reading over recorded polls, stating for each poll and each jury the share every answer drew, the jury's plurality answer, and whether the pluralities of the two juries agree.
+
+```sh
+grandjury agreement examples/pilot_poll.json
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, jev-1.13.0, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, openai/gpt-6-luna, open on Sundays
+pluralities, not counted
+agreements, 0 of 0
+```
+
+The compare command prints the wave comparison reading over two poll sets, stating for each question and each jury what each wave drew and whether the plurality held or moved. The reading over the pilot and the wave runs to 297 lines and its full output stands at examples/wave-comparison-golden.txt, so the first section and the closing lines stand below with the middle elided.
+
+```sh
+grandjury compare examples/pilot examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0
+first wave, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, first wave, none
+second wave, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+...
+  cancel outright, 0, 0, 0.0%
+plurality, second wave, move into the hall
+movement, openai/gpt-6-luna, held
+movements, 16 held, 0 moved, 8 not counted
+```
+
+The census command prints the census reading over one or more recorded poll sets named with labels, question by question and jury by jury. The reading over the three recorded sets runs to 856 lines and its full output stands at examples/census-golden.txt, so the first lines and the closing lines stand below with the middle elided.
+
+```sh
+grandjury census pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0
+set, pilot, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, pilot, none
+set, wave, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+...
+record, polls 64, recorded 567, valid 346, abstained 221, spoiled 0
+jury, jev-1.13.0, recorded 285, valid 165, abstained 120, spoiled 0
+jury, openai/gpt-6-luna, recorded 282, valid 181, abstained 101, spoiled 0
+movements, 16 held, 0 moved, 85 not counted
+```
+
+The ledger command prints the juror ledger reading over one or more recorded poll sets named with labels, respondent by respondent.
+
+```sh
+grandjury ledger pilot examples/pilot
+```
+
+```text
+respondent block, jev-1
+set, pilot, recorded 12, valid 7, abstained 5, spoiled 0
+respondent, jev-1, recorded 12, valid 7, abstained 5, spoiled 0
+agreement, 7 of 7, 1
+respondent block, jev-2
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, jev-2, recorded 12, valid 8, abstained 4, spoiled 0
+agreement, 8 of 8, 1
+respondent block, jev-3
+set, pilot, recorded 12, valid 7, abstained 5, spoiled 0
+respondent, jev-3, recorded 12, valid 7, abstained 5, spoiled 0
+agreement, 7 of 7, 1
+respondent block, jev-4
+set, pilot, recorded 12, valid 7, abstained 5, spoiled 0
+respondent, jev-4, recorded 12, valid 7, abstained 5, spoiled 0
+agreement, 7 of 7, 1
+respondent block, jev-5
+set, pilot, recorded 12, valid 6, abstained 6, spoiled 0
+respondent, jev-5, recorded 12, valid 6, abstained 6, spoiled 0
+agreement, 6 of 6, 1
+respondent block, openai-1
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-1, recorded 12, valid 8, abstained 4, spoiled 0
+agreement, 8 of 8, 1
+respondent block, openai-2
+set, pilot, recorded 12, valid 6, abstained 6, spoiled 0
+respondent, openai-2, recorded 12, valid 6, abstained 6, spoiled 0
+agreement, 6 of 6, 1
+respondent block, openai-3
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-3, recorded 12, valid 8, abstained 4, spoiled 0
+agreement, 8 of 8, 1
+respondent block, openai-4
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-4, recorded 12, valid 8, abstained 4, spoiled 0
+agreement, 8 of 8, 1
+respondent block, openai-5
+set, pilot, recorded 12, valid 8, abstained 4, spoiled 0
+respondent, openai-5, recorded 12, valid 8, abstained 4, spoiled 0
+agreement, 8 of 8, 1
+record, polls 12, recorded 120, valid 73, abstained 47, spoiled 0
+movements, 0 held, 0 moved, 0 not counted
+```
+
+The dissent command prints the dissent reading over one or more recorded poll sets named with labels, each jury's plurality, the margin it stood by, and the respondents who stood against it. The reading over the pilot set alone runs to 97 lines, so its first blocks and its closing line stand below with the middle elided, and the full reading over the three recorded sets stands at examples/dissent-golden.txt.
+
+```sh
+grandjury dissent pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+plurality, pilot, none
+margin, pilot, not counted
+question, Should the village library open on Sunday mornings?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+plurality, pilot, open on Sundays
+margin, pilot, 5
+...
+margin, pilot, 4
+dissents, 24 questions, 17 pluralities, 0 counted
+```
+
+The swing command prints the swing reading over one or more recorded poll sets named with labels, the plurality of each asking pooled over the whole poll, the margin it stood by, and the course of each question across its askings.
+
+```sh
+grandjury swing pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+asking, pilot, open on Sundays, margin 5
+course, held
+question, When should the community hall hold its spring clean?
+asking, pilot, the first Saturday of April, margin 5
+course, held
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, margin 10
+course, held
+question, Which night should the book club meet?
+asking, pilot, Wednesday, margin 4
+course, held
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, margin 7
+course, held
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, margin 10
+course, held
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, margin 10
+course, held
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, margin 3
+course, held
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, in the woods, margin 5
+course, held
+question, What should the choir sing at the winter concert?
+asking, pilot, a mix of carols and folk songs, margin 5
+course, held
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, margin not counted
+course, never decided
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, margin 9
+course, held
+swings, 12 questions, 11 held, 0 swung, 1 never decided, 12 askings
+```
+
+The minority command prints the minority reading over one or more recorded poll sets named with labels, the plurality of each asking pooled over the whole poll, the margin it stood by, and the respondents whose valid answer was not the pooled plurality answer.
+
+```sh
+grandjury minority pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+plurality, pilot, open on Sundays
+margin, pilot, 5
+question, When should the community hall hold its spring clean?
+plurality, pilot, the first Saturday of April
+margin, pilot, 5
+question, Should the school bake sale take card payments?
+plurality, pilot, both cards and cash
+margin, pilot, 10
+question, Which night should the book club meet?
+plurality, pilot, Wednesday
+margin, pilot, 4
+question, Should the allotment gate be locked at dusk?
+plurality, pilot, lock it at dusk
+margin, pilot, 7
+question, What should the pub quiz do with tied scores?
+plurality, pilot, a tiebreak question
+margin, pilot, 10
+question, Should the parish newsletter go out by email instead of print?
+plurality, pilot, both email and print
+margin, pilot, 10
+question, When should the farmers market start in summer?
+plurality, pilot, eight in the morning
+margin, pilot, 3
+question, Should the scout troop camp by the river or in the woods?
+plurality, pilot, in the woods
+margin, pilot, 5
+question, What should the choir sing at the winter concert?
+plurality, pilot, a mix of carols and folk songs
+margin, pilot, 5
+question, Should the bus stop move closer to the shops?
+plurality, pilot, none
+margin, pilot, not counted
+question, How should the village fete handle rain?
+plurality, pilot, move into the hall
+margin, pilot, 9
+minorities, 12 questions, 12 askings, 11 pluralities, 0 dissenters
+```
+
+The bench command prints the bench reading over one or more recorded poll sets named with labels, model by model, stating the model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking.
+
+```sh
+grandjury bench pilot examples/pilot
+```
+
+```text
+model, jev-1.13.0
+question, Should the village library open on Sunday mornings?
+asking, pilot, none, valid 0, with the plurality 0
+question, When should the community hall hold its spring clean?
+asking, pilot, the first Saturday of April, valid 5, with the plurality 5
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, valid 5, with the plurality 5
+question, Which night should the book club meet?
+asking, pilot, Wednesday, valid 4, with the plurality 4
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, valid 5, with the plurality 5
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, valid 5, with the plurality 5
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, valid 5, with the plurality 5
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, valid 1, with the plurality 1
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, none, valid 0, with the plurality 0
+question, What should the choir sing at the winter concert?
+asking, pilot, none, valid 0, with the plurality 0
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, valid 0, with the plurality 0
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, valid 5, with the plurality 5
+model, openai/gpt-6-luna
+question, Should the village library open on Sunday mornings?
+asking, pilot, open on Sundays, valid 5, with the plurality 5
+question, When should the community hall hold its spring clean?
+asking, pilot, none, valid 0, with the plurality 0
+question, Should the school bake sale take card payments?
+asking, pilot, both cards and cash, valid 5, with the plurality 5
+question, Which night should the book club meet?
+asking, pilot, none, valid 0, with the plurality 0
+question, Should the allotment gate be locked at dusk?
+asking, pilot, lock it at dusk, valid 2, with the plurality 2
+question, What should the pub quiz do with tied scores?
+asking, pilot, a tiebreak question, valid 5, with the plurality 5
+question, Should the parish newsletter go out by email instead of print?
+asking, pilot, both email and print, valid 5, with the plurality 5
+question, When should the farmers market start in summer?
+asking, pilot, eight in the morning, valid 2, with the plurality 2
+question, Should the scout troop camp by the river or in the woods?
+asking, pilot, in the woods, valid 5, with the plurality 5
+question, What should the choir sing at the winter concert?
+asking, pilot, a mix of carols and folk songs, valid 5, with the plurality 5
+question, Should the bus stop move closer to the shops?
+asking, pilot, none, valid 0, with the plurality 0
+question, How should the village fete handle rain?
+asking, pilot, move into the hall, valid 4, with the plurality 4
+benches, 2 models, 73 answers, 73 with the plurality
+```
+
+The pool command prints the pool reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking.
+
+```sh
+grandjury pool pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, pilot, open on Sundays
+question, When should the community hall hold its spring clean?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, pilot, the first Saturday of April
+question, Should the school bake sale take card payments?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 10, 1, 100.0%
+plurality, pilot, both cards and cash
+question, Which night should the book club meet?
+set, pilot, recorded 10, valid 4, abstained 6, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, pilot, Wednesday
+question, Should the allotment gate be locked at dusk?
+set, pilot, recorded 10, valid 7, abstained 3, spoiled 0
+  lock it at dusk, 7, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, pilot, lock it at dusk
+question, What should the pub quiz do with tied scores?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  a tiebreak question, 10, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, pilot, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+set, pilot, recorded 10, valid 10, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 10, 1, 100.0%
+plurality, pilot, both email and print
+question, When should the farmers market start in summer?
+set, pilot, recorded 10, valid 3, abstained 7, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 3, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, pilot, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, pilot, in the woods
+question, What should the choir sing at the winter concert?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, pilot, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+set, pilot, recorded 10, valid 0, abstained 10, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, pilot, none
+question, How should the village fete handle rain?
+set, pilot, recorded 10, valid 9, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 9, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, pilot, move into the hall
+pools, 12 questions, 12 askings, 73 valid, 11 pluralities
+```
+
+The aggregate command prints the aggregate reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question.
+
+```sh
+grandjury aggregate pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, open on Sundays
+question, When should the community hall hold its spring clean?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, the first Saturday of April
+question, Should the school bake sale take card payments?
+pool, recorded 10, valid 10, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 10, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+pool, recorded 10, valid 4, abstained 6, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, Wednesday
+question, Should the allotment gate be locked at dusk?
+pool, recorded 10, valid 7, abstained 3, spoiled 0
+  lock it at dusk, 7, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+pool, recorded 10, valid 10, abstained 0, spoiled 0
+  a tiebreak question, 10, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+pool, recorded 10, valid 10, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 10, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+pool, recorded 10, valid 3, abstained 7, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 3, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, in the woods
+question, What should the choir sing at the winter concert?
+pool, recorded 10, valid 5, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+pool, recorded 10, valid 0, abstained 10, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+pool, recorded 10, valid 9, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 9, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+aggregates, 12 questions, 12 askings, 73 valid, 11 pluralities
+```
+
+The canvass command prints the canvass reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question, per jury, the counts of the jury summed over the askings of the question, the count standing behind every offered answer of the question with its share of the summed valid answers of the jury, and the plurality of the jury at the question.
+
+```sh
+grandjury canvass pilot examples/pilot
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, open on Sundays
+question, When should the community hall hold its spring clean?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, the first Saturday of April
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  the first Saturday of April, 0, 0, 0.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, none
+question, Should the school bake sale take card payments?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, both cards and cash
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+jury, jev-1.13.0, recorded 5, valid 4, abstained 1, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, Wednesday
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 0, 0, 0.0%
+  Thursday, 0, 0, 0.0%
+plurality, none
+question, Should the allotment gate be locked at dusk?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  lock it at dusk, 5, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+jury, openai/gpt-6-luna, recorded 5, valid 2, abstained 3, spoiled 0
+  lock it at dusk, 2, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, both email and print
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+jury, jev-1.13.0, recorded 5, valid 1, abstained 4, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 1, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+jury, openai/gpt-6-luna, recorded 5, valid 2, abstained 3, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 2, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 0, 0, 0.0%
+plurality, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, in the woods
+question, What should the choir sing at the winter concert?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 0, 0, 0.0%
+  folk songs only, 0, 0, 0.0%
+plurality, none
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 5, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+jury, openai/gpt-6-luna, recorded 5, valid 4, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 4, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+canvasses, 12 questions, 24 juries, 17 pluralities, 17 with the plurality
+```
+
+The roll command prints the roll reading over one or more recorded poll sets named with labels, jury by jury in the order the juries first appear across the sets, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section.
+
+```sh
+grandjury roll pilot examples/pilot
+```
+
+```text
+model, jev-1.13.0
+question, Should the village library open on Sunday mornings?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  open on Sundays, 0, 0, 0.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, none
+question, When should the community hall hold its spring clean?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  the first Saturday of April, 5, 1, 100.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, the first Saturday of April
+question, Should the school bake sale take card payments?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+jury, jev-1.13.0, recorded 5, valid 4, abstained 1, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 4, 1, 100.0%
+  Thursday, 0, 0, 0.0%
+plurality, Wednesday
+question, Should the allotment gate be locked at dusk?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  lock it at dusk, 5, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+jury, jev-1.13.0, recorded 5, valid 1, abstained 4, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 1, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 0, 0, 0.0%
+plurality, none
+question, What should the choir sing at the winter concert?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 0, 0, 0.0%
+  folk songs only, 0, 0, 0.0%
+plurality, none
+question, Should the bus stop move closer to the shops?
+jury, jev-1.13.0, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+jury, jev-1.13.0, recorded 5, valid 5, abstained 0, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 5, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+standing, 12 questions, 8 pluralities, 8 with the plurality
+model, openai/gpt-6-luna
+question, Should the village library open on Sunday mornings?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  open on Sundays, 5, 1, 100.0%
+  stay closed on Sundays, 0, 0, 0.0%
+plurality, open on Sundays
+question, When should the community hall hold its spring clean?
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  the first Saturday of April, 0, 0, 0.0%
+  the last Saturday of April, 0, 0, 0.0%
+  a weekday evening, 0, 0, 0.0%
+plurality, none
+question, Should the school bake sale take card payments?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  cards only, 0, 0, 0.0%
+  cash only, 0, 0, 0.0%
+  both cards and cash, 5, 1, 100.0%
+plurality, both cards and cash
+question, Which night should the book club meet?
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  Tuesday, 0, 0, 0.0%
+  Wednesday, 0, 0, 0.0%
+  Thursday, 0, 0, 0.0%
+plurality, none
+question, Should the allotment gate be locked at dusk?
+jury, openai/gpt-6-luna, recorded 5, valid 2, abstained 3, spoiled 0
+  lock it at dusk, 2, 1, 100.0%
+  leave it unlocked, 0, 0, 0.0%
+  lock it at nine, 0, 0, 0.0%
+plurality, lock it at dusk
+question, What should the pub quiz do with tied scores?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  a tiebreak question, 5, 1, 100.0%
+  share the prize, 0, 0, 0.0%
+  replay the final round, 0, 0, 0.0%
+plurality, a tiebreak question
+question, Should the parish newsletter go out by email instead of print?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  email only, 0, 0, 0.0%
+  print only, 0, 0, 0.0%
+  both email and print, 5, 1, 100.0%
+plurality, both email and print
+question, When should the farmers market start in summer?
+jury, openai/gpt-6-luna, recorded 5, valid 2, abstained 3, spoiled 0
+  seven in the morning, 0, 0, 0.0%
+  eight in the morning, 2, 1, 100.0%
+  nine in the morning, 0, 0, 0.0%
+plurality, eight in the morning
+question, Should the scout troop camp by the river or in the woods?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  by the river, 0, 0, 0.0%
+  in the woods, 5, 1, 100.0%
+plurality, in the woods
+question, What should the choir sing at the winter concert?
+jury, openai/gpt-6-luna, recorded 5, valid 5, abstained 0, spoiled 0
+  carols only, 0, 0, 0.0%
+  a mix of carols and folk songs, 5, 1, 100.0%
+  folk songs only, 0, 0, 0.0%
+plurality, a mix of carols and folk songs
+question, Should the bus stop move closer to the shops?
+jury, openai/gpt-6-luna, recorded 5, valid 0, abstained 5, spoiled 0
+  move it closer, 0, 0, 0.0%
+  keep it where it is, 0, 0, 0.0%
+  add a second stop, 0, 0, 0.0%
+plurality, none
+question, How should the village fete handle rain?
+jury, openai/gpt-6-luna, recorded 5, valid 4, abstained 1, spoiled 0
+  carry on in the rain, 0, 0, 0.0%
+  move into the hall, 4, 1, 100.0%
+  postpone by a week, 0, 0, 0.0%
+  cancel outright, 0, 0, 0.0%
+plurality, move into the hall
+standing, 12 questions, 9 pluralities, 9 with the plurality
+rolls, 2 juries, 24 blocks, 17 pluralities, 17 with the plurality
+```
+
+The muster command prints the muster reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is.
+
+```sh
+grandjury muster pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+answer, open on Sundays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 10, 1, 100.0%
+muster, 10 responses, 1 juries, 1 pluralities
+answer, stay closed on Sundays
+  jev-1.13.0, 0, 0, 0.0%
+  openai/gpt-6-luna, 0, 0, 0.0%
+muster, 0 responses, 0 juries, 0 pluralities
+musters, 52 questions, 143 answers, 278 juries, 65 pluralities
+```
+
+The margin command prints the margin reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question the margin by which the pooled plurality of the question stands and, for each jury at the question, the margin by which the plurality of the jury's summed block stands.
+
+```sh
+grandjury margin pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+pool, recorded 20, valid 10, abstained 10, spoiled 0
+plurality, open on Sundays
+margin, 10
+jury, jev-1.13.0, recorded 10, valid 0, abstained 10, spoiled 0
+plurality, none
+margin, not counted
+jury, openai/gpt-6-luna, recorded 10, valid 10, abstained 0, spoiled 0
+plurality, open on Sundays
+margin, 10
+margins, 52 questions, 101 blocks, 65 pluralities, 7 at one
+```
+
+The accord command prints the accord reading over one or more recorded poll sets named with labels, question by question in the order the questions first appear across the sets, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer.
+
+```sh
+grandjury accord pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+accord, open on Sundays
+accords, 52 questions, 64 parts, 44 in accord, 8 divided
+```
+
+The standing command prints the standing reading over one or more recorded poll sets named with labels, set by set in the order the sets stand in the input, stating for every set the counts of the set over the whole record, one part per question the set asked with its plurality and its margin, and the standing of the set over the record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question.
+
+```sh
+grandjury standing pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+set, pilot, recorded 120, valid 73, abstained 47, spoiled 0
+question, Should the village library open on Sunday mornings?
+plurality, open on Sundays
+margin, 5
+question, When should the community hall hold its spring clean?
+plurality, the first Saturday of April
+margin, 5
+question, Should the school bake sale take card payments?
+plurality, both cards and cash
+margin, 10
+```
+
+The answers command prints the answers reading over one or more recorded poll sets named with labels, answer by answer in the order of first offering, stating for every answer one part per question at which it was offered, the count of parts holding it at that question and of those the count standing in accord and the count standing with the pool, and the standing of the answer over the record, the questions at which it was offered and the parts holding it summed over those questions and at how many of those questions the accord of the question names it and at how many the pooled plurality of the question names it.
+
+```sh
+grandjury answers pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+answer, open on Sundays
+question, Should the village library open on Sunday mornings?
+held, 2, in accord, 2, with the pool, 2
+standing, 1 questions, 2 parts held, 1 in accord, 1 with the pool
+answer, stay closed on Sundays
+question, Should the village library open on Sunday mornings?
+held, 0, in accord, 0, with the pool, 0
+standing, 1 questions, 0 parts held, 0 in accord, 0 with the pool
+answer, the first Saturday of April
+question, When should the community hall hold its spring clean?
+```
+
+The pairs command prints the pairing reading over one or more recorded poll sets named with labels, set pair by set pair in the order of their sets in the input, stating for every pair of sets one part per question the pair shares, the part of each set at the question in the form of the accord reading and the pairing of the pair at the question, and the standing of the pair over the record, the questions it shares and at how many of them its parts stood agreed and divided and one held and neither held.
+
+```sh
+grandjury pairs pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+pair, pilot
+pair, full
+standing, 0 shared, 0 agreed, 0 divided, 0 one holds, 0 neither holds
+pair, pilot
+pair, wave
+question, Should the village library open on Sunday mornings?
+set, pilot, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+set, wave, recorded 10, valid 5, abstained 5, spoiled 0
+plurality, open on Sundays
+margin, 5
+pairing, agreed
+```
+
+The shares command prints the shares reading over one or more recorded poll sets named with labels, set by set in input order, stating for every set one part per question the set asks, the share of the question's valid responses the set holds at it as an exact fraction, the part standing whole where the set holds every valid response of the question and none where it holds none of them and not counted where the question's valid count stands at zero, and the standing of the set over the record, its parts and at how many of them it stood whole and none and not counted.
+
+```sh
+grandjury shares pilot examples/pilot full examples/full wave examples/wave
+```
+
+```text
+set, pilot
+question, Should the village library open on Sunday mornings?
+share, 5 of 10, 1/2
+question, When should the community hall hold its spring clean?
+share, 5 of 11, 5/11
+question, Should the school bake sale take card payments?
+share, 10 of 20, 1/2
+question, Which night should the book club meet?
+share, 4 of 9, 4/9
+question, Should the allotment gate be locked at dusk?
+share, 7 of 14, 1/2
+question, What should the pub quiz do with tied scores?
+share, 10 of 20, 1/2
+```
+
+## Status
+
+Seeded in October 2026. Setup has landed and Rounds 1 to 31 have closed, with all slices merged on main. Part of the Spectacle line in the 39 repo storefront perfection programme.
+
+## Programme status
+
+- Closed perfection rounds, 31 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed. Seeding and setup are not rounds.
+- Contract, SETUP-1 to SETUP-4 and GJ-1 to GJ-4 met. GJ-1 to GJ-4 stand in full form in CONTRACT.md with the Round 1 repair amendments, and Round 1 closed on the merged slice 2 after three reviews, a repair pass, and an approving re-review.
+- Contract, GJ-5 and GJ-6 met. They stand in full form in CONTRACT.md with the Round 2 repair amendments, and Round 2 closed on the merged slice 3 after three reviews, two repair passes, and two re-reviews, the second approving with no findings.
+- Contract, GJ-7 and GJ-8 met. They stand in full form in CONTRACT.md with the Round 3 repair amendments, and Round 3 closed on the merged slice 4 after three reviews, a repair pass, and an approving re-review.
+- Contract, GJ-9 and GJ-10 met. They stand in full form in CONTRACT.md with the Round 4 repair amendment, and Round 4 closed on the merged slice 5 after three reviews, a repair pass, and an approving re-review.
+- Contract, GJ-11 and GJ-12 met. They stand in full form in CONTRACT.md with the Round 5 repair amendment, and Round 5 closed on the merged slice 6 after three reviews, a repair pass, and an approving re-review.
+- Contract, GJ-13 and GJ-14 met. They stand in full form in CONTRACT.md with the Round 6 repair amendment, and Round 6 closed on the merged slice 7 after three reviews, a repair pass, and an approving re-review.
+- Contract, GJ-15 and GJ-16 met. They stand in full form in CONTRACT.md, and Round 7 closed on the merged slice 8 after three reviews, a repair pass, and an approving re-review.
+- Contract, GJ-17 and GJ-18 met. They stand in full form in CONTRACT.md, and Round 8 closed on the merged slice 9 after three reviews, all approving, with no repair pass.
+- Contract, GJ-19 and GJ-20 met. They stand in full form in CONTRACT.md, and Round 9 closed on the merged slice 10 after three reviews, a repair pass, and a discharging re-review.
+- Contract, GJ-21 and GJ-22 met. They stand in full form in CONTRACT.md with the FIX-GJ-14 repair amendment, and Round 10 closed on the merged slice 11 after three reviews approving, the spec review's two conditions discharged on executed checks.
+- Contract, GJ-23 and GJ-24 met. They stand in full form in CONTRACT.md with the FIX-GJ-15 and FIX-GJ-16 repair amendments, and Round 11 closed on the merged slice 12 after three reviews, the red team's rejection repaired under FIX-GJ-16, and a discharging re-review.
+- Contract, GJ-25 and GJ-26 met. They stand in full form in CONTRACT.md with the FIX-GJ-17, FIX-GJ-18, and FIX-GJ-19 repair amendments, and Round 12 closed on the merged slice 13 after three reviews, one standards Minor on a test comment repaired.
+- Contract, GJ-27 and GJ-28 met. They stand in full form in CONTRACT.md with the FIX-GJ-20 repair amendment, and Round 13 closed on the merged slice 14 after three reviews, a repair pass over the aggregate tests, three approving delta reviews, and a hosted lint repair.
+- Contract, GJ-29 and GJ-30 met. They stand in full form in CONTRACT.md, and Round 14 closed on the merged slice 15 after three reviews, a repair pass over the canvass test header, and three approving delta reviews.
+- Contract, GJ-31 and GJ-32 met. They stand in full form in CONTRACT.md, and Round 15 closed on the merged slice 16 after three reviews approving with findings and no repair owed, with the standards Minor on the duplicated counting helpers carried to a later round.
+- Contract, GJ-33 and GJ-34 met. They stand in full form in CONTRACT.md, and Round 16 closed on the merged slice 17 after three reviews, with the standards Minor on the muster pin comments repaired in the slice.
+- Contract, GJ-35 and GJ-36 met. They stand in full form in CONTRACT.md, and Round 17 closed on the merged slice 18 after three reviews, with the standards Minor on the margin pin comment repaired in the slice.
+- Contract, GJ-37 and GJ-38 met. They stand in full form in CONTRACT.md with the FIX-GJ-23 repair amendment, and Round 18 closed on the merged slice 19 after three reviews, the design's twice asking shape restated as the set rules refusal under FIX-GJ-23 with its pin restated in that form, and the round's eighteen unexecuted mutation runs and its base run carried to the Round 19 design warm-up.
+- Contract, GJ-39 and GJ-40 met. They stand in full form in CONTRACT.md, and Round 19 closed on the merged slice 20 after three reviews approving with findings, with the standing header's mutation postures restated to the executed record by two repair commits in the slice.
+- Contract, GJ-41 and GJ-42 met. They stand in full form in CONTRACT.md, and Round 20 closed on the merged slice 21 after three reviews, with the red team approving on recomputation of the answers golden byte for byte, its two Major findings in the shape and defective poll pins repaired in the slice, and the defective poll genus completed whole across the file's seven pins.
+- Contract, GJ-43 and GJ-44 met. They stand in full form in CONTRACT.md with the FIX-GJ-25 repair amendment stating the all-empty form of the answers reading, and Round 21 closed on the merged slice 22 after three reviews, with the red team approving with findings on executed recomputation, the findings standing against the design record's discrimination lists and carried to the records pass, the slice's one doc comment Minor in the pairs module repaired in the slice, and the answers module's doc comment instance of the same genus left standing as a named item for a later round.
+- Contract, GJ-45 and GJ-46 met. They stand in full form in CONTRACT.md with the FIX-GJ-26 repair amendment restating the census sentence of GJ-46 in the comma form, and Round 22 closed on the merged slice 23 after three reviews, with the execution record of GJ-45 standing executed whole on its charged trees, the mutation sets NH to NT on the Round 19 slice tree and OA to OT on the Round 20 and Round 21 slice trees, the base runs of Rounds 19 and 20, and the cargo leg of NG failing pin 12 alone, the closure bar of GJ-45 standing satisfied on that record, with the spec review approving with findings at one Minor standing against the build record and three Observations, the standards review approving with findings at one Major cured in the slice under FIX-GJ-26, two Minors cured in the same repair or standing recorded, and two Observations, the red team approving with findings at two Observations, and CodeRabbit's one Minor dismissed with reason on the record, the slice standing at six paths against main and the five path sentence of the slice record standing corrected here.
+- Contract, GJ-47 and GJ-48 met. They stand in full form in CONTRACT.md with the FIX-GJ-27 repair amendment restating the twice asking shape of GJ-48 in the refusal form and the FIX-GJ-28 repair amendment restating the standings clause of GJ-48 and the first clause of its S8, and Round 23 closed on the merged slice 24 after three reviews, with the first build of the round stopping on the design's twice asking premise, the set rules refusing a set that holds one question twice, and the owner's ruling spending FIX-GJ-27 on the precedent of FIX-GJ-23, the shape standing in the refusal form from the section's landing, the mutation QE standing uncharged as uncatchable by construction, and the guard mutation QI charged in its place and executed at pins 11 and 14, the command target's duplicate label pin falling beside the set, with the spec review approving with findings at one Major, two Minors, and four Observations, its Major and its first Minor standing cured in the slice, the tenth pin restated whole to the S5 fixture its charge states and renamed lowest_terms_shape_states_each_share_reduced under the owner's ruling, and the seventh pin's abstained response restored, its posture under QA standing as computed, with the standards review approving with findings at three Observations, the red team approving with findings at one Major and two Minors, all three of its findings standing against text and none moving a figure, and CodeRabbit returning two inline Minors on the slice, both read in full and judged valid on the code and both cured in the slice under FIX-GJ-28, no figure and no behaviour moving under either restatement of that amendment, the reseated build report's accounts of the tenth pin under QA and QC and QG and of the seventh pin under QA standing named here as written against the substituted and leaner fixtures without naming them, the repair report carrying the true mechanisms, and the shares target's header standing restated to the final executed sets in the same repair, the leanness of the sixth and eighth and ninth pins standing posture neutral as a named item on the record, the thirteenth pin's first form standing against the design record as the pairs form transplanted to a reading stating one section for each set, the shipped pin asserting the empty list at its closing line alone at zero sets, and the design record's two wordings cured in the pins standing recorded with them, the sets figure in the unsingularized form of the family and the fifth pin counting the accord's part lines at 64, and the design record's own errata standing named, its twice asking shape sentence itself, its surface paragraph sentence standing FIX-GJ-27 free and unspent in the round, superseded by the ruling's spend and answered by the amendment entry in the posture the Round 22 closure set, and its count of 33 test files against the 32 the tree counts.
+- Contract, GJ-49 and GJ-50 met. They stand in full form in CONTRACT.md with the FIX-GJ-24 repair amendment amending GJ-1 and GJ-4 to part the two failures the loaders' text reading folds, a file that stands and reads as bytes that are not valid UTF-8 drawing the single defect named file is not valid UTF-8 at the poll loader and at the price table loader and the read defect standing unchanged for a file that does not stand or cannot be read, the amendment standing reserved to the non UTF-8 refusal since Round 21 and spent in this round, and Round 24 closed on the merged slice 25 after three reviews, with the first build of the round stopping at the mutation QD, its executed set standing at seventeen falls against the five pins the design's computation charged in the set and the two falls it named beside it, and the owner's ruling restating the mutation's account to the executed falls, five in the set, a_file_that_is_not_valid_utf8_draws_the_decode_defect and a_directory_standing_as_the_poll_file_draws_the_read_defect of the polls target, a_price_file_that_is_not_valid_utf8_draws_the_decode_defect of the cost target, and a_tally_over_a_poll_file_that_is_not_valid_utf8_exits_one and a_census_over_a_set_whose_first_poll_file_is_not_valid_utf8_exits_one of the command target, and twelve beside it, an_unreadable_file_draws_the_named_defect and an_unreadable_price_file_draws_the_named_defect at the two loader seats, a_missing_poll_file_exits_one, the_census_command_refuses_a_missing_first_directory, the_agreement_command_names_a_missing_file, the_compare_command_refuses_a_missing_first_directory, and the missing first directory pins the_bench_command_refuses_a_missing_first_directory, the_dissent_command_refuses_a_missing_first_directory, the_ledger_command_refuses_a_missing_first_directory, the_minority_command_refuses_a_missing_first_directory, the_pool_command_refuses_a_missing_first_directory, and the_swing_command_refuses_a_missing_first_directory, every one of the twelve asserting the read defect text over a missing file or a missing first directory through the poll loader or the poll set loader, the design's computation standing corrected by the execution and the ruling in the form the spec review's Observation charges this closure to carry, the reseated build adopting the stopped lane's slice whole after verifying it blob for blob against the remote and reproducing the seventeen falls exactly on the repaired head, the warm up and QA and QB and QC standing as the stopped lane's executions on that identical tree, and GJ-50's execution discharging the empty section drop the shares target's header names uncharged, the mutation failing the shares pins an_empty_set_stands_beside_the_record_with_no_part and the_empty_forms_of_the_reading_stand_at_zero_figures and no other pin, the fifty fifth pin of the polls target standing as the parting's witness, passing on the base tree by design and falling under QD alone, and the slice's fifth commit repairing the one formatting site inside the forty seventh pin under the design's repair clause, its one trailing comma insertion standing enumerated in the repair's proof, with the spec review approving with findings at one Observation, the standards review approving with findings at four Observations, its priced items standing for later rounds, the duplicated reading and defect mapping of the polls module priced at a later opening of that module, the obligations pin's presence form priced at the next contract opening, and the one redundant word of GJ-49's wording priced under a later repair amendment, the red team approving with no findings, its eighty nine drives over the twenty two commands standing at the parting's seats exactly as GJ-49 states them, and CodeRabbit returning no inline comments on the slice, and the design record of Round 23 standing with its errata as records items, its surface paragraph sentence standing FIX-GJ-27 free and unspent in that round, superseded by the ruling's spend and answered by the amendment entry in the posture the Round 22 closure set, its thirteenth pin's closing alone form standing cured in substance by FIX-GJ-28, and its count of 33 test files standing true at this round's head by the shares target's landing, the figure standing as an erratum against the 32 its own tree counted.
+- Contract, GJ-51 and GJ-52 met. They stand in full form in CONTRACT.md with the FIX-GJ-29 repair amendment amending GJ-49, restating the second sentence of GJ-49 without its redundant word, the phrase whose bytes replaced by the word that, a net removal of one word, and Round 25 closed on the merged slice 26 after three reviews, with GJ-51's consolidation standing as charged, the folded reading standing as the checked reading's Ok arm and the defect mapping standing in the one helper read_text_or_defect the two file loaders share, no behaviour, defect text, figure, or golden moving, and GJ-52's execution discharging the directory misreport the Round 24 design record names uncharged against the fifty fifth pin of the polls target, the mutation QC failing that pin alone, and the anchoring cure riding at this contract opening, pin 67 restated from the whole file contains form to the anchored form and pin 69 standing anchored from birth, and the first build of the round stopping at the mutation QB, its executed set standing at eight falls against the five pins the design's computation charged in the set, and the owner's ruling restating the mutation's account to the executed falls, eight in the set, the five pins of test_makers.rs, the_pilot_files_match_the_recorded_tree_byte_for_byte and the_full_files_match_the_recorded_tree_byte_for_byte and the_full_golden_follows_the_rebuild_when_an_envelope_drops and the_full_maker_runs_when_a_standing_poll_file_is_missing and the_full_golden_ignores_a_response_dropped_from_a_standing_poll, and three beside the charged five in the same form at the same seat, every_full_poll_rebuilds_from_its_envelopes and the_full_run_record_recomputes_from_the_fixtures of test_full.rs and the_wave_files_match_the_recorded_tree_byte_for_byte of test_wave.rs, each an expect panic over the maker call, the pins of the full and wave targets also calling the maker functions the design's witness enumeration did not count, the design's computation standing corrected by the execution and the ruling, the reseated build adopting the stopped lane's slice whole after verifying it blob for blob against the remote and executing QC and QD and QE on the verified trees, QD standing at the Round 24 seventeen name for name at the one helper seat, five in the set and twelve beside it, and QE standing at pin 55 and the twelve missing file seats, thirteen in all, with the spec review approving with findings at one Observation, the pin names 67 and 68 and 69 standing by the design's count convention while the pins stand at file positions 55 and 56 and 57 among their target's sixty nine pins, the standards review approving with findings at three Observations, its whole obligation assertion cure priced at a later contract opening, the red team approving with no findings, its one hundred ninety nine drives over the slice and base binaries standing at no parting at any seat and its maker probe standing identical at twenty eight lines on both trees, its spot executions reproducing QB at the adopted eight name for name and QC at pin 55 alone, and the anchoring standing proven in the stickler form, the slice's restated pin 67 failing on the GJ-49 opening sentence moved out of its section into the Round 25 preamble while the base tree's whole file pin passes over the identical contract and the slice's pin passes over its own contract as the control, and CodeRabbit returning no inline comments on the slice, its completed review standing read by the owner at the merge gate at zero inline comments and zero submitted reviews, and the red team's one limitation standing as a record, the permission unreadable input class standing not executed as a permission failure in this sandbox, its processes running as root and root reading through a file of mode 000 and no unprivileged reader standing constructible on the overlay, the bounding argument standing that a permission failure enters through the same standard read error arm the checked reading maps to the read defect, the identical arm the missing file and directory drives execute at every seat, and FIX-GJ-30 standing free and unspent.
+- Contract, GJ-53 and GJ-54 met. They stand in full form in CONTRACT.md, GJ-53 standing as the whole obligation assertion cure and GJ-54 as the body cut execution beside it, and Round 26 closed on the merged slice 27 after three reviews, with the cure standing landed as charged, the pins of Rounds 24 and 25 restated to assert each of GJ-49 and GJ-50 and FIX-GJ-24 and GJ-51 and GJ-52 and FIX-GJ-29 whole inside its own section, and pin 71 standing in the whole text form over GJ-53 and GJ-54 from its birth, and the body cut execution of GJ-54 standing executed at design time at the eight seats and re-executed whole by the build name for name, each cut falling at the one contract carrying pin of its own round alone on the form, the cuts at GJ-49 and GJ-50 and FIX-GJ-24 at the Round 24 pin and the cuts at GJ-51 and GJ-52 and FIX-GJ-29 at the Round 25 pin and the cuts at GJ-53 and GJ-54 at the Round 26 pin, all six cuts of Rounds 24 and 25 standing unseen on the base tree at 816 passed and 0 failed, the radius control at GJ-48 standing whole at 818 and 0, and the relocation control at GJ-49 falling at the Round 24 pin alone, and the build's warm up overlay standing at 816 and 2, its falls at pins 70 and 71 alone and the restated pins 67 and 69 passing on the base tree by design, and the redundancy class of GJ-49 standing surveyed whole with no second seat, its doubled phrase surviving only inside FIX-GJ-29's own quotation, with the spec review approving with findings at one Observation, the pin names 67 and 69 and 70 and 71 standing by the design's count convention while the pins stand at file positions 55 and 57 and 58 and 59 among their target's seventy one pins, the standards review approving with findings at two Observations, the wrap of the records standing named at the call pair's grain where the committed text wraps one call of pin 71's pair, and the same pin numbering grain standing as the record leaves it, its own spot execution standing at the setup target green on the uncut head and falling at the Round 24 pin alone over its own GJ-49 body cut while the base tree's landed pin passes over the same cut, the red team approving with findings at one Minor, the whole obligation assertion standing as a containment claim over the span the first standing of a heading opens, and a contract whose GJ-49 paragraph stands cut in place passing the whole suite at 818 and 0 under its two executed constructions, the whole paragraph standing appended inside GJ-49's own section behind the cut paragraph, and the whole paragraph standing planted under a duplicate of GJ-49's heading line in the Round 24 preamble, no pin asserting that the paragraph stands whole in its place or that the whole text stands once or that the heading stands once, the Minor standing cured in the slice by the repair commit 095ad60a, the repair adding inside each of the three section bounding pins the assertion that each guarded heading stands once in the contract and the assertion that the section the heading opens carries the heading and the whole text and nothing else, and the record block over the Round 24 pin standing restated at its assertion description, the cure standing proven in both directions by execution, both constructions passing the unrepaired head whole at 818 and 0 and falling at the Round 24 pin alone on the repaired tree, and the body cuts at GJ-49 and GJ-53 re-executed on the repaired tree standing name for name at their own pins alone, the red team's sentence move and neighbour duplication legs falling at the Round 24 pin and its phrase exchange leg falling at the Round 24 and Round 25 pins and its relocation control in the other direction falling at the Round 24 pin, and CodeRabbit standing read in full and complete on the slice at zero inline comments and zero submitted reviews, its summary stating no actionable comments, and the slice standing at census 818, and no item of this round standing carried as executed that was not executed, and FIX-GJ-30 standing free and unspent.
+- Contract, GJ-55 and GJ-56 met. They stand in full form in CONTRACT.md, GJ-55 standing as the completion of the whole obligation assertion cure and GJ-56 as the body cut execution beside it, and Round 27 closed on the merged slice 28 after three reviews, with the cure standing landed as charged, every contract carrying pin that stood in the presence form standing restated to assert its texts whole inside the sections their headings open, the repair amendments FIX-GJ-11 and FIX-GJ-12 and FIX-GJ-13 and FIX-GJ-16 and FIX-GJ-23 and FIX-GJ-26 and FIX-GJ-28, that stood under no contract carrying pin as landed, standing joined to the pins of their own rounds, and FIX-GJ-21 standing joined to the Round 16 pin beside its standing sentence pin, and one new pin standing in the same form from its birth over GJ-2 to GJ-8 and FIX-GJ-1 to FIX-GJ-10, and the slice's repair completing the cure at 107 asserted sections, the FIX-GJ-26 section standing asserted by no pin at the slice's first head under the spec review's Major against the design record and the Round 22 pin taking that section whole beside its obligations section in the repair, and the standing line's first form standing restated in the same repair, its claim of a body cut re-execution by the build standing withdrawn, the build having executed nothing, under the standards review's Minor and CodeRabbit's one inline comment at the same seat, with the spec review approving with findings at one Major and two Observations, its Major standing against the design record and cured in the slice as stated, the standards review approving with findings at one Minor and three Observations, its Minor standing cured in the slice as stated, and the red team approving with findings at one Observation, the unexecuted execution family standing carried as that Observation names it, and the body cut execution of GJ-56, standing executed at design time at the ninety seven seats the design names and on the Round 26 closure tree at its spread seats, standing executed whole by the execution campaign this closure was charged on, the campaign's journal standing at 250 lines accounted whole, 243 leg lines with 239 of them standing on their charged expectation exactly, set for set, and both campaign trees standing verified whole against the listings at 759 of 759, the base contract at its pristine blob and the form contract at its pristine blob, and the campaign's gate standing at 821 passed and none failed at the head with clippy and format and the scan each at exit zero, and its differential standing at 47 cases and zero partings, and the hunt seats standing as found, H-3 at 815 passed and 6 failed and H-4 at 752 passed and 69 failed and H-5, the duplicate offered answer seat and the priced candidate, falling at its two naming pins at 819 passed and 2 failed, and two Blockers standing raised by the campaign at the hunt seats H-1 and H-2, each passing the whole suite at 821 passed and none failed over its mutation, H-1 the chat seat reader in rust/src/seats.rs taking the last response of a set in place of the first and H-2 the price grammar in rust/src/polls.rs admitting a leading plus beside the minus, and both Blockers standing felled by the repair slice landed ahead of this closure, after three reviews approving its slice outright and CodeRabbit returning no actionable comment on it, H-1 felled by three pins in the seats target under FIX-GJ-31 amending GJ-5, its warm up standing at a control of 842 passed and none failed with the mutation leg falling at exactly the three new pins at 839 passed and 3 failed, and H-2 standing proven inert at every public surface, the grammar's one caller handing each matched text to a second reading that refuses every plus headed text with the same defect the grammar's own refusal draws, a battery of 25 texts printing the same loader verdict at the shipped and mutated trees, and felled at the grammar's own surface by three unit pins in the polls module under FIX-GJ-32 amending GJ-4, the control standing at 845 passed and none failed and the mutation leg falling at the leading plus pin alone at 844 passed and 1 failed, and two items of the campaign record standing named here as records items, the setup uncured leg standing executed at 73 passed and 1 failed against its charged 74 passed and none failed, its one fall the Round 27 status pin falling on the campaign's uncured construction, a repaired README standing paired with an unrepaired setup file, the FIX-GJ-26 cut itself falling nowhere on that tree as charged, and the campaign's accounting documents counting the setup base family at 97 seats and the whole base family at 14 where the journal as executed carries 98 and 15, the journal governing and no leg standing missing or duplicated under either counting, and the slice standing at census 821 as landed and the repair slice at census 845, and no item of this round standing carried as executed that was not executed, and FIX-GJ-30 standing free and unspent.
+- Contract, GJ-57 and GJ-58 met. They stand in full form in CONTRACT.md, GJ-57 standing as the assertion of the contract's head matter whole and GJ-58 as the head cut execution beside it, and Round 28 closed on the merged slice 29 after three reviews, with the head matter standing asserted as charged, one pin born in the whole form in the setup target asserting the contract's opening whole, and the head cut execution of GJ-58 standing executed whole at this closure as first executions in the order its obligation charges, the base gate standing re-executed at 821 passed and none failed over the verified base extraction, superseding the build's fault contaminated attempt whose forty eight failures all carried the fault's signature, the fresh extraction gate at 824 passed and none failed over the assembled slice head with the annex gate clean beside it, the overlay falling at the readme pin and the contract pin alone at 75 passed and 2 failed among the setup target's seventy seven pins, the three cuts falling at the head pin alone on the slice tree at 823 passed and 1 failed at each seat and passing whole over every pin of the merged Round 27 tree at 821 passed and none failed at each seat, the control passing whole on the slice tree, and the candidate legs standing as computed, the head pin alone over a base copy passing whole and the readme pin and the contract pin alone over a base copy falling at themselves alone, every executed set standing on its computed set exactly and no leg standing carried, the gap GJ-57 closes standing proven in both directions, and FIX-GJ-30 standing free and unspent.
+- Contract, GJ-59 and GJ-60 met. They stand in full form in CONTRACT.md, GJ-59 standing as the assertion of the byte form of the standing texts whole and GJ-60 as the byte cut execution beside it, and Round 29 closed on the merged slice 30 after three reviews and a repair pass at the one falsified expectation, with the byte form standing asserted as charged, two pins born in the setup target asserting over the contract and over the README that no carriage return stands in either text and that each text ends with exactly one line feed, and the byte cut execution of GJ-60 standing executed whole at this closure as first executions in the order its obligation charges, the base gate at 824 passed and none failed over the verified merged Round 28 tree, the fresh extraction gate at 828 passed and none failed over the merged slice head with the annex gate clean beside it, the overlay falling at the readme pin and the contract pin alone at 79 passed and 2 failed among the setup target's eighty one pins, the five cuts passing whole in the base direction at four seats at 824 passed and none failed and falling at the first screen pin alone at the README re-terminated seat at 823 passed and 1 failed, and falling in the form direction at the byte pin of their text alone at four seats at 827 passed and 1 failed and at the first screen pin and the README byte pin together at the README re-terminated seat at 826 passed and 2 failed, the corrected sets at that seat standing executed as the repair adopted them, the control falling at the appendix pin alone on the merged tree at 823 passed and 1 failed and at the appendix pin and the contract byte pin together on the slice tree at 826 passed and 2 failed, and the candidate legs standing as computed, each byte pin alone over a base copy passing whole and the readme pin and the contract pin alone over a base copy falling at themselves alone, every executed set standing on its computed set exactly and no leg standing carried, the gap GJ-59 closes standing proven in both directions, and FIX-GJ-30 standing free and unspent.
+- Contract, GJ-61 and GJ-62 met. They stand in full form in CONTRACT.md, GJ-61 standing as the assertion of the byte form of the furniture texts whole and GJ-62 as the furniture byte cut execution beside it, and Round 30 closed on the merged slice 31 after three reviews, with the byte form standing asserted as charged, three pins born in the setup target asserting over AGENTS.md and over the workflow file and over the manifest that no carriage return stands in any of them and that each ends with exactly one line feed, and the furniture byte cut execution of GJ-62 standing executed whole at this closure as first executions in the order its obligation charges, the base gate at 828 passed and none failed over the verified merged Round 29 tree, the fresh extraction gate at 833 passed and none failed over the merged slice head with the annex gate clean beside it, the overlay falling at the readme pin and the contract pin alone at 84 passed and 2 failed among the setup target's eighty six pins, the nine cuts passing whole in the base direction at every seat at 828 passed and none failed, and falling in the form direction at the byte pin of their text alone at every seat at 832 passed and 1 failed, the controls standing as computed beside them, the workflow comment control passing whole in both directions and the gate sentence control falling at the annex pin alone in both directions, and the candidate legs standing as computed, each byte pin alone over a base copy passing whole and the readme pin and the contract pin alone over a base copy falling at themselves alone, every executed set standing on its computed set exactly and no leg standing carried, the gap GJ-61 closes standing proven in both directions, and FIX-GJ-30 standing free and unspent.
+- Contract, GJ-63 and GJ-64 met. They stand in full form in CONTRACT.md, GJ-63 standing as the assertion of the head form of AGENTS.md and the workflow file and the manifest whole and GJ-64 as the furniture head cut execution beside it, and Round 31 closed on the merged slice 32 after three reviews, with the head form standing asserted as charged, three pins born in the setup target asserting over AGENTS.md and over the workflow file and over the manifest that no byte order mark stands at the head of any of them, and the furniture head cut execution of GJ-64 standing executed whole at this closure as first executions in the order its obligation charges, the base gate at 833 passed and none failed over the verified merged Round 30 tree, the fresh extraction gate at 838 passed and none failed over the merged slice head with the annex gate clean beside it, the overlay falling at the readme pin and the contract pin alone at 89 passed and 2 failed among the setup target's ninety one pins, the three cuts passing whole in the base direction at every seat at 833 passed and none failed, and falling in the form direction at the head pin of their text alone at every seat at 837 passed and 1 failed, the controls standing as computed beside them, the first line control passing whole in both directions and the gate sentence control falling at the annex pin alone in both directions, and the candidate legs standing as computed, each head pin alone over a base copy passing whole and the readme pin and the contract pin alone over a base copy falling at themselves alone, every executed set standing on its computed set exactly and no leg standing carried, the gap GJ-63 closes standing proven in both directions, and FIX-GJ-30 standing free and unspent.
+- Slice 32 has landed. It carries the assertion of the head form of AGENTS.md and the workflow file and the manifest whole, three pins born in the setup target over the three furniture texts, each asserting that no byte order mark stands at the head of its text, and the furniture head cut execution computed beside it at its three seats, adding no reading and no command.
+- Slice 31 has landed. It carries the assertion of the byte form of AGENTS.md and the workflow file and the manifest whole, three pins born in the setup target over the three furniture texts, each asserting that no carriage return stands in its text and that it ends with exactly one line feed, and the furniture byte cut execution computed beside it at its nine seats, adding no reading and no command.
+- Slice 30 has landed. It carries the assertion of the byte form of the contract and the README whole, two pins born in the setup target over the two standing texts, the one asserting that no carriage return stands in the contract and that it ends with exactly one line feed and the other asserting the same over the README, and the byte cut execution computed beside it at its five seats, adding no reading and no command.
+- Slice 29 has landed. It carries the assertion of the contract's head matter whole, one pin born in the whole form over the contract's opening lines, the title and the founding paragraph and the blank lines and the first heading, and the head cut execution computed beside it at its three seats, adding no reading and no command.
+- Slice 28 has landed. It carries the completion of the whole obligation assertion cure at the contract carrying pins, every pin that stood in the presence form standing restated to assert its texts whole inside their sections, the six repair amendments that stood under no contract carrying pin joining the pins of their own rounds and FIX-GJ-21 joining the Round 16 pin beside its sentence pin, one new pin carrying the texts of Rounds 1 to 3 in the same form from its birth, and the body cut execution against those pins at the ninety seven seats the cure reaches, adding no reading and no command.
+- Slice 27 has landed. It carries the whole obligation assertion cure at the contract carrying pins, the pins of Rounds 24 and 25 restated to assert each obligation whole inside its own section and this round's own pin standing in the whole text form from its birth, and the body cut execution against those pins at the eight seats the cure reaches, adding no reading and no command.
+- Slice 26 has landed. It carries the polls module consolidation, the folded reading standing as the checked reading's Ok arm and the defect mapping standing in one helper the two file loaders share, and the directory misreport execution, and the repair amendment FIX-GJ-29 restating the second sentence of GJ-49 without its redundant word, and the anchoring cure at the contract carrying pins, adding no reading and no command.
+- Slice 25 has landed. It carries the decode refusal at the loader seats, the two failures of the loaders' text reading parted so that a file whose bytes are not valid UTF-8 draws its own defect at the poll loader and at the price table loader, under the repair amendment FIX-GJ-24, and the execution of the empty section drop against the shares reading, adding no reading and no command.
+- Slice 24 has landed. It carries the shares reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set each question it asks and the share of the question's valid responses the set holds at it, with its command and its golden.
+- The Rust port has landed. It carries the same behavior as the Python package it replaces, checked against the same goldens, and the Python tree stands removed from the repo.
+- Slice 20 has landed. It carries the standing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set by set, stating for every set the standing of the set over the whole record, the questions it asked and at how many of them it held a plurality and at how many its top counts tied and at how many it held no valid response and at how many its plurality was the accord of the question and at how many it was the pooled plurality of the question, with its command and its golden.
+- Slice 21 has landed. It carries the answers reading over the three recorded poll sets, the pilot and the full poll and the second wave read together answer by answer, stating for every answer each question at which it was offered, the count of parts holding it at that question and of those the counts standing in accord and with the pool, and the standing of the answer over the record, with its command and its golden.
+- Slice 22 has landed. It carries the pairing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together set pair by set pair, stating for every pair of sets each question the pair shares, the part of each set at the question in the form of the accord and the pairing of the pair at the question, and the standing of the pair over the record, with its command and its golden.
+- Slice 23 has landed. It carries the execution record of the two rounds before the pairing round, the mutation sets of Rounds 19 and 20 executed on the trees that carry their pins, the base runs of both rounds, and the cargo leg of NG, and it restates the doc comment of the answers module to the set rules of GJ-2, adding no reading and no command.
+- Slice 19 has landed. It carries the accord reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the standing of each set that asked it, the counts and the pooled plurality and the margin of that set at the question, and whether the sets that hold a plurality at the question name one answer, with its command and its golden.
+- Slice 18 has landed. It carries the margin reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the margin by which the pooled plurality of the question stands and the margin by which the summed plurality of each jury at the question stands, with its command and its golden.
+- Slice 17 has landed. It carries the muster reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, under each offered answer of the question, the row of that answer in the block of every jury of the question, the count of the valid responses of the question that chose the answer, the count of the juries whose summed count of the answer stands at one or more, and the count of the juries whose block plurality the answer is, with its command and its golden, and the fold of the pooled counting helpers of the canvass and the roll into the agreement module, with its three text pins, and the naming of the models of GJ-32 under FIX-GJ-21, with its pin.
+- Slice 16 has landed. It carries the roll reading over the three recorded poll sets, the pilot and the full poll and the second wave read together jury by jury, stating for every jury the block of the jury at every question it stands at, the question line and the jury line and the answer rows and the plurality line of the canvass block whole, and the standing of the jury over the record in the standing line that closes its section, with its command and its golden.
+- Slice 15 has landed. It carries the canvass reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question, per jury, the counts of the jury summed over the askings of the question, the count standing behind every offered answer of the question with its share of the summed valid answers of the jury, and the plurality of the jury at the question, with its command and its golden.
+- Slice 14 has landed. It carries the aggregate reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question, stating for every question the counts of all its askings summed as one pool, the count standing behind every offered answer of the question with its share of the pooled valid answers, and the pooled plurality of the question, with its command and its golden, and the glob import gate of FIX-GJ-20 over the binary surface tests, with its attribute line and its pin.
+- Slice 13 has landed. It carries the pool reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating for every asking the counts of its whole poll pooled as one pool, the count standing behind every offered answer with its share of the valid answers, and the pooled plurality of the asking, with its command and its golden, and the formats appendix of FIX-GJ-17 stating the six formats of the repo at version 1 with its compatibility rule, and the reason closure of FIX-GJ-18 over the poll text guard, with its widened guard and its pins, and the resampled fixture of FIX-GJ-19, twelve polls drawn from the recorded pilot envelopes at fifty seats per model with the example poll standing as its first poll.
+- Slice 12 has landed. It carries the bench reading over the three recorded poll sets, the pilot and the full poll and the second wave read together model by model under their set labels, stating each model's answer at each asking pooled over the juror names it answered under, the count of its valid answers, and how many of them stood with the pooled plurality of the asking, with its command and its golden, and the residual library fencing closure of FIX-GJ-15 over the tally, the stadium view, the cost reading, and the wave comparison reading, with its widened guard and its pins.
+- Slice 11 has landed. It carries the README rebuilt to the fleet storefront standard with the one line description standing in the lede and in the manifest and the tally reading over the recorded poll standing on the first screen, and the library fencing closure of FIX-GJ-14 over the agreement, census, dissent, ledger, minority, and swing readings, with its guard and its pins.
+- Slice 10 has landed. It carries the minority reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the respondents whose valid answer was not the pooled plurality answer, with its command and its golden.
+- Slice 9 has landed. It carries the swing reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question under their set labels, stating the plurality of each asking pooled over the whole poll, the margin it stood by, and the course of each question across its askings, with its command and its golden.
+- Slice 8 has landed. It carries the dissent reading over the three recorded poll sets, the pilot and the full poll and the second wave read together asking by asking under their set labels, stating each jury plurality, the margin it stood by, and the respondents who stood against it, with its command and its golden.
+- Slice 7 has landed. It carries the juror ledger reading over the three recorded poll sets, the pilot and the full poll and the second wave read together respondent by respondent under their set labels, with its command and its golden.
+- Slice 6 has landed. It carries the census reading over the three recorded poll sets, the pilot and the full poll and the second wave read together question by question and jury by jury under their set labels, with its command and its golden.
+- Slice 5 has landed. It carries the second wave poll over both decision model routes, the twelve pilot questions asked again with five seats per question per model and the raw envelopes and the run record under examples, and the wave comparison reading over the pilot and wave polls with its command and its golden.
+- Slice 4 has landed. It carries the full live poll over both decision model routes, forty synthetic questions with five seats per question per model and the raw envelopes and the run record under examples, and the agreement reading over the recorded responses with its command and its golden.
+- Slice 3 has landed. It carries the juror seat readers over the two decision model routes, the abstained response kind through the tally, the stadium, and the cost counter, and the recorded pilot over both models, twelve synthetic questions with five seats per question per model and the raw envelopes and the run record under examples.
+- Slice 2 has landed. It carries the recorded poll loader that names every malformed field, the tally computed from the responses themselves with spoiled responses counted apart, the stadium view with its histogram and wall of reasons, and the cost counter pricing recorded responses from a stated price table, with the tally, stadium, and cost commands, one synthetic example poll of 124 recorded responses and its golden renderings under examples.
+- Local gate, cargo test, cargo clippy --all-targets -- -D warnings, and cargo fmt --check, and the codepoint scan, cargo run --bin codepoint_scan, standing tested on Linux. CI runs the same commands.
+
+## Licence
+
+MIT. See LICENSE.

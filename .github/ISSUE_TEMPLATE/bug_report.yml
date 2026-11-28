@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a defect in grandjury command behavior, input validation, or output rendering
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please share only synthetic reproduction inputs. Never include private paths, session logs, or real credentials.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit SHA
+      description: Release tag or git commit SHA where you observed the issue
+      placeholder: "v0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system and Rust toolchain
+      placeholder: "macOS 15 arm64, rustc 1.91.1"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic reproduction
+      description: Exact command and minimal synthetic input file that triggers the issue
+      render: sh
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual output
+      description: What grandjury printed, its exit code, and what you expected from CONTRACT.md or FORMATS.md
+    validations:
+      required: true
