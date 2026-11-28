@@ -71,7 +71,7 @@ runs:
             INSTALLED="${DEST_DIR}/grandjury"
           else
             rc=$?
-            if [ "$INPUT_VERSION" = "latest" ] && ! grep -Eqi '(SHA-256|SHA256SUMS|unsupported)' "$LOG_FILE"; then
+            if [ "$INPUT_VERSION" = "latest" ] && [ "$rc" -eq 4 ]; then
               echo "note latest prebuilt release unavailable; building v${CRATE_VER} from source" >&2
             else
               cat "$LOG_FILE" >&2
@@ -85,12 +85,13 @@ runs:
           fi
         fi
         if [ -z "$INSTALLED" ]; then
-          cargo build --release --locked --manifest-path "${ACT_MIXED}/Cargo.toml" --target-dir "$BUILD_TARGET_DIR" --bin grandjury
+          HOST_TRIPLE="$(rustc -vV | sed -n 's/^host: //p')"
+          cargo build --release --locked --manifest-path "${ACT_MIXED}/Cargo.toml" --target "$HOST_TRIPLE" --target-dir "$BUILD_TARGET_DIR" --bin grandjury
           if [ "${RUNNER_OS}" = "Windows" ]; then
-            cp "${BUILD_TARGET_DIR}/release/grandjury.exe" "${DEST_DIR}/grandjury.exe"
+            cp "${BUILD_TARGET_DIR}/${HOST_TRIPLE}/release/grandjury.exe" "${DEST_DIR}/grandjury.exe"
             INSTALLED="${DEST_DIR}/grandjury.exe"
           else
-            cp "${BUILD_TARGET_DIR}/release/grandjury" "${DEST_DIR}/grandjury"
+            cp "${BUILD_TARGET_DIR}/${HOST_TRIPLE}/release/grandjury" "${DEST_DIR}/grandjury"
             chmod 0755 "${DEST_DIR}/grandjury"
             INSTALLED="${DEST_DIR}/grandjury"
           fi

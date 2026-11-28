@@ -72,6 +72,7 @@
           },
           "cost_dollars": {
             "type": "string",
+            "pattern": "^(?:(?:-0(?:\\.0+)?)|(?:\\d+(?:\\.\\d+)?|\\.\\d+))(?:[eE][+-]?\\d+)?$",
             "not": {
               "pattern": "[\\r\\n]"
             }
@@ -180,6 +181,17 @@
             "minimum": 0
           }
         }
+      },
+      "if": {
+        "required": [
+          "aborted_first_launch"
+        ]
+      },
+      "then": {
+        "minProperties": 3
+      },
+      "else": {
+        "minProperties": 2
       }
     }
   }

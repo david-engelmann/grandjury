@@ -2,7 +2,9 @@
 .SH NAME
 grandjury \- multi-model discrete jury poll aggregator, spend counter, and wave consensus reader
 .SH SYNOPSIS
-\fBgrandjury\fR [\fB-h\fR | \fB--help\fR] \fICOMMAND\fR \fIARGS\fR ...
+\fBgrandjury\fR \fB-h\fR | \fB--help\fR
+.br
+\fBgrandjury\fR \fICOMMAND\fR \fIARGS\fR ...
 .SH DESCRIPTION
 \fBgrandjury\fR aggregates recorded juror responses to finite-choice questions across model families. It enforces duplicate-juror and spoiled-ballot rules, converts sub-0.5 confidence guesses into explicit abstentions, renders exact rational vote tallies and stadium bars, computes base-10 decimal API spend, and prints nineteen multi-poll and multi-wave agreement, consensus, dissent, and swing readings across twenty-two commands.
 .SH COMMANDS
@@ -27,7 +29,7 @@ Run the seventeen multi-wave campaign consensus, dissent, turnout, margin, and s
 .SH EXIT STATUS
 .TP
 \fB0\fR
-Valid poll or wave set loaded and reading printed cleanly.
+Help text printed, or valid poll or wave set loaded and reading printed (including when stdout closes during final flush with 4097 to 8191 bytes buffered under PORT-13).
 .TP
 \fB1\fR
 Malformed poll, non-UTF-8 file, malformed price table, or set constraint refused with defect lines on stdout, cost precision overflow, or closed stdout write when 8192 or more bytes sit buffered.
@@ -38,6 +40,9 @@ Missing or odd <label> <dir> pairs, unrecognized option, or unknown subcommand o
 \fB120\fR
 Failed stderr stream write, or closed stdout write when 4096 or fewer bytes sit buffered.
 .SH EXAMPLES
+From a repository checkout containing the shipped synthetic fixtures under
+.I examples/
+.PP
 Tally a recorded poll
 .nf
 .RS 4

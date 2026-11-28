@@ -124,7 +124,7 @@ resolve_tag() {
     return
   fi
   tmp_json="$WORK_DIR/latest.json"
-  fetch "https://api.github.com/repos/$REPO/releases/latest" "$tmp_json"
+  fetch "https://api.github.com/repos/$REPO/releases/latest" "$tmp_json" || exit 4
   tag="$(sed -n 's/.*"tag_name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$tmp_json" | head -n 1)"
   if [ -z "$tag" ]; then
     echo "error could not resolve latest release tag for $REPO" >&2
@@ -141,7 +141,7 @@ verify_sha256() {
   expected="$(awk -v name="$archive_base" '$2 == name || $2 == "*" name { print $1; exit }' "$sums_file")"
   if [ -z "$expected" ]; then
     echo "error $archive_base not listed in SHA256SUMS" >&2
-    exit 1
+    exit 3
   fi
   if command -v sha256sum >/dev/null 2>&1; then
     actual="$(sha256sum "$archive_file" | awk '{ print $1 }')"
@@ -153,7 +153,7 @@ verify_sha256() {
   fi
   if [ "$expected" != "$actual" ]; then
     echo "error SHA-256 mismatch for $archive_base" >&2
-    exit 1
+    exit 3
   fi
 }
 
@@ -166,8 +166,8 @@ STEM="${BIN}-${TAG}-${TARGET}"
 ARCHIVE="${STEM}.tar.gz"
 BASE_URL="https://github.com/${REPO}/releases/download/${TAG}"
 
-fetch "${BASE_URL}/${ARCHIVE}" "${WORK_DIR}/${ARCHIVE}"
-fetch "${BASE_URL}/SHA256SUMS" "${WORK_DIR}/SHA256SUMS"
+fetch "${BASE_URL}/${ARCHIVE}" "${WORK_DIR}/${ARCHIVE}" || exit 4
+fetch "${BASE_URL}/SHA256SUMS" "${WORK_DIR}/SHA256SUMS" || exit 3
 verify_sha256 "${WORK_DIR}/${ARCHIVE}" "${WORK_DIR}/SHA256SUMS"
 
 tar -xzf "${WORK_DIR}/${ARCHIVE}" -C "$WORK_DIR"

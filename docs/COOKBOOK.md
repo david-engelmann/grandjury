@@ -138,7 +138,7 @@ Run or score two competing implementations of the winning `token-bucket` design 
       "result": "green",
       "finished_at": 42.5,
       "tokens": 18400,
-      "patch": "--- a/queue.py\n+++ b/queue.py\n@@ -1 +1,2 @@\n+MAX_BURST = 32\n"
+      "patch": "--- /dev/null\n+++ b/retry_guard.py\n@@ -0,0 +1,4 @@\n+class TokenBucket:\n+    def __init__(self, rate: int, burst: int) -> None:\n+        self.rate = rate\n+        self.burst = burst\n"
     },
     {
       "model": "shadow-1",
@@ -146,7 +146,7 @@ Run or score two competing implementations of the winning `token-bucket` design 
       "result": "green",
       "finished_at": 51.0,
       "tokens": 22100,
-      "patch": "--- a/queue.py\n+++ b/queue.py\n@@ -1 +1,2 @@\n+BURST_LIMIT = 32\n"
+      "patch": "--- /dev/null\n+++ b/retry_guard.py\n@@ -0,0 +1,4 @@\n+class SlidingWindow:\n+    def __init__(self, limit: int, window: int) -> None:\n+        self.limit = limit\n+        self.window = window\n"
     }
   ]
 }
@@ -172,9 +172,9 @@ margin 8.5 seconds between the two finishes
 Verify the winning patch (`winner.diff`) against `stickler`'s six deterministic Python smell shapes before review or merge.
 
 ```diff
---- a/retry_guard.py
+--- /dev/null
 +++ b/retry_guard.py
-@@ -1,2 +1,6 @@
+@@ -0,0 +1,4 @@
 +class TokenBucket:
 +    def __init__(self, rate: int, burst: int) -> None:
 +        self.rate = rate
