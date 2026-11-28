@@ -96,7 +96,7 @@ jobs:
           cp "target/${MATRIX_TARGET}/release/grandjury" "dist/${STEM}/grandjury"
           chmod 0755 "dist/${STEM}/grandjury"
           cp README.md LICENSE CHANGELOG.md FORMATS.md "dist/${STEM}/"
-          cp -R completions schemas "dist/${STEM}/"
+          cp -R completions schemas man "dist/${STEM}/"
           tar -C dist -czf "dist/${STEM}.tar.gz" "${STEM}"
           rm -rf "dist/${STEM}"
       - name: Package archive (Windows)
@@ -120,7 +120,7 @@ jobs:
           New-Item -ItemType Directory -Force -Path "dist/$stem" | Out-Null
           Copy-Item "target/$env:MATRIX_TARGET/release/grandjury.exe" "dist/$stem/grandjury.exe"
           Copy-Item README.md, LICENSE, CHANGELOG.md, FORMATS.md "dist/$stem/"
-          Copy-Item -Recurse completions, schemas "dist/$stem/"
+          Copy-Item -Recurse completions, schemas, man "dist/$stem/"
           Compress-Archive -Path "dist/$stem" -DestinationPath "dist/$stem.zip" -Force
           Remove-Item -Recurse -Force "dist/$stem"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

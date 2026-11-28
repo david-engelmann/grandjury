@@ -39,7 +39,8 @@ jobs:
           SIZE_BYTES="$(wc -c < "$CRATE_FILE" | tr -d ' ')"
           echo "packaged $CRATE_FILE ($SIZE_BYTES bytes)"
           test "$SIZE_BYTES" -lt 204800
-          if tar -tzf "$CRATE_FILE" | grep -E '(codepoint_scan|^[^/]+/book/|^[^/]+/docs/)' >/dev/null; then
+          tar -tzf "$CRATE_FILE" > "${RUNNER_TEMP}/crate-files.txt"
+          if grep -E '(codepoint_scan|^[^/]+/book/|^[^/]+/docs/|/action\.yml$)' "${RUNNER_TEMP}/crate-files.txt" >/dev/null; then
             echo "error unexpected internal or handbook files in crate archive" >&2
             exit 1
           fi
@@ -126,3 +127,16 @@ jobs:
             exit 1
           fi
           test "$(cat "$WORK_DIR/existing/grandjury")" = "sentinel"
+      - name: Verify composite GitHub Action (action.yml)
+        if: runner.os == 'Linux'
+        uses: ./
+        with:
+          version: source
+          command: tally
+          target-path: examples/recorded_poll.json
+      - name: Verify grandjury on PATH from composite action
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v grandjury >/dev/null

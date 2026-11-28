@@ -13,13 +13,13 @@ Register-ArgumentCompleter -Native -CommandName grandjury -ScriptBlock {
     $argIndex = $i + 1
   }
   if ($argIndex -eq 1) {
-    $subcommands | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+    $subcommands | Where-Object { $_.StartsWith($wordToComplete, [System.StringComparison]::Ordinal) } | ForEach-Object {
       [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
     }
     return
   }
   if ($argIndex -ge 2 -and $wordToComplete.StartsWith('-')) {
-    @('-h', '--help') | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+    @('-h', '--help') | Where-Object { $_.StartsWith($wordToComplete, [System.StringComparison]::Ordinal) } | ForEach-Object {
       [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
     }
     return

@@ -13,6 +13,7 @@ categories = ["command-line-utilities", "science"]
 default-run = "grandjury"
 exclude = [
   "AGENTS.md",
+  "action.yml",
   "CONTRACT.md",
   "ROADMAP.md",
   ".github/**",

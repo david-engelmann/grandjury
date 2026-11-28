@@ -35,7 +35,7 @@ jobs:
         run: |
           set -euo pipefail
           ./mdbook build book
-          for page in index.html introduction.html guide.html architecture.html formats.html comparison.html performance.html faq.html; do
+          for page in index.html introduction.html guide.html cookbook.html architecture.html formats.html comparison.html performance.html faq.html; do
             test -f "target/book/${page}"
           done
       - name: Upload Pages artifact

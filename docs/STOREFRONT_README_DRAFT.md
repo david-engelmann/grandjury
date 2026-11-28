@@ -13,6 +13,7 @@ Grandjury is a Rust library and command line tool that aggregates recorded answe
 <p align="center">
   <a href="docs/README.md">Docs</a> ·
   <a href="docs/GUIDE.md">Guide</a> ·
+  <a href="docs/COOKBOOK.md">Cookbook</a> ·
   <a href="docs/ARCHITECTURE.md">Architecture</a> ·
   <a href="FORMATS.md">Formats</a> · <a href="docs/COMPARISON.md">Comparison</a> ·
   <a href="docs/PERFORMANCE.md">Performance</a> ·

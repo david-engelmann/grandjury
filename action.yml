@@ -1,0 +1,121 @@
+name: "Grandjury Multi-Model Jury Poll"
+description: "Install grandjury and tally recorded multi-model juror ballots, confidence abstentions, API spend, and wave swings."
+author: "David Engelmann"
+branding:
+  icon: "users"
+  color: "orange"
+
+inputs:
+  version:
+    description: "Release tag such as v0.1.0, latest, or source to build from Cargo"
+    required: false
+    default: "latest"
+  command:
+    description: "Optional subcommand to execute after installation (for example tally, stadium, cost, agreement, or compare)"
+    required: false
+    default: ""
+  target-path:
+    description: "Optional JSON file, wave directory, or wave label passed to command"
+    required: false
+    default: ""
+  extra-path:
+    description: "Optional second file or wave directory passed to two-argument invocations (cost, compare, agreement, or single-wave set readings)"
+    required: false
+    default: ""
+  working-directory:
+    description: "Working directory used when command is set"
+    required: false
+    default: "."
+
+outputs:
+  binary-path:
+    description: "Absolute path to the installed grandjury executable"
+    value: ${{ steps.install.outputs.binary_path }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install grandjury
+      id: install
+      shell: bash
+      env:
+        INPUT_VERSION: ${{ inputs.version }}
+        ACTION_DIR: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        case "$INPUT_VERSION" in
+          ''|*[!0-9A-Za-z._-]*)
+            echo "error invalid version $INPUT_VERSION" >&2
+            exit 2
+            ;;
+        esac
+        RAW_DEST="${RUNNER_TEMP}/grandjury-action-bin"
+        RAW_BUILD="${RUNNER_TEMP}/grandjury-cargo-target"
+        if command -v cygpath >/dev/null 2>&1; then
+          DEST_DIR="$(cygpath -m "$RAW_DEST")"
+          PATH_DEST="$(cygpath -w "$RAW_DEST")"
+          BUILD_TARGET_DIR="$(cygpath -m "$RAW_BUILD")"
+          ACT_MIXED="$(cygpath -m "$ACTION_DIR")"
+        else
+          DEST_DIR="$RAW_DEST"
+          PATH_DEST="$RAW_DEST"
+          BUILD_TARGET_DIR="$RAW_BUILD"
+          ACT_MIXED="$ACTION_DIR"
+        fi
+        mkdir -p "$DEST_DIR"
+        CRATE_VER="0.1.0"
+        INSTALLED=""
+        if [ "$INPUT_VERSION" != "source" ] && [ "${RUNNER_OS}" != "Windows" ]; then
+          LOG_FILE="${DEST_DIR}/install.log"
+          if sh "${ACT_MIXED}/install.sh" --version "$INPUT_VERSION" --to "$DEST_DIR" >"$LOG_FILE" 2>&1; then
+            INSTALLED="${DEST_DIR}/grandjury"
+          else
+            rc=$?
+            if [ "$INPUT_VERSION" = "latest" ] && ! grep -Eqi '(SHA-256|SHA256SUMS|unsupported)' "$LOG_FILE"; then
+              echo "note latest prebuilt release unavailable; building v${CRATE_VER} from source" >&2
+            else
+              cat "$LOG_FILE" >&2
+              exit "$rc"
+            fi
+          fi
+        elif [ "${RUNNER_OS}" = "Windows" ] && [ "$INPUT_VERSION" != "source" ]; then
+          if [ "$INPUT_VERSION" != "latest" ] && [ "$INPUT_VERSION" != "v${CRATE_VER}" ] && [ "$INPUT_VERSION" != "${CRATE_VER}" ]; then
+            echo "error version $INPUT_VERSION does not match checked-out crate version v${CRATE_VER} on Windows" >&2
+            exit 1
+          fi
+        fi
+        if [ -z "$INSTALLED" ]; then
+          cargo build --release --locked --manifest-path "${ACT_MIXED}/Cargo.toml" --target-dir "$BUILD_TARGET_DIR" --bin grandjury
+          if [ "${RUNNER_OS}" = "Windows" ]; then
+            cp "${BUILD_TARGET_DIR}/release/grandjury.exe" "${DEST_DIR}/grandjury.exe"
+            INSTALLED="${DEST_DIR}/grandjury.exe"
+          else
+            cp "${BUILD_TARGET_DIR}/release/grandjury" "${DEST_DIR}/grandjury"
+            chmod 0755 "${DEST_DIR}/grandjury"
+            INSTALLED="${DEST_DIR}/grandjury"
+          fi
+        fi
+        echo "$PATH_DEST" >> "$GITHUB_PATH"
+        echo "binary_path=${INSTALLED}" >> "$GITHUB_OUTPUT"
+    - name: Run grandjury command
+      if: inputs.command != ''
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        BIN_PATH: ${{ steps.install.outputs.binary_path }}
+        INPUT_CMD: ${{ inputs.command }}
+        INPUT_TARGET: ${{ inputs.target-path }}
+        INPUT_EXTRA: ${{ inputs.extra-path }}
+      run: |
+        set -euo pipefail
+        if [ -n "$INPUT_EXTRA" ] && [ -z "$INPUT_TARGET" ]; then
+          echo "error extra-path requires target-path" >&2
+          exit 2
+        fi
+        if [ -n "$INPUT_TARGET" ] && [ -n "$INPUT_EXTRA" ]; then
+          "$BIN_PATH" "$INPUT_CMD" "$INPUT_TARGET" "$INPUT_EXTRA"
+        elif [ -n "$INPUT_TARGET" ]; then
+          "$BIN_PATH" "$INPUT_CMD" "$INPUT_TARGET"
+        else
+          "$BIN_PATH" "$INPUT_CMD"
+        fi

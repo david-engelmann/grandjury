@@ -102,7 +102,20 @@ fetch() {
   fi
 }
 
+validate_token() {
+  case "$1" in
+    ''|*[!0-9A-Za-z._-]*)
+      echo "error invalid $2 $1" >&2
+      exit 2
+      ;;
+  esac
+}
+
 resolve_tag() {
+  validate_token "$VERSION" "version"
+  if [ -n "$TARGET_OVERRIDE" ]; then
+    validate_token "$TARGET_OVERRIDE" "target"
+  fi
   if [ "$VERSION" != "latest" ]; then
     case "$VERSION" in
       v*) printf '%s\n' "$VERSION" ;;
@@ -117,6 +130,7 @@ resolve_tag() {
     echo "error could not resolve latest release tag for $REPO" >&2
     exit 1
   fi
+  validate_token "$tag" "release tag"
   printf '%s\n' "$tag"
 }
 
