@@ -21,6 +21,12 @@
     },
     "models": {
       "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "not": {
+          "pattern": "[\\r\\n]"
+        }
+      },
       "additionalProperties": {
         "type": "object",
         "required": [
@@ -65,13 +71,116 @@
             "minimum": 0
           },
           "cost_dollars": {
-            "type": "string"
+            "type": "string",
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "route": {
+                  "const": "chat"
+                }
+              },
+              "required": [
+                "route"
+              ]
+            },
+            "then": {
+              "required": [
+                "cost_dollars"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "route": {
+                  "const": "jev"
+                }
+              },
+              "required": [
+                "route"
+              ]
+            },
+            "then": {
+              "not": {
+                "required": [
+                  "cost_dollars"
+                ]
+              }
+            }
+          }
+        ]
       }
     },
     "incident": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "lost_token_usage"
+      ],
+      "minProperties": 2,
+      "properties": {
+        "lost_token_usage": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "[\\r\\n]"
+          }
+        },
+        "aborted_first_launch": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "calls_in_the_recorded_run",
+          "attempts_that_never_left_the_machine",
+          "envelopes_lost_and_seats_rerun",
+          "calls_discarded",
+          "route_verification_calls",
+          "diagnostic_calls",
+          "attempts_in_round"
+        ],
+        "properties": {
+          "calls_in_the_recorded_run": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "attempts_that_never_left_the_machine": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "envelopes_lost_and_seats_rerun": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "calls_discarded": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "route_verification_calls": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "diagnostic_calls": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "verification_calls_in_the_aborted_first_launch": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "attempts_in_round": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
     }
   }
 }

@@ -12,7 +12,11 @@ _grandjury() {
     COMPREPLY=( $(compgen -W "-h --help" -- "$cur") )
     return 0
   fi
-  COMPREPLY=( $(compgen -f -- "$cur") )
+  command -v compopt >/dev/null 2>&1 && compopt -o filenames
+  local line
+  while IFS= read -r line; do
+    COMPREPLY+=( "$line" )
+  done < <(compgen -f -- "$cur")
   return 0
 }
 complete -F _grandjury grandjury

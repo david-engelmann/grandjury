@@ -11,10 +11,15 @@
     "prices": {
       "type": "object",
       "propertyNames": {
-        "pattern": "^[^\\r\\n]*$"
+        "not": {
+          "pattern": "[\\r\\n]"
+        }
       },
       "additionalProperties": {
         "type": "string",
+        "not": {
+          "pattern": "[\\r\\n]"
+        },
         "pattern": "^(([0-9]+(\\.[0-9]+)?|\\.[0-9]+)|-(0+(\\.0+)?|\\.0+))([eE][+-]?[0-9]+)?$"
       }
     }

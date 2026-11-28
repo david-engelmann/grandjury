@@ -111,3 +111,18 @@ jobs:
           fi
           test ! -e "$WORK_DIR/bad/grandjury"
           mv "$REL_DIR/SHA256SUMS.good" "$REL_DIR/SHA256SUMS"
+          mkdir -p "$WORK_DIR/existing"
+          printf 'sentinel\n' > "$WORK_DIR/existing/grandjury"
+          printf '#!/bin/sh\nexit 99\n' > "$REL_DIR/$STEM/grandjury"
+          chmod 0755 "$REL_DIR/$STEM/grandjury"
+          tar -C "$REL_DIR" -czf "$REL_DIR/${STEM}.tar.gz" "$STEM"
+          if command -v sha256sum >/dev/null 2>&1; then
+            (cd "$REL_DIR" && sha256sum "${STEM}.tar.gz" > SHA256SUMS)
+          else
+            (cd "$REL_DIR" && shasum -a 256 "${STEM}.tar.gz" > SHA256SUMS)
+          fi
+          if PATH="$SHIM_DIR:$PATH" sh ./install.sh --version v0.1.0 --to "$WORK_DIR/existing" >/dev/null 2>&1; then
+            echo "error failing candidate binary unexpectedly replaced existing target" >&2
+            exit 1
+          fi
+          test "$(cat "$WORK_DIR/existing/grandjury")" = "sentinel"

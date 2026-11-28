@@ -9,6 +9,7 @@ build-dir = "../target/book"
 create-missing = false
 
 [output.html]
+site-url = "/grandjury/"
 default-theme = "ayu"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/david-engelmann/grandjury"

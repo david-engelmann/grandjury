@@ -13,7 +13,9 @@
     "question": {
       "type": "string",
       "minLength": 1,
-      "pattern": "^[^\\r\\n]+$"
+      "not": {
+        "pattern": "[\\r\\n]"
+      }
     },
     "answers": {
       "type": "array",
@@ -22,7 +24,9 @@
       "items": {
         "type": "string",
         "minLength": 1,
-        "pattern": "^[^\\r\\n]+$"
+        "not": {
+          "pattern": "[\\r\\n]"
+        }
       }
     },
     "responses": {
@@ -39,21 +43,29 @@
           "juror": {
             "type": "string",
             "minLength": 1,
-            "pattern": "^[^\\r\\n]+$"
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
           },
           "model": {
             "type": "string",
             "minLength": 1,
-            "pattern": "^[^\\r\\n]+$"
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
           },
           "answer": {
             "type": "string",
-            "pattern": "^[^\\r\\n]*$"
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
           },
           "reason": {
             "type": "string",
             "minLength": 1,
-            "pattern": "^[^\\r\\n]+$"
+            "not": {
+              "pattern": "[\\r\\n]"
+            }
           },
           "abstained": {
             "const": true

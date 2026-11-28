@@ -20,7 +20,7 @@ Measured on Apple Silicon (`cargo build --release --locked`, median wall-clock d
 | Benchmark command | `grandjury census` | Full end-to-end CLI invocation |
 | Synthetic workload | 3 poll waves x 50 questions x 20 seats (3,000 juror ballots) | Validated whole before rendering |
 | Median wall-clock time | `31.29 ms` | Median of 9 cold-process runs |
-| Sustained throughput | `95,877 ballots/sec` | Includes JSON parsing and line-break fencing |
+| Median-derived rate | `95,877 ballots/sec` | Derived from median of 9 cold-process runs |
 
 ## Spectacle Line Release Comparison
 

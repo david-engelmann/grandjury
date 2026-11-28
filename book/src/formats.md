@@ -138,47 +138,47 @@ Inside `incident.json` (`FIX-GJ-4`, `FIX-GJ-11`), each model entry carries `call
 
 ```json
 {
-  "questions": 1,
+  "questions": 12,
   "seats_per_question_per_model": 5,
   "models": {
     "jev-1.13.0": {
       "route": "jev",
-      "calls_attempted": 5,
-      "calls_recorded": 5,
+      "calls_attempted": 60,
+      "calls_recorded": 60,
       "failed_calls": 0,
-      "abstained": 1,
-      "input_tokens": 1920,
-      "output_tokens": 240
+      "abstained": 25,
+      "input_tokens": 23035,
+      "output_tokens": 2866
     },
     "openai/gpt-6-luna": {
       "route": "chat",
-      "calls_attempted": 5,
-      "calls_recorded": 5,
+      "calls_attempted": 60,
+      "calls_recorded": 60,
       "failed_calls": 0,
-      "abstained": 1,
-      "input_tokens": 540,
-      "output_tokens": 410,
-      "cost_dollars": "0.0002600"
+      "abstained": 22,
+      "input_tokens": 6530,
+      "output_tokens": 4912,
+      "cost_dollars": "0.0031090"
     }
   },
   "incident": {
     "jev-1.13.0": {
-      "calls_in_the_recorded_run": 5,
+      "calls_in_the_recorded_run": 60,
       "attempts_that_never_left_the_machine": 0,
       "envelopes_lost_and_seats_rerun": 0,
       "calls_discarded": 0,
       "route_verification_calls": 1,
       "diagnostic_calls": 0,
-      "attempts_in_round": 6
+      "attempts_in_round": 61
     },
     "openai/gpt-6-luna": {
-      "calls_in_the_recorded_run": 5,
+      "calls_in_the_recorded_run": 60,
       "attempts_that_never_left_the_machine": 0,
       "envelopes_lost_and_seats_rerun": 0,
       "calls_discarded": 0,
       "route_verification_calls": 1,
       "diagnostic_calls": 0,
-      "attempts_in_round": 6
+      "attempts_in_round": 61
     },
     "lost_token_usage": "unrecoverable and estimated nowhere"
   }
